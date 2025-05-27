@@ -16,6 +16,10 @@ public class EmployeeBean implements Serializable {
 	private Date startWork;
 	private String photo;
 	
+	public EmployeeBean() {
+		
+	}
+	
 	
 	//getter setter
 	public String getEmpID() {
