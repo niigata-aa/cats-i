@@ -6,37 +6,44 @@ public class Drug {
 	
 	
 	private SimpleDateFormat date;
-	private int measureWeight;
-	private String unit;
+	private String medicineName;
+	private int medicineAmount;
+	
 	
 	public Drug() {
 		
 	}
 
+
 	public SimpleDateFormat getDate() {
 		return date;
 	}
-	
-	
-	//getter setter
+
+
 	public void setDate(SimpleDateFormat date) {
 		this.date = date;
 	}
 
-	public int getMeasureWeight() {
-		return measureWeight;
+
+	public String getMedicineName() {
+		return medicineName;
 	}
 
-	public void setMeasureWeight(int measureWeight) {
-		this.measureWeight = measureWeight;
+
+	public void setMedicineName(String medicineName) {
+		this.medicineName = medicineName;
 	}
 
-	public String getUnit() {
-		return unit;
+
+	public int getMedicineAmount() {
+		return medicineAmount;
 	}
 
-	public void setUnit(String unit) {
-		this.unit = unit;
+
+	public void setMedicineAmount(int medicineAmount) {
+		this.medicineAmount = medicineAmount;
 	}
+
+	
 	
 }
