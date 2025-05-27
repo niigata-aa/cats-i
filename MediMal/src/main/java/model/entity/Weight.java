@@ -1,11 +1,11 @@
 package model.entity;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Weight {
 	
 	
-	private Date inputDate;
+	private SimpleDateFormat inputDate;
 	private int measureWeight;
 	private String unit;
 	
@@ -15,11 +15,11 @@ public class Weight {
 
 	
 	//getter setter
-	public Date getInputDate() {
+	public SimpleDateFormat getInputDate() {
 		return inputDate;
 	}
 
-	public void setInputDate(Date inputDate) {
+	public void setInputDate(SimpleDateFormat inputDate) {
 		this.inputDate = inputDate;
 	}
 

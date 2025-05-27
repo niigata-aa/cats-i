@@ -1,11 +1,11 @@
 package model.entity;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class Drug {
 	
 	
-	private Date date;
+	private SimpleDateFormat date;
 	private int measureWeight;
 	private String unit;
 	
@@ -13,13 +13,13 @@ public class Drug {
 		
 	}
 
-	public Date getDate() {
+	public SimpleDateFormat getDate() {
 		return date;
 	}
 	
 	
 	//getter setter
-	public void setDate(Date date) {
+	public void setDate(SimpleDateFormat date) {
 		this.date = date;
 	}
 

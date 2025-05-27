@@ -1,11 +1,11 @@
 package model.entity;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 public class Comment {
 
-	private Date date;
+	private SimpleDateFormat date;
 	private String empID;
 	private String content;
 	private String empPost;
@@ -16,12 +16,12 @@ public class Comment {
 	}
 
 	//getter setter
-	public Date getDate() {
+	public SimpleDateFormat getDate() {
 		return date;
 	}
 
 
-	public void setDate(Date date) {
+	public void setDate(SimpleDateFormat date) {
 		this.date = date;
 	}
 

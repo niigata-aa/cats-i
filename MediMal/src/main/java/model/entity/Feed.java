@@ -1,10 +1,10 @@
 package model.entity;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Feed {
 	
-	private Date date;
+	private SimpleDateFormat date;
 	private String content;
 	private int amount;
 	private String unit;
@@ -14,11 +14,11 @@ public class Feed {
 	}
 
 	//getter setter
-	public Date getDate() {
+	public SimpleDateFormat getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(SimpleDateFormat date) {
 		this.date = date;
 	}
 

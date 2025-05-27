@@ -1,8 +1,8 @@
 package model.entity;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class EmployeeBean implements Serializable {
@@ -13,7 +13,7 @@ public class EmployeeBean implements Serializable {
 	private String post;
 	private List<String>animalIDs = new ArrayList<String>();
 	private String area;
-	private Date startWork;
+	private SimpleDateFormat startWork;
 	private String photo;
 	
 	public EmployeeBean() {
@@ -70,11 +70,11 @@ public class EmployeeBean implements Serializable {
 		this.area = area;
 	}
 	
-	public Date getStartWork() {
+	public SimpleDateFormat getStartWork() {
 		return startWork;
 	}
 	
-	public void setStartWork(Date startWork) {
+	public void setStartWork(SimpleDateFormat startWork) {
 		this.startWork = startWork;
 	}
 	
