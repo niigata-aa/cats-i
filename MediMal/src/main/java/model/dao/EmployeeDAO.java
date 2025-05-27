@@ -15,7 +15,7 @@ public class EmployeeDAO {
 		
 	}
 	
-	public List<EmployeeBean> selectImpByField(EmployeeBean Employee){
+	public List<EmployeeBean> selectEmpByField(EmployeeBean Employee){
 		
 		return ;
 	}
