@@ -1,6 +1,7 @@
 package model.entity;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class AnimalBean implements Serializable {
@@ -13,7 +14,7 @@ public class AnimalBean implements Serializable {
 	
 	private String name;
 	
-	private String birthDay;
+	private SimpleDateFormat birthDay;
 	
 	private String area;
 	
@@ -61,11 +62,11 @@ public class AnimalBean implements Serializable {
 		this.name = name;
 	}
 
-	public String getBirthDay() {
+	public SimpleDateFormat getBirthDay() {
 		return birthDay;
 	}
 
-	public void setBirthDay(String birthDay) {
+	public void setBirthDay(SimpleDateFormat birthDay) {
 		this.birthDay = birthDay;
 	}
 
