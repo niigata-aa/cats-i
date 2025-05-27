@@ -1,20 +1,27 @@
 package model.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import model.entity.EmployeeBean;
 
 public class EmployeeDAO {
 	
+	/**
+	 * 
+	 * @param empID
+	 * @param Password
+	 * @return
+	 */
 	public boolean loginCheck(String empID,String Password) {
 		
 		return ;
 	}
 	
-<<<<<<< HEAD
-	
-
-=======
+	/**
+	 * 
+	 * @return
+	 */
 	public List<EmployeeBean> selectAllEmp(){
 		
 	}
@@ -33,6 +40,18 @@ public class EmployeeDAO {
 		return ;
 	}
 	
-	public int hiddenEmp()
->>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
+	public int hiddenEmp(String ID, int TFNum) {
+		
+		return ;
+	}
+	
+	public int deleteEmp(EmployeeBean Employee) {
+		
+		return ;
+	}
+	
+	public int getYearsOfWorking(Date StartYear) {
+		
+		return ;
+	}
 }
