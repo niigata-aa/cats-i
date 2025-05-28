@@ -42,13 +42,14 @@ public class InputFeedCheckServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-
-		String animalID = request.getParameter("animalID");
+		HttpSession session = request.getSession();
+		String animalID = (String) session.getAttribute("animalID");
 		//SimpleDateFormatを型変換？
 		//		SimpleDateFormat Date = SimpleDateFormat.request.getParameter("Date");
 		String date = request.getParameter("date");
 		String content = request.getParameter("content");
-		int amount = Integer.parseInt(request.getParameter("amount"));
+//		int amount = Integer.parseInt(request.getParameter("amount"));
+		int amount = request.getParameter("amount");
 		String unit = request.getParameter("unit");
 
 
@@ -65,7 +66,7 @@ public class InputFeedCheckServlet extends HttpServlet {
 		int count = 0; //処理件数
 
 		try {
-			HttpSession session = request.getSession();
+		
 			//DAOの利用
 			count = karteDao.insertFeed(inputFeed);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -83,15 +84,12 @@ public class InputFeedCheckServlet extends HttpServlet {
 		//ログインしてるか
 		String url;
 
-		HttpSession session = request.getSession();
-
 		if (session.getAttribute("LoginID")!=null) {
 			url = "menu.jsp";
 		}else {
 			url ="login.jsp";
 		}
 
-		
 		
 		//リクエストの転送　体重記録の完了画面へ
 		RequestDispatcher rd = request.getRequestDispatcher("doneInputFeed.jsp");

@@ -44,7 +44,8 @@ public class InputWeightCheckServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		String animalID = session.getAttribute("animalID");
+		HttpSession session = request.getSession();
+		String animalID = (String) session.getAttribute("animalID");
 		//SimpleDateFormatを型変換？
 //		SimpleDateFormat inputDate = SimpleDateFormat.request.getParameter("inputDate");
 		String inputDate = request.getParameter("inputDate");
@@ -64,7 +65,6 @@ public class InputWeightCheckServlet extends HttpServlet {
 		int count = 0; //処理件数
 		
 		try {
-			HttpSession session = request.getSession();
 			//DAOの利用
 			count = karteDao.insertWeight(inputWeight);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -81,8 +81,6 @@ public class InputWeightCheckServlet extends HttpServlet {
 		
 		//ログインしてるか
 		String url;
-
-		HttpSession session = request.getSession();
 
 		if (session.getAttribute("LoginID")!=null) {
 			url = "menu.jsp";

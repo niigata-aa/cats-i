@@ -169,6 +169,7 @@ public class KarteDAO {
 		String sql = "insert into t-feeding values (?,?,?,?,?)";
 		try (Connection con = ConnectionManager.getConnection(sql);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
+			
 			//Beanからのデータ取り出し
 			String animalID = inputFeed.getAnimalID();
 			String date = inputFeed.getDate();

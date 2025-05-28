@@ -15,7 +15,7 @@
 	<% Weight inputWeight = (Weight)request.getAttribute("inputWeight"); %>
 	
 	動物ID　:　
-	<%=inputWeight.getAnimalID() %><br>
+	<% session.getAttribute("animalID"); %>
 	
 	日　付　:　
 	<%=inputWeight.getInputDate() %><br>

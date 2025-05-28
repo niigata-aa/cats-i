@@ -7,12 +7,16 @@
 <title>健康情報追加画面</title>
 </head>
 <body>
-	<%--セッション使って表示する方法？ --%>
-
+	
 	動物ID　:　
+	<% session.getAttribute("animalID"); %>
 	名　前　:　
+	<% session.getAttribute("animalName"); %>
 	<br>
+	
 	診察時間 :　
+	
+	
 	
 	<form action="inputHealth">
 	<br>
