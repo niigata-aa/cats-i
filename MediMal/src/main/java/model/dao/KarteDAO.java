@@ -2,6 +2,7 @@ package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.text.SimpleDateFormat;
@@ -33,22 +34,24 @@ public class KarteDAO {
 
 	/**
 	 * 投薬履歴を追加する
-	 * @param inputDrug　投薬した薬の、日付、名前、量
+	 * @param inputDrug　投薬した薬の、動物ID、日付、名前、量
 	 * @return 処理件数
 	 */
-	public int insertDrug(Drug inputDrug) {
+	public int insertDrug(Drug inputDrug) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String url = "insert into t_dosage(dosagedate,doseAbout,doseAmount) values (?,?,?)";
+		String url = "insert into t_dosage  values (?,?,?,?)";
 
 		try(Connection con = ConnectionManagerMedical.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(url)){
 
 			//Beanからのデータの取り出し
+			String animalID = inputDrug.getAnimalID();
 			SimpleDateFormat date = inputDrug.getDate();
 			String medicineName = inputDrug.getMedicineName();
 			int medicineAmount = inputDrug.getMedicineAmount();
 
 			//プレースホルダーへの値の設定	
+			p
 			pstmt.setSimpleDateFormat(1, date);
 			pstmt.setString(2,medicineName);
 			pstmt.setInt(3, medicineAmount);
@@ -73,9 +76,9 @@ public class KarteDAO {
 	 * @param wroteComment
 	 * @return 処理件数
 	 */
-	public int insertComment(Comment wroteComment) {
+	public int insertComment(Comment wroteComment) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String url = "insert into t_Comment(CommentTime,empID,Comment) values (?,?,?)";
+		String url = "insert into t_comment  values (?,?,?,?)";
 
 		try(Connection con = ConnectionManager ? .getConnection();
 				PreparedStatement pstmt = con.prepareStatement(url)){
