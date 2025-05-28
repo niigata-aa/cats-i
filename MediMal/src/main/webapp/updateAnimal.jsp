@@ -17,16 +17,19 @@
 		<input type = "radio" name = "livingnow" value="退籍">退籍
 		<br>
 		動物ID :
-		<!-- セッションで引っ張ってくる方法 -->
+		<% session.getAttribute("animalID"); %>
 		生年月日　: 
+		<% session.getAttribute("birthDay"); %>
 		<br>
 		名前 : 
 		
 		出身 : 
+		<% session.getAttribute("country"); %>
 		<br>
 		種族 : 
-		
+		<% session.getAttribute("type"); %>
 		性別 : 
+		
 		<br>
 		エリア情報 : 
 		
