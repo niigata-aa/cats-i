@@ -35,7 +35,7 @@ public class EmployeeDAO {
 	}
 	
 	/**
-	 * 
+	 * 従業員の登録を行う
 	 * @param Employee
 	 */
 	public void insertEmp(EmployeeBean Employee) {
