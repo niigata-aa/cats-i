@@ -1,21 +1,47 @@
 package model.dao;
 
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import model.entity.EmployeeBean;
 
 public class EmployeeDAO {
 	
+	private String empID;
+	
+	public EmployeeDAO(String LoginID) {
+		this.empID=LoginID;
+	}
+	
 	/**
-	 * 入力した内容に不備がないかを判断する
+	 * 入力した内容に不備がないかを判断する(ログインの可否)
 	 * @param empID
 	 * @param Password
 	 * @return true or false
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public boolean loginCheck(String empID,String Password) {
+	public boolean loginCheck(String LoginID,String Password) throws ClassNotFoundException, SQLException {
+		String sql = "select empID ,Password from m_employee where empID= ? and Password = ?";
 		
-		return ;
+		try(Connection con = ConnectionManager.getConnection(empID);
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+			
+			pstmt.setString(1, LoginID);
+			pstmt.setString(2, Password);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			if(res.next()) {
+				return true;
+			}
+		}
+		
+		return false ;
 	}
 	
 	/**
