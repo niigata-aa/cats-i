@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class UpdateAnimalServlet
@@ -37,6 +38,17 @@ public class UpdateAnimalServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//ログインしてるか
+		String url;
+
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("LoginID")!=null) {
+			url = "menu.jsp";
+		}else {
+			url ="login.jsp";
+		}
+		
 		//動物情報変更・削除画面（確認画面）に行く
 		//このサーブレットでは通過するだけ
 		RequestDispatcher rd = request.getRequestDispatcher("");
