@@ -18,7 +18,7 @@ public class EmployeeDAO {
 	}
 	
 	/**
-	 * 入力した内容に不備がないかを判断する
+	 * 入力した内容に不備がないかを判断する(ログインの可否)
 	 * @param empID
 	 * @param Password
 	 * @return true or false
