@@ -25,7 +25,7 @@ public class EmployeeDAO {
 		
 	}
 	/**
-	 * 検索画面の入力内容に応じた検索を行う
+	 * 検索画面の入力内容に応じた検索を行う.
 	 * @param Employee
 	 * @return
 	 */
