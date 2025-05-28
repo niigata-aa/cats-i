@@ -9,7 +9,7 @@
 <body>
 	<%@ include file="header.jsp" %>
 	
-	<form action="goSearchKeeperservlet" method="post">
+	<form action="goSearchKeeper" method="post">
 		<input type="submit" value="再検索">
 	</form>
 	
