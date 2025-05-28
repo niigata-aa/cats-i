@@ -18,9 +18,39 @@ public class KarteDAO {
 	 * @param inputWeight　追加したい体重
 	 * @return 処理件数
 	 */
-	public int insertWeight(Weight inputWeight) {
-		return
+	public int insertWeight(Weight inputWeight) throws ClassNotFoundException,SQLException {
+		int count = 0;
+		String url = "insert into t_BodyWeight  values (?,?,?,?)";
+
+		try(Connection con = ConnectionManagerMedical.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(url)){
+
+			//Beanからのデータの取り出し
+			String animalID = inputWeight.getAnimalID();
+			SimpleDateFormat inputDate = inputWeight.getInputDate();
+			int measureWeight = inputWeight.getMeasureWeight();
+			String unit = inputWeight.getUnit();
+
+			//プレースホルダーへの値の設定	
+			pstmt.setString(1, animalID);
+			pstmt.SimpleDateFormat(2, inputDate);
+			pstmt.setInt(3,measureWeight);
+			pstmt.setString(4, unit);
+
+			//SQLステートメントの実行
+			count = pstmt.executeUpdate();
+		}
+		return count;
 	}
+
+
+
+
+
+
+
+
+
 
 
 	/**
@@ -51,10 +81,10 @@ public class KarteDAO {
 			int medicineAmount = inputDrug.getMedicineAmount();
 
 			//プレースホルダーへの値の設定	
-			p
-			pstmt.setSimpleDateFormat(1, date);
-			pstmt.setString(2,medicineName);
-			pstmt.setInt(3, medicineAmount);
+			pstmt.setString(1, animalID);
+			pstmt.setSimpleDateFormat(2, date);
+			pstmt.setString(3,medicineName);
+			pstmt.setInt(4, medicineAmount);
 
 			//SQLステートメントの実行
 			count = pstmt.executeUpdate();
@@ -70,7 +100,7 @@ public class KarteDAO {
 	}
 
 
-	
+
 	/**
 	 * コメントを追加する
 	 * @param wroteComment

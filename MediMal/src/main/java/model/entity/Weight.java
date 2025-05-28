@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 
 public class Weight {
 	
-	
+	private String animalID;
 	private SimpleDateFormat inputDate;
 	private int measureWeight;
 	private String unit;
@@ -14,7 +14,19 @@ public class Weight {
 	}
 
 	
+	
+	
 	//getter setter
+	
+	
+	public String getAnimalID() {
+		return animalID;
+	}
+
+	public void setAnimalID(String animalID) {
+		this.animalID = animalID;
+	}
+	
 	public SimpleDateFormat getInputDate() {
 		return inputDate;
 	}
