@@ -11,7 +11,7 @@
 	<img src = "https://www.teikyo.ed.jp/wp/wp-content/themes/teikyo2018/images/test.jpg"
 	width="100" height="100" alt="テスト画像">
 	
-	<form action ="updateAnimal" method="post">
+	<form action ="UpdateAnimal" method="post">
 		動物在籍情報 :         
 		<input type = "radio" name = "livingnow" value="在籍">在籍
 		<input type = "radio" name = "livingnow" value="退籍">退籍
