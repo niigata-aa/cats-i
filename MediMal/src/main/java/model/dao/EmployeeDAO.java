@@ -21,6 +21,16 @@ public class EmployeeDAO {
 		this.empID=LoginID;
 	}
 	
+
+	
+
+	public EmployeeDAO() {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
+
+
+
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {
 		List<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
 		
@@ -35,10 +45,9 @@ public class EmployeeDAO {
 			String firstName = res.getString("firstname");
 			String gernder = res.getString("gender");
 			String post = res.getString("post");
+			List<String> animalIDs = res.getList<String>("animalIDs");
 			String area = res.getString("area");
 			String startWork = getTimestamp(res.getTimestamp("startWork"));
-			String password = res.getString("password");
-			int workingNow = res.getInt("workingNow");
 			String photo = res.getString("photo");
 			
 			EmployeeBean employee = new EmployeeBean();
@@ -47,6 +56,7 @@ public class EmployeeDAO {
 			employee.setFirstName(firstName);
 			employee.setGender(gernder);
 			employee.setPost(post);
+			employee.setAnimalIDs(animalIDs);
 			employee.setArea(area);
 			employee.setStartWork(startWork);
 			employee.setPhoto(photo);
@@ -59,6 +69,8 @@ public class EmployeeDAO {
 	 public static String getTimestamp(Timestamp date){ 
 		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		 return sdf.format(date);
+		 
+	 List<String> animalIDs = new List<String>();
 	 }
 	 
 	/**

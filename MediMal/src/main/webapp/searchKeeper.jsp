@@ -7,7 +7,7 @@
 <title>飼育員検索画面</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>>
+	<%@ include file="header.jsp" %>
 
 	<form action="searchAllKeeper" method="post">
 		<input type="submit" value="一覧表示">
