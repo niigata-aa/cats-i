@@ -16,6 +16,7 @@ import java.sql.SQLException;
  * 
  * なので、これ以降try(){
  * の中で、Connection con を必要とするメソッドの引数には必ずString LoginIDを設定する必要が生まれます。
+ * 更新版
  * 
  */
 
