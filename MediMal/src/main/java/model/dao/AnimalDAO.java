@@ -2,7 +2,10 @@ package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.entity.AnimalBean;
@@ -12,7 +15,39 @@ public class AnimalDAO {
 	/**
 	 * 動物の一覧表示
 	 */
-	public List<AnimalBean> selectAllAnimal() {
+	public List<AnimalBean> selectAllAnimal() throws SQLException,ClassNotFoundException {
+		List<AnimalBean> animalList = new ArrayList<AnimalBean>();
+
+		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
+		try (Connection con = ConnectionManagerKeeper.getConnection();
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery("SELECT * FROM m_animal")){
+			
+			while(res.next()){
+				String animalID = res.getString("animalID");
+				String name = res.getString("name");
+				String animalType = res.getString("animalType");
+				String animalKind = res.getString("animalKind");
+				String area = res.getString("area");
+				List<String> keepers = res.List<String>("keeper");
+				String country = res.getString("country");
+				String sex = res.getString("sex");
+				String photo = res.getString("photo");
+
+				AnimalBean animal = new AnimalBean();
+				animal.setAnimalID(animalID);
+				animal.setName(name);
+				animal.setAnimalType(animalType);
+				animal.setAnimalKind(animalKind);
+				animal.setArea(area);
+				animal.setKeepers(keepers);
+				animal.setCountry(country);
+				animal.setPhoto(photo);
+
+
+			}
+		}
+		return animalList;
 		
 	}
 	

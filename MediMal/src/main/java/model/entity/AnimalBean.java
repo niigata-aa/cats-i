@@ -2,6 +2,7 @@ package model.entity;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnimalBean implements Serializable {
@@ -18,7 +19,7 @@ public class AnimalBean implements Serializable {
 	
 	private String area;
 	
-	private List<String> keepers;
+	private List<String> keepers = new ArrayList<String>();
 	
 	private String country;
 	
