@@ -9,16 +9,16 @@
 </head>
 <body>
 	<form action="inputWeight" method="post">
-	<p>動物ID　:　</p>
+	動物ID　:　
 	<input type="text" name="animalID" ><br>
-	<p>日　付　:　</p>
+	日　付　:　
 	<input type="SimpleDateFormat" name = "inputDate"><br>
-	<p>今日の体重:</p>
+	今日の体重:
 	<input type="number" name="measureWeight">
 	
 	<select name="unit">
-		<option value="k">
-		<option value="kg">
+		<option value="k">k
+		<option value="kg">kg
 	</select><br>
 	
 	<input type="submit" value="記録">

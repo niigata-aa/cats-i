@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class inputWeightServlet
  */
 @WebServlet("/inputWeight")
-public class inputWeightServlet extends HttpServlet {
+public class InputWeightServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public inputWeightServlet() {
+    public InputWeightServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

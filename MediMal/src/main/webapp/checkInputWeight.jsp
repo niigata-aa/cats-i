@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"  import= "java.util.Date, java.text.SimpleDateFormat"%>
-    
+    pageEncoding="UTF-8" import="model.entity.Weight" %>
+   <%@page  %>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,17 +12,20 @@
 	<p>※以下の内容で体重を記録しますか？</p>
 	
 	
-	<p>動物ID　:　</p>
-	<input type="text" name="animalID" ><br>
-	<p>日　付　:　</p>
-	<input type="SimpleDateFormat" name = "inputDate"><br>
-	<p>今日の体重:</p>
-	<input type="number" name="measureWeight">
+	<% Weight inputWeight = (Weight)request.getAttribute("inputWeight"); %>
 	
-	<select name="unit">
-		<option value="k">
-		<option value="kg">
-	</select><br>
+	動物ID　:　
+	<%=inputWeight.getAnimalID() %><br>
+	
+	日　付　:　
+	<%=inputWeight.getInputDate() %><br>
+	
+	今日の体重:
+	<%=inputWeight.getMeasureWeight() %><br>
+	<%=inputWeight.getUnit() %>
+	
+	
+
 	<form action="inputWeightCheck" method="post">
 	<input type="submit" value="はい">
 	</form>

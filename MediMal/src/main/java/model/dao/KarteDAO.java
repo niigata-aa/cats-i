@@ -22,7 +22,7 @@ public class KarteDAO {
 		int count = 0;
 		String url = "insert into t_BodyWeight  values (?,?,?,?)";
 
-		try(Connection con = ConnectionManagerMedical.getConnection();
+		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(url)){
 
 			//Beanからのデータの取り出し
