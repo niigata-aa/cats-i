@@ -9,12 +9,14 @@
 <body>
 
 	<form action="inputComment">
+	入れる情報?
 	<%-- String animalID = wroteComment.getAnimalID();
 			String date = wroteComment.getDate();
 			String empID = wroteComment.empID();
 			String content = wroteComment.content();--%>
 			
-			
+		
+	
 	
 	※コメントを記入してください
 	<br>

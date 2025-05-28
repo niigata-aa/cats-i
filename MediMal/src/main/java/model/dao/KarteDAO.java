@@ -27,7 +27,7 @@ public class KarteDAO {
 	 */
 	public int insertWeight(Weight inputWeight) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String url = "insert into t_BodyWeight  values (?,?,?,?)";
+		String url = "insert into t_weight  values (?,?,?,?)";
 
 		try(Connection con = ConnectionManager.getConnection(url);
 				PreparedStatement pstmt = con.prepareStatement(url)){
@@ -76,7 +76,7 @@ public class KarteDAO {
 	 */
 	public int insertDrug(Drug inputDrug) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String sql = "insert into t_dosage  values (?,?,?,?)";
+		String sql = "insert into t_drug  values (?,?,?,?)";
 
 		try(Connection con = ConnectionManager.getConnection(sql);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -199,7 +199,7 @@ public class KarteDAO {
 	/**出産履歴を追加する*/
 	public int insertBirth (Birth inputBirth) throws ClassNotFoundException,SQLException {
 		int count;
-		String sql = "insert into t-BirthRecord  values (?,?,?)";
+		String sql = "insert into t-birthrecode  values (?,?,?)";
 		try (Connection con = ConnectionManager.getConnection(sql);
 			PreparedStatement pstmt = con.prepareStatement(sql)){
 		//Beanからのデータ取り出し
