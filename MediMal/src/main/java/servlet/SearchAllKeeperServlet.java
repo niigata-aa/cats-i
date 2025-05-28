@@ -46,15 +46,18 @@ public class SearchAllKeeperServlet extends HttpServlet {
 		String url ;
 
 		HttpSession session = request.getSession();
+		
+		String postID = (String) session.getAttribute("postID");
+		
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "menu.jsp";
+			url = "resultSearchKeeper.jsp";
 		}else {
 			url ="login.jsp";
 		}
 		
 		//DAOの生成
-		EmployeeDAO dao = new EmployeeDAO();
+		EmployeeDAO dao = new EmployeeDAO(postID);
 		try {
 		//DAOの利用
 			employeeList = dao.selectAllEmp();
@@ -64,7 +67,7 @@ public class SearchAllKeeperServlet extends HttpServlet {
 		//レクエストスコープへの属性の設定
 		request.setAttribute("employeeList", employeeList);
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("resultSearchKeeper.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 		
 		}

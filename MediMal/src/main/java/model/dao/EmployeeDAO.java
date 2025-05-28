@@ -15,18 +15,16 @@ import model.entity.EmployeeBean;
 
 public class EmployeeDAO {
 	
-	private String empID;
+	private String postID;
 	
-	public EmployeeDAO(String LoginID) {
-		this.empID=LoginID;
+	public EmployeeDAO(String postID) {
+		this.postID=postID;
 	}
 	
 
 	
 
-	public EmployeeDAO() {
-		// TODO 自動生成されたコンストラクター・スタブ
-	}
+	
 
 
 
@@ -34,44 +32,37 @@ public class EmployeeDAO {
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {
 		List<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
 		
+		String sql = "select empID,lastName,firstName,gender,area.area_name,gender,post.postName, startWork from m_employee emp Left join m_area area on emp.areaID =area.areaID left join m_post post on emp.postID =post.postID";
+				
+		
 		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
-		try (Connection con = ConnectionManagerKeeper.getConnection();
+		try (Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery("SELECT * FROM m_employee")){
+				ResultSet res = stmt.executeQuery(sql)){
 		
 		while(res.next()){
-			String empID = res.getString("empID");
-			String lastName = res.getString("lastName");
-			String firstName = res.getString("firstname");
-			String gernder = res.getString("gender");
-			String post = res.getString("post");
-			List<String> animalIDs = res.getList<String>("animalIDs");
-			String area = res.getString("area");
-			String startWork = getTimestamp(res.getTimestamp("startWork"));
-			String photo = res.getString("photo");
 			
-			EmployeeBean employee = new EmployeeBean();
-			employee.setEmpID(empID);
-			employee.setLastName(lastName);
-			employee.setFirstName(firstName);
-			employee.setGender(gernder);
-			employee.setPost(post);
-			employee.setAnimalIDs(animalIDs);
-			employee.setArea(area);
-			employee.setStartWork(startWork);
-			employee.setPhoto(photo);
+			EmployeeBean employeeTmp = new EmployeeBean();
+			employeeTmp.setEmpID(res.getString("empID"));
+			employeeTmp.setLastName(res.getString("lastName"));
+			employeeTmp.setFirstName(res.getString("firstname"));
+			employeeTmp.setGender(res.getString("gender"));
+			employeeTmp.setPost(res.getString("post"));
+			//employee.setAnimalIDs(animalIDs);
+			employeeTmp.setArea(res.getString("area"));
+			employeeTmp.setStartWork(getDateUntilMonth(res.getTimestamp("startWork")));
+			employeeTmp.setPhoto(res.getString("photo"));
 			
+			employeeList.add(employeeTmp);
 			
 			}
+		
+		
 		}
 	return employeeList;
 	}
-	 public static String getTimestamp(Timestamp date){ 
-		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-		 return sdf.format(date);
-		 
-	 List<String> animalIDs = new List<String>();
-	 }
+	 
+	
 	 
 	/**
 	 * 入力した内容に不備がないかを判断する(ログインの可否)
@@ -86,7 +77,7 @@ public class EmployeeDAO {
 	public boolean loginCheck(String LoginID,String Password) throws ClassNotFoundException, SQLException {
 		String sql = "select empID ,Password from m_employee where empID= ? and Password = ?";
 		
-		try(Connection con = ConnectionManager.getConnection(empID);
+		try(Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt=con.prepareStatement(sql)){
 			
 			pstmt.setString(1, LoginID);
@@ -105,9 +96,7 @@ public class EmployeeDAO {
 	/**
 	 * 全ての従業員のリストを返す
 	 */
-	public List<EmployeeBean> selectAllEmp(){
-		
-	}
+	
 	/**
 	 * 検索画面の入力内容に応じた検索を行う.
 	 * @param Employee
@@ -167,7 +156,7 @@ public class EmployeeDAO {
 		return ;
 	}
 	
-	public String getDateUntilMinute(Date date) {
+	public String getDateUntilMinute(Timestamp date) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
@@ -180,7 +169,7 @@ public class EmployeeDAO {
 		
 	}
 	
-	public String getDateUntilDay(Date date) {
+	public String getDateUntilDay(Timestamp date) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
@@ -194,7 +183,7 @@ public class EmployeeDAO {
 	}
 	
 	
-	public String getDateUntilMonth(Date date) {
+	public String getDateUntilMonth(Timestamp date) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");

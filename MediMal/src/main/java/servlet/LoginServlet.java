@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 			EmployeeDAO empDAO = new EmployeeDAO(LoginID);
 			if(empDAO.loginCheck(LoginID, Password)) {
 				url = "goMenu";
-				System.out.println("ログインには成功してます。");
+				//System.out.println("ログインには成功してます。");
 				session.setAttribute("LoginID", LoginID);
 				session.setAttribute("Login", true);
 				
@@ -61,12 +61,12 @@ public class LoginServlet extends HttpServlet {
 			}else {
 				url ="login.jsp";
 				session.setAttribute("Login", false);
-				System.out.println("ログインに失敗しています");
+				//System.out.println("ログインに失敗しています");
 			}
 		}catch(Exception e) {
 			url ="login.jsp";
 			session.setAttribute("Login", false);
-			System.out.println("接続に失敗しています。");
+			//System.out.println("接続に失敗しています。");
 			
 		}
 		

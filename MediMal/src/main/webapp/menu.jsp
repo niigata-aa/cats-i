@@ -8,6 +8,8 @@
 </head>
 <body>
 	<%=session.getAttribute("LoginID") %>さんようこそ。
-
+	
+	
+	
 </body>
 </html>
