@@ -10,6 +10,9 @@
 	<%=session.getAttribute("LoginID") %>さんようこそ。
 	
 	
+	<form action="goSearchKeeperServlet" method="post">
+		<input type="submit" value="飼育員検索">
+	</form>
 	
 </body>
 </html>
