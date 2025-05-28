@@ -12,9 +12,11 @@
 	
 	<form action='login' method="post">
 	従業員ID: <input type="text" name='LoginID'><br>
-	パスワード:	 <input type="password" name='PassWord'><br>
+	パスワード:	 <input type="password" name='Password'><br>
 			 <input type='submit' value='ログイン'>
 	</form>
+	
+	
 	
 
 </body>

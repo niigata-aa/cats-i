@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>メインメニュー</title>
 </head>
 <body>
+	<%=session.getAttribute("LoginID") %>さんようこそ。
 
 </body>
 </html>
