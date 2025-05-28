@@ -77,6 +77,21 @@ public class InputWeightCheckServlet extends HttpServlet {
 		request.setAttribute(measureWeight,"measureWeight");
 		request.setAttribute(unit, "unit");
 		
+		
+		
+		
+		//ログインしてるか
+		String url;
+
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("LoginID")!=null) {
+			url = "menu.jsp";
+		}else {
+			url ="login.jsp";
+		}
+		
+		
 		//リクエストの転送　体重記録の完了画面へ
 		RequestDispatcher rd = request.getRequestDispatcher("doneInputWeight.jsp");
 		rd.forward(request, response);

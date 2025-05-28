@@ -10,6 +10,7 @@ import javax.xml.stream.events.Comment;
 
 import java.text.SimpleDateFormat;
 
+import model.entity.Birth;
 import model.entity.Drug;
 import model.entity.Feed;
 import model.entity.Weight;
@@ -32,13 +33,13 @@ public class KarteDAO {
 
 			//Beanからのデータの取り出し
 			String animalID = inputWeight.getAnimalID();
-			SimpleDateFormat inputDate = (SimpleDateFormat)inputWeight.getInputDate();
+			Date inputDate = (SimpleDateFormat)inputWeight.getInputDate();
 			int measureWeight = inputWeight.getMeasureWeight();
 			String unit = inputWeight.getUnit();
 
 			//プレースホルダーへの値の設定	
 			pstmt.setString(1, animalID);
-			pstmt.setSimpleDateFormat(2, inputDate);
+			pstmt.setDate(2, inputDate);
 			pstmt.setInt(3,measureWeight);
 			pstmt.setString(4, unit);
 
@@ -194,9 +195,24 @@ public class KarteDAO {
 
 
 	/**出産履歴を追加する*/
-	public int insertBirth(Birth birth) {
-		return
-	}
+	public int insertBirth (Birth birth) throws ClassNotFoundException,SQLException {
+		int count;
+		String sql = "insert into t-BirthRecord  values (?,?,?)";
+		try (Connection con = ConnectionManager.getConnection(sql);
+			PreparedStatement pstmt = con.prepareStatement(sql)){
+		//Beanからのデータ取り出し
+		String animalID = birth.getAnimalID();
+		SimpleDateFormat date = birth.getDate();
+		int amount = birth.getAmount();
+		//プレースホルダーへの値の設定
+		pstmt.setString (1,animalID);
+		pstmt.setSimpleDateFormat(2,date );
+		pstmt.setInt(3,amount);
+		count = pstmt.executeUpdate();
+		}
+		return count;
+		}
+
 
 
 	/**全ての出産履歴を検索する*/

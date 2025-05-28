@@ -75,11 +75,27 @@ public class InputFeedCheckServlet extends HttpServlet {
 
 		request.setAttribute(animalID, "animalID");
 		request.setAttribute(date, "date");
-		request.setAttribute(measureWeight,"measureWeight");
+		request.setAttribute(content, content);
+		request.setAttribute(amount,"amount");
 		request.setAttribute(unit, "unit");
+		
+		
+		
+		//ログインしてるか
+		String url;
 
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("LoginID")!=null) {
+			url = "menu.jsp";
+		}else {
+			url ="login.jsp";
+		}
+
+		
+		
 		//リクエストの転送　体重記録の完了画面へ
-		RequestDispatcher rd = request.getRequestDispatcher("doneInputWeight.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("doneInputFeed.jsp");
 		rd.forward(request, response);
 	}
 

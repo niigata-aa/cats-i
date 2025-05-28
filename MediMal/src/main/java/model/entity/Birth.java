@@ -4,12 +4,26 @@ import java.text.SimpleDateFormat;
 
 public class Birth {
 	
+	private String animalID;
+	
 	private SimpleDateFormat date;
 	
 	private int amount;
 	
+	
 	public Birth() {
 		
+	}
+	
+	
+	
+
+	public String getAnimalID() {
+		return animalID;
+	}
+
+	public void setAnimalID(String animalID) {
+		this.animalID = animalID;
 	}
 
 	public SimpleDateFormat getDate() {

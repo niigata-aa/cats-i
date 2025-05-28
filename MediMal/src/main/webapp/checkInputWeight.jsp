@@ -11,7 +11,7 @@
 <body>
 	<p>※以下の内容で体重を記録しますか？</p>
 	
-	
+	<%request.setCharacterEncoding("utf-8"); %>
 	<% Weight inputWeight = (Weight)request.getAttribute("inputWeight"); %>
 	
 	動物ID　:　

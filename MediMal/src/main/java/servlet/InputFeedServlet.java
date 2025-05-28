@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class InputFeedServlet
@@ -36,6 +37,21 @@ public class InputFeedServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		//ログインしてるか
+		String url;
+
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("LoginID")!=null) {
+			url = "menu.jsp";
+		}else {
+			url ="login.jsp";
+		}
+		
+		
+		
 		//食事記録画面（確認画面）に行く
 		//このサーブレットでは通過するだけ
 		RequestDispatcher rd = request.getRequestDispatcher("checkInputFeed.jsp");
