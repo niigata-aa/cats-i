@@ -10,7 +10,7 @@
 <body>
 	<form action="inputWeight" method="post">
 	動物ID　:　
-	<input type="text" name="animalID" ><br>
+	<% session.getAttribute("animalID"); %>
 	日　付　:　
 	<input type="SimpleDateFormat" name = "inputDate"><br>
 	今日の体重:

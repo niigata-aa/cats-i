@@ -9,8 +9,8 @@
 </head>
 <body>
 	<form action="inputFeed" method="post">
-	動物ID　　:　
-	<input type="text" name="animalID" ><br>
+	動物ID　:　
+	<% session.getAttribute("animalID"); %>
 	食事時間　:　
 	<input type="SimpleDateFormat" name = "date"><br>
 	食事内容　:　

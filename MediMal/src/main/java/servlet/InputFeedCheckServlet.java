@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,7 +46,7 @@ public class InputFeedCheckServlet extends HttpServlet {
 		String animalID = request.getParameter("animalID");
 		//SimpleDateFormatを型変換？
 		//		SimpleDateFormat Date = SimpleDateFormat.request.getParameter("Date");
-		SimpleDateFormat date = (SimpleDateFormat)request.getParameter("date");
+		String date = request.getParameter("date");
 		String content = request.getParameter("content");
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		String unit = request.getParameter("unit");

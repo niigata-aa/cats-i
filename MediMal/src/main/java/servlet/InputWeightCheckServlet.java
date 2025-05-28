@@ -1,8 +1,7 @@
-package sevlet;
+package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,10 +44,10 @@ public class InputWeightCheckServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		String animalID = request.getParameter("animalID");
+		String animalID = session.getAttribute("animalID");
 		//SimpleDateFormatを型変換？
 //		SimpleDateFormat inputDate = SimpleDateFormat.request.getParameter("inputDate");
-		SimpleDateFormat inputDate = (SimpleDateFormat)request.getParameter("inputDate");
+		String inputDate = request.getParameter("inputDate");
 		int measureWeight = Integer.parseInt(request.getParameter("measureWeight"));
 		String unit = request.getParameter("unit");
 		

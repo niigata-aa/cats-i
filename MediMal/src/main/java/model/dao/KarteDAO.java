@@ -34,13 +34,13 @@ public class KarteDAO {
 
 			//Beanからのデータの取り出し
 			String animalID = inputWeight.getAnimalID();
-			Date inputDate = (SimpleDateFormat)inputWeight.getInputDate();
+			String inputDate = inputWeight.getInputDate();
 			int measureWeight = inputWeight.getMeasureWeight();
 			String unit = inputWeight.getUnit();
 
 			//プレースホルダーへの値の設定	
 			pstmt.setString(1, animalID);
-			pstmt.setDate(2, inputDate);
+			pstmt.setString(2, inputDate);
 			pstmt.setInt(3,measureWeight);
 			pstmt.setString(4, unit);
 
@@ -83,13 +83,13 @@ public class KarteDAO {
 
 			//Beanからのデータの取り出し
 			String animalID = inputDrug.getAnimalID();
-			SimpleDateFormat date = inputDrug.getDate();
+			String date = inputDrug.getDate();
 			String medicineName = inputDrug.getMedicineName();
 			int medicineAmount = inputDrug.getMedicineAmount();
 
 			//プレースホルダーへの値の設定	
 			pstmt.setString(1, animalID);
-			pstmt.setSimpleDateFormat(2, date);
+			pstmt.setString(2, date);
 			pstmt.setString(3,medicineName);
 			pstmt.setInt(4, medicineAmount);
 
@@ -122,13 +122,13 @@ public class KarteDAO {
 
 			//Beanからのデータの取り出し
 			String animalID = wroteComment.getAnimalID();
-			SimpleDateFormat date = wroteComment.getDate();
+			String date = wroteComment.getDate();
 			String empID = wroteComment.empID();
 			String content = wroteComment.content();
 
 			//プレースホルダーへの値の設定	
 			pstmt.setString(1,animalID);
-			pstmt.setSimpleDateFormat(2, date);
+			pstmt.setString(2, date);
 			pstmt.setString(3,empID);
 			pstmt.setString(4,content);
 
@@ -171,13 +171,13 @@ public class KarteDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 			//Beanからのデータ取り出し
 			String animalID = inputFeed.getAnimalID();
-			SimpleDateFormat date = inputFeed.getDate();
+			String date = inputFeed.getDate();
 			String content = inputFeed.getContent();
 			int amount = inputFeed.getAmount();
 			String unit = inputFeed.getUnit();
 			//プレースホルダーへの値の設定
 			pstmt.setString(1,animalID);
-			pstmt.setSimpleDateFormat (2,date );
+			pstmt.setString (2,date );
 			pstmt.setString(3,content );
 			pstmt.setInt(4,amount);
 			pstmt.setString(5,unit);
@@ -196,18 +196,18 @@ public class KarteDAO {
 
 
 	/**出産履歴を追加する*/
-	public int insertBirth (Birth birth) throws ClassNotFoundException,SQLException {
+	public int insertBirth (Birth inputBirth) throws ClassNotFoundException,SQLException {
 		int count;
 		String sql = "insert into t-BirthRecord  values (?,?,?)";
 		try (Connection con = ConnectionManager.getConnection(sql);
 			PreparedStatement pstmt = con.prepareStatement(sql)){
 		//Beanからのデータ取り出し
-		String animalID = birth.getAnimalID();
-		SimpleDateFormat date = birth.getDate();
-		int amount = birth.getAmount();
+		String animalID = inputBirth.getAnimalID();
+		String date = inputBirth.getDate();
+		int amount = inputBirth.getAmount();
 		//プレースホルダーへの値の設定
 		pstmt.setString (1,animalID);
-		pstmt.setSimpleDateFormat(2,date );
+		pstmt.setString(2,date );
 		pstmt.setInt(3,amount);
 		count = pstmt.executeUpdate();
 		}
@@ -221,14 +221,13 @@ public class KarteDAO {
 		return
 	}
 	
+	
+	//日付
 	public String getDateUntilMinute(Date date) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
 		result = df.format(date);
-
-		
-		
 		
 		return result;
 		
@@ -239,9 +238,6 @@ public class KarteDAO {
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
 		result = df.format(date);
-
-		
-		
 		
 		return result;
 		
@@ -253,9 +249,6 @@ public class KarteDAO {
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
 		result = df.format(date);
-
-		
-		
 		
 		return result;
 		
