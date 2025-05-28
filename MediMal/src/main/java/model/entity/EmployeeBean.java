@@ -8,7 +8,8 @@ import java.util.List;
 public class EmployeeBean implements Serializable {
 
 	private String empID;
-	private String name;
+	private String lastName;
+	private String firstName;
 	private String gender;
 	private String post;
 	private List<String>animalIDs = new ArrayList<String>();
@@ -30,13 +31,27 @@ public class EmployeeBean implements Serializable {
 		this.empID = empID;
 	}
 	
-	public String getName() {
-		return name;
-	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public String getLastName() {
+		return lastName;
 	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
 	
 	public String getGender() {
 		return gender;
