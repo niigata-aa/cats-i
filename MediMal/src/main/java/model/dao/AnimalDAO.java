@@ -1,5 +1,8 @@
 package model.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import model.entity.AnimalBean;
@@ -47,9 +50,23 @@ public class AnimalDAO {
 	 * @param TFNum
 	 * @return
 	 */
-	public int HiddenAnimal(String animalID,int TFNum) {
+	public int HiddenAnimal(String animalID,int TFNum) throws ClassNotFoundException, SQLException {
+			int count = 0; //処理件数
+			
+			String sql = "UPDATE m_animal SET livingNow = ? WHERE animalID = ?";
 		
-		return;
+			// データベースへの接続の取得、PreparedStatementの取得
+			try(Connection con = ConnectionManager.getConnection(empID);
+					PreparedStatement pstmt=con.prepareStatement(sql)){
+		
+			// プレースホルダへの値の設定
+			pstmt.setInt(1,TFNum);
+			pstmt.setString(2,animalID);
+		
+			// SQLステートメントの実行
+			count = pstmt.executeUpdate();
+		}
+		return count;
 	}
 	
 	/**
@@ -57,10 +74,25 @@ public class AnimalDAO {
 	 * @param animal
 	 * @return
 	 */
-	public int DeleteAnimal(AnimalBean animal) {
+	public int DeleteAnimal(AnimalBean animal) throws ClassNotFoundException, SQLException {
+			int count = 0; //処理件数
 		
-		return;
+			String sql = "UPDATE from m_animal WHERE animalID = ?";
+	
+			// データベースへの接続の取得、PreparedStatementの取得
+			try(Connection con = ConnectionManager.getConnection(empID);
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+				
+				// Beanからのデータの取り出し
+				String animalID = animal.getAnimalID();
+	
+				// プレースホルダへの値の設定
+				pstmt.setString(1,animalID);
+	
+				// SQLステートメントの実行
+				count = pstmt.executeUpdate();
+			}
+			return count;
 	}
 	
 }
-

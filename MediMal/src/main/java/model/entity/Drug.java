@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 
 public class Drug {
 	
-	
+	private String animalID;
 	private SimpleDateFormat date;
 	private String medicineName;
 	private int medicineAmount;
@@ -12,6 +12,14 @@ public class Drug {
 	
 	public Drug() {
 		
+	}
+	
+	public String getAnimalID() {
+		return animalID;
+	}
+	
+	public void setAnimalID(String animalID) {
+		this.animalID = animalID;
 	}
 
 
