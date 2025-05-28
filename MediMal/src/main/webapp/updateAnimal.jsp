@@ -11,31 +11,34 @@
 	<img src = "https://www.teikyo.ed.jp/wp/wp-content/themes/teikyo2018/images/test.jpg"
 	width="100" height="100" alt="テスト画像">
 	
-	<form action ="UpdateAnimal" method="post">
+	<form action ="updateAnimal" method="post">
 		動物在籍情報 :         
 		<input type = "radio" name = "livingnow" value="在籍">在籍
 		<input type = "radio" name = "livingnow" value="退籍">退籍
 		<br>
 		動物ID :
-		<input type="text" name="animalID" >
+		<!-- セッションで引っ張ってくる方法 -->
 		生年月日　: 
-		<input type="text" name="birthDay" ><br>
+		<br>
 		名前 : 
-		<input type="text" name="name" >
+		
 		出身 : 
-		<input type="text" name="country" ><br>
+		<br>
 		種族 : 
-		<input type="text" name="animalType" >
+		
 		性別 : 
-		<input type="text" name="sex" ><br>
+		<br>
 		エリア情報 : 
-		<input type="text" name="area" >
+		
 		飼育員情報 :
-		 <input type="text" name="keepers" ><br>
+		<br>
 
 		<input type="submit" value="編集">
-		<input type="submit" value="削除">
-
 	</form>
+	
+	<form action = "deleteAnimal" metohod = "post">
+		<input type="submit" value="削除">
+	</form>
+	
 </body>
 </html>
