@@ -24,6 +24,8 @@ public class EmployeeDAO {
 	 * @return true or false
 	 * @throws SQLException 
 	 * @throws ClassNotFoundException 
+	 * 
+	 * 更新1.1
 	 */
 	public boolean loginCheck(String LoginID,String Password) throws ClassNotFoundException, SQLException {
 		String sql = "select empID ,Password from m_employee where empID= ? and Password = ?";
