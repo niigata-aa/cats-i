@@ -28,6 +28,8 @@
 		<%=employee.getLastName() %>
 		<%=employee.getFirstName() %>
 		<%=employee.getArea() %>
+		
+		<!-- 担当動物個体の表示とそこから詳細カルテに飛ぶ方法が分かりません -->
 		<%=employee.get() %>
 		<%=employee.getStartWork() %></td></tr>
 	</table>
