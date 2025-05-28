@@ -3,7 +3,7 @@ package model.entity;
 import java.text.SimpleDateFormat;
 
 public class Feed {
-	
+	private String animalID;
 	private SimpleDateFormat date;
 	private String content;
 	private int amount;
@@ -14,9 +14,22 @@ public class Feed {
 	}
 
 	//getter setter
+	
+	
+	public String getAnimalID() {
+		return animalID;
+	}
+
+	public void setAnimalID(String animalID) {
+		this.animalID = animalID;
+	}
+	
+	
 	public SimpleDateFormat getDate() {
 		return date;
 	}
+
+	
 
 	public void setDate(SimpleDateFormat date) {
 		this.date = date;

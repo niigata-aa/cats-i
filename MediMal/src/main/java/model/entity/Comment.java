@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class Comment {
 
+	private String animalID;
 	private SimpleDateFormat date;
 	private String empID;
 	private String content;
@@ -16,6 +17,17 @@ public class Comment {
 	}
 
 	//getter setter
+	
+	public String getAnimalID() {
+		return animalID;
+	}
+	
+	public void setAnimalID(String animalID) {
+		this.animalID = animalID;
+	}
+	
+	
+	
 	public SimpleDateFormat getDate() {
 		return date;
 	}

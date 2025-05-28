@@ -5,16 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>体重記録画面</title>
+<title>食事記録画面</title>
 </head>
 <body>
-	<form action="inputWeight" method="post">
-	動物ID　:　
+	<form action="inputFeed" method="post">
+	動物ID　　:　
 	<input type="text" name="animalID" ><br>
-	日　付　:　
-	<input type="SimpleDateFormat" name = "inputDate"><br>
-	今日の体重:
-	<input type="number" name="measureWeight">
+	食事時間　:　
+	<input type="SimpleDateFormat" name = "date"><br>
+	食事内容　:　
+	<input type="text" name="content"><br>
+	食事量　　:　
+	<input type="number" name="amount">
 	
 	<select name="unit">
 		<option value="g">g

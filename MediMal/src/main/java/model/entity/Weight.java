@@ -13,8 +13,7 @@ public class Weight {
 		
 	}
 
-	
-	
+
 	
 	//getter setter
 	

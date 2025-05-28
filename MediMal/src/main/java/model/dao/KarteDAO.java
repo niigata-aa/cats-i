@@ -5,9 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.stream.events.Comment;
+
 import java.text.SimpleDateFormat;
 
 import model.entity.Drug;
+import model.entity.Feed;
+import model.entity.Weight;
 
 public class KarteDAO {
 
@@ -22,18 +27,18 @@ public class KarteDAO {
 		int count = 0;
 		String url = "insert into t_BodyWeight  values (?,?,?,?)";
 
-		try(Connection con = ConnectionManager.getConnection();
+		try(Connection con = ConnectionManager.getConnection(url);
 				PreparedStatement pstmt = con.prepareStatement(url)){
 
 			//Beanからのデータの取り出し
 			String animalID = inputWeight.getAnimalID();
-			SimpleDateFormat inputDate = inputWeight.getInputDate();
+			SimpleDateFormat inputDate = (SimpleDateFormat)inputWeight.getInputDate();
 			int measureWeight = inputWeight.getMeasureWeight();
 			String unit = inputWeight.getUnit();
 
 			//プレースホルダーへの値の設定	
 			pstmt.setString(1, animalID);
-			pstmt.SimpleDateFormat(2, inputDate);
+			pstmt.setSimpleDateFormat(2, inputDate);
 			pstmt.setInt(3,measureWeight);
 			pstmt.setString(4, unit);
 
@@ -69,10 +74,10 @@ public class KarteDAO {
 	 */
 	public int insertDrug(Drug inputDrug) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String url = "insert into t_dosage  values (?,?,?,?)";
+		String sql = "insert into t_dosage  values (?,?,?,?)";
 
-		try(Connection con = ConnectionManagerMedical.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(url)){
+		try(Connection con = ConnectionManager.getConnection(sql);
+				PreparedStatement pstmt = con.prepareStatement(sql)){
 
 			//Beanからのデータの取り出し
 			String animalID = inputDrug.getAnimalID();
@@ -108,20 +113,22 @@ public class KarteDAO {
 	 */
 	public int insertComment(Comment wroteComment) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String url = "insert into t_comment  values (?,?,?,?)";
+		String sql = "insert into t_comment  values (?,?,?,?)";
 
-		try(Connection con = ConnectionManager ? .getConnection();
-				PreparedStatement pstmt = con.prepareStatement(url)){
+		try(Connection con = ConnectionManager.getConnection(sql);
+				PreparedStatement pstmt = con.prepareStatement(sql)){
 
 			//Beanからのデータの取り出し
+			String animalID = wroteComment.getAnimalID();
 			SimpleDateFormat date = wroteComment.getDate();
 			String empID = wroteComment.empID();
 			String content = wroteComment.content();
 
 			//プレースホルダーへの値の設定	
-			pstmt.setSimpleDateFormat(1, date);
-			pstmt.setString(2,empID);
-			pstmt.setString(3,content);
+			pstmt.setString(1,animalID);
+			pstmt.setSimpleDateFormat(2, date);
+			pstmt.setString(3,empID);
+			pstmt.setString(4,content);
 
 			//SQLステートメントの実行
 			count = pstmt.executeUpdate();
@@ -148,10 +155,36 @@ public class KarteDAO {
 	}
 
 
-	/**食事履歴を追加する*/
-	public int insertFeed(Feed feed) {
-		return
+	/**
+	 *食事履歴を追加する
+	 * @param feed　動物ID、食べたもの、食べた量、単位
+	 * @return　処理件数
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public int insertFeed (Feed inputFeed) throws ClassNotFoundException,SQLException {
+		int count;
+		String sql = "insert into t-feeding values (?,?,?,?,?)";
+		try (Connection con = ConnectionManager.getConnection(sql);
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			//Beanからのデータ取り出し
+			String animalID = inputFeed.getAnimalID();
+			SimpleDateFormat date = inputFeed.getDate();
+			String content = inputFeed.getContent();
+			int amount = inputFeed.getAmount();
+			String unit = inputFeed.getUnit();
+			//プレースホルダーへの値の設定
+			pstmt.setString(1,animalID);
+			pstmt.setSimpleDateFormat (2,date );
+			pstmt.setString(3,content );
+			pstmt.setInt(4,amount);
+			pstmt.setString(5,unit);
+			count = pstmt.executeUpdate();
+		}
+		return count;
 	}
+
+
 
 
 	/**全ての食事履歴を検索する*/

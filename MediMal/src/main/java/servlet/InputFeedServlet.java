@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class inputWeightServlet
+ * Servlet implementation class InputFeedServlet
  */
-@WebServlet("/inputWeight")
-public class InputWeightServlet extends HttpServlet {
+@WebServlet("/inputFeed")
+public class InputFeedServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InputWeightServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public InputFeedServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,12 +36,10 @@ public class InputWeightServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//体重記録画面（確認画面）に行く
+		//食事記録画面（確認画面）に行く
 		//このサーブレットでは通過するだけ
-		RequestDispatcher rd = request.getRequestDispatcher("checkInputWeight.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("checkInputFeed.jsp");
 		rd.forward(request, response);
-		
 	}
 
 }
