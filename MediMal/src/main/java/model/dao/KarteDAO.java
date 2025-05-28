@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.stream.events.Comment;
@@ -218,6 +219,46 @@ public class KarteDAO {
 	/**全ての出産履歴を検索する*/
 	public List<Birth> selectAllBirth() {
 		return
+	}
+	
+	public String getDateUntilMinute(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
+		result = df.format(date);
+
+		
+		
+		
+		return result;
+		
+	}
+	
+	public String getDateUntilDay(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
+		result = df.format(date);
+
+		
+		
+		
+		return result;
+		
+	}
+	
+	
+	public String getDateUntilMonth(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
+		result = df.format(date);
+
+		
+		
+		
+		return result;
+		
 	}
 
 

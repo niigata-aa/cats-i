@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import model.entity.AnimalBean;
@@ -129,5 +131,46 @@ public class AnimalDAO {
 			}
 			return count;
 	}
+	public String getDateUntilMinute(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
+		result = df.format(date);
+
+		
+		
+		
+		return result;
+		
+	}
+	
+	public String getDateUntilDay(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
+		result = df.format(date);
+
+		
+		
+		
+		return result;
+		
+	}
+	
+	
+	public String getDateUntilMonth(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
+		result = df.format(date);
+
+		
+		
+		
+		return result;
+		
+	}
+	
+	
 	
 }

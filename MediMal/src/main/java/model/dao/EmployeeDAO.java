@@ -154,4 +154,46 @@ public class EmployeeDAO {
 		
 		return ;
 	}
+	
+	public String getDateUntilMinute(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
+		result = df.format(date);
+
+		
+		
+		
+		return result;
+		
+	}
+	
+	public String getDateUntilDay(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
+		result = df.format(date);
+
+		
+		
+		
+		return result;
+		
+	}
+	
+	
+	public String getDateUntilMonth(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
+		result = df.format(date);
+
+		
+		
+		
+		return result;
+		
+	}
+	
+
 }
