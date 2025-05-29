@@ -11,7 +11,6 @@
 	<form action="goMenu" method="post">
 		<input type="submit" value="menu">
 	</form>
-	l
 	<form action="checkLogout" method="post">
 		<input type="submit" value="logout">
 	</form>
