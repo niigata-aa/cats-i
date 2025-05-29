@@ -64,7 +64,6 @@ public class RegistKeeperServlet extends HttpServlet {
 		employee.setStartWork(request.getParameter("inputStartWork"));
 		employee.setPhotoURL(request.getParameter("inputPhoto"));
 		
-//		EmployeeBean employee = new EmployeeBean();
 		
 		//セッションへのデータの登録
 		session.setAttribute("inputEmployee", employee);

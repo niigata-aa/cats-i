@@ -10,13 +10,16 @@
 <body>
 	<form action="inputWeight" method="post">
 	動物ID　:　
-	<% session.getAttribute("animalID"); %>
+	<% session.getAttribute("animalID"); %><br>
 	日　付　:　
-	<input type="SimpleDateFormat" name = "inputDate"><br>
-	今日の体重:
-	<input type="number" name="measureWeight">
+	<input type="date" name = "inputTime"><br>
+	飼育員ID　:　
+	<input type="text" name ="empID"><br>
 	
-	<select name="unit">
+	今日の体重:
+	<input type="number" name="weight">
+	
+	<select name="weightUnit">
 		<option value="g">g
 		<option value="kg">kg
 	</select><br>

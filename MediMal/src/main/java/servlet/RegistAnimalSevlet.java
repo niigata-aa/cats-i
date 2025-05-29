@@ -10,20 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.entity.AnimalBean;
+
 /**
  * Servlet implementation class RegistAnimalSevlet
  */
-@WebServlet("/RegistAnimalSevlet")
+@WebServlet("/registAnimal")
 public class RegistAnimalSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegistAnimalSevlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RegistAnimalSevlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,32 +50,52 @@ public class RegistAnimalSevlet extends HttpServlet {
 		}else {
 			url ="login.jsp";
 		}
-		
-		
-		String animalID = request.getParameter("animalID");
-		String name = request.getParameter("name");
-		String type = request.getParameter("type");
-		String area = request.getParameter("area");
-		String birthDay = request.getParameter("birthDay");
-		String countryOfBirth = request.getParameter("countryOfBirth");
-		String sex = request.getParameter("sex");
-		//List<String> keepers = request.getParameter("keepers");
-		String photo = request.getParameter("photo");
-		
-//		EmployeeBean employee = new EmployeeBean();
-		
+
+
+
+		AnimalBean animal = new AnimalBean();
+
+
+
+		animal.setAnimalID(request.getParameter("animalID"));
+		animal.setName(request.getParameter("name"));
+		animal.setAnimalType(request.getParameter("type"));
+		animal.setArea(request.getParameter("area"));
+		animal.setBirthDay(request.getParameter("birthDay"));
+		animal.setCountry(request.getParameter("countryOfBirth"));
+		animal.setSex(request.getParameter("sex"));
+		//List
+		animal.setKeepers(request.getParameter("keepers"));
+		animal.setPhoto(request.getParameter("photo"));
+
 		//セッションへのデータの登録
-		session.setAttribute("animalID", animalID);
-		session.setAttribute("name",name );
-		session.setAttribute("type",type );
-		session.setAttribute("area",area );
-		session.setAttribute("birthDay",birthDay );
-		session.setAttribute("countryOfBirth", countryOfBirth);
-		session.setAttribute("sex",sex );
-		session.setAttribute("keepers",keepers);
-		session.setAttribute("photo",photo );
-		
-		
+		session.setAttribute("insertAnimal", animal);
+
+
+		//		
+		//		String animalID = request.getParameter("animalID");
+		//		String name = request.getParameter("name");
+		//		String type = request.getParameter("type");
+		//		String area = request.getParameter("area");
+		//		String birthDay = request.getParameter("birthDay");
+		//		String countryOfBirth = request.getParameter("countryOfBirth");
+		//		String sex = request.getParameter("sex");
+		//		//List<String> keepers = request.getParameter("keepers");
+		//		String photo = request.getParameter("photo");
+		//	
+
+		//		//セッションへのデータの登録
+		//		session.setAttribute("animalID", animalID);
+		//		session.setAttribute("name",name );
+		//		session.setAttribute("type",type );
+		//		session.setAttribute("area",area );
+		//		session.setAttribute("birthDay",birthDay );
+		//		session.setAttribute("countryOfBirth", countryOfBirth);
+		//		session.setAttribute("sex",sex );
+		//		session.setAttribute("keepers",keepers);
+		//		session.setAttribute("photo",photo );
+
+
 		RequestDispatcher rd = request.getRequestDispatcher("checkRegistKeeper.jsp");
 		rd.forward(request, response);
 	}

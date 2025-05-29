@@ -61,10 +61,6 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		}
 
 		
-		
-		
-
-
 
 		//ログインしてるか
 		String url;

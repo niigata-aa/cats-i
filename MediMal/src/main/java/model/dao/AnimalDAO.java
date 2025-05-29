@@ -115,16 +115,63 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 		
 	
 		
-		return;
+		return result;
 	}
 	
 	/**
-	 * 動物を登録する
+	 * 動物の登録
 	 * @param animal
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
 	 */
-	
-	public void insertAnimal(AnimalBean animal) {
+	public void insertAnimal (AnimalBean animal) throws ClassNotFoundException,SQLException {
+		String sql = "insert into m_animal values (?,?,?,?,?,?,?,?,?,1)";
+		try (Connection con = ConnectionManager.getConnection(postID);
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			//Beanからのデータ取り出し
+			String animalID = animal.getAnimalID();
+			String  animalType = animal.getAnimalType();
+			String animalKind = animal.getAnimalKind();
+			String name = animal.getName();
+			String birthDay = animal.getBirthDay();
+			String area = animal.getArea();
+			//List
+			List<String> keepers = animal.getKeepers();
+			
+			String country = animal.getCountry();
+			String sex = animal.getSex();
+			String photo = animal.getPhoto();
+			
+
+			//プレースホルダーへの値の設定
+			pstmt.setString(1,animalID);
+			pstmt.setString(2,animalType);
+			pstmt.setString(3,animalKind);
+			pstmt.setString(4,name);
+			pstmt.setString(5,birthDay);
+			pstmt.setString(6,area);
+			//List
+			pstmt.setList<String>(7,keepers);
+			pstmt.setString(8,country);
+			pstmt.setString(9, sex);
+			pstmt.setString(10,photo);
+
+
+
+			//		Listはわかんないwhile?
+			//		pstmt.setList(4,animalIDs );
+			//		List<String>animalIDs = new ArrayList<String>( Employee.getPost());?
+
+
+			//SQLステートメントの実行
+			pstmt.executeUpdate();
+		}
 	}
+	
+	
+	
+	
+	
 	
 	/**
 	 * 動物情報を編集する
@@ -172,7 +219,7 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 			String sql = "UPDATE from m_animal WHERE animalID = ?";
 	
 			// データベースへの接続の取得、PreparedStatementの取得
-			try(Connection con = ConnectionManager.getConnection(empID);
+			try(Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt=con.prepareStatement(sql)){
 				
 				// Beanからのデータの取り出し

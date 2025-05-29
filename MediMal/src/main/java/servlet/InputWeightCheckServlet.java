@@ -43,21 +43,23 @@ public class InputWeightCheckServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("utf-8");
-		
 		HttpSession session = request.getSession();
+		
+		
 		String animalID = (String) session.getAttribute("animalID");
-		//SimpleDateFormatを型変換？
-//		SimpleDateFormat inputDate = SimpleDateFormat.request.getParameter("inputDate");
-		String inputDate = request.getParameter("inputDate");
-		int measureWeight = Integer.parseInt(request.getParameter("measureWeight"));
-		String unit = request.getParameter("unit");
+		String inputTime = (String)session.getAttribute("inputTime");
+		String empID = (String)session.getAttribute("empID");
+		int weight = (int)session.getAttribute("weight");
+		String weightUnit = request.getParameter("weightUnit");
 		
 		
 		Weight inputWeight = new Weight();
 		inputWeight.setAnimalID(animalID);
-//		inputWeight.setInputDate(inputDate);
-		inputWeight.setMeasureWeight(measureWeight);
-		inputWeight.setUnit(unit);
+		inputWeight.setInputTime(inputTime);
+		inputWeight.setEmpID(empID);
+		inputWeight.setWeight(weight);
+		inputWeight.setWeightUnit(weightUnit);
+		
 		
 		
 		//DAOの生成
@@ -71,11 +73,8 @@ public class InputWeightCheckServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute(animalID, "animalID");
-		request.setAttribute(inputDate, "inputDate");
-		request.setAttribute(measureWeight,"measureWeight");
-		request.setAttribute(unit, "unit");
 		
+		request.setAttribute("inputWeight",inputWeight);
 		
 		
 		

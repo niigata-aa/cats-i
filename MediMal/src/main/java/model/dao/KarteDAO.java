@@ -27,22 +27,24 @@ public class KarteDAO {
 	 */
 	public int insertWeight(Weight inputWeight) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String url = "insert into t_weight  values (?,?,?,?)";
+		String url = "insert into t_weight  values (?,?,?,?,?)";
 
-		try(Connection con = ConnectionManager.getConnection(url);
+		try(Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(url)){
 
 			//Beanからのデータの取り出し
 			String animalID = inputWeight.getAnimalID();
-			String inputDate = inputWeight.getInputDate();
-			int measureWeight = inputWeight.getMeasureWeight();
-			String unit = inputWeight.getUnit();
+			String inputTime = inputWeight.getInputTime();
+			String empID = inputWeight.getEmpID();
+			int weight = inputWeight.getWeight();
+			String weightUnit = inputWeight.getWeightUnit();
 
 			//プレースホルダーへの値の設定	
 			pstmt.setString(1, animalID);
-			pstmt.setString(2, inputDate);
-			pstmt.setInt(3,measureWeight);
-			pstmt.setString(4, unit);
+			pstmt.setString(2, inputTime);
+			pstmt.setString(3,empID);
+			pstmt.setInt(4, weight);
+			pstmt.setString(5, weightUnit);
 
 			//SQLステートメントの実行
 			count = pstmt.executeUpdate();

@@ -4,51 +4,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>動物登録確認画面</title>
+<title>動物登録(確認画面)</title>
 </head>
 <body>
 	<p>※以下の内容で従業員情報を登録しますか？</p>
 
 	<%request.setCharacterEncoding("utf-8"); %>
+
+	
+	<jsp:useBean id ="inputAnimal" scope = "session" class ="model.entity.AnimalBean"/>
 	
 	
-	<%
-	String animalID = (String)session.getAttribute("animalID");
-	String name = (String)session.getAttribute("name");
-	String type = (String)session.getAttribute("type");
-	String area = (String)session.getAttribute("area");
-	String birthDay = (String)session.getAttribute("birthDay");
-	String countryOfBirth = (String)session.getAttribute("countryOfBirth");
-	String sex = (String)session.getAttribute("sex");
-	List<String> keepers = List<String>session.getAttribute("keepers");
-	String photo = (String)session.getAttribute("photo");
 	
-	%>
+	動物ID　:　<jsp:getProperty name = "inputAnimal" property = "animalID"/><br>
 	
-	動物ID　:　<%=animalID %><br>
-	
-	名前　:　<%=name %><br>
-	
-	種族　:　<%=type%><br>
-	
-	所属エリア　:　<%=area %><br>
-	
-	誕生日　:　<%=birthDay%><br>
-	
-	出身　:　<%=countryOfBirth%><br>
-	
-	性別　:　<%=sex%><br>
-	
-	担当飼育員　:　<%=keepers%><br>
-	
-	写真　:　<%=photo%><br>
+	名前　:　<jsp:getProperty name = "inputAnimal" property = "name"/><br>
 	
 	
-	<form action="registKeeperCheck" method="post">
+	種族　:　<jsp:getProperty name = "inputAnimal" property = "type"/><br>
+	
+	
+	所所属エリア　:　属エリア　:　<jsp:getProperty name = "inputAnimal" property = "area"/><br>
+	
+	誕生日　:　<jsp:getProperty name = "inputAnimal" property = "birthDay"/><br>
+	
+	出身　:　<jsp:getProperty name = "inputAnimal" property = "countryOfBirth"/><br>
+	
+	
+	性別　:　<jsp:getProperty name = "inputAnimal" property = "sex"/><br>
+	
+	担当飼育員　:　<jsp:getProperty name = "inputAnimal" property = "keepers"/><br>
+	
+	写真　:　<jsp:getProperty name = "inputAnimal" property = "photo"/><br>
+	
+
+	
+	
+	
+	<form action="registAnimalCheck" method="post">
 		<input type="submit" value="はい">
 	</form>
 	
-	<form action="registKeeper.jsp" method="post">
+	<form action="registAnimal.jsp" method="post">
 		<input type="submit" value="いいえ">
 	</form>
 	
