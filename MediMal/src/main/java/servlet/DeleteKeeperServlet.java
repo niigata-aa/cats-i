@@ -37,7 +37,7 @@ public class DeleteKeeperServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("employee-alter-confirm.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("checkUpdateKeeper.jsp");
 		rd.forward(request, response);
 	}
 
