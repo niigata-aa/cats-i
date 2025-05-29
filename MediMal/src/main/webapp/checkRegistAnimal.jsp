@@ -7,7 +7,7 @@
 <title>動物登録(確認画面)</title>
 </head>
 <body>
-	<p>※以下の内容で従業員情報を登録しますか？</p>
+	<p>※以下の内容で動物情報情報を登録しますか？</p>
 
 	<%request.setCharacterEncoding("utf-8"); %>
 
