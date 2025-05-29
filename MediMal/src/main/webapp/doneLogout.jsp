@@ -10,7 +10,7 @@
 	ログアウト完了画面
 	<h1>ログアウト完了</h1><hr>
 	ログアウトが完了しました。<br>
-	<form action="gologin" method="post">
+	<form action="goLogin" method="post">
 		<input type="submit" value="ログイン画面に戻る">
 	</form>
 </body>
