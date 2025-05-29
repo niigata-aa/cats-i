@@ -1,26 +1,14 @@
 package model.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class EmployeeBean implements Serializable {
 
-<<<<<<< HEAD
-	private String empID;
-	private String empPass;
-	private String lastName;
-	private String firstName;
-	private String gender;
-	private List<String>animalIDs = new ArrayList<String>();
-	private int post;
-	private int area;
-	private Date startWork;
-	private int livingNow;
-	private String photo;
-=======
+
+
 	private String 			empID;
 	private String 			empPass;
 	private String 			lastName;
@@ -31,7 +19,7 @@ public class EmployeeBean implements Serializable {
 	private String 			startWork;
 	private int 			livingNow;
 	private String 			photoURL;
->>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
+
 	
 	
 	public EmployeeBean() {
@@ -39,9 +27,11 @@ public class EmployeeBean implements Serializable {
 	}
 
 
+
 	public String getEmpID() {
 		return empID;
 	}
+
 
 
 	public void setEmpID(String empID) {
@@ -49,9 +39,11 @@ public class EmployeeBean implements Serializable {
 	}
 
 
+
 	public String getEmpPass() {
 		return empPass;
 	}
+
 
 
 	public void setEmpPass(String empPass) {
@@ -59,9 +51,11 @@ public class EmployeeBean implements Serializable {
 	}
 
 
+
 	public String getLastName() {
 		return lastName;
 	}
+
 
 
 	public void setLastName(String lastName) {
@@ -69,9 +63,11 @@ public class EmployeeBean implements Serializable {
 	}
 
 
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 
 
 	public void setFirstName(String firstName) {
@@ -79,9 +75,11 @@ public class EmployeeBean implements Serializable {
 	}
 
 
+
 	public String getGender() {
 		return gender;
 	}
+
 
 
 	public void setGender(String gender) {
@@ -89,9 +87,11 @@ public class EmployeeBean implements Serializable {
 	}
 
 
+
 	public List<String> getAnimalIDs() {
 		return animalIDs;
 	}
+
 
 
 	public void setAnimalIDs(List<String> animalIDs) {
@@ -99,35 +99,17 @@ public class EmployeeBean implements Serializable {
 	}
 
 
-<<<<<<< HEAD
-	public int getPost() {
-		return post;
-=======
-	
 
 	public String getArea() {
 		return area;
->>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 	}
 
 
-<<<<<<< HEAD
-	public void setPost(int post) {
-		this.post = post;
-	}
 
-
-	public int getArea() {
-		return area;
-	}
-
-
-	public void setArea(int area) {
-=======
 	public void setArea(String area) {
->>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 		this.area = area;
 	}
+
 
 
 	public String getStartWork() {
@@ -135,9 +117,11 @@ public class EmployeeBean implements Serializable {
 	}
 
 
+
 	public void setStartWork(String startWork) {
 		this.startWork = startWork;
 	}
+
 
 
 	public int getLivingNow() {
@@ -145,20 +129,22 @@ public class EmployeeBean implements Serializable {
 	}
 
 
+
 	public void setLivingNow(int livingNow) {
 		this.livingNow = livingNow;
 	}
 
 
-	public String getPhoto() {
-		return photo;
+
+	public String getPhotoURL() {
+		return photoURL;
 	}
 
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+
+	public void setPhotoURL(String photoURL) {
+		this.photoURL = photoURL;
 	}
 
 
-	
 }
