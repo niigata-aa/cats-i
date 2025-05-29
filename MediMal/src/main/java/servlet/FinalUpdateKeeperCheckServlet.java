@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class RegistKeeperServlet
+ * Servlet implementation class FinalUpdateKeeperCheckServlet
  */
-@WebServlet("/registKeeper")
-public class RegistKeeperServlet extends HttpServlet {
+@WebServlet("/FinalUpdateKeeperCheckServlet")
+public class FinalUpdateKeeperCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistKeeperServlet() {
+    public FinalUpdateKeeperCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,21 +37,21 @@ public class RegistKeeperServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		
 		//ログインしてるか
-				String url;
+		String url;
 
-				if (session.getAttribute("LoginID")!=null) {
-					url = "menu.jsp";
-				}else {
-					url ="login.jsp";
-				}
-				
-				
-				//リクエストの転送　飼育員登録の完了画面へ
-				RequestDispatcher rd = request.getRequestDispatcher("checkRegistKeeper.jsp");
-				rd.forward(request, response);
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("LoginID")!=null) {
+			url = "";
+		}else {
+			url ="login.jsp";
+		}
+		
+		//動物情報変更・削除画面（確認画面）に行く
+		//このサーブレットでは通過するだけ
+		RequestDispatcher rd = request.getRequestDispatcher("");
+		rd.forward(request, response);
 	}
 
 }

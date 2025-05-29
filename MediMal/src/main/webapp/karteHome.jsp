@@ -12,7 +12,7 @@
 	</form>
 
 	<% 
-		String  idhead = (String)session.getAttribute("IDhead");
+		String  idhead = (String)session.getAttribute("postID");
 		if(idhead.equals("20")){
 	%>
 	<form action="goRegistAnimalServlet" method="post">
