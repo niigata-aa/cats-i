@@ -11,24 +11,24 @@
 	<form action = "registKeeper" method = "post">
 	
 	従業員ID:
-	<input type = "text" name = "empID"><br>
+	<input type = "text" name = "inputEmpID"><br>
 	パスワード:
-	<input type = "password" name = "empPass"><br>
+	<input type = "password" name = "inputEmpPass"><br>
 	名字:
-	<input type = "text" name = "lastName"><br>
+	<input type = "text" name = "inputLastName"><br>
 	名前:
-	<input type = "text" name = "firstName"><br>
+	<input type = "text" name = "inputFirstName"><br>
 	性別:
-	<input type = text name = "gender"><br>
+	<input type = text name = "inputGender"><br>
 	業務種別:
-	<input type = "number" name = "postID"><br>
+	<input type = "number" name = "inputPostID"><br>
 	エリアID:
-	<input type = "number" name = "areaID"><br>
+	<input type = "number" name = "inputAreaID"><br>
 	業務開始日:
-	<input type = "date" name = "startWork"><br>
+	<input type = "date" name = "inputStartWork"><br>
 	 
 	写真:
-	<input type = "text" name = "photo"><br>
+	<input type = "text" name = "inputPhoto"><br>
 
 
 	<input type = "submit" value = "登録">

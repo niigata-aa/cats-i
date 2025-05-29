@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.entity.EmployeeBean;
+
 /**
  * Servlet implementation class RegistKeeperServlet
  */
@@ -39,70 +41,38 @@ public class RegistKeeperServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("utf-8"); 
+		String postID = (String) session.getAttribute("postID");
 
 		//ログインしてるか
 		String url;
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "menu.jsp";
+			url = "checkRegistKeeper.jsp";
 		}else {
 			url ="login.jsp";
 		}
 		
+		EmployeeBean employee = new EmployeeBean();
 		
-		String empID = request.getParameter("empID");
-		String  empPass = request.getParameter("empPass");
-		String lastName = request.getParameter("lastName");
-		String firstName = request.getParameter("firstName");
-		String gender = request.getParameter("gender");
-		System.out.println(request.getParameter("postID"));
-		int postID = Integer.parseInt(request.getParameter("postID"));
-		int areaID = Integer.parseInt(request.getParameter("areaID"));
-		String startWork = request.getParameter("startWork");
-		String photo = request.getParameter("photo");
+		employee.setEmpID(request.getParameter("inputEmpID"));
+		employee.setEmpPass(request.getParameter("inputEmpPass"));
+		employee.setLastName(request.getParameter("inputLastName"));
+		employee.setFirstName(request.getParameter("inputFirstName"));
+		employee.setGender(request.getParameter("inputGender"));
+		employee.setPostID(Integer.parseInt(request.getParameter("inputPostID")));
+		employee.setAreaID(Integer.parseInt(request.getParameter("inputAreaID")));
+		employee.setStartWork(request.getParameter("inputStartWork"));
+		employee.setPhotoURL(request.getParameter("inputPhoto"));
 		
 //		EmployeeBean employee = new EmployeeBean();
 		
 		//セッションへのデータの登録
-		session.setAttribute("empID", empID);
-		session.setAttribute("empPass",empPass );
-		session.setAttribute("lastName",lastName );
-		session.setAttribute("firstName",firstName );
-		session.setAttribute("gender",gender );
-		session.setAttribute("postID", postID);
-		session.setAttribute("areaID",areaID );
-		session.setAttribute("startWork",startWork);
-		session.setAttribute("photo",photo );
-		
-		
-		
-//		.setEmpID("empID");
-//		employee.setEmpID("empPass");
-//		employee.setEmpID("lastName");
-//		employee.setEmpID("firstName");
-//		employee.setEmpID("gender");
-//		employee.setEmpID("postID");
-//		employee.setEmpID("areaID");
-//		employee.setEmpID("startWork");
-//		employee.setEmpID("livingNow");
-//		employee.setEmpID("photo");
-//		employee.setEmpID("empID");	
-//		
-//		request.setAttribute("empID",empID );
-//		request.setAttribute("empPass",empPass );
-//		request.setAttribute("lastName",lastName );
-//		request.setAttribute("firstName",firstName );
-//		request.setAttribute("gender",gender );
-//		request.setAttribute("postID",postID );
-//		request.setAttribute("areaID",areaID );
-//		request.setAttribute("startWork",startWork );
-//		request.setAttribute("livingNow",livingNow );
-//		request.setAttribute("photo",photo );
+		session.setAttribute("inputEmployee", employee);
 		
 		
 
 		//リクエストの転送　飼育員登録の完了画面へ
-		RequestDispatcher rd = request.getRequestDispatcher("checkRegistKeeper.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 

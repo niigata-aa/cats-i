@@ -12,44 +12,33 @@
 	
 	<%request.setCharacterEncoding("utf-8"); %>
 	
-	<%
-	String empID = (String)session.getAttribute("empID");
-	String empPass = (String)session.getAttribute("empPass");
-	String lastName = (String)session.getAttribute("lastName");
-	String firstName = (String)session.getAttribute("firstName");
-	String gender = (String)session.getAttribute("gender");
-	int postID = (int)session.getAttribute("postID");
-	int areaID = (int)session.getAttribute("areaID");
-	String startWork = (String)session.getAttribute("startWork");
-	String photo = (String)session.getAttribute("photo");
-	
-	%>
+	<jsp:useBean id ="inputEmployee" scope = "session" class ="model.entity.EmployeeBean"/>
 	
 	
 	
-	従業員ID　:　<%=empID %><br>
+	従業員ID : <jsp:getProperty name = "inputEmployee" property = "empID"/><br>
 	
-	パスワード　:　<%=empPass %><br>
-	
-	
-	名字　:　<%=lastName%><br>
+	パスワード　:　<jsp:getProperty name = "inputEmployee" property = "empPass"/><br>
 	
 	
-	名前　:　<%=firstName %><br>
-	
-	性別　:　<%=gender%><br>
-	
-	業務種別　:　<%=postID %><br>
+	名字　:　<jsp:getProperty name = "inputEmployee" property = "lastName"/><br>
 	
 	
-	エリアID　:　<%=areaID%><br>
+	名前　:　<jsp:getProperty name = "inputEmployee" property = "firstName"/><br>
 	
-	業務開始日　:　<%=startWork%><br>
+	性別　:　<jsp:getProperty name = "inputEmployee" property = "gender"/><br>
 	
-	写真　:　<%=photo%><br>
+	業務種別　:　<jsp:getProperty name = "inputEmployee" property = "postID"/><br>
 	
 	
-
+	エリアID　:　<jsp:getProperty name = "inputEmployee" property = "areaID"/><br>
+	
+	業務開始日　:　<jsp:getProperty name = "inputEmployee" property = "startWork"/><br>
+	
+	写真　:　<jsp:getProperty name = "inputEmployee" property = "photoURL"/><br>
+	
+	
+	
 	
 	
 	<form action="registKeeperCheck" method="post">

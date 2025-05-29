@@ -10,11 +10,9 @@
 	<jsp:useBean id="employee" class="model.entity.EmployeeBean" scope="session"/>
 
 	<form action = "updateKeeper" method="post">
-		飼育員在籍情報 : <input type = "radio" name="employee" property="livingNow"
-		value="<jsp:getProperty name="employee" property="livingNow"/>">在籍
+		飼育員在籍情報 : <input type = "radio" name="employee" value="<jsp:getProperty name="employee" property="livingNow"/>">在籍
 		
-		<input type = "radio" name="employee" property="livingNow"
-		value="<jsp:getProperty name="employee" property="livingNow"/>">退籍
+		<input type = "radio" name="employee" value="<jsp:getProperty name="employee" property="livingNow"/>">退籍
 	
 		飼育員ID : <input type="text" name="emdID"
 				   value="<jsp:getProperty name="employee" property="empID" />">

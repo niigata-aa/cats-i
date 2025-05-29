@@ -106,7 +106,7 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 				}
 				
 			}
-			Print(result);
+			
 
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO 自動生成された catch ブロック

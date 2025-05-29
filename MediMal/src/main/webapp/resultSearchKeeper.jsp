@@ -34,11 +34,11 @@
 		<%=employee.getStartWork() %></td></tr>
 		
 	</table>
-	<form action = "goUpdateKeeperServlet" method="post">
-		<input type ="hidden" name="empID" value="<%= employee.getEmpID() %>"
-		<input type ="hidden" name="lastName" value="<%= employee.getLastName() %>"
-		<input type ="hidden" name="firstName" value="<%= employee.getFirstName() %>"
-		<input type ="hidden" name="area" value="<%= employee.getArea() %>"
+	<form action = "goUpdateKeeper" method="post">
+		<input type ="hidden" name="empID" value=<%= employee.getEmpID() %>>
+		<input type ="hidden" name="lastName" value=<%= employee.getLastName() %>>
+		<input type ="hidden" name="firstName" value=<%= employee.getFirstName() %>>
+		<input type ="hidden" name="area" value=<%= employee.getArea_name() %>>
 	</form>
 	
 	<%

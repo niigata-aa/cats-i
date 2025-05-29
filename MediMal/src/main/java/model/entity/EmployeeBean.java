@@ -15,34 +15,11 @@ public class EmployeeBean implements Serializable {
 	private String 			firstName;
 	private String 			gender;
 	private List<String>	animalIDs = new ArrayList<String>();
-	private int				post;
-	private int 			area;
-	private String			post_name;
-	public String getPost_name() {
-		return post_name;
-	}
-
-
-
-	public void setPost_name(String post_name) {
-		this.post_name = post_name;
-	}
-
-
-
-	public String getArea_name() {
-		return area_name;
-	}
-
-
-
-	public void setArea_name(String area_name) {
-		this.area_name = area_name;
-	}
-
-
-
-	private String			area_name;
+	private int				postID;
+	private int 			areaID;
+	
+	private String			postName;
+	private String			areaName;
 	private String 			startWork;
 	private int 			livingNow;
 	private String 			photoURL;
@@ -127,28 +104,7 @@ public class EmployeeBean implements Serializable {
 
 
 
-	public int getPost() {
-		return post;
-	}
-
-
-
-	public void setPost(int post) {
-		this.post = post;
-	}
-
-
-
-	public int getArea() {
-		return area;
-	}
-
-
-
-	public void setArea(int area) {
-		this.area = area;
-	}
-
+	
 
 
 	public String getStartWork() {
@@ -183,6 +139,54 @@ public class EmployeeBean implements Serializable {
 
 	public void setPhotoURL(String photoURL) {
 		this.photoURL = photoURL;
+	}
+
+
+
+	public int getPostID() {
+		return postID;
+	}
+
+
+
+	public void setPostID(int postID) {
+		this.postID = postID;
+	}
+
+
+
+	public int getAreaID() {
+		return areaID;
+	}
+
+
+
+	public void setAreaID(int areaID) {
+		this.areaID = areaID;
+	}
+
+
+
+	public String getPostName() {
+		return postName;
+	}
+
+
+
+	public void setPostName(String postName) {
+		this.postName = postName;
+	}
+
+
+
+	public String getAreaName() {
+		return areaName;
+	}
+
+
+
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
 	}
 
 

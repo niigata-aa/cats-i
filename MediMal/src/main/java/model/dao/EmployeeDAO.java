@@ -43,7 +43,7 @@ public class EmployeeDAO {
 			employeeTmp.setLastName(res.getString("lastName"));
 			employeeTmp.setFirstName(res.getString("firstname"));
 			employeeTmp.setGender(res.getString("gender"));
-			employeeTmp.setArea_name(res.getString("areaName"));
+			employeeTmp.setAreaName(res.getString("areaName"));
 			employeeTmp.setStartWork(getDateUntilMonth(res.getDate("startWork")));
 //			employeeTmp.setPhotoURL(res.getString("photo"));
 //			
@@ -117,7 +117,7 @@ public class EmployeeDAO {
 	 */
 	public void insertEmp (EmployeeBean employee) throws ClassNotFoundException,SQLException {
 		String sql = "insert into m_employee values (?,?,?,?,?,?,?,?,1,?)";
-		try (Connection con = ConnectionManager.getConnection(sql);
+		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 			//Beanからのデータ取り出し
 			String empID = employee.getEmpID();
@@ -125,10 +125,10 @@ public class EmployeeDAO {
 			String lastName = employee.getLastName();
 			String firstName = employee.getFirstName();
 			String gender = employee.getGender();
-			int postID = employee.getPost();
-			int areaID = employee.getArea();
+			int postID = employee.getPostID();
+			int areaID = employee.getAreaID();
 			String startWork = employee.getStartWork();
-			int livingNow = employee.getLivingNow();
+			
 			String photo = employee.getPhotoURL();
 
 
@@ -141,8 +141,8 @@ public class EmployeeDAO {
 			pstmt.setInt(6,postID);
 			pstmt.setInt(7,areaID);
 			pstmt.setString(8,startWork);
-			pstmt.setInt(9,livingNow);
-			pstmt.setString(10,photo);
+			
+			pstmt.setString(9,photo);
 
 
 

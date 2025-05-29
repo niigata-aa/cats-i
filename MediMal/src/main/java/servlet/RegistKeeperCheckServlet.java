@@ -44,44 +44,25 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		 
-
-		String empID = (String) session.getAttribute("empID");
-		String empPass = (String)session.getAttribute("empPass");
-		String lastName = (String)session.getAttribute("lastName");
-		String firstName = (String)session.getAttribute("firstName");
-		String gender = (String)session.getAttribute("gender");
-		int postID = (int)session.getAttribute("postID");
-		int areaID = (int)session.getAttribute("areaID");
-		String startWork = (String)session.getAttribute("startWork");
-		String photo = (String)session.getAttribute("photo");
-
-
-		EmployeeBean employee = new EmployeeBean();
-		employee.setEmpID(empID);
-		employee.setEmpPass(empPass);
-		employee.setLastName(lastName);
-		employee.setFirstName(firstName);
-		employee.setGender(gender);
-		employee.setPost(postID);
-		employee.setArea(areaID);
-		employee.setStartWork(startWork);
-		employee.setPhotoURL(photo);
-
-
+		EmployeeBean inputEmployee = (EmployeeBean) session.getAttribute("inputEmployee");
+		
+		String postID = (String) session.getAttribute("postID");
+		
+		System.out.println(postID);
 		//DAOの生成
-		EmployeeDAO employeeDao = new EmployeeDAO("10");
+		EmployeeDAO employeeDao = new EmployeeDAO(postID);
 		
 
 		try {
 			//DAOの利用
-			employeeDao.insertEmp(employee);
+			employeeDao.insertEmp(inputEmployee);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 
 		
 		
-		request.setAttribute("employee", employee);
+		
 
 
 
