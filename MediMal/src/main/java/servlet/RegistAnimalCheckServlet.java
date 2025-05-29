@@ -1,26 +1,23 @@
 package servlet;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class goRegistAnimalServlet
+ * Servlet implementation class RegistAnimalCheckServlet
  */
-@WebServlet("/goRegistAnimal")
-public class goRegistAnimalServlet extends HttpServlet {
+@WebServlet("/RegistAnimalCheckServlet")
+public class RegistAnimalCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public goRegistAnimalServlet() {
+    public RegistAnimalCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,24 +34,8 @@ public class goRegistAnimalServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = null;
-
-		HttpSession session = request.getSession();
-		
-		
-
-		if (session.getAttribute("LoginID")!=null) {
-			url = "registAnimal.jsp";
-			
-		}else {
-			url = "login.jsp";
-		}
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher(url);
-
-		rd.forward(request, response);
-
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
