@@ -12,7 +12,7 @@
 		<input type="submit" value="menu">
 	</form>
 	l
-	<form action="gologout" method="post">
+	<form action="checkLogout" method="post">
 		<input type="submit" value="logout">
 	</form>
 </body>
