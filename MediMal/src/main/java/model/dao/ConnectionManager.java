@@ -55,6 +55,7 @@ public class ConnectionManager {
 		
 		String IDhead = LoginID.substring(0, 2);
 		
+		System.out.println(IDhead);
 		
 		/**
 		 * 上で切り出した値で分岐10,20,30ならそれぞれの権限で接続が試みられて、それ以外なら接続失敗するUSER,PASSで接続チャレンジされる。
