@@ -220,11 +220,11 @@ public class EmployeeDAO {
 			String firstName = employee.getFirstName();
 			String gender = employee.getGender();
 			String area = employee.getAreaName();
-            String photo = employee.getPhotoURL();
+            String photoURL = employee.getPhotoURL();
             String empID = employee.getEmpID();
 
 			// プレースホルダへの値の設定
-			pstmt.setInt(1, lastName);
+			pstmt.setString(1, lastName);
 			pstmt.setString(2, firstName);
 			pstmt.setString(3, gender);
 			pstmt.setString(4, area);
