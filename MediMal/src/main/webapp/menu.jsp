@@ -7,6 +7,7 @@
 <title>メインメニュー</title>
 </head>
 <body>
+	<%@ include file="headerRink.jsp"%>
 	<%=session.getAttribute("LoginID")%>さんようこそ。
 
 
