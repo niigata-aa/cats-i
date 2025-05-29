@@ -15,6 +15,7 @@ public class EmployeeBean implements Serializable {
 	private String area;
 	private String startWork;
 	private String photo;
+	private int livingNow;
 	
 	public EmployeeBean() {
 		
@@ -98,6 +99,14 @@ public class EmployeeBean implements Serializable {
 	
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	
+	public int getLivingNow() {
+		return livingNow;
+	}
+	
+	public void setLivingNow(int livingNow) {
+		this.livingNow = livingNow;
 	}
 	
 
