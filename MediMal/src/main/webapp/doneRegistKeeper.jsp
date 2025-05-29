@@ -4,14 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>従業員登録画面（確認画面）</title>
+<title>従業員登録画面（完了画面）</title>
 </head>
 <body>
-
-	<form action="registKeeperCheck" method="post">
-	
-	従業員登録画面の確認画面
-	</form>
+	従業員の登録が完了しました。
 
 </body>
 </html>

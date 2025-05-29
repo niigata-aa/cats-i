@@ -100,6 +100,7 @@ public class EmployeeDAO {
 		return ;
 	}
 	
+	
 	/**
 	 * 従業員の登録
 	 * @param employee
@@ -116,11 +117,11 @@ public class EmployeeDAO {
 		String lastName = employee.getLastName();
 		String firstName = employee.getFirstName();
 		String gender = employee.getGender();
-		int postID = employee.getPostID();
-		int areaID = employee.getAreaID();
+		int postID = employee.getPost();
+		int areaID = employee.getArea();
 		String startWork = employee.getStartWork();
-		String workingNow = employee.getLivingNow();
-		String photoURL = employee.getPhotoURL();
+		int livingNow = employee.getLivingNow();
+		String photoURL = employee.getPhoto();
 
 
 		//プレースホルダーへの値の設定
@@ -132,14 +133,14 @@ public class EmployeeDAO {
 		pstmt.setInt(6,postID);
 		pstmt.setInt(7,areaID);
 		pstmt.setString(8,startWork);
-		pstmt.setString(9,workingNow);
+		pstmt.setInt(9,livingNow);
 		pstmt.setString(10,photoURL);
 
 
-//		beanと名前確認する
+
 //		Listはわかんないwhile?
 //		pstmt.setList(4,animalIDs );
-//		★List<String>animalIDs = new ArrayList<String>( Employee.getPost()); ？違うかも確認する
+//		List<String>animalIDs = new ArrayList<String>( Employee.getPost()); ？違うかも確認する
 
 
 		//SQLステートメントの実行

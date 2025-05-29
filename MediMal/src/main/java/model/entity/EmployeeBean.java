@@ -12,11 +12,11 @@ public class EmployeeBean implements Serializable {
 	private String firstName;
 	private String gender;
 	private List<String>animalIDs = new ArrayList<String>();
-	private int postID;
-	private int areaID;
+	private int post;
+	private int area;
 	private String startWork;
 	private int livingNow;
-	private String photoURL;
+	private String photo;
 	
 	
 	public EmployeeBean() {
@@ -84,23 +84,23 @@ public class EmployeeBean implements Serializable {
 	}
 
 
-	public int getPostID() {
-		return postID;
+	public int getPost() {
+		return post;
 	}
 
 
-	public void setPostID(int postID) {
-		this.postID = postID;
+	public void setPost(int post) {
+		this.post = post;
 	}
 
 
-	public int getAreaID() {
-		return areaID;
+	public int getArea() {
+		return area;
 	}
 
 
-	public void setAreaID(int areaID) {
-		this.areaID = areaID;
+	public void setArea(int area) {
+		this.area = area;
 	}
 
 
@@ -124,13 +124,13 @@ public class EmployeeBean implements Serializable {
 	}
 
 
-	public String getPhotoURL() {
-		return photoURL;
+	public String getPhoto() {
+		return photo;
 	}
 
 
-	public void setPhotoURL(String photoURL) {
-		this.photoURL = photoURL;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 

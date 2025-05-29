@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.dao.KarteDAO;
-import model.entity.Weight;
+import model.dao.EmployeeDAO;
+import model.entity.EmployeeBean;
 
 /**
  * Servlet implementation class RegistKeeperCheckServlet
@@ -42,60 +42,62 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-
 		HttpSession session = request.getSession();
-		String empID = (String) session.getAttribute("animalID");
-		//SimpleDateFormatを型変換？
-		//		SimpleDateFormat inputDate = SimpleDateFormat.request.getParameter("inputDate");
-		String inputDate = request.getParameter("inputDate");
-		int measureWeight = Integer.parseInt(request.getParameter("measureWeight"));
-		String unit = request.getParameter("unit");
+
+		
+		String empID = request.getParameter("EmpID");
+		String  empPass = request.getParameter("EmpPass");
+		String lastName = request.getParameter("LastName");
+		String firstName = request.getParameter("FirstName");
+		String gender = request.getParameter("Gender");
+		int postID = Integer.parseInt(request.getParameter("Post"));
+		int areaID = Integer.parseInt(request.getParameter("Area"));
+		String startWork = request.getParameter("StartWork");
+		int livingNow = Integer.parseInt(request.getParameter("LivingNow"));
+		String photoURL = request.getParameter("Photo");
+		
+		
+
+		
+		EmployeeBean employee = new EmployeeBean();
+		employee.setEmpID(empID);
+		employee.setEmpPass(empPass);
+		employee.setLastName(lastName);
+		employee.setFirstName(firstName);
+		employee.setGender(gender);
+		employee.setPost(postID);
+		employee.setArea(areaID);
+		employee.setStartWork(startWork);
+		employee.setLivingNow(livingNow);
+		employee.setPhoto(photoURL);
+		
 		
 		
 	
-		
-		String empID = request.getParameter("empID");
-		String  empPass = employee.getEmpPass();
-		String lastName = employee.getLastName();
-		String firstName = employee.getFirstName();
-		String gender = employee.getGender();
-		int postID = employee.getPost();
-		int areaID = employee.getArea();
-		String startWork = employee.getStartWork();
-		String workingNow = employee.getWorkingNow();
-		String photoURL = employee.getPhoto();
-		
-		
-		
-		
-		
-		
-		
 
-
-		Weight inputWeight = new Weight();
-		inputWeight.setAnimalID(animalID);
-		//		inputWeight.setInputDate(inputDate);
-		inputWeight.setMeasureWeight(measureWeight);
-		inputWeight.setUnit(unit);
 
 
 		//DAOの生成
-		KarteDAO karteDao = new KarteDAO();
+		EmployeeDAO employeeDao = new EmployeeDAO();
 		int count = 0; //処理件数
 
 		try {
 			//DAOの利用
-			count = karteDao.insertWeight(inputWeight);
+			employeeDao.insertEmp(employee);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 
-		request.setAttribute(animalID, "animalID");
-		request.setAttribute(inputDate, "inputDate");
-		request.setAttribute(measureWeight,"measureWeight");
-		request.setAttribute(unit, "unit");
-
+		request.setAttribute(empID, "empID");
+		request.setAttribute(empPass, "empPass");
+		request.setAttribute(lastName, "lastName");
+		request.setAttribute(firstName, "firstName");
+		request.setAttribute(gender, "gender");
+		request.setAttribute(postID, "postID");
+		request.setAttribute(areaID, "areaID");
+		request.setAttribute(startWork, "startWork");
+		request.setAttribute(livingNow, "livingNow");
+		request.setAttribute(photoURL, "photoURL");
 
 
 
@@ -110,7 +112,7 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 
 
 		//リクエストの転送　体重記録の完了画面へ
-		RequestDispatcher rd = request.getRequestDispatcher("doneInputWeight.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("doneRegistKeeper.jsp");
 		rd.forward(request, response);
 	}
 
