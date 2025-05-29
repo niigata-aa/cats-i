@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class UpdateKeeperServlet
+ * Servlet implementation class UpdateKeeperCheckServlet
  */
-@WebServlet("/updateKeeper")
-public class UpdateKeeperServlet extends HttpServlet {
+@WebServlet("/updateKeeperCheck")
+public class UpdateKeeperCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateKeeperServlet() {
+    public UpdateKeeperCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,9 +34,8 @@ public class UpdateKeeperServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("checkUpdateKeeper.jsp");
-		rd.forward(request, response);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

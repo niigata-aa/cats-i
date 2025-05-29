@@ -7,6 +7,8 @@
 <title>飼育員情報編集・削除確認画面1</title>
 </head>
 <body>
+
+	<!--参考コピペしてるだけです -->
 	<%
 		request.setCharacterEncoding("UTF-8");
 	%>
