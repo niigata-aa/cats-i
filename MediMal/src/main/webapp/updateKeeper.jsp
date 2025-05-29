@@ -7,8 +7,10 @@
 <title>飼育員在籍情報・削除画面</title>
 </head>
 <body>
-飼育員在籍情報 : 
-<form action = "updateKeeper" method="post">
+	<jsp:useBean id="" class="model.entity.EmployeeBean" scope="session"/>
+
+	<form action = "updateKeeper" method="post">
+	飼育員在籍情報 : <jsp:getProperty name="employee" property="">
 
 </body>
 </html>
