@@ -15,7 +15,6 @@
 	</form>
 	<form action="return" method="post">
 		<input type="submit" value="いいえ">
-		<input type="hidden" name="url" value="menu.jsp"> 
 	</form>
 </body>
 </html>

@@ -37,14 +37,13 @@ public class ReturnServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String returnURL = request.getParameter("url");
 		
-		String url ;
+		String url = null;
 
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "menu.jsp";
+			url = (String) session.getAttribute("returnURL");
 		}else {
 			url ="login.jsp";
 		}
