@@ -11,11 +11,11 @@
 	<form action = "registAnimal" method = "post">
 	
 		動物ID:
-		<input type = "text" name = "animal"><br>
+		<input type = "text" name = "animalID"><br>
 		名前:
-		<input type = "text" name = “Name”><br>
+		<input type = "text" name = "name"><br>
 		種族:
-		<input type = text name = "type"><br>
+		<input type = text name = "animalType"><br>
 		エリア情報:
 		<input type = "text" name = "area"><br>
 		生年月日:

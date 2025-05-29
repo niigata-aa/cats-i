@@ -57,7 +57,7 @@ public class RegistAnimalSevlet extends HttpServlet {
 
 		animal.setAnimalID(request.getParameter("animalID"));
 		animal.setName(request.getParameter("name"));
-		animal.setAnimalType(request.getParameter("type"));
+		animal.setAnimalType(request.getParameter("animalType"));
 		animal.setArea(request.getParameter("area"));
 		animal.setBirthDay(request.getParameter("birthDay"));
 		animal.setCountry(request.getParameter("country"));
@@ -67,7 +67,7 @@ public class RegistAnimalSevlet extends HttpServlet {
 		animal.setPhoto(request.getParameter("photo"));
 
 		//セッションへのデータの登録
-		session.setAttribute("insertAnimal", animal);
+		session.setAttribute("inputAnimal", animal);
 
 
 		//		

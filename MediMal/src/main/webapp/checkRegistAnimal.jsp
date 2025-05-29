@@ -21,7 +21,7 @@
 	名前　:　<jsp:getProperty name = "inputAnimal" property = "name"/><br>
 	
 	
-	種族　:　<jsp:getProperty name = "inputAnimal" property = "type"/><br>
+	種族　:　<jsp:getProperty name = "inputAnimal" property = "animalType"/><br>
 	
 	
 	所属エリア　:　<jsp:getProperty name = "inputAnimal" property = "area"/><br>

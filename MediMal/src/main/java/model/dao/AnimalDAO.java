@@ -130,25 +130,25 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 			//Beanからのデータ取り出し
 			String animalID = animal.getAnimalID();
-			String  animalType = animal.getAnimalType();
-			String animalKind = animal.getAnimalKind();
 			String name = animal.getName();
 			String birthDay = animal.getBirthDay();
 			String area = animal.getArea();
-			String country = animal.getCountry();
 			String sex = animal.getSex();
+			String country = animal.getCountry();
+			String  animalType = animal.getAnimalType();
+			String animalKind = animal.getAnimalKind();
 			String photo = animal.getPhoto();
 			
 
 			//プレースホルダーへの値の設定
 			pstmt.setString(1,animalID);
-			pstmt.setString(2,animalType);
-			pstmt.setString(3,animalKind);
-			pstmt.setString(4,name);
-			pstmt.setString(5,birthDay);
-			pstmt.setString(6,area);
-			pstmt.setString(7,country);
-			pstmt.setString(8, sex);
+			pstmt.setString(2,name);
+			pstmt.setString(3,birthDay);
+			pstmt.setString(4,area);
+			pstmt.setString(5, sex);
+			pstmt.setString(6,country);
+			pstmt.setString(7,animalType);
+			pstmt.setString(8,animalKind);
 			pstmt.setString(9,photo);
 
 
