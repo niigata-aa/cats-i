@@ -46,6 +46,17 @@ public class goKarteDetailServlet extends HttpServlet {
 		}else {
 			url ="login.jsp";
 		}
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		String animalID = request.getParameter("animalID");
+		String animalName = request.getParameter("animalName");
+		String typeName = request.getParameter("typeName");
+		String areaName = request.getParameter("areaName");
+		String keeperName = request.getParameter("keeperName");
+		String anemalBirth = request.getParameter("animalBirth");
+//		String photo = request.getParameter("photo");
+		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 
 		rd.forward(request, response);
