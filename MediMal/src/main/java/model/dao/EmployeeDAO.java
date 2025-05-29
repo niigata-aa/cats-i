@@ -22,13 +22,6 @@ public class EmployeeDAO {
 	}
 	
 
-	
-
-	
-
-
-
-
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {
 		List<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
 		
@@ -108,12 +101,52 @@ public class EmployeeDAO {
 	}
 	
 	/**
-	 * 従業員の登録を行う
-	 * @param Employee
+	 * 従業員の登録
+	 * @param employee
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
 	 */
-	public void insertEmp(EmployeeBean Employee) {
-		
+	public void insertEmp (EmployeeBean employee) throws ClassNotFoundException,SQLException {
+		String sql = "insert into m_employee values (?,?,?,?,?,?,?,?,?,?)";
+		try (Connection con = ConnectionManager.getConnection(sql);
+			PreparedStatement pstmt = con.prepareStatement(sql)){
+		//Beanからのデータ取り出し
+		String empID = employee.getEmpID();
+		String  empPass = employee.getEmpPass();
+		String lastName = employee.getLastName();
+		String firstName = employee.getFirstName();
+		String gender = employee.getGender();
+		int postID = employee.getPostID();
+		int areaID = employee.getAreaID();
+		String startWork = employee.getStartWork();
+		String workingNow = employee.getLivingNow();
+		String photoURL = employee.getPhotoURL();
+
+
+		//プレースホルダーへの値の設定
+		pstmt.setString(1,empID);
+		pstmt.setString(2,empPass);
+		pstmt.setString(3,lastName);
+		pstmt.setString(4,firstName);
+		pstmt.setString(5,gender);
+		pstmt.setInt(6,postID);
+		pstmt.setInt(7,areaID);
+		pstmt.setString(8,startWork);
+		pstmt.setString(9,workingNow);
+		pstmt.setString(10,photoURL);
+
+
+//		beanと名前確認する
+//		Listはわかんないwhile?
+//		pstmt.setList(4,animalIDs );
+//		★List<String>animalIDs = new ArrayList<String>( Employee.getPost()); ？違うかも確認する
+
+
+		//SQLステートメントの実行
+		pstmt.executeUpdate();
+		}
 	}
+
 	
 	/**
 	 * 

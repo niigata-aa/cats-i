@@ -7,31 +7,43 @@ import java.util.List;
 public class EmployeeBean implements Serializable {
 
 	private String empID;
+	private String empPass;
 	private String lastName;
 	private String firstName;
 	private String gender;
-	private String post;
 	private List<String>animalIDs = new ArrayList<String>();
-	private String area;
+	private int postID;
+	private int areaID;
 	private String startWork;
-	private String photo;
 	private int livingNow;
+	private String photoURL;
+	
 	
 	public EmployeeBean() {
 		
 	}
-	
-	
-	//getter setter
+
+
 	public String getEmpID() {
 		return empID;
 	}
-	
+
+
 	public void setEmpID(String empID) {
 		this.empID = empID;
 	}
-	
-	
+
+
+	public String getEmpPass() {
+		return empPass;
+	}
+
+
+	public void setEmpPass(String empPass) {
+		this.empPass = empPass;
+	}
+
+
 	public String getLastName() {
 		return lastName;
 	}
@@ -52,62 +64,75 @@ public class EmployeeBean implements Serializable {
 	}
 
 
-	
 	public String getGender() {
 		return gender;
 	}
-	
+
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
-	public String getPost() {
-		return post;
-	}
-	
-	public void setPost(String post) {
-		this.post = post;
-	}
-	
+
+
 	public List<String> getAnimalIDs() {
 		return animalIDs;
 	}
-	
+
+
 	public void setAnimalIDs(List<String> animalIDs) {
 		this.animalIDs = animalIDs;
 	}
-	
-	public String getArea() {
-		return area;
+
+
+	public int getPostID() {
+		return postID;
 	}
-	
-	public void setArea(String area) {
-		this.area = area;
+
+
+	public void setPostID(int postID) {
+		this.postID = postID;
 	}
-	
+
+
+	public int getAreaID() {
+		return areaID;
+	}
+
+
+	public void setAreaID(int areaID) {
+		this.areaID = areaID;
+	}
+
+
 	public String getStartWork() {
 		return startWork;
 	}
-	
+
+
 	public void setStartWork(String startWork) {
 		this.startWork = startWork;
 	}
-	
-	public String getPhoto() {
-		return photo;
-	}
-	
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
-	
+
+
 	public int getLivingNow() {
 		return livingNow;
 	}
-	
+
+
 	public void setLivingNow(int livingNow) {
 		this.livingNow = livingNow;
 	}
-	
 
+
+	public String getPhotoURL() {
+		return photoURL;
+	}
+
+
+	public void setPhotoURL(String photoURL) {
+		this.photoURL = photoURL;
+	}
+
+
+	
 }
