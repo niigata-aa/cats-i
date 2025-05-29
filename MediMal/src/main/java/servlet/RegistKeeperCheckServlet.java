@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -53,7 +52,7 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		String gender = (String)session.getAttribute("gender");
 		int postID = (int)session.getAttribute("postID");
 		int areaID = (int)session.getAttribute("areaID");
-		Date startWork = (Date)session.getAttribute("startWork");
+		String startWork = (String)session.getAttribute("startWork");
 		String photo = (String)session.getAttribute("photo");
 
 
@@ -70,8 +69,8 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 
 
 		//DAOの生成
-		EmployeeDAO employeeDao = new EmployeeDAO((String) session.getAttribute("postID"));
-		int count = 0; //処理件数
+		EmployeeDAO employeeDao = new EmployeeDAO();
+		
 
 		try {
 			//DAOの利用

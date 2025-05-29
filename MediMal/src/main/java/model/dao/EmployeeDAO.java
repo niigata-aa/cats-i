@@ -20,6 +20,10 @@ public class EmployeeDAO {
 	public EmployeeDAO(String postID) {
 		this.postID=postID;
 	}
+	
+	public EmployeeDAO() {
+		
+	}
 
 
 

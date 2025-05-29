@@ -13,11 +13,11 @@
 	従業員ID:
 	<input type = "text" name = "empID"><br>
 	パスワード:
-	<input type = text name = “empPass”><br>
+	<input type = text name = "empPass"><br>
 	名字:
 	<input type = "text" name = "lastName"><br>
 	名前:
-	<input type = "text" name = “firstName”><br>
+	<input type = "text" name = "firstName"><br>
 	性別:
 	<input type = text name = "gender"><br>
 	業務種別:
