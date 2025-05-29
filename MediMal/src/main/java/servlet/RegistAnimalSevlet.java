@@ -40,7 +40,8 @@ public class RegistAnimalSevlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("utf-8"); 
+		request.setCharacterEncoding("utf-8");
+		String postID = (String) session.getAttribute("postID");
 
 		//ログインしてるか
 		String url;
