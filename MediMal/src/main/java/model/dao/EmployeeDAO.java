@@ -212,7 +212,7 @@ public class EmployeeDAO {
 		String sql = "UPDATE m_employee SET lastname = ?, firstName = ?, lastName = ?, gender=?, area = ?, photoURL = ?, WHERE empID = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
-		try (Connection con = ConnectionManager.getConnection();
+		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			// Beanからのデータの取り出し
@@ -220,7 +220,7 @@ public class EmployeeDAO {
 			String firstName = employee.getFirstName();
 			String gender = employee.getGender();
 			String area = employee.getAreaName();
-            String photoURL = employee.getPhotoURL();
+            String photo = employee.getPhotoURL();
             String empID = employee.getEmpID();
 
 			// プレースホルダへの値の設定
@@ -228,11 +228,16 @@ public class EmployeeDAO {
 			pstmt.setString(2, firstName);
 			pstmt.setString(3, gender);
 			pstmt.setString(4, area);
-            pstmt.setString(5, photoURL);
+            pstmt.setString(5, photo);
             pstmt.setString(6, empID);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();
+			
+			System.out.println(processingNumber);
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
 		}
 		return processingNumber;
 	}
