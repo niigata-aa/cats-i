@@ -216,12 +216,7 @@ public class EmployeeDAO {
 		String result;
 
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
-		result = df.format(date);
-
-<<<<<<< HEAD
-=======
-		
-		
+		result = df.format(date);		
 		
 		return result;
 		
@@ -233,7 +228,7 @@ public class EmployeeDAO {
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
 		result = df.format(date);
->>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
+
 
 
 
