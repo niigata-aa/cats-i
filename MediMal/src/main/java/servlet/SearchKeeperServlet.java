@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -57,12 +56,13 @@ public class SearchKeeperServlet extends HttpServlet {
 		
 		//DAOの生成
 		EmployeeDAO dao = new EmployeeDAO(postID);
-		try {
-		//DAOの利用
-			employeeList = dao.selectAllEmp();
-		}catch(SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
+		EmployeeBean searchEmpData = new EmployeeBean();
+		searchEmpData.setEmpID(request.getParameter("EmpID"));
+		searchEmpData.setLastName(request.getParameter("keeperLastName"));
+		searchEmpData.setFirstName(request.getParameter("keeperFirstName"));
+		searchEmpData.setAreaName(request.getParameter("areaName"));
+//DAOの利用
+		employeeList = dao.selectEmpByField(searchEmpData);
 		//レクエストスコープへの属性の設定
 		request.setAttribute("employeeList", employeeList);
 		//リクエストの転送

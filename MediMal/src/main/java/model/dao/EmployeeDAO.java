@@ -139,12 +139,7 @@ public class EmployeeDAO {
 						checkScore++;
 					}
 				}
-				if (!Employee.getLastName().equals(null)) {
-					checkBorder ++;
-					if(Emp.getLastName().equals(Employee.getLastName())) {
-						checkScore++;
-					}
-				}
+				
 				if (checkBorder ==checkScore) {
 					result.add(Emp);
 				}

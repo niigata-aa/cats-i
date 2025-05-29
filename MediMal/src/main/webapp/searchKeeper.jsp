@@ -14,7 +14,7 @@
 		<input type="submit" value="一覧表示">
 	</form>
 	
-	<form action="searchKeeper" method="post">
+	<form action="SearchKeeper" method="post">
 		飼育員ID :
 		<input type="text" name="empID">キーワードを入力してください<br>
 		性 :
