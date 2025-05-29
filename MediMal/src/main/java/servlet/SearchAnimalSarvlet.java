@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,13 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.entity.AnimalBean;
+
 /**
  * Servlet implementation class SearchAnimalSarvlet
  */
 @WebServlet("/searchAnimal")
 public class SearchAnimalSarvlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private List<AnimalBean> animalList;   
     /**
      * @see HttpServlet#HttpServlet()
      */
