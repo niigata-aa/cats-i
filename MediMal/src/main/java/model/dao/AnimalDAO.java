@@ -135,9 +135,6 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 			String name = animal.getName();
 			String birthDay = animal.getBirthDay();
 			String area = animal.getArea();
-			//List
-			List<String> keepers = animal.getKeepers();
-			
 			String country = animal.getCountry();
 			String sex = animal.getSex();
 			String photo = animal.getPhoto();
@@ -150,17 +147,9 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 			pstmt.setString(4,name);
 			pstmt.setString(5,birthDay);
 			pstmt.setString(6,area);
-			//List
-			pstmt.setList<String>(7,keepers);
-			pstmt.setString(8,country);
-			pstmt.setString(9, sex);
-			pstmt.setString(10,photo);
-
-
-
-			//		Listはわかんないwhile?
-			//		pstmt.setList(4,animalIDs );
-			//		List<String>animalIDs = new ArrayList<String>( Employee.getPost());?
+			pstmt.setString(7,country);
+			pstmt.setString(8, sex);
+			pstmt.setString(9,photo);
 
 
 			//SQLステートメントの実行

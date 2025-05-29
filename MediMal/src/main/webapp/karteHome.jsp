@@ -16,7 +16,7 @@
 	String idhead = (String) session.getAttribute("postID");
 	if (idhead.equals("20")) {
 	%>
-	<form action="goRegistAnimalServlet" method="post">
+	<form action="goRegistAnimal" method="post">
 		<input type="submit" value="動物登録画面へ">
 	</form>
 	<%

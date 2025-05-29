@@ -18,6 +18,8 @@ public class AnimalBean implements Serializable {
 	
 	private String area;
 	
+	private String type;
+	
 	private List<String> keepers = new ArrayList<String>();
 	
 	private String country;
@@ -108,7 +110,17 @@ public class AnimalBean implements Serializable {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}	
+	
+	
 }
 
 

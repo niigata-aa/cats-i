@@ -46,26 +46,23 @@ public class RegistAnimalSevlet extends HttpServlet {
 		String url;
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "menu.jsp";
+			url = "checkRegistAnimal.jsp";
 		}else {
 			url ="login.jsp";
 		}
 
 
-
 		AnimalBean animal = new AnimalBean();
-
-
 
 		animal.setAnimalID(request.getParameter("animalID"));
 		animal.setName(request.getParameter("name"));
 		animal.setAnimalType(request.getParameter("type"));
 		animal.setArea(request.getParameter("area"));
 		animal.setBirthDay(request.getParameter("birthDay"));
-		animal.setCountry(request.getParameter("countryOfBirth"));
+		animal.setCountry(request.getParameter("country"));
 		animal.setSex(request.getParameter("sex"));
 		//List
-		animal.setKeepers(request.getParameter("keepers"));
+//		animal.setKeepers(request.getParameter("keepers"));
 		animal.setPhoto(request.getParameter("photo"));
 
 		//セッションへのデータの登録
@@ -96,7 +93,7 @@ public class RegistAnimalSevlet extends HttpServlet {
 		//		session.setAttribute("photo",photo );
 
 
-		RequestDispatcher rd = request.getRequestDispatcher("checkRegistKeeper.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 

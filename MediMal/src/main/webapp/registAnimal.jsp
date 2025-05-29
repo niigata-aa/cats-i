@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+    pageEncoding="UTF-8" import="model.entity.AnimalBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,13 +19,13 @@
 		エリア情報:
 		<input type = "text" name = "area"><br>
 		生年月日:
-		<input type = "number" name = "birthDay"><br>
+		<input type = "date" name = "birthDay"><br>
 		出身地:
-		<input type = "date" name = "countryOfBirth"><br>
+		<input type = "text" name = "country"><br>
 		性別:
 		<input type = "text" name = "sex"><br>
-		担当飼育員:
-		<input type = "text" name = "keepers"><br>
+<!--		担当飼育員:-->
+<!--		<input type = "text" name = "keepers"><br>-->
 		写真:
 		<input type = "text" name = "photo"><br>
 

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="model.entity.AnimalBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,16 +24,16 @@
 	種族　:　<jsp:getProperty name = "inputAnimal" property = "type"/><br>
 	
 	
-	所所属エリア　:　属エリア　:　<jsp:getProperty name = "inputAnimal" property = "area"/><br>
+	所属エリア　:　<jsp:getProperty name = "inputAnimal" property = "area"/><br>
 	
 	誕生日　:　<jsp:getProperty name = "inputAnimal" property = "birthDay"/><br>
 	
-	出身　:　<jsp:getProperty name = "inputAnimal" property = "countryOfBirth"/><br>
+	出身　:　<jsp:getProperty name = "inputAnimal" property = "country"/><br>
 	
 	
 	性別　:　<jsp:getProperty name = "inputAnimal" property = "sex"/><br>
 	
-	担当飼育員　:　<jsp:getProperty name = "inputAnimal" property = "keepers"/><br>
+<!--	担当飼育員　:　<jsp:getProperty name = "inputAnimal" property = "keepers"/><br>-->
 	
 	写真　:　<jsp:getProperty name = "inputAnimal" property = "photo"/><br>
 	
