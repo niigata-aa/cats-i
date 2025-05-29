@@ -65,7 +65,55 @@ public class AnimalDAO {
 	 * @param animal
 	 * @return
 	 */
-	public List<AnimalBean> selectAnimalByfield(AnimalBean animal){
+	public List<AnimalBean> selectAnimalByfield(AnimalBean searchanimal){
+		
+List<AnimalBean> result = new ArrayList<AnimalBean>();
+		
+		AnimalDAO dao = new AnimalDAO(postID);
+		
+		try {
+			List<AnimalBean> allanimal=dao.selectAllAnimal();
+			System.out.println(allanimal.size());
+			for (AnimalBean animal:allanimal) {
+				int checkBorder = 0;
+				int checkScore 	= 0; 
+				if(!searchanimal.getAnimalID().equals("null")) {
+					checkBorder ++;
+					if (animal.getAnimalID().equals(searchanimal.getAnimalID())) {
+						checkScore+=1;
+					}
+				}
+				if(!searchanimal.getName().equals("null")) {
+					checkBorder ++;
+					if (animal.getName().equals(searchanimal.getName())){
+						checkScore ++;
+					}
+				}
+				if(!searchanimal.getAnimalType().equals("null")) {
+					checkBorder ++;
+					if (animal.getAnimalType().equals(searchanimal.getAnimalType())){
+						checkScore ++;
+					}
+				}
+				if(!searchanimal.getArea().equals("null")) {
+					checkBorder ++;
+					if (animal.getArea().equals(searchanimal.getArea())){
+						checkScore ++;
+					}
+				}
+				if (checkBorder ==checkScore) {
+					result.add(animal);
+				}
+				
+			}
+			Print(result);
+
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		
+	
 		
 		return;
 	}

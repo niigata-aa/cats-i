@@ -27,40 +27,15 @@ public class EmployeeDAO {
 
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {
 		List<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
-<<<<<<< HEAD
-
-		String sql = "select empID,lastName,firstName,gender,area.area_name,gender,post.postName, startWork from m_employee emp Left join m_area area on emp.areaID =area.areaID left join m_post post on emp.postID =post.postID";
-
-
-=======
 		
 		String sql = "select * from medimaldb.employee_view3 where postName='飼育員'";
 		String sql_type = "select * from medimaldb.keeptype_view where empID = ? ";
 				
 		
->>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
 				ResultSet res = stmt.executeQuery(sql)){
-<<<<<<< HEAD
-
-			while(res.next()){
-
-				EmployeeBean employeeTmp = new EmployeeBean();
-				employeeTmp.setEmpID(res.getString("empID"));
-				employeeTmp.setLastName(res.getString("lastName"));
-				employeeTmp.setFirstName(res.getString("firstname"));
-				employeeTmp.setGender(res.getString("gender"));
-				employeeTmp.setPost(res.getInt("post"));
-				//employee.setAnimalIDs(animalIDs);
-				employeeTmp.setArea(res.getInt("area"));
-				employeeTmp.setStartWork(getDateUntilMonth(res.getTimestamp("startWork")));
-				employeeTmp.setPhoto(res.getString("photo"));
-
-				employeeList.add(employeeTmp);
-
-=======
 		
 		while(res.next()){
 			List<String> keeptype = new ArrayList<String>();
@@ -82,12 +57,11 @@ public class EmployeeDAO {
 //			}
 //			employeeTmp.setAnimalIDs(keeptype);
 			employeeList.add(employeeTmp);
->>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 			}
-
-
+		
+		
 		}
-		return employeeList;
+	return employeeList;
 	}
 
 
