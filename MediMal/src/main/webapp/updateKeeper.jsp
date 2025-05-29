@@ -7,7 +7,7 @@
 <title>飼育員在籍情報・削除画面</title>
 </head>
 <body>
-	<jsp:useBean id="" class="model.entity.EmployeeBean" scope="session"/>
+	<jsp:useBean id="employee" class="model.entity.EmployeeBean" scope="session"/>
 
 	<form action = "updateKeeper" method="post">
 		飼育員在籍情報 : <input type = "radio" name="employee" property="livingNow"
@@ -34,7 +34,7 @@
 		担当エリア : <input type="text" name="area"
 				   value="<jsp:getProperty name="employee" property="area" />">
 	
-		写真；
+		写真 : 
 	
 		<br>
 	

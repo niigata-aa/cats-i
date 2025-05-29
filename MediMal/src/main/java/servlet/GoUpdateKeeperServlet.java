@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DeleteKeeperServlet
+ * Servlet implementation class GoUpdateKeeperServlet
  */
-@WebServlet("/deleteKeeper")
-public class DeleteKeeperServlet extends HttpServlet {
+@WebServlet("/goUpdateKeeper")
+public class GoUpdateKeeperServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteKeeperServlet() {
+    public GoUpdateKeeperServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,8 +37,8 @@ public class DeleteKeeperServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("employee-alter-confirm.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("updateKeeper.jsp");
 		rd.forward(request, response);
 	}
-
 }
+	
