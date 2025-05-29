@@ -34,7 +34,7 @@
 		<%=employee.getStartWork() %></td></tr>
 	</table>
 	<%
-		String  idhead = (String)session.getAttribute("IDhead");
+		String  idhead = (String)session.getAttribute("postID");
 		if(idhead.equals("10")){
 	%>
 	<form action="goUpdateKeeper" method="post">

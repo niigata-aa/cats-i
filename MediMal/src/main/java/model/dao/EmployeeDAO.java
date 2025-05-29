@@ -35,7 +35,7 @@ public class EmployeeDAO {
 				ResultSet res = stmt.executeQuery(sql)){
 		
 		while(res.next()){
-			
+			List<String> keeptype = new ArrayList<String>();
 			EmployeeBean employeeTmp = new EmployeeBean();
 			employeeTmp.setEmpID(res.getString("empID"));
 			employeeTmp.setLastName(res.getString("lastName"));
@@ -43,16 +43,17 @@ public class EmployeeDAO {
 			employeeTmp.setGender(res.getString("gender"));
 			employeeTmp.setArea(res.getString("areaName"));
 			employeeTmp.setStartWork(getDateUntilMonth(res.getDate("startWork")));
-			employeeTmp.setPhotoURL(res.getString("photo"));
-			
-			try(PreparedStatement pstmt = con.prepareStatement(sql_type)){
-				pstmt.setString(1,res.getString("empID"));
-				ResultSet res_type = pstmt.executeQuery();
-				employeeTmp.setAnimalIDs((List<String>) res.getArray("animalType"));
-			}
-			
+//			employeeTmp.setPhotoURL(res.getString("photo"));
+//			
+//			try(PreparedStatement pstmt = con.prepareStatement(sql_type)){
+//				pstmt.setString(1,res.getString("empID"));
+//				ResultSet res_type = pstmt.executeQuery();
+//				while(res.next()) {
+//					keeptype.add(res_type.getString("animalType"));
+//				}
+//			}
+//			employeeTmp.setAnimalIDs(keeptype);
 			employeeList.add(employeeTmp);
-			
 			}
 		
 		
