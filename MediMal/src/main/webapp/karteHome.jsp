@@ -7,7 +7,7 @@
 <title>カルテホーム画面</title>
 </head>
 <body>
-	<%@ include file="headerRink.jsp"%>
+	<%@ include file="headerLink.jsp"%>
 	<form action="goSearchAnimalServlet" method="post">
 		<input type="submit" value="動物検索画面へ">
 	</form>
