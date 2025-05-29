@@ -6,17 +6,16 @@ import java.util.List;
 
 public class EmployeeBean implements Serializable {
 
-	private String empID;
-	private String empPass;
-	private String lastName;
-	private String firstName;
-	private String gender;
-	private List<String>animalIDs = new ArrayList<String>();
-	private int postID;
-	private int areaID;
-	private String startWork;
-	private int livingNow;
-	private String photoURL;
+	private String 			empID;
+	private String 			empPass;
+	private String 			lastName;
+	private String 			firstName;
+	private String 			gender;
+	private List<String>	animalIDs = new ArrayList<String>();
+	private String 			area ;
+	private String 			startWork;
+	private int 			livingNow;
+	private String 			photoURL;
 	
 	
 	public EmployeeBean() {
@@ -84,23 +83,15 @@ public class EmployeeBean implements Serializable {
 	}
 
 
-	public int getPostID() {
-		return postID;
+	
+
+	public String getArea() {
+		return area;
 	}
 
 
-	public void setPostID(int postID) {
-		this.postID = postID;
-	}
-
-
-	public int getAreaID() {
-		return areaID;
-	}
-
-
-	public void setAreaID(int areaID) {
-		this.areaID = areaID;
+	public void setArea(String area) {
+		this.area = area;
 	}
 
 

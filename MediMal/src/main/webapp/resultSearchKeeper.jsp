@@ -23,7 +23,7 @@
 	<%
 		for(EmployeeBean employee : employeeList){
 	%>
-	<tr><td><img src=<%=employee.getPhoto() %>></td>
+	<tr><td><img src=<%=employee.getPhotoURL() %>></td>
 	<td><%=employee.getEmpID() %>
 		<%=employee.getLastName() %>
 		<%=employee.getFirstName() %>

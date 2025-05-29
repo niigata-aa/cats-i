@@ -25,7 +25,8 @@ public class EmployeeDAO {
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {
 		List<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
 		
-		String sql = "select empID,lastName,firstName,gender,area.area_name,gender,post.postName, startWork from m_employee emp Left join m_area area on emp.areaID =area.areaID left join m_post post on emp.postID =post.postID";
+		String sql = "select * from medimaldb.employee_view3 where postName='飼育員'";
+		String sql_type = "select * from medimaldb.keeptype_view where empID = ? ";
 				
 		
 		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
@@ -40,11 +41,15 @@ public class EmployeeDAO {
 			employeeTmp.setLastName(res.getString("lastName"));
 			employeeTmp.setFirstName(res.getString("firstname"));
 			employeeTmp.setGender(res.getString("gender"));
-			employeeTmp.setPost(res.getString("post"));
-			//employee.setAnimalIDs(animalIDs);
-			employeeTmp.setArea(res.getString("area"));
-			employeeTmp.setStartWork(getDateUntilMonth(res.getTimestamp("startWork")));
-			employeeTmp.setPhoto(res.getString("photo"));
+			employeeTmp.setArea(res.getString("areaName"));
+			employeeTmp.setStartWork(getDateUntilMonth(res.getDate("startWork")));
+			employeeTmp.setPhotoURL(res.getString("photo"));
+			
+			try(PreparedStatement pstmt = con.prepareStatement(sql_type)){
+				pstmt.setString(1,res.getString("empID"));
+				ResultSet res_type = pstmt.executeQuery();
+				employeeTmp.setAnimalIDs((List<String>) res.getArray("animalType"));
+			}
 			
 			employeeList.add(employeeTmp);
 			
@@ -216,7 +221,7 @@ public class EmployeeDAO {
 	}
 	
 	
-	public String getDateUntilMonth(Timestamp date) {
+	public String getDateUntilMonth(Date date) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
