@@ -11,8 +11,11 @@
 	
 	
 	<form action="goSearchKeeperServlet" method="post">
-		<input type="submit" value="飼育員検索">
+		<input type="submit" value="飼育員検索画面へ"><br>
 	</form>
 	
+	<form action="goKarteHomeServlet" method="post">
+		<input type="submit" value="カルテホーム画面へ">
+	</form>	
 </body>
 </html>
