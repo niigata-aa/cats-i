@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.entity.EmployeeBean;
+
 /**
  * Servlet implementation class UpdateKeeperServlet
  */
@@ -29,7 +31,7 @@ public class UpdateKeeperServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
@@ -37,6 +39,15 @@ public class UpdateKeeperServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストの転送
+		request.setCharacterEncoding("UTF-8");
+		
+		EmployeeBean updateEmp = new EmployeeBean();
+		
+		updateEmp.setEmpID(request.getParameter("empID"));
+		
+		updateEmp.setLastName(request.getParameter("lastName"));
+		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("checkUpdateKeeper.jsp");
 		rd.forward(request, response);
 	}

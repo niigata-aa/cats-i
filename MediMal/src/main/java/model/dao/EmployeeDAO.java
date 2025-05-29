@@ -20,47 +20,47 @@ public class EmployeeDAO {
 	public EmployeeDAO(String postID) {
 		this.postID=postID;
 	}
-	
-	
+
+
 
 
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {
 		List<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
-		
+
 		String sql = "select * from medimaldb.employee_view3 where postName='飼育員'";
 		String sql_type = "select * from medimaldb.keeptype_view where empID = ? ";
-				
-		
+
+
 		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
 				ResultSet res = stmt.executeQuery(sql)){
-		
-		while(res.next()){
-			List<String> keeptype = new ArrayList<String>();
-			EmployeeBean employeeTmp = new EmployeeBean();
-			employeeTmp.setEmpID(res.getString("empID"));
-			employeeTmp.setLastName(res.getString("lastName"));
-			employeeTmp.setFirstName(res.getString("firstname"));
-			employeeTmp.setGender(res.getString("gender"));
-			employeeTmp.setAreaName(res.getString("areaName"));
-			employeeTmp.setStartWork(getDateUntilMonth(res.getDate("startWork")));
-//			employeeTmp.setPhotoURL(res.getString("photo"));
-//			
-//			try(PreparedStatement pstmt = con.prepareStatement(sql_type)){
-//				pstmt.setString(1,res.getString("empID"));
-//				ResultSet res_type = pstmt.executeQuery();
-//				while(res.next()) {
-//					keeptype.add(res_type.getString("animalType"));
-//				}
-//			}
-//			employeeTmp.setAnimalIDs(keeptype);
-			employeeList.add(employeeTmp);
+
+			while(res.next()){
+				List<String> keeptype = new ArrayList<String>();
+				EmployeeBean employeeTmp = new EmployeeBean();
+				employeeTmp.setEmpID(res.getString("empID"));
+				employeeTmp.setLastName(res.getString("lastName"));
+				employeeTmp.setFirstName(res.getString("firstname"));
+				employeeTmp.setGender(res.getString("gender"));
+				employeeTmp.setAreaName(res.getString("areaName"));
+				employeeTmp.setStartWork(getDateUntilMonth(res.getDate("startWork")));
+				//			employeeTmp.setPhotoURL(res.getString("photo"));
+				//			
+				//			try(PreparedStatement pstmt = con.prepareStatement(sql_type)){
+				//				pstmt.setString(1,res.getString("empID"));
+				//				ResultSet res_type = pstmt.executeQuery();
+				//				while(res.next()) {
+				//					keeptype.add(res_type.getString("animalType"));
+				//				}
+				//			}
+				//			employeeTmp.setAnimalIDs(keeptype);
+				employeeList.add(employeeTmp);
 			}
-		
-		
+
+
 		}
-	return employeeList;
+		return employeeList;
 	}
 
 
@@ -105,7 +105,56 @@ public class EmployeeDAO {
 	 */
 	public List<EmployeeBean> selectEmpByField(EmployeeBean Employee){
 
-		return ;
+		List<EmployeeBean> result = new ArrayList<EmployeeBean>();
+
+		EmployeeDAO dao = new EmployeeDAO(postID);
+
+		try {
+			List<EmployeeBean> allEmp=dao.selectAllEmp();
+			System.out.println(allEmp.size());
+			for (EmployeeBean Emp:allEmp) {
+				int checkBorder = 0;
+				int checkScore 	= 0; 
+				if (!Employee.getEmpID().equals(null)) {
+					checkBorder ++;
+					if(Emp.getEmpID().equals(Employee.getEmpID())) {
+						checkScore++;
+					}
+				}
+				if (!Employee.getLastName().equals(null)) {
+					checkBorder ++;
+					if(Emp.getLastName().equals(Employee.getLastName())) {
+						checkScore++;
+					}
+				}
+				if (!Employee.getFirstName().equals(null)) {
+					checkBorder ++;
+					if(Emp.getFirstName().equals(Employee.getFirstName())) {
+						checkScore++;
+					}
+				}
+				if (!Employee.getAreaName().equals(null)) {
+					checkBorder ++;
+					if(Emp.getAreaName().equals(Employee.getAreaName())) {
+						checkScore++;
+					}
+				}
+				if (!Employee.getLastName().equals(null)) {
+					checkBorder ++;
+					if(Emp.getLastName().equals(Employee.getLastName())) {
+						checkScore++;
+					}
+				}
+				if (checkBorder ==checkScore) {
+					result.add(Emp);
+				}
+			}
+		}catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return result;
+
 	}
 
 
@@ -128,7 +177,7 @@ public class EmployeeDAO {
 			int postID = employee.getPostID();
 			int areaID = employee.getAreaID();
 			String startWork = employee.getStartWork();
-			
+
 			String photo = employee.getPhotoURL();
 
 
@@ -141,7 +190,7 @@ public class EmployeeDAO {
 			pstmt.setInt(6,postID);
 			pstmt.setInt(7,areaID);
 			pstmt.setString(8,startWork);
-			
+
 			pstmt.setString(9,photo);
 
 
@@ -216,15 +265,15 @@ public class EmployeeDAO {
 
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
 		result = df.format(date);		
-		
+
 		return result;
-		
+
 	}
-	
-	
+
+
 	public String getDateUntilMonth(Date date) {
 		String result;
-		
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
 		result = df.format(date);
 
