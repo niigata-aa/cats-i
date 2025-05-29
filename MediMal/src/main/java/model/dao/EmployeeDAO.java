@@ -21,12 +21,7 @@ public class EmployeeDAO {
 		this.postID=postID;
 	}
 	
-	public EmployeeDAO() {
-		
-	}
-
-
-
+	
 
 
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {

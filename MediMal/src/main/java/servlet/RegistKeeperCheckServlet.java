@@ -43,10 +43,10 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-
+		 
 
 		String empID = (String) session.getAttribute("empID");
-		String  empPass = (String)session.getAttribute("empPass");
+		String empPass = (String)session.getAttribute("empPass");
 		String lastName = (String)session.getAttribute("lastName");
 		String firstName = (String)session.getAttribute("firstName");
 		String gender = (String)session.getAttribute("gender");
@@ -69,7 +69,7 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 
 
 		//DAOの生成
-		EmployeeDAO employeeDao = new EmployeeDAO();
+		EmployeeDAO employeeDao = new EmployeeDAO("10");
 		
 
 		try {
