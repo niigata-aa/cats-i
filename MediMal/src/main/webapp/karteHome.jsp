@@ -7,19 +7,20 @@
 <title>カルテホーム画面</title>
 </head>
 <body>
+	<%@ include file="headerRink.jsp"%>
 	<form action="goSearchAnimalServlet" method="post">
 		<input type="submit" value="動物検索画面へ">
 	</form>
 
-	<% 
-		String  idhead = (String)session.getAttribute("IDhead");
-		if(idhead.equals("20")){
+	<%
+	String idhead = (String) session.getAttribute("postID");
+	if (idhead.equals("20")) {
 	%>
 	<form action="goRegistAnimalServlet" method="post">
 		<input type="submit" value="動物登録画面へ">
 	</form>
 	<%
 	}
-		%>
+	%>
 </body>
 </html>

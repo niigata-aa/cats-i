@@ -45,12 +45,9 @@ public class goSearchKeeperServlet extends HttpServlet {
 
 		if (session.getAttribute("LoginID")!=null) {
 			url = "searchKeeper.jsp";
-			
 		}else {
 			url = "login.jsp";
 		}
-		
-		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 
 		rd.forward(request, response);

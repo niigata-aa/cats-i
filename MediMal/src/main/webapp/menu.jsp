@@ -7,22 +7,23 @@
 <title>メインメニュー</title>
 </head>
 <body>
+	<%@ include file="headerRink.jsp"%>
 	<%=session.getAttribute("LoginID")%>さんようこそ。
 
 
-	<form action="goSearchKeeperServlet" method="post">
+	<form action="goSearchKeeper" method="post">
 		<input type="submit" value="飼育員検索画面へ"><br>
 	</form>
 
-	<form action="goKarteHomeServlet" method="post">
+	<form action="goKarteHome" method="post">
 		<input type="submit" value="カルテホーム画面へ">
 	</form>
 
 	<%
-	String idhead = (String) session.getAttribute("IDhead");
+	String idhead = (String) session.getAttribute("postID");
 	if (idhead.equals("10")) {
 	%>
-	<form action="goRegistKeeperServlet" method="post">
+	<form action="goRegistKeeper" method="post">
 		<input type="submit" value="飼育員登録画面へ">
 	</form>
 	<%

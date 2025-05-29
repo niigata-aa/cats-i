@@ -23,7 +23,7 @@
 	<%
 		for(EmployeeBean employee : employeeList){
 	%>
-	<tr><td><img src=<%=employee.getPhoto() %>></td>
+	<tr><td><img src=<%=employee.getPhotoURL() %>></td>
 	<td><%=employee.getEmpID() %>
 		<%=employee.getLastName() %>
 		<%=employee.getFirstName() %>
@@ -34,7 +34,7 @@
 		<%=employee.getStartWork() %></td></tr>
 	</table>
 	<%
-		String  idhead = (String)session.getAttribute("IDhead");
+		String  idhead = (String)session.getAttribute("postID");
 		if(idhead.equals("10")){
 	%>
 	<form action="goUpdateKeeper" method="post">

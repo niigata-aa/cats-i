@@ -14,6 +14,12 @@ import model.entity.AnimalBean;
 
 public class AnimalDAO {
 	
+	private String postID;
+	
+	public AnimalDAO(String postID) {
+		this.postID = postID;
+	}
+	
 	/**
 	 * 動物の一覧表示
 	 */
@@ -21,17 +27,17 @@ public class AnimalDAO {
 		List<AnimalBean> animalList = new ArrayList<AnimalBean>();
 
 		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
-		try (Connection con = ConnectionManagerKeeper.getConnection();
+		try (Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery("SELECT * FROM m_animal")){
+				ResultSet res = stmt.executeQuery("SELECT * FROM medimaldb.animal_view")){
 			
 			while(res.next()){
 				String animalID = res.getString("animalID");
-				String name = res.getString("name");
-				String animalType = res.getString("animalType");
-				String animalKind = res.getString("animalKind");
-				String area = res.getString("area");
-				List<String> keepers = res.List<String>("keeper");
+				String name = res.getString("animalName");
+				String animalType = res.getString("AnimalType");
+				String animalKind = res.getString("KindName");
+				String area = res.getString("area_name");
+				String BirthDay = getDateUntilDay(res.getDate("birthday"));
 				String country = res.getString("country");
 				String sex = res.getString("sex");
 				String photo = res.getString("photo");
@@ -42,11 +48,12 @@ public class AnimalDAO {
 				animal.setAnimalType(animalType);
 				animal.setAnimalKind(animalKind);
 				animal.setArea(area);
-				animal.setKeepers(keepers);
 				animal.setCountry(country);
 				animal.setPhoto(photo);
-
-
+				animal.setSex(sex);
+				animal.setBirthDay(BirthDay);
+				
+				animalList.add(animal);
 			}
 		}
 		return animalList;
@@ -93,7 +100,7 @@ public class AnimalDAO {
 			String sql = "UPDATE m_animal SET livingNow = ? WHERE animalID = ?";
 		
 			// データベースへの接続の取得、PreparedStatementの取得
-			try(Connection con = ConnectionManager.getConnection(empID);
+			try(Connection con = ConnectionManager.getConnection(postID);
 					PreparedStatement pstmt=con.prepareStatement(sql)){
 		
 			// プレースホルダへの値の設定

@@ -8,6 +8,7 @@ import java.util.List;
 
 public class EmployeeBean implements Serializable {
 
+<<<<<<< HEAD
 	private String empID;
 	private String empPass;
 	private String lastName;
@@ -19,6 +20,18 @@ public class EmployeeBean implements Serializable {
 	private Date startWork;
 	private int livingNow;
 	private String photo;
+=======
+	private String 			empID;
+	private String 			empPass;
+	private String 			lastName;
+	private String 			firstName;
+	private String 			gender;
+	private List<String>	animalIDs = new ArrayList<String>();
+	private String 			area ;
+	private String 			startWork;
+	private int 			livingNow;
+	private String 			photoURL;
+>>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 	
 	
 	public EmployeeBean() {
@@ -86,11 +99,19 @@ public class EmployeeBean implements Serializable {
 	}
 
 
+<<<<<<< HEAD
 	public int getPost() {
 		return post;
+=======
+	
+
+	public String getArea() {
+		return area;
+>>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 	}
 
 
+<<<<<<< HEAD
 	public void setPost(int post) {
 		this.post = post;
 	}
@@ -102,6 +123,9 @@ public class EmployeeBean implements Serializable {
 
 
 	public void setArea(int area) {
+=======
+	public void setArea(String area) {
+>>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 		this.area = area;
 	}
 

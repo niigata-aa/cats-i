@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ReturnServlet
+ * Servlet implementation class FinalUpdateKeeperCheckServlet
  */
-@WebServlet("/return")
-public class ReturnServlet extends HttpServlet {
+@WebServlet("/FinalUpdateKeeperCheckServlet")
+public class FinalUpdateKeeperCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReturnServlet() {
+    public FinalUpdateKeeperCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,26 +29,28 @@ public class ReturnServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
-		String url = null;
+		//ログインしてるか
+		String url;
 
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = (String) session.getAttribute("returnURL");
+			url = "";
 		}else {
 			url ="login.jsp";
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+		//動物情報変更・削除画面（確認画面）に行く
+		//このサーブレットでは通過するだけ
+		RequestDispatcher rd = request.getRequestDispatcher("");
 		rd.forward(request, response);
 	}
 

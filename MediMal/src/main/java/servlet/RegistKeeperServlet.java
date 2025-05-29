@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.entity.EmployeeBean;
+
 /**
  * Servlet implementation class RegistKeeperServlet
  */
@@ -50,21 +52,34 @@ public class RegistKeeperServlet extends HttpServlet {
 		}
 		
 		
-//		String empID = request.getParameter("empID");
-//		String  empPass = request.getParameter("empPass");
-//		String lastName = request.getParameter("lastName");
-//		String firstName = request.getParameter("firstName");
-//		String gender = request.getParameter("gender");
-//		System.out.println(request.getParameter("postID"));
-//		int postID = Integer.parseInt(request.getParameter("postID"));
-//		int areaID = Integer.parseInt(request.getParameter("areaID"));
-//		String startWork = request.getParameter("");
-//		int livingNow = Integer.parseInt(request.getParameter("livingNow"));
-//		String photo = request.getParameter("photo");
-//		
-//		EmployeeBean employee = new EmployeeBean();
+		String empID = request.getParameter("empID");
+		String  empPass = request.getParameter("empPass");
+		String lastName = request.getParameter("lastName");
+		String firstName = request.getParameter("firstName");
+		String gender = request.getParameter("gender");
+		System.out.println(request.getParameter("postID"));
+		int postID = Integer.parseInt(request.getParameter("postID"));
+		int areaID = Integer.parseInt(request.getParameter("areaID"));
+		String startWork = request.getParameter("startWork");
+		int livingNow = Integer.parseInt(request.getParameter("livingNow"));
+		String photo = request.getParameter("photo");
 		
-//		employee.setEmpID("empID");
+		EmployeeBean employee = new EmployeeBean();
+		
+		//セッションへのデータの登録
+		session.setAttribute("empID", empID);
+		session.setAttribute("empPass",empPass );
+		session.setAttribute("lastName",lastName );
+		session.setAttribute("firstName",firstName );
+		session.setAttribute("gender",gender );
+		session.setAttribute("postID", postID);
+		session.setAttribute("areaID",areaID );
+		session.setAttribute("livingNow",livingNow );
+		session.setAttribute("photo",photo );
+		
+		
+		
+//		.setEmpID("empID");
 //		employee.setEmpID("empPass");
 //		employee.setEmpID("lastName");
 //		employee.setEmpID("firstName");

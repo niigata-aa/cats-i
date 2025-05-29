@@ -8,13 +8,13 @@
 </head>
 <body>
 	ログアウト確認画面<br>
-	ログアウト<br><hr>
+	<h1>ログアウト</h1><hr>
 	ログアウトしますか?<br>
 	<form action="logout" method="post">
 		<input type="submit" value="はい">
 	</form>
 	<form action="return" method="post">
-		<input type="submit" value="はい">
+		<input type="submit" value="いいえ">
 	</form>
 </body>
 </html>

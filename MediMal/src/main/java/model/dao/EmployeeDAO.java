@@ -27,14 +27,23 @@ public class EmployeeDAO {
 
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {
 		List<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+<<<<<<< HEAD
 
 		String sql = "select empID,lastName,firstName,gender,area.area_name,gender,post.postName, startWork from m_employee emp Left join m_area area on emp.areaID =area.areaID left join m_post post on emp.postID =post.postID";
 
 
+=======
+		
+		String sql = "select * from medimaldb.employee_view3 where postName='飼育員'";
+		String sql_type = "select * from medimaldb.keeptype_view where empID = ? ";
+				
+		
+>>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
 				ResultSet res = stmt.executeQuery(sql)){
+<<<<<<< HEAD
 
 			while(res.next()){
 
@@ -51,6 +60,29 @@ public class EmployeeDAO {
 
 				employeeList.add(employeeTmp);
 
+=======
+		
+		while(res.next()){
+			List<String> keeptype = new ArrayList<String>();
+			EmployeeBean employeeTmp = new EmployeeBean();
+			employeeTmp.setEmpID(res.getString("empID"));
+			employeeTmp.setLastName(res.getString("lastName"));
+			employeeTmp.setFirstName(res.getString("firstname"));
+			employeeTmp.setGender(res.getString("gender"));
+			employeeTmp.setArea(res.getString("areaName"));
+			employeeTmp.setStartWork(getDateUntilMonth(res.getDate("startWork")));
+//			employeeTmp.setPhotoURL(res.getString("photo"));
+//			
+//			try(PreparedStatement pstmt = con.prepareStatement(sql_type)){
+//				pstmt.setString(1,res.getString("empID"));
+//				ResultSet res_type = pstmt.executeQuery();
+//				while(res.next()) {
+//					keeptype.add(res_type.getString("animalType"));
+//				}
+//			}
+//			employeeTmp.setAnimalIDs(keeptype);
+			employeeList.add(employeeTmp);
+>>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 			}
 
 
@@ -212,6 +244,22 @@ public class EmployeeDAO {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
 		result = df.format(date);
 
+<<<<<<< HEAD
+=======
+		
+		
+		
+		return result;
+		
+	}
+	
+	
+	public String getDateUntilMonth(Date date) {
+		String result;
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
+		result = df.format(date);
+>>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 
 
 
