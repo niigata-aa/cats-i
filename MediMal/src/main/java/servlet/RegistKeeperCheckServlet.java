@@ -1,4 +1,4 @@
-package sevlet;
+package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -44,21 +44,19 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 
-		
-		String empID = request.getParameter("EmpID");
-		String  empPass = request.getParameter("EmpPass");
-		String lastName = request.getParameter("LastName");
-		String firstName = request.getParameter("FirstName");
-		String gender = request.getParameter("Gender");
-		int postID = Integer.parseInt(request.getParameter("Post"));
-		int areaID = Integer.parseInt(request.getParameter("Area"));
-		String startWork = request.getParameter("StartWork");
-		int livingNow = Integer.parseInt(request.getParameter("LivingNow"));
-		String photoURL = request.getParameter("Photo");
-		
-		
 
-		
+		String empID = request.getParameter("empID");
+		String  empPass = request.getParameter("empPass");
+		String lastName = request.getParameter("lastName");
+		String firstName = request.getParameter("firstName");
+		String gender = request.getParameter("gender");
+		int postID = Integer.parseInt(request.getParameter("post"));
+		int areaID = Integer.parseInt(request.getParameter("area"));
+		String startWork = request.getParameter("startWork");
+		int livingNow = Integer.parseInt(request.getParameter("livingNow"));
+		String photoURL = request.getParameter("photo");
+
+
 		EmployeeBean employee = new EmployeeBean();
 		employee.setEmpID(empID);
 		employee.setEmpPass(empPass);
@@ -70,15 +68,10 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		employee.setStartWork(startWork);
 		employee.setLivingNow(livingNow);
 		employee.setPhoto(photoURL);
-		
-		
-		
-	
-
 
 
 		//DAOの生成
-		EmployeeDAO employeeDao = new EmployeeDAO();
+		EmployeeDAO employeeDao = new EmployeeDAO((String) session.getAttribute("postID"));
 		int count = 0; //処理件数
 
 		try {
@@ -88,16 +81,9 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		request.setAttribute(empID, "empID");
-		request.setAttribute(empPass, "empPass");
-		request.setAttribute(lastName, "lastName");
-		request.setAttribute(firstName, "firstName");
-		request.setAttribute(gender, "gender");
-		request.setAttribute(postID, "postID");
-		request.setAttribute(areaID, "areaID");
-		request.setAttribute(startWork, "startWork");
-		request.setAttribute(livingNow, "livingNow");
-		request.setAttribute(photoURL, "photoURL");
+		
+		
+		request.setAttribute("employee", employee);
 
 
 
@@ -111,7 +97,7 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		}
 
 
-		//リクエストの転送　体重記録の完了画面へ
+		//リクエストの転送　従業員登録画面の完了画面へ
 		RequestDispatcher rd = request.getRequestDispatcher("doneRegistKeeper.jsp");
 		rd.forward(request, response);
 	}

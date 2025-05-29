@@ -1,8 +1,10 @@
 package model.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class EmployeeBean implements Serializable {
 
@@ -14,7 +16,7 @@ public class EmployeeBean implements Serializable {
 	private List<String>animalIDs = new ArrayList<String>();
 	private int post;
 	private int area;
-	private String startWork;
+	private Date startWork;
 	private int livingNow;
 	private String photo;
 	

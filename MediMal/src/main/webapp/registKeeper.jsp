@@ -25,10 +25,10 @@
 	エリアＩＤ:
 	<input type = "number" name = "areaID"><br>
 	業務開始日:
-	<input type = "SimpleDateFormat" name = "startWork"><br>
+	<input type = "date" name = "startWork"><br>
 	 
 	在籍情報:
-	<input type = "Tinyint" name = "workingNow"><br>
+	<input type = "tinyint" name = "workingNow"><br>
 	写真:
 	<input type = "text" name = "photoURL"><br>
 
