@@ -38,6 +38,7 @@ public class RegistKeeperServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		request.setCharacterEncoding("utf-8"); 
 
 		//ログインしてるか
 		String url;
@@ -47,7 +48,46 @@ public class RegistKeeperServlet extends HttpServlet {
 		}else {
 			url ="login.jsp";
 		}
-
+		
+		
+//		String empID = request.getParameter("empID");
+//		String  empPass = request.getParameter("empPass");
+//		String lastName = request.getParameter("lastName");
+//		String firstName = request.getParameter("firstName");
+//		String gender = request.getParameter("gender");
+//		System.out.println(request.getParameter("postID"));
+//		int postID = Integer.parseInt(request.getParameter("postID"));
+//		int areaID = Integer.parseInt(request.getParameter("areaID"));
+//		String startWork = request.getParameter("");
+//		int livingNow = Integer.parseInt(request.getParameter("livingNow"));
+//		String photo = request.getParameter("photo");
+//		
+//		EmployeeBean employee = new EmployeeBean();
+		
+//		employee.setEmpID("empID");
+//		employee.setEmpID("empPass");
+//		employee.setEmpID("lastName");
+//		employee.setEmpID("firstName");
+//		employee.setEmpID("gender");
+//		employee.setEmpID("postID");
+//		employee.setEmpID("areaID");
+//		employee.setEmpID("startWork");
+//		employee.setEmpID("livingNow");
+//		employee.setEmpID("photo");
+//		employee.setEmpID("empID");	
+//		
+//		request.setAttribute("empID",empID );
+//		request.setAttribute("empPass",empPass );
+//		request.setAttribute("lastName",lastName );
+//		request.setAttribute("firstName",firstName );
+//		request.setAttribute("gender",gender );
+//		request.setAttribute("postID",postID );
+//		request.setAttribute("areaID",areaID );
+//		request.setAttribute("startWork",startWork );
+//		request.setAttribute("livingNow",livingNow );
+//		request.setAttribute("photo",photo );
+		
+		
 
 		//リクエストの転送　飼育員登録の完了画面へ
 		RequestDispatcher rd = request.getRequestDispatcher("checkRegistKeeper.jsp");

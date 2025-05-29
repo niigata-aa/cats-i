@@ -50,11 +50,13 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 		String firstName = request.getParameter("firstName");
 		String gender = request.getParameter("gender");
-		int postID = Integer.parseInt(request.getParameter("post"));
-		int areaID = Integer.parseInt(request.getParameter("area"));
+		System.out.println("PostID" + request.getParameter("postID"));
+		System.out.println("areaID" + request.getParameter("areaID"));
+		int postID = Integer.parseInt(request.getParameter("postID"));
+		int areaID = Integer.parseInt(request.getParameter("areaID"));
 		String startWork = request.getParameter("startWork");
 		int livingNow = Integer.parseInt(request.getParameter("livingNow"));
-		String photoURL = request.getParameter("photo");
+		String photo = request.getParameter("photo");
 
 
 		EmployeeBean employee = new EmployeeBean();
@@ -67,7 +69,7 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		employee.setArea(areaID);
 		employee.setStartWork(startWork);
 		employee.setLivingNow(livingNow);
-		employee.setPhoto(photoURL);
+		employee.setPhoto(photo);
 
 
 		//DAOの生成

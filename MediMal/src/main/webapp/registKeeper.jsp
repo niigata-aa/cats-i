@@ -10,7 +10,7 @@
 	
 	<form action = "registKeeper" method = "post">
 	
-	飼育員ID:
+	従業員ID:
 	<input type = "text" name = "empID"><br>
 	パスワード:
 	<input type = text name = “empPass”><br>
@@ -22,15 +22,15 @@
 	<input type = text name = "gender"><br>
 	業務種別:
 	<input type = "number" name = "postID"><br>
-	エリアＩＤ:
+	エリアID:
 	<input type = "number" name = "areaID"><br>
 	業務開始日:
 	<input type = "date" name = "startWork"><br>
 	 
 	在籍情報:
-	<input type = "tinyint" name = "workingNow"><br>
+	<input type = "tinyint" name = "livingNow"><br>
 	写真:
-	<input type = "text" name = "photoURL"><br>
+	<input type = "text" name = "photo"><br>
 
 
 	<input type = "submit" value = "登録">

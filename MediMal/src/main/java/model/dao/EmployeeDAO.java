@@ -43,9 +43,9 @@ public class EmployeeDAO {
 				employeeTmp.setLastName(res.getString("lastName"));
 				employeeTmp.setFirstName(res.getString("firstname"));
 				employeeTmp.setGender(res.getString("gender"));
-				employeeTmp.setPost(res.getString("post"));
+				employeeTmp.setPost(res.getInt("post"));
 				//employee.setAnimalIDs(animalIDs);
-				employeeTmp.setArea(res.getString("area"));
+				employeeTmp.setArea(res.getInt("area"));
 				employeeTmp.setStartWork(getDateUntilMonth(res.getTimestamp("startWork")));
 				employeeTmp.setPhoto(res.getString("photo"));
 
@@ -124,7 +124,7 @@ public class EmployeeDAO {
 			int areaID = employee.getArea();
 			String startWork = getDateUntilMonth(employee.getStartWork());
 			int livingNow = employee.getLivingNow();
-			String photoURL = employee.getPhoto();
+			String photo = employee.getPhoto();
 
 
 			//プレースホルダーへの値の設定
@@ -137,7 +137,7 @@ public class EmployeeDAO {
 			pstmt.setInt(7,areaID);
 			pstmt.setString(8,startWork);
 			pstmt.setInt(9,livingNow);
-			pstmt.setString(10,photoURL);
+			pstmt.setString(10,photo);
 
 
 
@@ -220,11 +220,11 @@ public class EmployeeDAO {
 	}
 
 
-	public String getDateUntilMonth(String string) {
+	public String getDateUntilMonth(Timestamp timestamp) {
 		String result;
 
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
-		result = df.format(string);
+		result = df.format(timestamp);
 
 
 
