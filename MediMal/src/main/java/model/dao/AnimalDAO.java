@@ -13,7 +13,7 @@ import java.util.List;
 import model.entity.AnimalBean;
 
 public class AnimalDAO {
-	
+	//キレそう
 	private String postID;
 	
 	public AnimalDAO(String postID) {
