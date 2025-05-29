@@ -7,30 +7,30 @@
 <title>飼育員在籍情報・削除画面</title>
 </head>
 <body>
-	<jsp:useBean id="employee" class="model.entity.EmployeeBean" scope="session"/>
+	
 
 	<form action = "updateKeeper" method="post">
-		飼育員在籍情報 : <input type = "radio" name="employee" value="<jsp:getProperty name="employee" property="livingNow"/>">在籍
+		飼育員在籍情報 : <input type = "radio" name="employee" value=1>在籍
 		
-		<input type = "radio" name="employee" value="<jsp:getProperty name="employee" property="livingNow"/>">退籍
+		<input type = "radio" name="employee" value=0>退籍
 	
-		飼育員ID : <input type="text" name="emdID"
-				   value="<jsp:getProperty name="employee" property="empID" />">
+		飼育員ID : <input type="text" name="empID"
+				   value=<%=request.getParameter("empID") %>>
 			   
 		担当動物種族 : <input type="text" name=""
-				   value="<jsp:getProperty name="employee" property="" />"><br>
+				   value=><br>
 
 		名前 : <input type="text" name="lastname"
-				   value="<jsp:getProperty name="employee" property="lastname" />">
+				   value=<%= request.getParameter("lastName") %>>
 			   
 				<input type="text" name="firstname"
-				   value="<jsp:getProperty name="employee" property="firstname" />">
+				   value=<%=request.getParameter("firstName") %>>
 	
 		性別 : <input type="text" name="gender"
-				   value="<jsp:getProperty name="employee" property="gender" />"><br>
+				   value=<%=request.getParameter("gender") %>><br>
 			   
 		担当エリア : <input type="text" name="area"
-				   value="<jsp:getProperty name="employee" property="area" />">
+				   value=<%=request.getParameter("area")%>>
 	
 		写真 : 
 	

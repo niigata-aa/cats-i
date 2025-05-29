@@ -27,31 +27,33 @@
 	<td><%=employee.getEmpID() %>
 		<%=employee.getLastName() %>
 		<%=employee.getFirstName() %>
-		<%=employee.getArea_name() %>
+		<%=employee.getAreaName() %>
 		
 		<!-- 担当動物個体の表示とそこから詳細カルテに飛ぶ方法が分かりません -->
 		<!--  =employee.get() %>-->
-		<%=employee.getStartWork() %></td></tr>
+		<%=employee.getStartWork() %>
 		
-	</table>
-	<form action = "goUpdateKeeper" method="post">
-		<input type ="hidden" name="empID" value=<%= employee.getEmpID() %>>
-		<input type ="hidden" name="lastName" value=<%= employee.getLastName() %>>
-		<input type ="hidden" name="firstName" value=<%= employee.getFirstName() %>>
-		<input type ="hidden" name="area" value=<%= employee.getArea_name() %>>
-	</form>
+	
 	
 	<%
 		String  idhead = (String)session.getAttribute("postID");
 		if(idhead.equals("10")){
 	%>
-	
 	<form action="goUpdateKeeper" method="post">
-			
+		<input type ="hidden" name="empID" value=<%= employee.getEmpID() %>>
+		<input type ="hidden" name="lastName" value=<%= employee.getLastName() %>>
+		<input type ="hidden" name="firstName" value=<%= employee.getFirstName() %>>
+		<input type ="hidden" name="area" value=<%= employee.getAreaName() %>>
 		<input type="submit" value="編集・削除">
 	</form>
+	
+	
 	<%
-		} }
+		}
+		%>
+	</td></tr>
+	
+	<%	}
 	%>
 	
 </body>
