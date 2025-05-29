@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class GoSearchKeeper
+ * Servlet implementation class goRegistAnimalServlet
  */
-@WebServlet("/goSearchKeeper")
-public class goSearchKeeperServlet extends HttpServlet {
+@WebServlet("/goRegistAnimal")
+public class goRegistAnimalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public goSearchKeeperServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public goRegistAnimalServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -56,4 +56,5 @@ public class goSearchKeeperServlet extends HttpServlet {
 		rd.forward(request, response);
 
 	}
-	}
+
+}

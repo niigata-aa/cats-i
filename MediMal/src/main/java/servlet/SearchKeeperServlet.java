@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +12,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class GoSearchKeeper
- */
-@WebServlet("/goSearchKeeper")
-public class goSearchKeeperServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import model.dao.EmployeeDAO;
+import model.entity.EmployeeBean;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public goSearchKeeperServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+/**
+ * Servlet implementation class SearchKeeperServlet
+ */
+@WebServlet("/SearchKeeper")
+public class SearchKeeperServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private List<EmployeeBean> employeeList;
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SearchKeeperServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,23 +42,33 @@ public class goSearchKeeperServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = null;
+		String url ;
 
 		HttpSession session = request.getSession();
 		
+		String postID = (String) session.getAttribute("postID");
 		
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "searchKeeper.jsp";
-			
+			url = "resultSearchKeeper.jsp";
 		}else {
-			url = "login.jsp";
+			url ="login.jsp";
 		}
 		
-		
+		//DAOの生成
+		EmployeeDAO dao = new EmployeeDAO(postID);
+		try {
+		//DAOの利用
+			employeeList = dao.selectAllEmp();
+		}catch(SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		//レクエストスコープへの属性の設定
+		request.setAttribute("employeeList", employeeList);
+		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
-
 		rd.forward(request, response);
+		
+	}
 
-	}
-	}
+}

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class goKarteHomeServlet
  */
-@WebServlet("/goKarteHomeServlet")
+@WebServlet("/goKarteHome")
 public class goKarteHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
