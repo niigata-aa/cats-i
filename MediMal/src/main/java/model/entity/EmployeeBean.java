@@ -16,7 +16,33 @@ public class EmployeeBean implements Serializable {
 	private String 			gender;
 	private List<String>	animalIDs = new ArrayList<String>();
 	private int				post;
-	private int 			area ;
+	private int 			area;
+	private String			post_name;
+	public String getPost_name() {
+		return post_name;
+	}
+
+
+
+	public void setPost_name(String post_name) {
+		this.post_name = post_name;
+	}
+
+
+
+	public String getArea_name() {
+		return area_name;
+	}
+
+
+
+	public void setArea_name(String area_name) {
+		this.area_name = area_name;
+	}
+
+
+
+	private String			area_name;
 	private String 			startWork;
 	private int 			livingNow;
 	private String 			photoURL;

@@ -50,7 +50,7 @@ public class goRegistKeeperServlet extends HttpServlet {
 				
 				
 				//リクエストの転送　飼育員登録の完了画面へ
-				RequestDispatcher rd = request.getRequestDispatcher("checkRegistKeeper.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("registKeeper.jsp");
 				rd.forward(request, response);
 	}
 

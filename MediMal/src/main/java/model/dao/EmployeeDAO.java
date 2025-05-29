@@ -44,7 +44,7 @@ public class EmployeeDAO {
 			employeeTmp.setLastName(res.getString("lastName"));
 			employeeTmp.setFirstName(res.getString("firstname"));
 			employeeTmp.setGender(res.getString("gender"));
-			employeeTmp.setArea(res.getString("areaName"));
+			employeeTmp.setArea_name(res.getString("areaName"));
 			employeeTmp.setStartWork(getDateUntilMonth(res.getDate("startWork")));
 //			employeeTmp.setPhotoURL(res.getString("photo"));
 //			
@@ -128,7 +128,7 @@ public class EmployeeDAO {
 			String gender = employee.getGender();
 			int postID = employee.getPost();
 			int areaID = employee.getArea();
-			String startWork = getDateUntilMonth(employee.getStartWork());
+			String startWork = employee.getStartWork();
 			int livingNow = employee.getLivingNow();
 			String photo = employee.getPhotoURL();
 
@@ -223,11 +223,11 @@ public class EmployeeDAO {
 	}
 	
 	
-	public String getDateUntilMonth(String string) {
+	public String getDateUntilMonth(Date date) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
-		result = df.format(string);
+		result = df.format(date);
 
 
 
