@@ -13,7 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import model.dao.EmployeeDAO;
 import model.entity.EmployeeBean;
-	//拒否られてキレそう
+	//拒否られて
+
 /**
  * Servlet implementation class SearchKeeperServlet
  */
