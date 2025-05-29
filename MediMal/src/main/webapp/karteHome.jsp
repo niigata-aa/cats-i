@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +7,19 @@
 <title>カルテホーム画面</title>
 </head>
 <body>
-<form action="goSearchAnimalServlet" method="post">
-	<input type="submit" value="動物検索画面へ">
+	<form action="goSearchAnimalServlet" method="post">
+		<input type="submit" value="動物検索画面へ">
+	</form>
 
-</form>
+	<% 
+		String  idhead = (String)session.getAttribute("IDhead");
+		if(idhead.equals("20")){
+	%>
+	<form action="goRegistAnimalServlet" method="post">
+		<input type="submit" value="動物登録画面へ">
+	</form>
+	<%
+	}
+		%>
 </body>
 </html>

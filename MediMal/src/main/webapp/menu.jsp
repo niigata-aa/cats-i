@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,17 +7,26 @@
 <title>メインメニュー</title>
 </head>
 <body>
-	<%@ include file="headerRink.jsp" %>
+	<%=session.getAttribute("LoginID")%>さんようこそ。
 
-	<%=session.getAttribute("LoginID") %>さんようこそ。
-	
-	
+
 	<form action="goSearchKeeperServlet" method="post">
 		<input type="submit" value="飼育員検索画面へ"><br>
 	</form>
-	
+
 	<form action="goKarteHomeServlet" method="post">
 		<input type="submit" value="カルテホーム画面へ">
-	</form>	
+	</form>
+
+	<%
+	String idhead = (String) session.getAttribute("IDhead");
+	if (idhead.equals("10")) {
+	%>
+	<form action="goRegistKeeperServlet" method="post">
+		<input type="submit" value="飼育員登録画面へ">
+	</form>
+	<%
+	}
+	%>
 </body>
 </html>
