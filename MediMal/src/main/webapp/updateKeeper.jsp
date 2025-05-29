@@ -32,7 +32,7 @@
 		担当エリア : <input type="text" name="area"
 				   value=<%=request.getParameter("area")%>>
 	
-		写真 : ;
+		写真 : 
 	
 		<br>
 	
