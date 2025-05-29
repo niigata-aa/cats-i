@@ -130,7 +130,7 @@ public class EmployeeDAO {
 			int areaID = employee.getArea();
 			String startWork = getDateUntilMonth(employee.getStartWork());
 			int livingNow = employee.getLivingNow();
-			String photo = employee.getPhoto();
+			String photo = employee.getPhotoURL();
 
 
 			//プレースホルダーへの値の設定
@@ -223,11 +223,11 @@ public class EmployeeDAO {
 	}
 	
 	
-	public String getDateUntilMonth(Date date) {
+	public String getDateUntilMonth(String string) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
-		result = df.format(date);
+		result = df.format(string);
 
 
 

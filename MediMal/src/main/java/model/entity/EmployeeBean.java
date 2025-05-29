@@ -15,7 +15,8 @@ public class EmployeeBean implements Serializable {
 	private String 			firstName;
 	private String 			gender;
 	private List<String>	animalIDs = new ArrayList<String>();
-	private String 			area ;
+	private int				post;
+	private int 			area ;
 	private String 			startWork;
 	private int 			livingNow;
 	private String 			photoURL;
@@ -100,13 +101,25 @@ public class EmployeeBean implements Serializable {
 
 
 
-	public String getArea() {
+	public int getPost() {
+		return post;
+	}
+
+
+
+	public void setPost(int post) {
+		this.post = post;
+	}
+
+
+
+	public int getArea() {
 		return area;
 	}
 
 
 
-	public void setArea(String area) {
+	public void setArea(int area) {
 		this.area = area;
 	}
 
@@ -145,6 +158,8 @@ public class EmployeeBean implements Serializable {
 	public void setPhotoURL(String photoURL) {
 		this.photoURL = photoURL;
 	}
+
+
 
 
 }

@@ -11,7 +11,6 @@
 <p>※以下の内容で従業員情報を登録しますか？</p>
 	
 	<%request.setCharacterEncoding("utf-8"); %>
-	<%@page contentType="text/html; charset=utf-8" %>
 	
 	<%
 	String empID = (String)session.getAttribute("empID");
@@ -21,41 +20,33 @@
 	String gender = (String)session.getAttribute("gender");
 	int postID = (int)session.getAttribute("postID");
 	int areaID = (int)session.getAttribute("areaID");
-	int startWork = (int)session.getAttribute("startWork");
-	int livingNow = (int)session.getAttribute("livingNow");
+	String startWork = (String)session.getAttribute("startWork");
 	String photo = (String)session.getAttribute("photo");
 	
 	%>
 	
 	
 	
-	従業員ID　:　<%=empID %>
+	従業員ID　:　<%=empID %><br>
 	
-	パスワード　:　<%=empPass %>
+	パスワード　:　<%=empPass %><br>
 	
 	
-	名字　:　<%= %>
+	名字　:　<%=lastName%><br>
 	
 	
 	名前　:　<%=firstName %><br>
 	
-	性別　:　<%= %>
-	<% String gender = request.getParameter("gender"); %><br>
+	性別　:　<%=gender%><br>
 	
-	業務種別　:　<%= %>
-	<% String <%= %>postID = request.getParameter("postID"); %><br>
+	業務種別　:　<%=postID %><br>
 	
-	エリアID　:　
-	<% String areaID = request.getParameter("areaID"); %><br>
 	
-	業務開始日　:　<%= %>
-	<% String startWork = request.getParameter("startWork"); %><br>
+	エリアID　:　<%=areaID%><br>
 	
-	在籍情報　:　<%= %>
-	<% String livingNow = request.getParameter("livingNow"); %><br>
+	業務開始日　:　<%=startWork%><br>
 	
-	写真　:　<%= %>
-	<% String photo = request.getParameter("photo"); %><br>
+	写真　:　<%=photo%><br>
 	
 	
 

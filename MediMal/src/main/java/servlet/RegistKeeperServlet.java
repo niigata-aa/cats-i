@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.entity.EmployeeBean;
-
 /**
  * Servlet implementation class RegistKeeperServlet
  */
@@ -61,10 +59,9 @@ public class RegistKeeperServlet extends HttpServlet {
 		int postID = Integer.parseInt(request.getParameter("postID"));
 		int areaID = Integer.parseInt(request.getParameter("areaID"));
 		String startWork = request.getParameter("startWork");
-		int livingNow = Integer.parseInt(request.getParameter("livingNow"));
 		String photo = request.getParameter("photo");
 		
-		EmployeeBean employee = new EmployeeBean();
+//		EmployeeBean employee = new EmployeeBean();
 		
 		//セッションへのデータの登録
 		session.setAttribute("empID", empID);
@@ -74,7 +71,7 @@ public class RegistKeeperServlet extends HttpServlet {
 		session.setAttribute("gender",gender );
 		session.setAttribute("postID", postID);
 		session.setAttribute("areaID",areaID );
-		session.setAttribute("livingNow",livingNow );
+		session.setAttribute("startWork",startWork);
 		session.setAttribute("photo",photo );
 		
 		

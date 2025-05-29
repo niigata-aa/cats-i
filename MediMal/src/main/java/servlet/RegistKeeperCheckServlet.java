@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -45,18 +46,15 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 
-		String empID = request.getParameter("empID");
-		String  empPass = request.getParameter("empPass");
-		String lastName = request.getParameter("lastName");
-		String firstName = request.getParameter("firstName");
-		String gender = request.getParameter("gender");
-		System.out.println("PostID" + request.getParameter("postID"));
-		System.out.println("areaID" + request.getParameter("areaID"));
-		int postID = Integer.parseInt(request.getParameter("postID"));
-		int areaID = Integer.parseInt(request.getParameter("areaID"));
-		String startWork = request.getParameter("startWork");
-		int livingNow = Integer.parseInt(request.getParameter("livingNow"));
-		String photo = request.getParameter("photo");
+		String empID = (String) session.getAttribute("empID");
+		String  empPass = (String)session.getAttribute("empPass");
+		String lastName = (String)session.getAttribute("lastName");
+		String firstName = (String)session.getAttribute("firstName");
+		String gender = (String)session.getAttribute("gender");
+		int postID = (int)session.getAttribute("postID");
+		int areaID = (int)session.getAttribute("areaID");
+		Date startWork = (Date)session.getAttribute("startWork");
+		String photo = (String)session.getAttribute("photo");
 
 
 		EmployeeBean employee = new EmployeeBean();
@@ -68,8 +66,7 @@ public class RegistKeeperCheckServlet extends HttpServlet {
 		employee.setPost(postID);
 		employee.setArea(areaID);
 		employee.setStartWork(startWork);
-		employee.setLivingNow(livingNow);
-		employee.setPhoto(photo);
+		employee.setPhotoURL(photo);
 
 
 		//DAOの生成

@@ -27,8 +27,6 @@
 	業務開始日:
 	<input type = "date" name = "startWork"><br>
 	 
-	在籍情報:
-	<input type = "tinyint" name = "livingNow"><br>
 	写真:
 	<input type = "text" name = "photo"><br>
 
