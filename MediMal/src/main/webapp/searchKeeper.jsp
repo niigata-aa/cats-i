@@ -8,7 +8,8 @@
 </head>
 <body>
 	<%@ include file="headerLink.jsp"%>
-
+	<h1>飼育員検索画面</h1>
+	
 	<form action="searchAllKeeper" method="post">
 		<input type="submit" value="一覧表示">
 	</form>
