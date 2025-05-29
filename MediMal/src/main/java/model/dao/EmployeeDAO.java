@@ -206,9 +206,35 @@ public class EmployeeDAO {
 	 * @param Employee
 	 * @return
 	 */
-	public int updateEmp(EmployeeBean Employee) {
+	public int updateEmp(EmployeeBean employee) {
+		int processingNumber = 0; //処理件数
 
-		return ;
+		String sql = "UPDATE m_employee SET lastname = ?, firstName = ?, lastName = ?, gender=?, area = ?, photoURL = ?, WHERE empID = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			// Beanからのデータの取り出し
+			String lastName = employee.getLastName();
+			String firstName = employee.getFirstName();
+			String gender = employee.getGender();
+			String area = employee.getAreaName();
+            String photo = employee.getPhotoURL();
+            String empID = employee.getEmpID();
+
+			// プレースホルダへの値の設定
+			pstmt.setInt(1, lastName);
+			pstmt.setString(2, firstName);
+			pstmt.setString(3, gender);
+			pstmt.setString(4, area);
+            pstmt.setString(5, photoURL);
+            pstmt.setString(6, empID);
+
+			// SQLステートメントの実行
+			processingNumber = pstmt.executeUpdate();
+		}
+		return processingNumber;
 	}
 
 	/**
@@ -218,19 +244,49 @@ public class EmployeeDAO {
 	 * @return
 	 */
 	public int hiddenEmp(String ID, int TFNum) {
-
-		return ;
+		int count = 0; //処理件数
+		
+		String sql = "UPDATE m_employee SET livingNow = ? WHERE empID = ?";
+	
+		// データベースへの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection(postID);
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+	
+		// プレースホルダへの値の設定
+		pstmt.setInt(1,);
+		pstmt.setString(2,);
+	
+		// SQLステートメントの実行
+		count = pstmt.executeUpdate();
 	}
-
+	return count;
+}
+	
 	/**
 	 * 
 	 * @param Employee
 	 * @return
 	 */
 	public int deleteEmp(EmployeeBean Employee) {
+		int count = 0; //処理件数
+		
+		String sql = "Delete from m_animal WHERE animalID = ?";
 
-		return ;
-	}
+		// データベースへの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection(postID);
+			PreparedStatement pstmt=con.prepareStatement(sql)){
+			
+			// Beanからのデータの取り出し
+			String animalID = animal.getAnimalID();
+
+			// プレースホルダへの値の設定
+			pstmt.setString(1,animalID);
+
+			// SQLステートメントの実行
+			count = pstmt.executeUpdate();
+		}
+		return count;
+}
 
 	/**
 	 * 
