@@ -68,7 +68,7 @@ public class EmployeeDAO {
 	 * 更新1.1
 	 */
 	public boolean loginCheck(String LoginID,String Password) throws ClassNotFoundException, SQLException {
-		String sql = "select empID ,Password from m_employee where empID= ? and Password = ?";
+		String sql = "select empID ,empPass from m_employee where empID= ? and empPass = ?";
 		
 		try(Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt=con.prepareStatement(sql)){
