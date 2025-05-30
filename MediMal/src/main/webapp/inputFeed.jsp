@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"  import= "model.entity.Feed"%>
+    pageEncoding="UTF-8" import= "model.entity.Feed"%>
     
 <!DOCTYPE html>
 <html>
@@ -12,10 +12,8 @@
 	<form action="inputFeed" method="post">
 	動物ID　:　
 	<input type="text" name="animalID"><br> 
-<!--	動物ID　:　-->
-<!--	<%=request.getParameter("animalID")%><br>-->
 	食事時間　:　
-	<input type="datetime-local" name = "date"><br>
+	<input type="date" name = "feedTime"><br>
 	従業員ID　:　
 	<input type="text" name="empID"><br>
 	食事内容　:　
