@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.dao.EmployeeDAO;
+import model.entity.EmployeeBean;
 
 /**
  * Servlet implementation class FinalUpdateKeeperCheckServlet
@@ -37,21 +41,35 @@ public class FinalUpdateKeeperCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		 
+		EmployeeBean updateEmployee = (EmployeeBean) session.getAttribute("updateEmployee");
+		
+
+		//DAOの生成
+		EmployeeDAO employeeDao = new EmployeeDAO();
+		
+		try {
+			//DAOの利用
+			employeeDao.updatetEmp(updateEmployee);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+		
+
 		//ログインしてるか
 		String url;
 
-		HttpSession session = request.getSession();
-
 		if (session.getAttribute("LoginID")!=null) {
-			url = "";
+			url = "menu.jsp";
 		}else {
 			url ="login.jsp";
 		}
-		
-		//動物情報変更・削除画面（確認画面）に行く
-		//このサーブレットでは通過するだけ
-		RequestDispatcher rd = request.getRequestDispatcher("");
+
+
+		//リクエストの転送　従業員登録画面の完了画面へ
+		RequestDispatcher rd = request.getRequestDispatcher("doneRegistKeeper.jsp");
 		rd.forward(request, response);
 	}
-
 }
