@@ -36,12 +36,12 @@
 		try{
 		//DAOの利用
 			List<AnimalBean> animalList = new ArrayList<AnimalBean>();
-			animalList = dao.selectAllAnimal();
+			animalList = dao.selectOneRecodeAllAnimal(animalID);
 		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		if(animalList.getAnimalID)
+		
 	%>
 	
 	<form action="goInputWeight" method="post">

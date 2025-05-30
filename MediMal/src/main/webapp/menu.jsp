@@ -30,5 +30,9 @@
 	<%
 	}
 	%>
+	<%
+		String returnURL = "menu.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>
