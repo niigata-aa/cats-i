@@ -32,6 +32,8 @@ public class AnimalBean implements Serializable {
 	
 	private int kindID;
 	
+	private int livingNow;
+	
 	public AnimalBean() {
 
 	}
@@ -140,9 +142,13 @@ public class AnimalBean implements Serializable {
 		this.kindID = kindID;
 	}	
 	
-	
-	
-	
+	public int getLivingNow() {
+		return livingNow;
+	}
+
+	public void setLivingNow(int livingNow) {
+		this.livingNow = livingNow;
+	}	
 	
 }
 

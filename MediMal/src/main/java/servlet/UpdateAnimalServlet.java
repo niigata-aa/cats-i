@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.entity.AnimalBean;
+
 /**
  * Servlet implementation class UpdateAnimalServlet
  */
@@ -37,21 +39,35 @@ public class UpdateAnimalServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		//ログインしてるか
-		String url;
-
-		HttpSession session = request.getSession();
-
-		if (session.getAttribute("LoginID")!=null) {
-			url = "menu.jsp";
-		}else {
-			url ="login.jsp";
-		}
+		// リクエストの転送
+		request.setCharacterEncoding("UTF-8");
 		
-		//動物情報変更・削除画面（確認画面）に行く
-		//このサーブレットでは通過するだけ
-		RequestDispatcher rd = request.getRequestDispatcher("");
+		HttpSession session = request.getSession();
+		
+		AnimalBean updateAnimal = new AnimalBean();
+		
+		updateAnimal.setAnimalID(request.getParameter("animalID"));
+		
+		updateAnimal.setBirthDay(request.getParameter("birthDay"));
+		
+		updateAnimal.setName(request.getParameter("Name"));
+		
+		updateAnimal.setCountry(request.getParameter("country"));
+		
+		updateAnimal.setAnimalKind(request.getParameter("animalKind"));
+		
+		updateAnimal.setSex(request.getParameter("sex"));
+		
+		updateAnimal.setArea(request.getParameter("area"));
+		
+		System.out.println(request.getParameter("workingNow"));
+		updateAnimal.setWorkingNow(Integer.parseInt(request.getParameter("workingNow")));
+		
+		session.setAttribute("workingNow", request.getParameter("workingNow"));
+		
+		session.setAttribute("updateAnimal", updataAnimal);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("checkUpdateKeeper.jsp");
 		rd.forward(request, response);
 	}
 
