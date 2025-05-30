@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.AnimalDAO;
 import model.entity.AnimalBean;
 
 /**
- * Servlet implementation class UpdateAnimalServlet
+ * Servlet implementation class FinalUpdateAnimalCheckServlet
  */
-@WebServlet("/updateAnimal")
-public class UpdateAnimalServlet extends HttpServlet {
+@WebServlet("/finalUpdateAnimalCheck")
+public class FinalUpdateAnimalCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateAnimalServlet() {
+    public FinalUpdateAnimalCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,37 +40,33 @@ public class UpdateAnimalServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストの転送
-		request.setCharacterEncoding("UTF-8");
-		
 		HttpSession session = request.getSession();
+		 
+		AnimalBean updateAnimal = (AnimalBean) session.getAttribute("updateAnimal");
 		
-		AnimalBean updateAnimal = new AnimalBean();
+		String postID =(String) session.getAttribute("postID");
+
+		//DAOの生成
+		AnimalDAO animalDao = new AnimalDAO(postID);
 		
-		updateAnimal.setAnimalID(request.getParameter("animalID"));
+		//DAOの利用
+		animalDao.UpdateAnimal(updateAnimal);
+
 		
-		updateAnimal.setBirthDay(request.getParameter("birthDay"));
+
+		//ログインしてるか
+		String url;
+
+		if (session.getAttribute("LoginID")!=null) {
+			url = "menu.jsp";
+		}else {
+			url ="login.jsp";
+		}
 		
-		updateAnimal.setName(request.getParameter("Name"));
-		
-		updateAnimal.setCountry(request.getParameter("country"));
-		
-		updateAnimal.setAnimalKind(request.getParameter("animalKind"));
-		
-		updateAnimal.setSex(request.getParameter("sex"));
-		
-		updateAnimal.setArea(request.getParameter("area"));
-		
-		updateAnimal.setPhoto(request.getParameter("photo"));
-		
-		System.out.println(request.getParameter("livingNow"));
-		updateAnimal.setLivingNow(Integer.parseInt(request.getParameter("livingNow")));
-		
-		session.setAttribute("livingNow", request.getParameter("livingNow"));
-		
-		session.setAttribute("updateAnimal", updateAnimal);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("checkUpdateKeeper.jsp");
+		session.removeAttribute("livingNow");
+
+		//リクエストの転送　従業員登録画面の完了画面へ
+		RequestDispatcher rd = request.getRequestDispatcher("doneUpdateAnimalr.jsp");
 		rd.forward(request, response);
 	}
 

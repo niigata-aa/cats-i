@@ -298,7 +298,7 @@ public class EmployeeDAO {
 			
 			// Beanからのデータの取り出し
 			String empID = deleteEmployee.getEmpID();
-
+			System.out.println(empID);
 			// プレースホルダへの値の設定
 			pstmt.setString(1,empID);
 

@@ -53,7 +53,8 @@ public class FinalDeleteKeeperCheckServlet extends HttpServlet {
 
 		//DAOの利用
 		try {
-			employeeDao.deleteEmp(deleteEmployee);
+			int x = employeeDao.deleteEmp(deleteEmployee);
+			System.out.println(x);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

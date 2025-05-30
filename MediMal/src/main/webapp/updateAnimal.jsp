@@ -10,13 +10,18 @@
 <form action = "UpdateAnimal" method="post">
 		動物在籍情報 : <input type = "radio" name="animal" value=1>在籍
 		
-		<input type = "radio" name="employee" value=0>退籍
+		<input type = "radio" name="employee" value=0>退籍<br>
 	
 		動物ID : <input type="text" name="animalID"
 				   value=<%=request.getParameter("animalID") %>>
 			   
+<<<<<<< HEAD
 		生年月日 : <input type="date" name="birthDay"
 				   value=<%=request.getParameter("birthID")%>>
+=======
+		生年月日 : <input type="data" name="birthDay"
+				   value=<%=request.getParameter("birthID")%>><br>
+>>>>>>> branch 'master' of https://github.com/niigata-aa/cats-i.git
 
 		名前 : <input type="text" name="name"
 				   value=<%= request.getParameter("name") %>>
@@ -33,9 +38,9 @@
 		エリア情報 : <input type="text" name="area"
 				   value=<%=request.getParameter("area")%>>
 				   
-	<!-- 	担当飼育員 : <input type="text" name=""
-		   value=<%=request.getParameter("")%>>
- 	-->	
+		担当飼育員 : <br>
+		
+		写真 : <input type = "text" name = "photo"><br>
  	
 		<br>
 	
@@ -43,6 +48,7 @@
 	
 	</form>
 	
+
 	<form action ="deleteAnimal" method="post">
 	<input type="hidden"  name ="animalID" value=<%=request.getParameter("animalID") %>>
 		<input type="submit" value="削除">
