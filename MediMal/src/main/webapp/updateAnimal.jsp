@@ -11,7 +11,7 @@
 		動物在籍情報 : <input type = "radio" name="animal" value=1>在籍
 		
 		<input type = "radio" name="employee" value=0>退籍<br>
-	
+		
 		動物ID : <input type="text" name="animalID"
 				   value=<%=request.getParameter("animalID") %>>
 			   
