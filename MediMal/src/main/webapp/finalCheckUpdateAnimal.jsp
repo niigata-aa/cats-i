@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>動物情報編集確認画面1</title>
+<title>動物情報編集確認画面2</title>
 </head>
 <body>
 
-<p>※以下の内容で動物情報を編集しますか？</p>
+<p>※【最終確認】以下の内容で動物情報を編集しますか？</p>
 	
 	<%request.setCharacterEncoding("utf-8"); %>
 	
@@ -38,11 +38,11 @@
 	
 	写真 : <jsp:getProperty name = "updateAnimal" property = "photo"/><br>
 	
-	<form action="updateAnimalCheck" method="post">
+	<form action="finaUpdateAnimalCheck" method="post">
 		<input type="submit" value="はい">
 	</form>
 	
-	<form action="updatAnimal.jsp" method="post">
+	<form action="checkUpdateAnimal.jsp" method="post">
 		<input type="submit" value="いいえ">
 	</form>
 	
