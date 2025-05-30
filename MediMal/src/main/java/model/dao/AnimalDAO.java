@@ -66,7 +66,7 @@ public class AnimalDAO {
 
 	}
 	
-	
+	//動物IDから動物情報を取得
 	public List<AnimalBean> selectOneRecodeAllAnimal(String animalID) throws SQLException,ClassNotFoundException {
 		List<AnimalBean> animalList = new ArrayList<AnimalBean>();
 		String sql = "select animalID,animalName,birthday,area_name,sex,country,AnimalType,KindName,photoURL,livingNow from m_animal oneanimal" 
@@ -84,7 +84,7 @@ public class AnimalDAO {
 
 			ResultSet res = pstmt.executeQuery();
 			
-			List<String> recode = new ArrayList<String>();
+			List<AnimalBean> recode = new ArrayList<AnimalBean>();
 			AnimalBean animalrecode = new AnimalBean();
 			
 			animalrecode.setAnimalID(res.getString("animalID"));
@@ -95,9 +95,11 @@ public class AnimalDAO {
 			animalrecode.setCountry(res.getString("country"));
 			animalrecode.setSex(res.getString("sex"));
 			animalrecode.setPhoto(res.getString("photoURL"));
-			animalrecode.setLivingNow(res.getString("animalID"));
+			animalrecode.setLivingNow(res.getInt("animalID"));
 			
-				return animalrecode;
+			recode.add(animalrecode);
+			
+				return recode;
 			}
 		}
 
