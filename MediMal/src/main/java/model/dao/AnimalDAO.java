@@ -15,27 +15,27 @@ import model.entity.AnimalBean;
 public class AnimalDAO {
 	//キレそう
 	private String postID;
-	
+
 	public AnimalDAO(String postID) {
 		this.postID = postID;
 	}
-	
+
 	/**
 	 * 動物の一覧表示
 	 */
 	public List<AnimalBean> selectAllAnimal() throws SQLException,ClassNotFoundException {
 		List<AnimalBean> animalList = new ArrayList<AnimalBean>();
-			String sql = "select animalID,animalName,birthday,area_name,sex,country,AnimalType,KindName,photoURL,livingNow from m_animal oneanimal" 
-					+" left join m_animaltype atype on oneanimal.TypeID = atype.TypeID" 
-				    +" left join m_animalkind kind on oneanimal.kindID = kind.kindID And oneanimal.TypeID = kind.TypeID"
-				    +" left join m_area area on oneanimal.areaID = area.areaID";
+		String sql = "select animalID,animalName,birthday,area_name,sex,country,AnimalType,KindName,photoURL,livingNow from m_animal oneanimal" 
+				+" left join m_animaltype atype on oneanimal.TypeID = atype.TypeID" 
+				+" left join m_animalkind kind on oneanimal.kindID = kind.kindID And oneanimal.TypeID = kind.TypeID"
+				+" left join m_area area on oneanimal.areaID = area.areaID";
 
 
 		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
 				ResultSet res = stmt.executeQuery(sql)){
-			
+
 			while(res.next()){
 				String animalID = res.getString("animalID");
 				String name = res.getString("animalName");
@@ -57,72 +57,82 @@ public class AnimalDAO {
 				animal.setPhoto(photo);
 				animal.setSex(sex);
 				animal.setBirthDay(BirthDay);
-				
+
 				animalList.add(animal);
 			}
 		}
 		return animalList;
-		
+
 	}
-	
+
 	/**
 	 * 検索画面の表記内容に検索を実行する
 	 * @param animal
 	 * @return
 	 */
 	public List<AnimalBean> selectAnimalByfield(AnimalBean searchanimal){
-		
-List<AnimalBean> result = new ArrayList<AnimalBean>();
-		
+
+		List<AnimalBean> result = new ArrayList<AnimalBean>();
+
 		AnimalDAO dao = new AnimalDAO(postID);
-		
+
 		try {
 			List<AnimalBean> allanimal=dao.selectAllAnimal();
 			System.out.println(allanimal.size());
 			for (AnimalBean animal:allanimal) {
 				int checkBorder = 0;
 				int checkScore 	= 0; 
-				if(!(searchanimal.getAnimalID()==null)) {
-					checkBorder ++;
-					if (animal.getAnimalID().equals(searchanimal.getAnimalID())) {
+				if(!searchanimal.getAnimalID().isEmpty()) {
+					checkBorder +=1;
+					System.out.println("検索対象:"+searchanimal.getAnimalID());
+					System.out.println("データベース側:"+animal.getAnimalID());
+					if (animal.getAnimalID().contains(searchanimal.getAnimalID())) {
 						checkScore+=1;
 					}
 				}
-				if(!(searchanimal.getName()==null)) {
-					checkBorder ++;
+				if(!searchanimal.getName().isEmpty()) {
+					checkBorder +=1;
+					System.out.println("検索対象:"+searchanimal.getName());
+					System.out.println("データベース側:"+animal.getName());
 					if (animal.getName().contains(searchanimal.getName())){
-						checkScore ++;
+						checkScore +=1;
 					}
 				}
-				if(!(searchanimal.getAnimalType()==null)) {
-					checkBorder ++;
-					if (animal.getAnimalType().equals(searchanimal.getAnimalType())){
-						checkScore ++;
+				if(!searchanimal.getAnimalType().isEmpty()) {
+					checkBorder +=1;
+					System.out.println("検索対象:"+searchanimal.getAnimalType());
+					System.out.println("データベース側:"+animal.getAnimalType());
+					if (animal.getAnimalType().contains(searchanimal.getAnimalType())){
+						checkScore +=1;
 					}
 				}
-				if(!(searchanimal.getArea()==null)) {
-					checkBorder ++;
-					if (animal.getArea().equals(searchanimal.getArea())){
-						checkScore ++;
+				if(!searchanimal.getArea().isEmpty()) {
+					checkBorder +=1;
+					System.out.println("検索対象:"+searchanimal.getArea());
+					System.out.println("データベース側:"+animal.getArea());
+					if (animal.getArea().contains(searchanimal.getArea())){
+						checkScore +=1;
 					}
 				}
 				if (checkBorder ==checkScore) {
 					result.add(animal);
 				}
-				
+				System.out.println("checkBorder="+checkBorder);
+				System.out.println("checkScore="+checkScore);
+
 			}
-			
+
 
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		
-	
-		
+
+
+
 		return result;
 	}
-	
+
 	/**
 	 * 動物の登録
 	 * @param animal
@@ -143,7 +153,7 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 			String  animalType = animal.getAnimalType();
 			int kindID = animal.getKindID();
 			String photo = animal.getPhoto();
-			
+
 
 			//プレースホルダーへの値の設定
 			pstmt.setString(1,animalID);
@@ -161,22 +171,22 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 			pstmt.executeUpdate();
 		}
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	/**
 	 * 動物情報を編集する
 	 * @param animal
 	 * @return
 	 */
 	public int UpdateAnimal(AnimalBean animal) {
-		
+
 		return;
 	}
-	
+
 	/**
 	 * 動物の在籍情報
 	 * @param animalID
@@ -184,89 +194,89 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 	 * @return
 	 */
 	public int HiddenAnimal(String animalID,int TFNum) throws ClassNotFoundException, SQLException {
-			int count = 0; //処理件数
-			
-			String sql = "UPDATE m_animal SET livingNow = ? WHERE animalID = ?";
-		
-			// データベースへの接続の取得、PreparedStatementの取得
-			try(Connection con = ConnectionManager.getConnection(postID);
-					PreparedStatement pstmt=con.prepareStatement(sql)){
-		
+		int count = 0; //処理件数
+
+		String sql = "UPDATE m_animal SET livingNow = ? WHERE animalID = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection(postID);
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
 			// プレースホルダへの値の設定
 			pstmt.setInt(1,TFNum);
 			pstmt.setString(2,animalID);
-		
+
 			// SQLステートメントの実行
 			count = pstmt.executeUpdate();
 		}
 		return count;
 	}
-	
+
 	/**
 	 * 登録されている動物を削除する
 	 * @param animal
 	 * @return
 	 */
 	public int DeleteAnimal(AnimalBean animal) throws ClassNotFoundException, SQLException {
-			int count = 0; //処理件数
-		
-			String sql = "Delete from m_animal WHERE animalID = ?";
-	
-			// データベースへの接続の取得、PreparedStatementの取得
-			try(Connection con = ConnectionManager.getConnection(postID);
+		int count = 0; //処理件数
+
+		String sql = "Delete from m_animal WHERE animalID = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try(Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt=con.prepareStatement(sql)){
-				
-				// Beanからのデータの取り出し
-				String animalID = animal.getAnimalID();
-	
-				// プレースホルダへの値の設定
-				pstmt.setString(1,animalID);
-	
-				// SQLステートメントの実行
-				count = pstmt.executeUpdate();
-			}
-			return count;
+
+			// Beanからのデータの取り出し
+			String animalID = animal.getAnimalID();
+
+			// プレースホルダへの値の設定
+			pstmt.setString(1,animalID);
+
+			// SQLステートメントの実行
+			count = pstmt.executeUpdate();
+		}
+		return count;
 	}
 	public String getDateUntilMinute(Date date) {
 		String result;
-		
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
 		result = df.format(date);
 
-		
-		
-		
+
+
+
 		return result;
-		
+
 	}
-	
+
 	public String getDateUntilDay(Date date) {
 		String result;
-		
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
 		result = df.format(date);
 
-		
-		
-		
+
+
+
 		return result;
-		
+
 	}
-	
-	
+
+
 	public String getDateUntilMonth(Date date) {
 		String result;
-		
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
 		result = df.format(date);
 
-		
-		
-		
+
+
+
 		return result;
-		
+
 	}
-	
-	
-	
+
+
+
 }
