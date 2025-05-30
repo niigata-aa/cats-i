@@ -132,11 +132,11 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 			String animalID = animal.getAnimalID();
 			String name = animal.getName();
 			String birthDay = animal.getBirthDay();
-			String area = animal.getArea();
+			int areaID = animal.getAreaID();
 			String sex = animal.getSex();
 			String country = animal.getCountry();
 			String  animalType = animal.getAnimalType();
-			String animalKind = animal.getAnimalKind();
+			int kindID = animal.getKindID();
 			String photo = animal.getPhoto();
 			
 
@@ -144,11 +144,11 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 			pstmt.setString(1,animalID);
 			pstmt.setString(2,name);
 			pstmt.setString(3,birthDay);
-			pstmt.setString(4,area);
+			pstmt.setInt(4,areaID);
 			pstmt.setString(5, sex);
 			pstmt.setString(6,country);
 			pstmt.setString(7,animalType);
-			pstmt.setString(8,animalKind);
+			pstmt.setInt(8,kindID);
 			pstmt.setString(9,photo);
 
 

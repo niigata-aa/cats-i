@@ -58,7 +58,8 @@ public class RegistAnimalSevlet extends HttpServlet {
 		animal.setAnimalID(request.getParameter("animalID"));
 		animal.setName(request.getParameter("name"));
 		animal.setAnimalType(request.getParameter("animalType"));
-		animal.setArea(request.getParameter("area"));
+		animal.setKindID(Integer.parseInt(request.getParameter("kindID")));
+		animal.setAreaID(Integer.parseInt(request.getParameter("areaID")));
 		animal.setBirthDay(request.getParameter("birthDay"));
 		animal.setCountry(request.getParameter("country"));
 		animal.setSex(request.getParameter("sex"));

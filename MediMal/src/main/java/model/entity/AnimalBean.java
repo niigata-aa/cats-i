@@ -28,6 +28,10 @@ public class AnimalBean implements Serializable {
 	
 	private String photo;
 	
+	private int areaID;
+	
+	private int kindID;
+	
 	public AnimalBean() {
 
 	}
@@ -118,7 +122,26 @@ public class AnimalBean implements Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public int getAreaID() {
+		return areaID;
+	}
+
+	public void setAreaID(int areaID) {
+		this.areaID = areaID;
+	}
+
+	public int getKindID() {
+		return kindID;
+	}
+
+	public void setKindID(int kindID) {
+		this.kindID = kindID;
 	}	
+	
+	
+	
 	
 	
 }

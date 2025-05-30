@@ -23,8 +23,9 @@
 	
 	種族　:　<jsp:getProperty name = "inputAnimal" property = "animalType"/><br>
 	
+	品種　:　<jsp:getProperty name = "inputAnimal" property = "kindID"/><br>
 	
-	所属エリア　:　<jsp:getProperty name = "inputAnimal" property = "area"/><br>
+	所属エリアID　:　<jsp:getProperty name = "inputAnimal" property = "areaID"/><br>
 	
 	誕生日　:　<jsp:getProperty name = "inputAnimal" property = "birthDay"/><br>
 	
