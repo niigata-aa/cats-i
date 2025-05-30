@@ -69,7 +69,7 @@ public class FinalUpdateKeeperCheckServlet extends HttpServlet {
 
 
 		//リクエストの転送　従業員登録画面の完了画面へ
-		RequestDispatcher rd = request.getRequestDispatcher("doneRegistKeeper.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("doneUpdateKeeper.jsp");
 		rd.forward(request, response);
 	}
 }
