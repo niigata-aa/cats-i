@@ -1,14 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.dao.AnimalDAO;
 import model.entity.AnimalBean;
 
 /**
@@ -17,7 +21,7 @@ import model.entity.AnimalBean;
 @WebServlet("/searchAnimal")
 public class SearchAnimalSarvlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private List<AnimalBean> animalList;   
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,7 +42,45 @@ public class SearchAnimalSarvlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String url ;
+
+		HttpSession session = request.getSession();
+
+		String postID = (String) session.getAttribute("postID");
+
+
+		if (session.getAttribute("LoginID")!=null) {
+			url = "resultSearchKeeper.jsp";
+		}else {
+			url ="login.jsp";
+		}
 		
+		request.setCharacterEncoding("UTF-8");
+		AnimalBean searchAnimal = new AnimalBean();
+		
+		searchAnimal.setAnimalID(request.getParameter("animalID"));
+		searchAnimal.setName(request.getParameter("animalName"));
+		searchAnimal.setAnimalType(request.getParameter("typeName"));
+		searchAnimal.setArea(request.getParameter("areaName"));
+//		searchAnimal.setKeepers(request.getParameter("keeperName"));
+		
+		List<AnimalBean> searchAnimalList = new ArrayList<AnimalBean>();
+		
+		//DAOの生成
+		AnimalDAO dao = new AnimalDAO(postID);
+//		try {
+//			//DAOの利用
+			searchAnimalList = dao.selectAnimalByfield(searchAnimal);
+//		}catch(SQLException | ClassNotFoundException e) {
+//			e.printStackTrace();
+//		}
+		
+		
+		//レクエストスコープへの属性の設定
+		request.setAttribute("animalList", searchAnimalList);
+		//リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
 
 }
