@@ -7,7 +7,7 @@
 <title>動物情報編集・削除画面</title>
 </head>
 <body>
-<form action = "UpdateAnimal" method="post">
+<form action = "updateAnimal" method="post">
 		動物在籍情報 : <input type = "radio" name="animal" value=1>在籍
 		
 		<input type = "radio" name="employee" value=0>退籍<br>
