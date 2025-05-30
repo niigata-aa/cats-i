@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>飼育員情報編集・削除確認画面2</title>
+<title>飼育員情報編集確認画面2</title>
 </head>
 <body>
-<p>※【最終確認】以下の内容で従業員情報を編集・削除しますか？</p>
+<p>※【最終確認】以下の内容で従業員情報を編集しますか？</p>
 	
 	<%request.setCharacterEncoding("utf-8"); %>
 	
