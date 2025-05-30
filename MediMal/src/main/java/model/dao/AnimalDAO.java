@@ -205,7 +205,7 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 	public int DeleteAnimal(AnimalBean animal) throws ClassNotFoundException, SQLException {
 			int count = 0; //処理件数
 		
-			String sql = "UPDATE from m_animal WHERE animalID = ?";
+			String sql = "Delete from m_animal WHERE animalID = ?";
 	
 			// データベースへの接続の取得、PreparedStatementの取得
 			try(Connection con = ConnectionManager.getConnection(postID);
