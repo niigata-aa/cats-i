@@ -1,21 +1,19 @@
 package model.entity;
 
-import java.text.SimpleDateFormat;
-
 public class Feed {
 	private String animalID;
-	private SimpleDateFormat date;
-	private String content;
-	private int amount;
-	private String unit;
+	private String feedTime;
+	private String empID;
+	private String feedContent;
+	private int feedAmount;
+	private String feedUnit;
 	
 	public Feed() {
 		
 	}
-
+	
 	//getter setter
-	
-	
+
 	public String getAnimalID() {
 		return animalID;
 	}
@@ -23,41 +21,50 @@ public class Feed {
 	public void setAnimalID(String animalID) {
 		this.animalID = animalID;
 	}
-	
-	
-	public SimpleDateFormat getDate() {
-		return date;
+
+	public String getFeedTime() {
+		return feedTime;
+	}
+
+	public void setFeedTime(String feedTime) {
+		this.feedTime = feedTime;
+	}
+
+	public String getEmpID() {
+		return empID;
+	}
+
+	public void setEmpID(String empID) {
+		this.empID = empID;
+	}
+
+	public String getFeedContent() {
+		return feedContent;
+	}
+
+	public void setFeedContent(String feedContent) {
+		this.feedContent = feedContent;
+	}
+
+	public int getFeedAmount() {
+		return feedAmount;
+	}
+
+	public void setFeedAmount(int feedAmount) {
+		this.feedAmount = feedAmount;
+	}
+
+	public String getFeedUnit() {
+		return feedUnit;
+	}
+
+	public void setFeedUnit(String feedUnit) {
+		this.feedUnit = feedUnit;
 	}
 
 	
-
-	public void setDate(SimpleDateFormat date) {
-		this.date = date;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-
-	public String getUnit() {
-		return unit;
-	}
-
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
+	
+	
 	
 	
 	

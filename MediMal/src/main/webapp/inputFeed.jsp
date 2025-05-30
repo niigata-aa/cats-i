@@ -10,9 +10,11 @@
 <body>
 	<form action="inputFeed" method="post">
 	動物ID　:　
-	<% session.getAttribute("animalID"); %><br>
+	
+<!--	動物ID　:　-->
+<!--	<%=request.getParameter("animalID")%><br>-->
 	食事時間　:　
-	<input type="SimpleDateFormat" name = "date"><br>
+	<input type="datetime-local" name = "date"><br>
 	食事内容　:　
 	<input type="text" name="content"><br>
 	食事量　　:　

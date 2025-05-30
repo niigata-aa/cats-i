@@ -175,22 +175,24 @@ public class KarteDAO {
 	 */
 	public int insertFeed (Feed inputFeed) throws ClassNotFoundException,SQLException {
 		int count;
-		String sql = "insert into t-feeding values (?,?,?,?,?)";
+		String sql = "insert into t-feeding values (?,?,?,?,?,?)";
 		try (Connection con = ConnectionManager.getConnection(sql);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 			
 			//Beanからのデータ取り出し
 			String animalID = inputFeed.getAnimalID();
-			String date = inputFeed.getDate();
-			String content = inputFeed.getContent();
-			int amount = inputFeed.getAmount();
-			String unit = inputFeed.getUnit();
+			String feedTime = inputFeed.getFeedTime();
+			String empID = inputFeed.getEmpID();
+			String feedContent = inputFeed.getFeedContent();
+			int feedAmount = inputFeed.getFeedAmount();
+			String feedUnit = inputFeed.getFeedUnit();
 			//プレースホルダーへの値の設定
 			pstmt.setString(1,animalID);
-			pstmt.setString (2,date );
-			pstmt.setString(3,content );
-			pstmt.setInt(4,amount);
-			pstmt.setString(5,unit);
+			pstmt.setString (2,feedTime );
+			pstmt.setString(3,empID );
+			pstmt.setString(4,feedContent);
+			pstmt.setInt(5,feedAmount);
+			pstmt.setString(6, feedUnit);
 			count = pstmt.executeUpdate();
 		}
 		return count;
