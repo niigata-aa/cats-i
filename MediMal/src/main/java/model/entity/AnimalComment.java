@@ -1,18 +1,18 @@
 package model.entity;
 
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
-public class Comment {
+public class AnimalComment {
 
 	private String animalID;
-	private SimpleDateFormat date;
+	private Date date;
 	private String empID;
 	private String content;
-	private String empPost;
+	
 
 
-	public Comment() {
+	public AnimalComment() {
 
 	}
 
@@ -28,12 +28,12 @@ public class Comment {
 	
 	
 	
-	public SimpleDateFormat getDate() {
+	public Date getDate() {
 		return date;
 	}
 
 
-	public void setDate(SimpleDateFormat date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
@@ -58,14 +58,7 @@ public class Comment {
 	}
 
 
-	public String getEmpPost() {
-		return empPost;
-	}
-
-
-	public void setEmpPost(String empPost) {
-		this.empPost = empPost;
-	}
+	
 
 
 

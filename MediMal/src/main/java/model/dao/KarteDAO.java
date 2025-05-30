@@ -11,6 +11,7 @@ import javax.xml.stream.events.Comment;
 
 import java.text.SimpleDateFormat;
 
+import model.entity.AnimalComment;
 import model.entity.Birth;
 import model.entity.Drug;
 import model.entity.Feed;
@@ -121,7 +122,7 @@ public class KarteDAO {
 	 * @param wroteComment
 	 * @return 処理件数
 	 */
-	public int insertComment(Comment wroteComment) throws ClassNotFoundException,SQLException {
+	public int insertComment(AnimalComment Comment) throws ClassNotFoundException,SQLException {
 		int count = 0;
 		String sql = "insert into t_comment  values (?,?,?,?)";
 
@@ -129,10 +130,10 @@ public class KarteDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
 			//Beanからのデータの取り出し
-			String animalID = wroteComment.getAnimalID();
-			String date = wroteComment.getDate();
-			String empID = wroteComment.empID();
-			String content = wroteComment.content();
+			String animalID = Comment.getAnimalID();
+			String date =getDateUntilMinute( Comment.getDate());
+			String empID = Comment.getEmpID();
+			String content = Comment.getContent();
 
 			//プレースホルダーへの値の設定	
 			pstmt.setString(1,animalID);
@@ -232,11 +233,11 @@ public class KarteDAO {
 	
 	
 	//日付
-	public String getDateUntilMinute(String string) {
+	public String getDateUntilMinute(Date date) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
-		result = df.format(string);
+		result = df.format(date);
 		
 		return result;
 		
