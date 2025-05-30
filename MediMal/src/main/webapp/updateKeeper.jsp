@@ -40,7 +40,7 @@
 	
 	</form>
 	
-	<form actoin ="deleteKeeper" method="post">
+	<form action ="deleteKeeper" method="post">
 		<input type="submit" value="削除">
 	</form>
 	

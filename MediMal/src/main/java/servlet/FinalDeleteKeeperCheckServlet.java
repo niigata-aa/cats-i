@@ -10,22 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.EmployeeDAO;
 import model.entity.EmployeeBean;
 
 /**
- * Servlet implementation class DeleteKeeperServlet
+ * Servlet implementation class FinalDeleteKeeperCheckServlet
  */
-@WebServlet("/deleteKeeper")
-public class DeleteKeeperServlet extends HttpServlet {
+@WebServlet("/finalDeleteKeeperCheck")
+public class FinalDeleteKeeperCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DeleteKeeperServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public FinalDeleteKeeperCheckServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,40 +40,31 @@ public class DeleteKeeperServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストの転送
-		String url = null;
-		HttpSession session = request.getSession();
-		request.setCharacterEncoding("UTF-8");
-		
-		
-		
-		EmployeeBean deleteEmp = new EmployeeBean();
-		
-		deleteEmp.setEmpID(request.getParameter("empID"));
-		
-		deleteEmp.setLastName(request.getParameter("lastName"));
-		
-		deleteEmp.setFirstName(request.getParameter("firstName"));
-		
-		deleteEmp.setAreaID(Integer.parseInt(request.getParameter("areaID")));
-		
-		deleteEmp.setGender(request.getParameter("gender"));
-		
-		
-		session.setAttribute("deleteEmployee", deleteEmp);
-		
-		
-	
 
+		HttpSession session = request.getSession();
+
+		EmployeeBean deleteEmployee = (EmployeeBean) session.getAttribute("deleteEmployee");
+
+		String postID =(String) session.getAttribute("postID");
+
+		//DAOの生成
+		EmployeeDAO employeeDao = new EmployeeDAO(postID);
+
+		//DAOの利用
+		employeeDao.deleteEmp(deleteEmployee);
+
+		//ログインしてるか
+		String url;
 		if (session.getAttribute("LoginID")!=null) {
-			url = "checkDeleteKeeper.jsp";
-			
+			url = "doneCheckDeleteKeeper.jsp";
+
 		}else {
 			url = "login.jsp";
 		}
-		
-		
+
+
 		RequestDispatcher rd = request.getRequestDispatcher(url);
+
 		rd.forward(request, response);
 	}
 
