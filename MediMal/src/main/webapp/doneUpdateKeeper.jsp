@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>従業員編集・削除画面（完了画面）</title>
+<title>従業員編集画面(完了画面)</title>
 </head>
 <body>
-	従業員の登録が完了しました。
+	従業員情報の編集が完了しました。
 </body>
 </html>
