@@ -65,6 +65,41 @@ public class AnimalDAO {
 		return animalList;
 
 	}
+	
+	
+	public List<AnimalBean> selectOneRecodeAllAnimal(String animalID) throws SQLException,ClassNotFoundException {
+		List<AnimalBean> animalList = new ArrayList<AnimalBean>();
+		String sql = "select animalID,animalName,birthday,area_name,sex,country,AnimalType,KindName,photoURL,livingNow from m_animal oneanimal" 
+				+" left join m_animaltype atype on oneanimal.TypeID = atype.TypeID" 
+				+" left join m_animalkind kind on oneanimal.kindID = kind.kindID And oneanimal.TypeID = kind.TypeID"
+				+" left join m_area area on oneanimal.areaID = area.areaID"
+				+" where animalID= ?";
+
+
+		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
+		try(Connection con = ConnectionManager.getConnection(postID);
+				PreparedStatement pstmt=con.prepareStatement(sql)){
+
+			pstmt.setString(1, animalID);
+
+			ResultSet res = pstmt.executeQuery();
+			
+			List<String> recode = new ArrayList<String>();
+			AnimalBean animalrecode = new AnimalBean();
+			
+			animalrecode.setAnimalID(res.getString("animalID"));
+			animalrecode.setName(res.getString("animalName"));
+			animalrecode.setBirthDay(res.getString("birthday"));
+			animalrecode.setArea(res.getString("animalID"));
+//			animalrecode.setKeepers(res.getString("animalID"));
+			animalrecode.setCountry(res.getString("country"));
+			animalrecode.setSex(res.getString("sex"));
+			animalrecode.setPhoto(res.getString("photoURL"));
+			animalrecode.setLivingNow(res.getString("animalID"));
+			
+				return animalrecode;
+			}
+		}
 
 	/**
 	 * 検索画面の表記内容に検索を実行する
