@@ -5,13 +5,19 @@
 body{
     background-position: bottom right,center;
     text-align: center;
-    background-image: url(image/back2.png);
-   
-    margin-top: 100px;
+    background-image: url(../image/back3.png);
+	background-size:100% 100%;
+	/*width: 100%;*/
+	background-attachment: fixed;
+	background-position: center center;
+	
+	
+	/*height: 600px;*/
+    margin-top: 150px;
 }
 
 .ken{
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(97, 228, 106);
 	border-radius: 20px;
 		margin-left: 600px;
 		margin-right: 600px;
@@ -20,7 +26,7 @@ body{
 }
 
 .box {
-  background-color: #fff;
+  background-color: rgb(128, 255, 128);
   padding: 15px 40px;
   
   margin-right: 20px;
@@ -40,17 +46,17 @@ body{
 input {
   width: 100px;
   padding: 10px 15px;
-  border: 2px solid rgb(128, 255, 255);
+  border: 2px solid rgb(255, 255, 128);
   border-radius: 25px;
   font-size: 16px;
 }
 
 input::placeholder {
-  color: rgb(128, 255, 255);
+  color: rgb(255, 255, 128);
 }
 
 input:focus {
   outline: none;
-  border-color: rgb(0, 255, 255);
-  box-shadow: 0 0 5px rgb(128, 255, 255);
+  border-color: rgb(255, 255, 0);
+  box-shadow: 0 0 5px rgb(255, 255, 128);
 }
