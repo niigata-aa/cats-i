@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,7 +52,12 @@ public class FinalDeleteKeeperCheckServlet extends HttpServlet {
 		EmployeeDAO employeeDao = new EmployeeDAO(postID);
 
 		//DAOの利用
-		employeeDao.deleteEmp(deleteEmployee);
+		try {
+			employeeDao.deleteEmp(deleteEmployee);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
 		//ログインしてるか
 		String url;

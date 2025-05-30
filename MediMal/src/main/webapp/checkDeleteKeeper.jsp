@@ -8,14 +8,10 @@
 </head>
 <body>
 	<%@include file="header.jsp"%>
-	<p>※【確認】以下の従業員情報を削除しますか？</p>
+	<p>※【確認】従業員情報を削除しますか？</p>
 
 
-	<!--	従業員ID　:　<jsp:getProperty name = "updateEmployee" property = "empID"/>-->
-
-	<!--	名前　:　<jsp:getProperty name = "updateEmployee" property = "lastName"/>-->
-
-	<!--			 <jsp:getProperty name = "updateEmployee" property = "firstName"/><br>-->
+	
 
 
 	<form action="deleteKeeperCheck" method="post">

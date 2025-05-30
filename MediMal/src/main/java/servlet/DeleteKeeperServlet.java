@@ -50,13 +50,13 @@ public class DeleteKeeperServlet extends HttpServlet {
 		
 		deleteEmp.setEmpID(request.getParameter("empID"));
 		
-		deleteEmp.setLastName(request.getParameter("lastName"));
-		
-		deleteEmp.setFirstName(request.getParameter("firstName"));
-		
-		deleteEmp.setAreaID(Integer.parseInt(request.getParameter("areaID")));
-		
-		deleteEmp.setGender(request.getParameter("gender"));
+//		deleteEmp.setLastName(request.getParameter("lastName"));
+//		
+//		deleteEmp.setFirstName(request.getParameter("firstName"));
+//		
+//		deleteEmp.setAreaID(Integer.parseInt(request.getParameter("areaID")));
+//		
+//		deleteEmp.setGender(request.getParameter("gender"));
 		
 		
 		session.setAttribute("deleteEmployee", deleteEmp);

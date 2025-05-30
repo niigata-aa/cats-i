@@ -41,6 +41,7 @@
 	</form>
 	
 	<form action ="deleteKeeper" method="post">
+	<input type="hidden" value=<%=request.getParameter("empID") %>>
 		<input type="submit" value="削除">
 	</form>
 	

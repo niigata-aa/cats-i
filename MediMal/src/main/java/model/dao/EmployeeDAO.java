@@ -271,24 +271,24 @@ public class EmployeeDAO {
 }
 	
 	/**
-	 * 
+	 * 従業員の削除
 	 * @param Employee
-	 * @return
+	 * @return 処理件数
 	 */
-	public int deleteEmp(EmployeeBean Employee) {
+	public int deleteEmp(EmployeeBean deleteEmployee) throws ClassNotFoundException,SQLException {
 		int count = 0; //処理件数
 		
-		String sql = "Delete from m_animal WHERE animalID = ?";
+		String sql = "Delete from m_employee WHERE empID = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try(Connection con = ConnectionManager.getConnection(postID);
 			PreparedStatement pstmt=con.prepareStatement(sql)){
 			
 			// Beanからのデータの取り出し
-			String animalID = animal.getAnimalID();
+			String empID = deleteEmployee.getEmpID();
 
 			// プレースホルダへの値の設定
-			pstmt.setString(1,animalID);
+			pstmt.setString(1,empID);
 
 			// SQLステートメントの実行
 			count = pstmt.executeUpdate();
