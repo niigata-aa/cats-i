@@ -16,15 +16,15 @@
 	
 	<form action="SearchKeeper" method="post">
 		飼育員ID :
-		<input type="text" name="empID">キーワードを入力してください<br>
+		<input type="text" name="empID" placeholder="キーワードを入力"><br>
 		性 :
-		<input type="text" name="keeperLastName">キーワードを入力してください<br>
+		<input type="text" name="keeperLastName" placeholder="キーワードを入力"><br>
 		名 :
-		<input type="text" name="keeperFirstName">キーワードを入力してください<br>
+		<input type="text" name="keeperFirstName" placeholder="キーワードを入力"><br>
 		担当エリア :
-		<input type="text" name="areaName">キーワードを入力してください<br>
+		<input type="text" name="areaName" placeholder="キーワードを入力"><br>
 		担当動物種族 :
-		<input type="text" name="animalType">キーワードを入力してください
+		<input type="text" name="animalType" placeholder="キーワードを入力">
 		<input type="submit" value="検索">
 	</form>	
 </body>

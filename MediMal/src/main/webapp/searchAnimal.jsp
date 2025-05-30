@@ -15,13 +15,13 @@
 	
 	<form action="searchAnimal" method="post">
 		動物ID :
-		<input type="text" name="animalID">キーワードを入力してください<br>
+		<input type="text" name="animalID"placeholder="キーワードを入力"><br>
 		名前 :
-		<input type="text" name="animalName">キーワードを入力してください<br>
+		<input type="text" name="animalName"placeholder="キーワードを入力"><br>
 		種族 :
-		<input type="text" name="typeName">キーワードを入力してください<br>
+		<input type="text" name="typeName"placeholder="キーワードを入力"><br>
 		所属エリア :
-		<input type="text" name="areaName">キーワードを入力してください<br>
+		<input type="text" name="areaName"placeholder="キーワードを入力"><br>
 		
 		<!--  
 		担当飼育員 :

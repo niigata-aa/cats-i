@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+/*ページ全体*/
+
+body{
+    background-position: bottom right,center;
+    text-align: center;
+    background-image: url(image/back2.png);
+   
+    margin-top: 100px;
+}
+
+.ken{
+	background-color: rgb(255, 255, 255);
+	border-radius: 20px;
+		margin-left: 600px;
+		margin-right: 600px;
+		padding:10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box {
+  background-color: #fff;
+  padding: 15px 40px;
+  
+  margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+ 
+  
+
+}
+.form-group {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100px;
+  padding: 10px 15px;
+  border: 2px solid rgb(128, 255, 255);
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: rgb(128, 255, 255);
+}
+
+input:focus {
+  outline: none;
+  border-color: rgb(0, 255, 255);
+  box-shadow: 0 0 5px rgb(128, 255, 255);
+}
