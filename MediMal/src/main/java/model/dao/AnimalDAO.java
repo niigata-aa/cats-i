@@ -25,11 +25,16 @@ public class AnimalDAO {
 	 */
 	public List<AnimalBean> selectAllAnimal() throws SQLException,ClassNotFoundException {
 		List<AnimalBean> animalList = new ArrayList<AnimalBean>();
+			String sql = "select animalID,animalName,birthday,area_name,sex,country,AnimalType,KindName,photoURL,livingNow from m_animal oneanimal" 
+					+" left join m_animaltype atype on oneanimal.TypeID = atype.TypeID" 
+				    +" left join m_animalkind kind on oneanimal.kindID = kind.kindID And oneanimal.TypeID = kind.TypeID"
+				    +" left join m_area area on oneanimal.areaID = area.areaID";
+
 
 		//データベースの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery("SELECT * FROM medimaldb.animal_view")){
+				ResultSet res = stmt.executeQuery(sql)){
 			
 			while(res.next()){
 				String animalID = res.getString("animalID");

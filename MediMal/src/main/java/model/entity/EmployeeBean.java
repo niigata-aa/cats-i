@@ -9,11 +9,11 @@ public class EmployeeBean implements Serializable {
 
 
 
-	private String 			empID;
-	private String 			empPass;
-	private String 			lastName;
-	private String 			firstName;
-	private String 			gender;
+	private String 			empID		="null";
+	private String 			empPass		="null";
+	private String 			lastName	="null";
+	private String 			firstName	="null";
+	private String 			gender		="null";
 	private List<String>	animalIDs = new ArrayList<String>();
 	private int				postID;
 	private int 			areaID;

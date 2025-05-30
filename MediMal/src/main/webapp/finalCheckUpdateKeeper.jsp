@@ -14,9 +14,12 @@
 	<jsp:useBean id ="updateEmployee" scope = "session" class ="model.entity.EmployeeBean"/>
 	
 	<!-- 在籍情報は後でやります -->
-	飼育員在籍情報 : <input type = "radio" name="employee" value=1>在籍
-		
-	<input type = "radio" name="employee" value=0>退籍
+	飼育員在籍情報 :
+	<%if ((int)session.getAttribute("workingNow")==1){ %>
+	復職により従業員として再登録します。<br>
+	<%}else{ %>
+	離職中として登録します。<br>
+	<%} %>
 	
 	従業員ID : <jsp:getProperty name = "updateEmployee" property = "empID"/>
 	
