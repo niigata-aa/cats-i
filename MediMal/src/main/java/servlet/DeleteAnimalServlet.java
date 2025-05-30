@@ -50,7 +50,6 @@ public class DeleteAnimalServlet extends HttpServlet {
 				
 				deleteAnimal.setAnimalID(request.getParameter("animalID"));
 				
-
 				
 				
 				session.setAttribute("deleteAnimal", deleteAnimal);

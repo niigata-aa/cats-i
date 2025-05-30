@@ -41,9 +41,9 @@
 		if(idhead.equals("20")){
 	%>
 	<form action="goUpdateAnimal" method="post">
-		<input type ="hidden" name="empID" value=<%=animal.getAnimalID() %>>
-		<input type ="hidden" name="lastName" value=<%=animal.getName() %>>
-		<input type ="hidden" name="firstName" value=<%= animal.getAnimalType() %>>
+		<input type ="hidden" name="animalID" value=<%=animal.getAnimalID() %>>
+		<input type ="hidden" name="Name" value=<%=animal.getName() %>>
+		<input type ="hidden" name="animalType" value=<%= animal.getAnimalType() %>>
 		<input type ="hidden" name="area" value=<%= animal.getArea() %>>
 		<input type="submit" value="編集・削除">
 	</form>
