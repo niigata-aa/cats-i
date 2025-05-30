@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%@ include file="headerLink.jsp"%>
+	
 	<%=session.getAttribute("LoginID")%>さんようこそ。
 
 

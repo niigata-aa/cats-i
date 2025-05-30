@@ -8,13 +8,13 @@
 <link rel ="stylesheet" href="style/headerStyle.css">
 </head>
 <body>
-	Medimal
+	<div class=head>Medimal
 	<div class=head1><form action="goMenu" method="post">
-		<input type="submit"  value="menu">
+		<input type="image" name="submit" src="image/home.png" alt="メニュー画面へ"value="menu"  width="60" hight="60">
 	</form></div>
 	
 	<div class=head2><form action="checkLogout" method="post">
-		<input type="image" name="submit" src="image/home.png" value="logout" width="60" hight="60">
-	</form></div>
+		<input type="image" name="submit" src="image/door.png" alt="ログアウト画面へ" value="logout"   width="40" hight="20">
+	</form></div></div>
 </body>
 </html>
