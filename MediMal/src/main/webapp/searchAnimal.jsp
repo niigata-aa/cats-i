@@ -9,7 +9,7 @@
 <body>
 	<%@ include file="headerLink.jsp"%>
 
-	<form action="searchAllKeeper" method="post">
+	<form action="searchAllAnimal" method="post">
 		<input type="submit" value="動物一覧表示">
 	</form>
 	

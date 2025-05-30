@@ -14,34 +14,37 @@
 	
 	<%
 		request.setCharacterEncoding("UTF-8");
+		List<AnimalBean> animalList = (List<AnimalBean>)request.getAttribute("animalList");
 	 %>
 	
 	<table>
 	<tr><th>写真</th><th>詳細情報</th></tr>
 	<%
-		for(AnimalBean animal : animalListanimalList")){
+		for(AnimalBean animal : animalList){
 	%>
-	<src=<%=animal.getPhotoURL() %>></td>
-	<td><%=animal.getEmpID() %>
-		<%=employee.getLastName() %>
-		<%=employee.getFirstName() %>
-		<%=employee.getAreaName() %>
+	<tr><td><img src=<%=animal.getPhoto() %>></td>
+	
+	<td><%=animal.getAnimalID() %>
+		<%=animal.getName() %>
+		<%=animal.getAnimalType() %>
+		<%=animal.getArea() %>
+		
 		
 		<!-- 担当動物個体の表示とそこから詳細カルテに飛ぶ方法が分かりません -->
 		<!--  =employee.get() %>-->
-		<%=employee.getStartWork() %>
+		<%=animal.getBirthDay() %>
 		
 	
 	
 	<%
 		String  idhead = (String)session.getAttribute("postID");
-		if(idhead.equals("10")){
+		if(idhead.equals("20")){
 	%>
-	<form action="goUpdateKeeper" method="post">
-		<input type ="hidden" name="empID" value=<%= employee.getEmpID() %>>
-		<input type ="hidden" name="lastName" value=<%= employee.getLastName() %>>
-		<input type ="hidden" name="firstName" value=<%= employee.getFirstName() %>>
-		<input type ="hidden" name="area" value=<%= employee.getAreaName() %>>
+	<form action="goUpdateAnimal" method="post">
+		<input type ="hidden" name="empID" value=<%=animal.getAnimalID() %>>
+		<input type ="hidden" name="lastName" value=<%=animal.getName() %>>
+		<input type ="hidden" name="firstName" value=<%= animal.getAnimalType() %>>
+		<input type ="hidden" name="area" value=<%= animal.getArea() %>>
 		<input type="submit" value="編集・削除">
 	</form>
 	
@@ -49,10 +52,13 @@
 	<%
 		}
 		%>
-	</td></tr>
+	</td>
+	</tr>
 	
-	<%	}
+	<%	
+	}
 	%>
+	</table>
 	
 </body>
 </html>

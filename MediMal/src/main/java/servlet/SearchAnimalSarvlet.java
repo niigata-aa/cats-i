@@ -50,7 +50,7 @@ public class SearchAnimalSarvlet extends HttpServlet {
 
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "resultSearchKeeper.jsp";
+			url = "resultSearchAnimal.jsp";
 		}else {
 			url ="login.jsp";
 		}

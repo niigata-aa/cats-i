@@ -40,7 +40,7 @@ public class AnimalDAO {
 				String BirthDay = getDateUntilDay(res.getDate("birthday"));
 				String country = res.getString("country");
 				String sex = res.getString("sex");
-				String photo = res.getString("photo");
+				String photo = res.getString("photoURL");
 
 				AnimalBean animal = new AnimalBean();
 				animal.setAnimalID(animalID);
