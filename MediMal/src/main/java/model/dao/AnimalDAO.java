@@ -90,7 +90,7 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 				}
 				if(!(searchanimal.getName()==null)) {
 					checkBorder ++;
-					if (animal.getName().equals(searchanimal.getName())){
+					if (animal.getName().contains(searchanimal.getName())){
 						checkScore ++;
 					}
 				}
