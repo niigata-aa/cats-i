@@ -8,28 +8,33 @@
 </head>
 <body>
 
-	<!--参考コピペしてるだけです -->
-	<%
-		request.setCharacterEncoding("UTF-8");
-	%>
+<p>※以下の内容で従業員情報を登録しますか？</p>
 	
-	以下の内容で飼育員情報を編集・削除しますか？<br>
-	<jsp:useBean id="employee" scope="session" class="model.entity.EmployeeBean" />
+	<%request.setCharacterEncoding("utf-8"); %>
 	
-	<jsp:setProperty name="employee" property="name" param="name" />
-	<jsp:setProperty name="employee" property="age" param="age" />
-	<jsp:setProperty name="employee" property="section" param="section" />
+	<jsp:useBean id ="updateEmployee" scope = "session" class ="model.entity.EmployeeBean"/>
 	
-	コード：<jsp:getProperty name="employee" property="code" /><br>
-	氏名：<jsp:getProperty name="employee" property="name" /><br>
-	年齢：<jsp:getProperty name="employee" property="age" /><br>
-	部署：<jsp:getProperty name="employee" property="section" /><br>
-
-	<form action="employee-alter-servlet" method="POST">
+	<!-- 在籍情報は後でやります -->
+	飼育員在籍情報 : <input type = "radio" name="employee" value=1>在籍
+		
+	<input type = "radio" name="employee" value=0>退籍
+	
+	従業員ID : <jsp:getProperty name = "updateEmployee" property = "empID"/>
+	
+	名前　:　<jsp:getProperty name = "updateEmployee" property = "lastName"/>
+			 <jsp:getProperty name = "updateEmployee" property = "firstName"/><br>
+	
+	性別　:　<jsp:getProperty name = "updateEmployee" property = "gender"/>
+	
+	担当エリア　:　<jsp:getProperty name = "updateEmployee" property = "area"/>
+	
+	写真　:　<jsp:getProperty name = "updateEmployee" property = "photoURL"/><br>
+	
+	<form action="updateKeeperCheck" method="post">
 		<input type="submit" value="はい">
 	</form>
-
-	<form action="employee-alter-form-servlet" method="POST">
+	
+	<form action="updateKeeper.jsp" method="post">
 		<input type="submit" value="いいえ">
 	</form>
 </body>
