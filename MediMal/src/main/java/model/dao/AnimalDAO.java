@@ -37,15 +37,16 @@ public class AnimalDAO {
 				ResultSet res = stmt.executeQuery(sql)){
 
 			while(res.next()){
-				String animalID = res.getString("animalID");
-				String name = res.getString("animalName");
-				String animalType = res.getString("AnimalType");
-				String animalKind = res.getString("KindName");
-				String area = res.getString("area_name");
-				String BirthDay = getDateUntilDay(res.getDate("birthday"));
-				String country = res.getString("country");
-				String sex = res.getString("sex");
-				String photo = res.getString("photoURL");
+				String animalID 	= res.getString("animalID");
+				String name 		= res.getString("animalName");
+				String animalType 	= res.getString("AnimalType");
+				String animalKind 	= res.getString("KindName");
+				String area 		= res.getString("area_name");
+				String BirthDay 	= getDateUntilDay(res.getDate("birthday"));
+				String country 		= res.getString("country");
+				String sex 			= res.getString("sex");
+				String photo 		= res.getString("photoURL");
+				int	   livingNow 	= res.getInt("livingNow");
 
 				AnimalBean animal = new AnimalBean();
 				animal.setAnimalID(animalID);
@@ -57,7 +58,7 @@ public class AnimalDAO {
 				animal.setPhoto(photo);
 				animal.setSex(sex);
 				animal.setBirthDay(BirthDay);
-
+				animal.setLivingNow(livingNow);
 				animalList.add(animal);
 			}
 		}
