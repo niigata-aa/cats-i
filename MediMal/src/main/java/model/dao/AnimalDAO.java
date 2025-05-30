@@ -182,9 +182,38 @@ public class AnimalDAO {
 	 * @param animal
 	 * @return
 	 */
-	public int UpdateAnimal(AnimalBean animal) {
+	public int updateAnimal(AnimalBean animal) {
+		int processingNumber = 0; //処理件数
 
-		return;
+		String sql = "UPDATE m_animal SET name = ?, sex = ?,  area=?, photo = ? WHERE animalID = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection(postID);
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			// Beanからのデータの取り出し
+			String name      	= animal.getName();
+			String sex 			= animal.getSex();
+			String area 		= animal.getArea();
+			String photo		= animal.getPhoto();
+            String animalID 	= animal.getAnimalID();
+
+			// プレースホルダへの値の設定
+			pstmt.setString(1, name);
+			pstmt.setString(2, sex);
+			pstmt.setString(3, area);
+			pstmt.setString(4, photo);
+            pstmt.setString(5, animalID);
+
+			// SQLステートメントの実行
+			processingNumber = pstmt.executeUpdate();
+			
+			System.out.println(processingNumber);
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return processingNumber;
 	}
 
 	/**
