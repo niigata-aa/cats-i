@@ -35,14 +35,24 @@
 		AnimalDAO dao = new AnimalDAO(postID);
 		try{
 		//DAOの利用
-			List<AnimalBean> animalList = new ArrayList<AnimalBean>();
-			animalList = dao.selectOneRecodeAllAnimal(animalID);
+			AnimalBean animalrecode = new AnimalBean();
+			animalrecode = dao.selectOneRecodeAllAnimal(animalID);
 		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
 		
 	%>
+	
+		<%=animalrecode.getAnimalID() %>
+		<%=animal.getName() %>
+		<%=animal.getBirthDay() %>
+		<%=animal.getArea() %>
+		<%=animal.getCountry() %>
+		<%=animal.getSex() %>
+		<%=animal.getPhoto() %>
+		<%=animal.getLivingNow() %>
+	
 	
 	<form action="goInputWeight" method="post">
 	<input type="submit" value="体重記録ボタン">
