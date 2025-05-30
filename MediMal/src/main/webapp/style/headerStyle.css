@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+
+.head1{
+	position:absolute;
+	top: 10px;
+	left:50px;
+	right: 50px;
+}
+
+.head2{
+	/*width: px;
+	height: 100px;*/
+	position: absolute;
+	left:880px
+}
