@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +16,7 @@ import model.entity.EmployeeBean;
 /**
  * Servlet implementation class FinalUpdateKeeperCheckServlet
  */
-@WebServlet("/FinalUpdateKeeperCheckServlet")
+@WebServlet("/FinalUpdateKeeperCheck")
 public class FinalUpdateKeeperCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,16 +44,13 @@ public class FinalUpdateKeeperCheckServlet extends HttpServlet {
 		 
 		EmployeeBean updateEmployee = (EmployeeBean) session.getAttribute("updateEmployee");
 		
+		String postID =(String) session.getAttribute("postID");
 
 		//DAOの生成
-		EmployeeDAO employeeDao = new EmployeeDAO();
+		EmployeeDAO employeeDao = new EmployeeDAO(postID);
 		
-		try {
-			//DAOの利用
-			employeeDao.updatetEmp(updateEmployee);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
+		//DAOの利用
+		employeeDao.updateEmp(updateEmployee);
 
 		
 

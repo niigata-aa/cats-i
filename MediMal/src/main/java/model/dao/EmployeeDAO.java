@@ -27,7 +27,9 @@ public class EmployeeDAO {
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {
 		List<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
 
-		String sql = "select * from medimaldb.employee_view3 where postName='飼育員'";
+		String sql = "select\n"
+				+ " emp.empID as empID,emp.empPass as empPass, emp.lastName as lastName,emp.firstName as firstName , emp.gender as gender ,emp.startWork as startWork ,emp.photoURL as photo ,area.area_name as areaName,post.postName  as postName "
+				+ "from m_employee emp left join m_area area on emp.areaID = area.areaID left join m_post post on emp.postID = post.postID where postName='飼育員'";
 		String sql_type = "select * from medimaldb.keeptype_view where empID = ? ";
 
 
@@ -209,25 +211,25 @@ public class EmployeeDAO {
 	public int updateEmp(EmployeeBean employee) {
 		int processingNumber = 0; //処理件数
 
-		String sql = "UPDATE m_employee SET lastname = ?, firstName = ?, lastName = ?, gender=?, area = ?, photoURL = ?, WHERE empID = ?";
+		String sql = "UPDATE m_employee SET lastname = ?, firstName = ?,  gender=?, areaID = ?, photoURL = ? WHERE empID = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			// Beanからのデータの取り出し
-			String lastName = employee.getLastName();
-			String firstName = employee.getFirstName();
-			String gender = employee.getGender();
-			String area = employee.getAreaName();
-            String photo = employee.getPhotoURL();
-            String empID = employee.getEmpID();
+			String lastName 	= employee.getLastName();
+			String firstName 	= employee.getFirstName();
+			String gender 		= employee.getGender();
+			int	   areaID		= employee.getAreaID();
+            String photo 		= employee.getPhotoURL();
+            String empID 		= employee.getEmpID();
 
 			// プレースホルダへの値の設定
 			pstmt.setString(1, lastName);
 			pstmt.setString(2, firstName);
 			pstmt.setString(3, gender);
-			pstmt.setString(4, area);
+			pstmt.setInt(4, areaID);
             pstmt.setString(5, photo);
             pstmt.setString(6, empID);
 
