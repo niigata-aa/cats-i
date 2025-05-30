@@ -95,7 +95,7 @@ public class AnimalDAO {
 			animalrecode.setCountry(res.getString("country"));
 			animalrecode.setSex(res.getString("sex"));
 			animalrecode.setPhoto(res.getString("photoURL"));
-			animalrecode.setLivingNow(res.getInt("animalID"));
+			animalrecode.setLivingNow(res.getInt("livingNow"));
 			
 			
 			
