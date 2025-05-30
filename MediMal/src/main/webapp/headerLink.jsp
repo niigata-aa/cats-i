@@ -10,11 +10,11 @@
 <body>
 	<div class=head>Medimal
 	<div class=head1><form action="goMenu" method="post">
-		<input type="image" name="submit" src="image/home.png" alt="メニュー画面へ"value="menu"  width="60" hight="60">
+		<input type="image" name="submit" src="image/home.png" title="メニュー画面" value="menu"  width="60" hight="60">
 	</form></div>
 	
 	<div class=head2><form action="checkLogout" method="post">
-		<input type="image" name="submit" src="image/door.png" alt="ログアウト画面へ" value="logout"   width="40" hight="20">
+		<input type="image" name="submit" src="image/door.png" title="ログアウト" value="logout"   width="40" hight="20">
 	</form></div></div>
 </body>
 </html>
