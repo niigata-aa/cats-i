@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.dao.AnimalDAO;
+import model.entity.AnimalBean;
 
 /**
  * Servlet implementation class goKarteDetailServlet
@@ -42,12 +46,6 @@ public class goKarteDetailServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		if (session.getAttribute("LoginID")!=null) {
-			url = "karteDetail.jsp";
-		}else {
-			url ="login.jsp";
-		}
-		
 		request.setCharacterEncoding("UTF-8");
 		
 		//動物登録完了画面から詳細カルテに行く場合の動物IDの引き渡し
@@ -58,19 +56,19 @@ public class goKarteDetailServlet extends HttpServlet {
 			
 		} else {
 			 animalID = request.getParameter("animalID");
-			String animalName = request.getParameter("animalName");
-			String typeName = request.getParameter("typeName");
-			String areaName = request.getParameter("areaName");
-			String keeperName = request.getParameter("keeperName");
-			String animalBirth = request.getParameter("animalBirth");
+//			String animalName = request.getParameter("animalName");
+//			String typeName = request.getParameter("typeName");
+//			String areaName = request.getParameter("areaName");
+//			String keeperName = request.getParameter("keeperName");
+//			String animalBirth = request.getParameter("animalBirth");
 	//		String photo = request.getParameter("photo");
 			
-			request.setAttribute("animalID", animalID);
-			request.setAttribute("animalName", animalName);
-			request.setAttribute("typeName", typeName);
-			request.setAttribute("areaName", areaName);
-			request.setAttribute("keeperName", keeperName);
-			request.setAttribute("animalBirth", animalBirth);
+//			request.setAttribute("animalID", animalID);
+//			request.setAttribute("animalName", animalName);
+//			request.setAttribute("typeName", typeName);
+//			request.setAttribute("areaName", areaName);
+//			request.setAttribute("keeperName", keeperName);
+//			request.setAttribute("animalBirth", animalBirth);
 	//		request.setAttribute("photo", photo);
 		}
 		
@@ -79,6 +77,24 @@ public class goKarteDetailServlet extends HttpServlet {
 		}else {
 			url ="login.jsp";
 		}
+		String postID = (String) session.getAttribute("postID");
+		AnimalDAO dao = new AnimalDAO(postID);
+		
+		try {
+			AnimalBean animalrecode = new AnimalBean();
+			animalrecode = dao.selectOneRecodeAllAnimal(animalID);
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		animalrecode.getAnimalID();
+		animalrecode.getName();
+		animal.getBirthDay();
+		animal.getArea();
+		animal.getCountry();
+		animal.getSex();
+		animal.getPhoto(); 
+		animal.getLivingNow(); 
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 

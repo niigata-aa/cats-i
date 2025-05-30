@@ -89,7 +89,7 @@ public class AnimalDAO {
 			
 			animalrecode.setAnimalID(res.getString("animalID"));
 			animalrecode.setName(res.getString("animalName"));
-			animalrecode.setBirthDay(res.getString("birthday"));
+			animalrecode.setBirthDay(getDateUntilDay(res.getDate("birthday")));
 			animalrecode.setArea(res.getString("animalID"));
 //			animalrecode.setKeepers(res.getString("animalID"));
 			animalrecode.setCountry(res.getString("country"));
