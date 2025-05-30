@@ -21,7 +21,7 @@ public class EmployeeBean implements Serializable {
 	private String			postName;
 	private String			areaName;
 	private String 			startWork;
-	private int 			livingNow;
+	private int 			workingNow;
 	private String 			photoURL;
 
 	
@@ -119,15 +119,7 @@ public class EmployeeBean implements Serializable {
 
 
 
-	public int getLivingNow() {
-		return livingNow;
-	}
-
-
-
-	public void setLivingNow(int livingNow) {
-		this.livingNow = livingNow;
-	}
+	
 
 
 
@@ -187,6 +179,18 @@ public class EmployeeBean implements Serializable {
 
 	public void setAreaName(String areaName) {
 		this.areaName = areaName;
+	}
+
+
+
+	public int getWorkingNow() {
+		return workingNow;
+	}
+
+
+
+	public void setWorkingNow(int workingNow) {
+		this.workingNow = workingNow;
 	}
 
 

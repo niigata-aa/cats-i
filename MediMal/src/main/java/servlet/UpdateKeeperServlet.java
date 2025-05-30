@@ -56,6 +56,10 @@ public class UpdateKeeperServlet extends HttpServlet {
 		
 		updateEmp.setGender(request.getParameter("gender"));
 		
+		System.out.println(request.getParameter("workingNow"));
+		updateEmp.setWorkingNow(Integer.parseInt(request.getParameter("workingNow")));
+		
+		session.setAttribute("workingNow", request.getParameter("workingNow"));
 		
 		session.setAttribute("updateEmployee", updateEmp);
 		

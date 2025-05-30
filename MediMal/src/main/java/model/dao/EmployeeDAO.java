@@ -28,7 +28,7 @@ public class EmployeeDAO {
 		List<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
 
 		String sql = "select\n"
-				+ " emp.empID as empID,emp.empPass as empPass, emp.lastName as lastName,emp.firstName as firstName , emp.gender as gender ,emp.startWork as startWork ,emp.photoURL as photo ,area.area_name as areaName,post.postName  as postName "
+				+ " emp.empID as empID,emp.empPass as empPass, emp.lastName as lastName,emp.firstName as firstName , emp.gender as gender ,emp.startWork as startWork ,emp.photoURL as photo ,area.area_name as areaName,post.postName as postName, emp.workingNow as workingNow   "
 				+ "from m_employee emp left join m_area area on emp.areaID = area.areaID left join m_post post on emp.postID = post.postID where postName='飼育員'";
 		String sql_type = "select * from medimaldb.keeptype_view where empID = ? ";
 
@@ -47,6 +47,7 @@ public class EmployeeDAO {
 				employeeTmp.setGender(res.getString("gender"));
 				employeeTmp.setAreaName(res.getString("areaName"));
 				employeeTmp.setStartWork(getDateUntilMonth(res.getDate("startWork")));
+				employeeTmp.setWorkingNow(res.getInt("workingNow"));;
 				//			employeeTmp.setPhotoURL(res.getString("photo"));
 				//			
 				//			try(PreparedStatement pstmt = con.prepareStatement(sql_type)){

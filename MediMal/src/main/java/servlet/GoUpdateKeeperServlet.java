@@ -51,15 +51,18 @@ public class GoUpdateKeeperServlet extends HttpServlet {
 		
 		
 		
-		String empID = request.getParameter("empID");
-		String lastName = request.getParameter("lastName");
-		String firstName = request.getParameter("firstName");
-		String getArea = request.getParameter("area");
+		String 	empID 		= request.getParameter("empID");
+		String 	lastName 	= request.getParameter("lastName");
+		String 	firstName 	= request.getParameter("firstName");
+		String 	getArea 	= request.getParameter("area");
+		
+		int 	workingNow	=Integer.parseInt(request.getParameter("workingNow"));
 		
 		request.setAttribute("empID",empID);
 		request.setAttribute("lastName",lastName);
 		request.setAttribute("firstName",firstName);
 		request.setAttribute("getArea",getArea);
+		request.setAttribute("workingNow", workingNow);
 		
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("updateKeeper.jsp");
