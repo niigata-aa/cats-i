@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.entity.Feed;
+
 /**
  * Servlet implementation class InputFeedServlet
  */
@@ -39,23 +41,42 @@ public class InputFeedServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
+		HttpSession session = request.getSession();
+		request.setCharacterEncoding("utf-8"); 
+		String postID = (String) session.getAttribute("postID");
+
 		//ログインしてるか
 		String url;
 
-		HttpSession session = request.getSession();
-
 		if (session.getAttribute("LoginID")!=null) {
-			url = "menu.jsp";
+			url = "checkInputFeed.jsp";
 		}else {
 			url ="login.jsp";
 		}
 		
+		Feed feed = new Feed();
+		
+		feed.setAnimalID(request.getParameter("animalID"));
+		feed.setFeedTime(request.getParameter("feedTime"));
+		feed.setEmpID(request.getParameter("empID"));
+		feed.setFeedContent(request.getParameter("feedContent"));
+		feed.setFeedAmount(Integer.parseInt(request.getParameter("feedAmount")));
+		feed.setFeedUnit(request.getParameter("feedUnit"));
+		
+		
+		
+		//セッションへのデータの登録
+		session.setAttribute("inputFeed", feed);
 		
 		
 		//食事記録画面（確認画面）に行く
 		//このサーブレットでは通過するだけ
-		RequestDispatcher rd = request.getRequestDispatcher("checkInputFeed.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
+		
+		
+		
+		
 	}
 
 }

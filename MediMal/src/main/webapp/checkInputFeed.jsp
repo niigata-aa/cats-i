@@ -7,21 +7,26 @@
 <title>食事記録画面（確認画面）</title>
 </head>
 <body>
+<%@include file="header.jsp" %>
 
-	<% Feed inputFeed = (Feed)request.getAttribute("inputFeed"); %>
+
+<p>※以下の内容で食事履歴を記録しますか？</p>
 	
-	動物ID　　:　
-	<%=inputFeed.getAnimalID() %><br>
+	<%request.setCharacterEncoding("utf-8"); %>
 	
-	食事時間　:　
-	<%=inputFeed.getDate() %><br>
+	<jsp:useBean id ="inputFeed" scope = "session" class ="model.entity.Feed"/>
 	
-	食事内容　:　
-	<%=inputFeed.getContent() %><br>
+	動物ID　:　<jsp:getProperty name = "inputFeed" property = "animalID"/><br>
 	
-	食事量　　:　
-	<%=inputFeed.getAmount() %><br>
-	<%=inputFeed.getUnit() %>
+	食事時間　:　<jsp:getProperty name = "inputFeed" property = "feedTime"/><br>
+	
+	飼育員ID　:　<jsp:getProperty name = "inputFeed" property = "empID"/><br>
+	
+	食事内容　:　<jsp:getProperty name = "inputFeed" property = "feedContent"/>
+	
+	食事量　　:　<jsp:getProperty name = "inputFeed" property = "feedAmount"/>
+	
+	<jsp:getProperty name="inputFeed" property="feedUnit"/>
 	
 	
 

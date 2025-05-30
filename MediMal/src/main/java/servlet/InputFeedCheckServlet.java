@@ -43,44 +43,25 @@ public class InputFeedCheckServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		String animalID = (String) session.getAttribute("animalID");
-		//SimpleDateFormatを型変換？
-		//		SimpleDateFormat Date = SimpleDateFormat.request.getParameter("Date");
-		String date = request.getParameter("date");
-		String content = request.getParameter("content");
-//		int amount = Integer.parseInt(request.getParameter("amount"));
-		int amount = request.getParameter("amount");
-		String unit = request.getParameter("unit");
-
-
-		Feed inputFeed = new Feed();
-		inputFeed.setAnimalID(animalID);
-		//		inputWeight.setInputDate(inputDate);
-		inputFeed.setContent(content);
-		inputFeed.setAmount(amount);
-		inputFeed.setUnit(unit);
-
-
+		
+		Feed inputFeed = (Feed) session.getAttribute("inputFeed");
+		
+		String postID = (String) session.getAttribute("postID");
+		
+		System.out.println(postID);
 		//DAOの生成
-		KarteDAO karteDao = new KarteDAO();
-		int count = 0; //処理件数
+		KarteDAO karteDao = new KarteDAO(postID);
+		
 
 		try {
-		
 			//DAOの利用
-			count = karteDao.insertFeed(inputFeed);
+			karteDao.insertFeed(inputFeed);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 
-		request.setAttribute(animalID, "animalID");
-		request.setAttribute(date, "date");
-		request.setAttribute(content, content);
-		request.setAttribute(amount,"amount");
-		request.setAttribute(unit, "unit");
 		
-		
-		
+
 		//ログインしてるか
 		String url;
 
@@ -89,11 +70,12 @@ public class InputFeedCheckServlet extends HttpServlet {
 		}else {
 			url ="login.jsp";
 		}
-
+		
 		
 		//リクエストの転送　体重記録の完了画面へ
 		RequestDispatcher rd = request.getRequestDispatcher("doneInputFeed.jsp");
 		rd.forward(request, response);
+		
 	}
 
 }
