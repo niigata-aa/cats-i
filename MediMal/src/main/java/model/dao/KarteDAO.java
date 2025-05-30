@@ -33,10 +33,10 @@ public class KarteDAO {
 	 */
 	public int insertWeight(Weight inputWeight) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String url = "insert into t_weight  values (?,?,?,?,?)";
+		String sql = "insert into t_weight  values (?,?,?,?,?)";
 
 		try(Connection con = ConnectionManager.getConnection(postID);
-				PreparedStatement pstmt = con.prepareStatement(url)){
+				PreparedStatement pstmt = con.prepareStatement(sql)){
 
 			//Beanからのデータの取り出し
 			String animalID = inputWeight.getAnimalID();
