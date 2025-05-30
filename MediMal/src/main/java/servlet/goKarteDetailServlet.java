@@ -38,7 +38,8 @@ public class goKarteDetailServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url ;
-
+		String animalID = null;
+		
 		HttpSession session = request.getSession();
 		
 		if (session.getAttribute("LoginID")!=null) {
@@ -49,21 +50,35 @@ public class goKarteDetailServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String animalID = request.getParameter("animalID");
-		String animalName = request.getParameter("animalName");
-		String typeName = request.getParameter("typeName");
-		String areaName = request.getParameter("areaName");
-		String keeperName = request.getParameter("keeperName");
-		String animalBirth = request.getParameter("animalBirth");
-//		String photo = request.getParameter("photo");
+		//動物登録完了画面から詳細カルテに行く場合の動物IDの引き渡し
+		if(request.getParameter("animalID")==(null)) {
+			request.setCharacterEncoding("UTF-8");
+			animalID = (String) session.getAttribute("animalID");
+			request.setAttribute("animalID", animalID);
+			
+		} else {
+			 animalID = request.getParameter("animalID");
+			String animalName = request.getParameter("animalName");
+			String typeName = request.getParameter("typeName");
+			String areaName = request.getParameter("areaName");
+			String keeperName = request.getParameter("keeperName");
+			String animalBirth = request.getParameter("animalBirth");
+	//		String photo = request.getParameter("photo");
+			
+			request.setAttribute("animalID", animalID);
+			request.setAttribute("animalName", animalName);
+			request.setAttribute("typeName", typeName);
+			request.setAttribute("areaName", areaName);
+			request.setAttribute("keeperName", keeperName);
+			request.setAttribute("animalBirth", animalBirth);
+	//		request.setAttribute("photo", photo);
+		}
 		
-		request.setAttribute("animalID", animalID);
-		request.setAttribute("animalName", animalName);
-		request.setAttribute("typeName", typeName);
-		request.setAttribute("areaName", areaName);
-		request.setAttribute("keeperName", keeperName);
-		request.setAttribute("animalBirth", animalBirth);
-//		request.setAttribute("photo", photo);
+		if (session.getAttribute("LoginID")!=null) {
+			url = "karteDetail.jsp";
+		}else {
+			url ="login.jsp";
+		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 

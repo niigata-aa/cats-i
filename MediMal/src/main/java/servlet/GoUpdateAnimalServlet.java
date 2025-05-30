@@ -44,7 +44,7 @@ public class GoUpdateAnimalServlet extends HttpServlet {
 		String url;
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "menu.jsp";
+			url = "updateAnimal.jsp";
 		}else {
 			url ="login.jsp";
 		}

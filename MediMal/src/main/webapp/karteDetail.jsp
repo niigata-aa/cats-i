@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" 
+	import="java.util.List,java.util.ArrayList,
+			model.entity.AnimalBean,model.dao.AnimalDAO,
+			java.sql.SQLException,java.io.IOException"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +25,25 @@
 	<%
 	}
 	%>
-
+	
+	<%
+		request.setCharacterEncoding("UTF-8");
+		String animalID = request.getParameter("animalID");
+		String postID = (String) session.getAttribute("postID");
+		
+		//DAOの生成
+		AnimalDAO dao = new AnimalDAO(postID);
+		try{
+		//DAOの利用
+			List<AnimalBean> animalList = new ArrayList<AnimalBean>();
+			animalList = dao.selectAllAnimal();
+		}catch(SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		if(animalList.getAnimalID)
+	%>
+	
 	<form action="goInputWeight" method="post">
 	<input type="submit" value="体重記録ボタン">
 	</form>
