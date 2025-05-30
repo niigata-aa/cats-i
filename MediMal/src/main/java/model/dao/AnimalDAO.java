@@ -82,25 +82,25 @@ List<AnimalBean> result = new ArrayList<AnimalBean>();
 			for (AnimalBean animal:allanimal) {
 				int checkBorder = 0;
 				int checkScore 	= 0; 
-				if(!searchanimal.getAnimalID().equals("null")) {
+				if(!(searchanimal.getAnimalID()==null)) {
 					checkBorder ++;
 					if (animal.getAnimalID().equals(searchanimal.getAnimalID())) {
 						checkScore+=1;
 					}
 				}
-				if(!searchanimal.getName().equals("null")) {
+				if(!(searchanimal.getName()==null)) {
 					checkBorder ++;
 					if (animal.getName().equals(searchanimal.getName())){
 						checkScore ++;
 					}
 				}
-				if(!searchanimal.getAnimalType().equals("null")) {
+				if(!(searchanimal.getAnimalType()==null)) {
 					checkBorder ++;
 					if (animal.getAnimalType().equals(searchanimal.getAnimalType())){
 						checkScore ++;
 					}
 				}
-				if(!searchanimal.getArea().equals("null")) {
+				if(!(searchanimal.getArea()==null)) {
 					checkBorder ++;
 					if (animal.getArea().equals(searchanimal.getArea())){
 						checkScore ++;

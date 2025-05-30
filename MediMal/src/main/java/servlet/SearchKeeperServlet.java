@@ -43,6 +43,7 @@ public class SearchKeeperServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url ;
+		request.setCharacterEncoding("UTF-8");
 
 		HttpSession session = request.getSession();
 		

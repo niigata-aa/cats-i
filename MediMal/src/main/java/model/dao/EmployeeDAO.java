@@ -118,39 +118,51 @@ public class EmployeeDAO {
 			for (EmployeeBean Emp:allEmp) {
 				int checkBorder = 0;
 				int checkScore 	= 0; 
-				if (!Employee.getEmpID().equals(null)) {
-					checkBorder ++;
-					if(Emp.getEmpID().equals(Employee.getEmpID())) {
-						checkScore++;
+				if (!(Employee.getEmpID()==null)) {
+					checkBorder +=1;
+					System.out.println("検索対象:"+Employee.getEmpID());
+					System.out.println("データベース側:"+Emp.getEmpID());
+					if(Emp.getEmpID().contains(Employee.getEmpID())) {
+						checkScore+=1;
 					}
 				}
-				if (!Employee.getLastName().equals(null)) {
-					checkBorder ++;
-					if(Emp.getLastName().equals(Employee.getLastName())) {
-						checkScore++;
+				if (!(Employee.getLastName()==null)) {
+					checkBorder +=1;
+					System.out.println("検索対象:"+Employee.getLastName());
+					System.out.println("データベース側:"+Emp.getLastName());
+					if(Emp.getLastName().contains(Employee.getLastName())) {
+						checkScore+=1;
 					}
 				}
-				if (!Employee.getFirstName().equals(null)) {
-					checkBorder ++;
-					if(Emp.getFirstName().equals(Employee.getFirstName())) {
-						checkScore++;
+				if (!(Employee.getFirstName()==null)) {
+					checkBorder +=1;
+					System.out.println("検索対象:"+Employee.getFirstName());
+					System.out.println("データベース側:"+Emp.getFirstName());
+					if(Emp.getFirstName().contains(Employee.getFirstName())) {
+						checkScore+=1;
 					}
 				}
-				if (!Employee.getAreaName().equals(null)) {
-					checkBorder ++;
-					if(Emp.getAreaName().equals(Employee.getAreaName())) {
-						checkScore++;
+				if (!(Employee.getAreaName()==null)) {
+					checkBorder +=1;
+					System.out.println("検索対象:"+Employee.getAreaName());
+					System.out.println("データベース側:"+Emp.getAreaName());
+					if(Emp.getAreaName().contains(Employee.getAreaName())) {
+						checkScore+=1;
 					}
 				}
 				
 				if (checkBorder ==checkScore) {
 					result.add(Emp);
 				}
+				System.out.println("checkBorder="+checkBorder);
+				System.out.println("checkScore="+checkScore);
 			}
 		}catch (ClassNotFoundException | SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		
+		System.out.println("検索結果は"+result.size()+"件です");
 		return result;
 
 	}
