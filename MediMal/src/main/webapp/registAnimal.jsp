@@ -36,5 +36,11 @@
 
 
 	</form>
+	
+	<%
+		//リターンようのURLの取得
+		String returnURL = "registAnimal.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

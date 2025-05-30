@@ -93,6 +93,10 @@ public class RegistAnimalSevlet extends HttpServlet {
 		//		session.setAttribute("sex",sex );
 		//		session.setAttribute("keepers",keepers);
 		//		session.setAttribute("photo",photo );
+		
+		//登録からカルテ詳細画面への動物IDの取得
+				String animalID = request.getParameter("animalID");
+				session.setAttribute("animalID", animalID);
 
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);

@@ -10,6 +10,18 @@
 
 	<%@include file="headerLink.jsp" %>
 	<h1>カルテ詳細画面</h1>
+	基本情報
+	
+	<%
+	String idhead = (String) session.getAttribute("postID");
+	if (idhead.equals("20")) {
+	%>
+	<form action="goUpdateAnimal" method="post">
+		<input type="submit" value="動物情報編集・削除">
+	</form>
+	<%
+	}
+	%>
 
 	<form action="goInputWeight" method="post">
 	<input type="submit" value="体重記録ボタン">
