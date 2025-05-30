@@ -22,11 +22,12 @@
 	従業員ID : <jsp:getProperty name = "updateEmployee" property = "empID"/>
 	
 	名前　:　<jsp:getProperty name = "updateEmployee" property = "lastName"/>
+	
 			 <jsp:getProperty name = "updateEmployee" property = "firstName"/><br>
 	
 	性別　:　<jsp:getProperty name = "updateEmployee" property = "gender"/>
 	
-	担当エリア　:　<jsp:getProperty name = "updateEmployee" property = "area"/>
+	担当エリア　:　<jsp:getProperty name = "updateEmployee" property = "areaID"/>
 	
 	写真　:　<jsp:getProperty name = "updateEmployee" property = "photoURL"/><br>
 	

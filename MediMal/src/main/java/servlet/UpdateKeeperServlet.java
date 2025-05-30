@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.entity.EmployeeBean;
 
@@ -41,11 +42,23 @@ public class UpdateKeeperServlet extends HttpServlet {
 		// リクエストの転送
 		request.setCharacterEncoding("UTF-8");
 		
+		HttpSession session = request.getSession();
+		
 		EmployeeBean updateEmp = new EmployeeBean();
 		
 		updateEmp.setEmpID(request.getParameter("empID"));
 		
 		updateEmp.setLastName(request.getParameter("lastName"));
+		
+		updateEmp.setFirstName(request.getParameter("firstName"));
+		
+		updateEmp.setAreaID(Integer.parseInt(request.getParameter("areaID")));
+		
+		updateEmp.setGender(request.getParameter("gender"));
+		
+		
+		session.setAttribute("updateEmployee", updateEmp);
+		
 		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("checkUpdateKeeper.jsp");

@@ -20,17 +20,17 @@
 		担当動物種族 : <input type="text" name=""
 				   value=><br>
 
-		名前 : <input type="text" name="lastname"
+		名前 : <input type="text" name="lastName"
 				   value=<%= request.getParameter("lastName") %>>
 			   
-				<input type="text" name="firstname"
+				<input type="text" name="firstName"
 				   value=<%=request.getParameter("firstName") %>>
 	
 		性別 : <input type="text" name="gender"
 				   value=<%=request.getParameter("gender") %>><br>
 			   
-		担当エリア : <input type="text" name="area"
-				   value=<%=request.getParameter("area")%>>
+		担当エリア : <input type="number" name="areaID"
+				   value=<%=request.getParameter("areaID")%>>
 	
 		写真 : 
 	
