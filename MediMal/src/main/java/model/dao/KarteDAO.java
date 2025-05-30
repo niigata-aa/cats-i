@@ -18,6 +18,12 @@ import model.entity.Weight;
 
 public class KarteDAO {
 
+	private String postID;
+
+
+	public KarteDAO(String postID) {
+		this.postID = postID;
+	}
 
 
 	/**
@@ -29,7 +35,7 @@ public class KarteDAO {
 		int count = 0;
 		String url = "insert into t_weight  values (?,?,?,?,?)";
 
-		try(Connection con = ConnectionManager.getConnection();
+		try(Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(url)){
 
 			//Beanからのデータの取り出し
@@ -226,11 +232,11 @@ public class KarteDAO {
 	
 	
 	//日付
-	public String getDateUntilMinute(Date date) {
+	public String getDateUntilMinute(String string) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
-		result = df.format(date);
+		result = df.format(string);
 		
 		return result;
 		

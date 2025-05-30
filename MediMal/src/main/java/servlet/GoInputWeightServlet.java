@@ -10,19 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.entity.Weight;
-
 /**
- * Servlet implementation class inputWeightServlet
+ * Servlet implementation class GoInputWeightServlet
  */
-@WebServlet("/inputWeight")
-public class InputWeightServlet extends HttpServlet {
+@WebServlet("/goInputWeight")
+public class GoInputWeightServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InputWeightServlet() {
+    public GoInputWeightServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,39 +37,24 @@ public class InputWeightServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
-		request.setCharacterEncoding("utf-8"); 
-		String postID = (String) session.getAttribute("postID");
+		String url = null;
 
-		//ログインしてるか
-		String url;
+		HttpSession session = request.getSession();
+		
+		
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "checkInputWeight.jsp";
+			url = "inputWeight.jsp";
+			
 		}else {
-			url ="login.jsp";
+			url = "login.jsp";
 		}
 		
-		Weight weight = new Weight();
 		
-		weight.setAnimalID(request.getParameter("animalID"));
-		weight.setInputTime(request.getParameter("inputTime"));
-		weight.setEmpID(request.getParameter("empID"));
-		weight.setWeight(Integer.parseInt(request.getParameter("weight")));
-		weight.setWeightUnit(request.getParameter("weightUnit"));
-		
-		
-		
-		//セッションへのデータの登録
-		session.setAttribute("inputWeight", weight);
-		
-		
-		//体重記録画面（確認画面）に行く
-		//このサーブレットでは通過するだけ
 		RequestDispatcher rd = request.getRequestDispatcher(url);
+
 		rd.forward(request, response);
-		
+
 	}
 
 }

@@ -45,39 +45,24 @@ public class InputWeightCheckServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		
+		Weight inputWeight = (Weight) session.getAttribute("inputWeight");
 		
-		String animalID = (String) session.getAttribute("animalID");
-		String inputTime = (String)session.getAttribute("inputTime");
-		String empID = (String)session.getAttribute("empID");
-		int weight = (int)session.getAttribute("weight");
-		String weightUnit = request.getParameter("weightUnit");
+		String postID = (String) session.getAttribute("postID");
 		
-		
-		Weight inputWeight = new Weight();
-		inputWeight.setAnimalID(animalID);
-		inputWeight.setInputTime(inputTime);
-		inputWeight.setEmpID(empID);
-		inputWeight.setWeight(weight);
-		inputWeight.setWeightUnit(weightUnit);
-		
-		
-		
+		System.out.println(postID);
 		//DAOの生成
-		KarteDAO karteDao = new KarteDAO();
-		int count = 0; //処理件数
+		KarteDAO karteDao = new KarteDAO(postID);
 		
+
 		try {
 			//DAOの利用
-			count = karteDao.insertWeight(inputWeight);
+			karteDao.insertWeight(inputWeight);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+
 		
-		
-		request.setAttribute("inputWeight",inputWeight);
-		
-		
-		
+
 		//ログインしてるか
 		String url;
 

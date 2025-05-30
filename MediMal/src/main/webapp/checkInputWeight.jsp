@@ -9,27 +9,30 @@
 <title>体重記録画面(確認画面)</title>
 </head>
 <body>
+	<%@ include file="header.jsp"%>
 	<p>※以下の内容で体重を記録しますか？</p>
 	
 	<%request.setCharacterEncoding("utf-8"); %>
-	<% Weight inputWeight = (Weight)request.getAttribute("inputWeight"); %>
 	
-	動物ID　:　
-	<% session.getAttribute("animalID"); %>
+	<jsp:useBean id ="inputWeight" scope = "session" class ="model.entity.Weight"/>
 	
-	日　付　:　
-	<%=inputWeight.getInputDate() %><br>
-	
-	今日の体重:
-	<%=inputWeight.getMeasureWeight() %><br>
-	<%=inputWeight.getUnit() %>
+	動物ID　:　<jsp:getProperty name = "inputWeight" property = "animalID"/><br>
 	
 	
-
+	日　付　:　<jsp:getProperty name = "inputWeight" property = "inputTime"/><br>
+	
+	飼育員ID　:　<jsp:getProperty name = "inputWeight" property = "empID"/><br>
+	
+	今日の体重:　<jsp:getProperty name = "inputWeight" property = "weight"/>
+	
+	<jsp:getProperty name="inputWeight" property="weightUnit"/>
+	
+	
+	
 	<form action="inputWeightCheck" method="post">
 	<input type="submit" value="はい">
 	</form>
-	<form action="inputWeight" method="post">
+	<form action="inputWeight.jsp" method="post">
 	<input type="submit" value="いいえ">
 	</form>
 	

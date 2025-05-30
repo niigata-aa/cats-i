@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"  import= "java.util.Date, java.text.SimpleDateFormat"%>
+    pageEncoding="UTF-8"  %>
     
 <!DOCTYPE html>
 <html>
@@ -8,9 +8,17 @@
 <title>体重記録画面</title>
 </head>
 <body>
-	<form action="inputWeight" method="post">
+
+	<%@ include file="headerLink.jsp"%>
+	<form action="inputWeight" method="post"><a></a>
+	
+	
+	
+<!--	動物ID　:　-->
+<!--	<% session.getAttribute("animalID"); %><br>-->
 	動物ID　:　
-	<% session.getAttribute("animalID"); %><br>
+	<input type="text" name = "animalID"><br>
+	
 	日　付　:　
 	<input type="date" name = "inputTime"><br>
 	飼育員ID　:　
