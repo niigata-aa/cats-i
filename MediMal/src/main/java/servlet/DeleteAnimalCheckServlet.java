@@ -10,19 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.entity.EmployeeBean;
-
 /**
- * Servlet implementation class DeleteKeeperServlet
+ * Servlet implementation class DeleteAnimalCheckServlet
  */
-@WebServlet("/deleteKeeper")
-public class DeleteKeeperServlet extends HttpServlet {
+@WebServlet("/deleteAnimalCheck")
+public class DeleteAnimalCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteKeeperServlet() {
+    public DeleteAnimalCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,31 +39,13 @@ public class DeleteKeeperServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストの転送
 		String url = null;
+
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("UTF-8");
 		
 		
-		
-		EmployeeBean deleteEmp = new EmployeeBean();
-		
-		deleteEmp.setEmpID(request.getParameter("empID"));
-		
-//		deleteEmp.setLastName(request.getParameter("lastName"));
-//		
-//		deleteEmp.setFirstName(request.getParameter("firstName"));
-//		
-//		deleteEmp.setAreaID(Integer.parseInt(request.getParameter("areaID")));
-//		
-//		deleteEmp.setGender(request.getParameter("gender"));
-		
-		
-		session.setAttribute("deleteEmployee", deleteEmp);
-		
-		
-	
-		//ログインしてるか
+
 		if (session.getAttribute("LoginID")!=null) {
-			url = "checkDeleteKeeper.jsp";
+			url = "finalCheckDeleteAnimal.jsp";
 			
 		}else {
 			url = "login.jsp";

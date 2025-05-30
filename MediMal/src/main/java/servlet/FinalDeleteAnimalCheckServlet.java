@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,19 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.entity.EmployeeBean;
+import model.dao.AnimalDAO;
+import model.entity.AnimalBean;
 
 /**
- * Servlet implementation class DeleteKeeperServlet
+ * Servlet implementation class FinalDeleteAnimalCheckServlet
  */
-@WebServlet("/deleteKeeper")
-public class DeleteKeeperServlet extends HttpServlet {
+@WebServlet("/finalDeleteAnimalCheck")
+public class FinalDeleteAnimalCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteKeeperServlet() {
+    public FinalDeleteAnimalCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,41 +41,40 @@ public class DeleteKeeperServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストの転送
-		String url = null;
+		
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("UTF-8");
-		
-		
-		
-		EmployeeBean deleteEmp = new EmployeeBean();
-		
-		deleteEmp.setEmpID(request.getParameter("empID"));
-		
-//		deleteEmp.setLastName(request.getParameter("lastName"));
-//		
-//		deleteEmp.setFirstName(request.getParameter("firstName"));
-//		
-//		deleteEmp.setAreaID(Integer.parseInt(request.getParameter("areaID")));
-//		
-//		deleteEmp.setGender(request.getParameter("gender"));
-		
-		
-		session.setAttribute("deleteEmployee", deleteEmp);
-		
-		
-	
+
+		AnimalBean deleteAnimal = (AnimalBean) session.getAttribute("deleteAnimal");
+
+		String postID =(String) session.getAttribute("postID");
+
+		//DAOの生成
+		AnimalDAO animalDao = new AnimalDAO(postID);
+
+		//DAOの利用
+		try {
+			animalDao.DeleteAnimal(deleteAnimal);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
 		//ログインしてるか
+		String url;
 		if (session.getAttribute("LoginID")!=null) {
-			url = "checkDeleteKeeper.jsp";
-			
+			url = "doneCheckDeleteAnimals.jsp";
+
 		}else {
 			url = "login.jsp";
 		}
-		
-		
+
+
 		RequestDispatcher rd = request.getRequestDispatcher(url);
+
 		rd.forward(request, response);
+		
+		
+		
 	}
 
 }

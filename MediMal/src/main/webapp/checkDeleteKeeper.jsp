@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="model.entity.EmployeeBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,12 @@
 	<p>※【確認】従業員情報を削除しますか？</p>
 
 
+	<%request.setCharacterEncoding("utf-8"); %>
 	
+<!--	<jsp:useBean id ="deleteEmployee" scope = "session" class ="model.entity.EmployeeBean"/>-->
+	
+	
+<!--	従業員ID : <jsp:getProperty name = "deleteEmployee" property = "empID"/><br>-->
 
 
 	<form action="deleteKeeperCheck" method="post">
