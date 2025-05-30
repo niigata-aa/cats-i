@@ -54,8 +54,16 @@ public class goKarteDetailServlet extends HttpServlet {
 		String typeName = request.getParameter("typeName");
 		String areaName = request.getParameter("areaName");
 		String keeperName = request.getParameter("keeperName");
-		String anemalBirth = request.getParameter("animalBirth");
+		String animalBirth = request.getParameter("animalBirth");
 //		String photo = request.getParameter("photo");
+		
+		request.setAttribute("animalID", animalID);
+		request.setAttribute("animalName", animalName);
+		request.setAttribute("typeName", typeName);
+		request.setAttribute("areaName", areaName);
+		request.setAttribute("keeperName", keeperName);
+		request.setAttribute("animalBirth", animalBirth);
+//		request.setAttribute("photo", photo);
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 
