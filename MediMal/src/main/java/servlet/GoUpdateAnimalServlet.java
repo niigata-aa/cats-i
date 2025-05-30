@@ -50,7 +50,7 @@ public class GoUpdateAnimalServlet extends HttpServlet {
 		}
 		
 		String 	animalID 	= request.getParameter("animalID");
-		String  birthday    = request.getParameter("birthday");
+		String  birthDay    = request.getParameter("birthDay");
 		String 	name 		= request.getParameter("name");
 		String 	country 	= request.getParameter("country");
 		String 	animalKind 	= request.getParameter("animalKind");
@@ -59,7 +59,7 @@ public class GoUpdateAnimalServlet extends HttpServlet {
 		int 	livingNow	=Integer.parseInt(request.getParameter("livingNow"));
 		
 		request.setAttribute("animalID",animalID);
-		request.setAttribute("birthday",birthday);
+		request.setAttribute("birthday",birthDay);
 		request.setAttribute("name",name);
 		request.setAttribute("country",country);
 		request.setAttribute("animalKind", animalKind);

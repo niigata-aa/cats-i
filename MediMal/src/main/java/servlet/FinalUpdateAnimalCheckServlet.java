@@ -64,7 +64,7 @@ public class FinalUpdateAnimalCheckServlet extends HttpServlet {
 		session.removeAttribute("livingNow");
 
 		//リクエストの転送　従業員登録画面の完了画面へ
-		RequestDispatcher rd = request.getRequestDispatcher("doneUpdateAnimalr.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("doneUpdateAnimal.jsp");
 		rd.forward(request, response);
 	}
 

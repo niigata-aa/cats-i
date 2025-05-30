@@ -41,7 +41,7 @@ public class UpdateAnimalCheckServlet extends HttpServlet {
 		}
 		
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("finalCheckUpdateAnimalr.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("finalCheckUpdateAnimal.jsp");
 		rd.forward(request, response);
 	}
 

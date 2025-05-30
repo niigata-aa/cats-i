@@ -17,7 +17,7 @@
 			   
 
 		生年月日 : <input type="date" name="birthDay"
-				   value=<%=request.getParameter("birthID")%>>
+				   value=<%=request.getParameter("birthDay")%>>
 
 
 		名前 : <input type="text" name="name"
