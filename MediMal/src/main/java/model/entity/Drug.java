@@ -3,7 +3,7 @@ package model.entity;
 import java.text.SimpleDateFormat;
 
 public class Drug {
-	
+	//なんかやらかしまる
 	private String animalID;
 	private String date;
 	private String medicineName;
