@@ -25,25 +25,15 @@
 	<%
 	}
 	%>
-	
-	<%
-		request.setCharacterEncoding("UTF-8");
-		String animalID = request.getParameter("animalID");
-		String postID = (String) session.getAttribute("postID");
-		
-		//DAOの生成
-		AnimalDAO dao = new AnimalDAO(postID);
-		try{
-		//DAOの利用
-			AnimalBean animalrecode = new AnimalBean();
-			animalrecode = dao.selectOneRecodeAllAnimal(animalID);
-		}catch(SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		
-	%>
-	
+	<jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
+	動物ID :<jsp:getProperty property="animalID" name="animalrecode"/><br>
+	名前 :<jsp:getProperty property="name" name="animalrecode"/><br>
+	生年月日 :<jsp:getProperty property="birthDay" name="animalrecode"/><br>
+	性別 :<jsp:getProperty property="sex" name="animalrecode"/><br>
+	種族 :<jsp:getProperty property="" name="animalrecode"/><br>
+	品種 :<jsp:getProperty property="" name="animalrecode"/><br>
+	動物エリア :<jsp:getProperty property="area" name="animalrecode"/><br>
+	在籍情報 :<jsp:getProperty property="animalID" name="animalrecode"/><br>
 		<%=animalrecode.getAnimalID() %><br>
 		<%=animal.getName() %><br>
 		<%=animal.getBirthDay() %><br>
