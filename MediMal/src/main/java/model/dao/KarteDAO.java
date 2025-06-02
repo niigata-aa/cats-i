@@ -192,6 +192,7 @@ public class KarteDAO {
 	 * @param wroteComment
 	 * @return 処理件数
 	 */
+	//あ
 	public int insertComment(AnimalComment inputComment) throws ClassNotFoundException,SQLException {
 		int count = 0;
 		String sql = "nsert into t_comment  values (?,?,?,?)";
