@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.KarteDAO;
 import model.entity.AnimalBean;
 import model.entity.KarteBean;
 
@@ -66,7 +68,23 @@ public class goKarteDetailServlet extends HttpServlet {
 		String postID = (String) session.getAttribute("postID");
 		//KarteDAO dao = new KarteDAO(postID);
 		
+		KarteDAO dao = new KarteDAO(postID);
+		
+		
 		KarteBean Karte = new KarteBean();
+		
+		try {
+			Karte.setWeightLog(dao.selectAllWeight(animalID));
+			Karte.setCommentLog(dao.selectAllComment(animalID));
+			Karte.setBirthLog(dao.selectAllBirth(animalID));
+			Karte.setDrugLog(dao.selectAllDrug(animalID));
+			Karte.setFeedLog(dao.selectAllFeed(animalID));
+			Karte.setMedicaltimes(dao.selectallMedicalExam(animalID));
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 		
 		
 		for (AnimalBean TmpAnimal :(List<AnimalBean>) session.getAttribute("animalList")) {

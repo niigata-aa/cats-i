@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8" 
 	import="java.util.List,java.util.ArrayList,
 			model.entity.AnimalBean,model.dao.AnimalDAO,
+			model.entity.KarteBean,model.entity.Weight,
+			model.entity.Birth,model.entity.Drug,
+			model.entity.Feed,model.entity.MedicalExamBean,
 			java.sql.SQLException,java.io.IOException"%>
 <!DOCTYPE html>
 <html>
@@ -16,6 +19,8 @@
 	基本情報
 	
 	<%
+	
+	KarteBean Karte = (KarteBean)session.getAttribute("KarteInfo");
 	String idhead = (String) session.getAttribute("postID");
 	if (idhead.equals("20")) {
 	%>
@@ -34,7 +39,14 @@
 	品種 :<jsp:getProperty property="animalKind" name="animalrecode"/><br>
 	動物エリア :<jsp:getProperty property="area" name="animalrecode"/><br>
 	在籍情報 :<jsp:getProperty property="livingNow" name="animalrecode"/><br>
-		
+	
+	体重記録<br>
+	<% if (Karte.getWeightLog().size()!=0){
+		for (Weight weight:Karte.getWeightLog()){%>
+		<%=weight.getInputTime() %>:<%=weight.getWeight()%><%=weight.getWeightUnit() %><br>
+	<%} }else{%>
+		記録が存在していません。<br>
+	<%} %>
 	
 	
 	<form action="goInputWeight" method="post">

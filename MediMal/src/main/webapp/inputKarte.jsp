@@ -18,7 +18,7 @@
 	
 	<form action="inputHealth" method="post">
 	動物ID　:　
-	<input type="text" name="animalID">
+	<% session.getAttribute("animalID"); %>
 	
 	
 	

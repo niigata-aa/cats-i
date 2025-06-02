@@ -236,7 +236,7 @@ public class KarteDAO {
 			while (res.next()) {
 				AnimalComment TmpComment = new AnimalComment();
 				TmpComment.setAnimalID(res.getString("animalID"));
-				TmpComment.setDate(res.getDate("CommentTime"));
+				TmpComment.setCommentTime(getDateUntilMinute(res.getDate("CommentTime")));
 				TmpComment.setEmpID(res.getString("empID"));
 				TmpComment.setContent(res.getString("Content"));
 

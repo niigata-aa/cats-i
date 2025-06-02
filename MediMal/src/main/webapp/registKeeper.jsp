@@ -25,7 +25,7 @@
 	業務種別:
 	<input type = "number" name = "inputPostID"><br>
 	担当エリア :
-		<select name="areaName" class="Keeper">
+		<select name="inputAreaID" class="Keeper">
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>
 			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
 			<%} %>

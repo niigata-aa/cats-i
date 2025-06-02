@@ -1,14 +1,13 @@
 package model.entity;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class KarteBean implements Serializable {
 	
 	private AnimalBean animal;
 	
-	private List<SimpleDateFormat> medicaltimes;
+	private List<MedicalExamBean> medicaltimes;
 	
 	private List<String> veterinarian;
 	
@@ -34,11 +33,11 @@ public class KarteBean implements Serializable {
 		this.animal = animal;
 	}
 
-	public List<SimpleDateFormat> getMedicaltimes() {
+	public List<MedicalExamBean> getMedicaltimes() {
 		return medicaltimes;
 	}
 
-	public void setMedicaltimes(List<SimpleDateFormat> medicaltimes) {
+	public void setMedicaltimes(List<MedicalExamBean> medicaltimes) {
 		this.medicaltimes = medicaltimes;
 	}
 
