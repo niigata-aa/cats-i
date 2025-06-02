@@ -16,16 +16,16 @@
 	</form>
 	
 	<div class="A"><form action="searchAnimal" method="post">
-	<div class="test-container">
+	<div class="test-con">
 	<table style="margin-left :auto; margin-right: auto;">
 	
-		<tr><td>動物ID :</td>
+		<tr align="right"><td>動物ID :</td>
 		<td><input type="text" name="animalID"placeholder="キーワードを入力" class="Animal"></td></tr>
-		<tr><td>名前 :</td>
+		<tr align="right"><td>名前 :</td>
 		<td><input type="text" name="animalName"placeholder="キーワードを入力" class="Animal"></td></tr>
-		<tr><td>種族 :</td>
+		<tr align="right"><td>種族 :</td>
 		<td><input type="text" name="typeName"placeholder="キーワードを入力" class="Animal"></td></tr>
-		<tr><td>所属エリア :</td>
+		<tr align="right"><td>所属エリア :</td>
 		<td><input type="text" name="areaName"placeholder="キーワードを入力" class="Animal"></td></tr>
 		</table></div>
 		<!--  
