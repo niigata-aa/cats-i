@@ -64,7 +64,7 @@ public class SearchAllAnimalSarvlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		//レクエストスコープへの属性の設定
-		request.setAttribute("animalList", animalList);
+		session.setAttribute("animalList", animalList);
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);

@@ -2,7 +2,9 @@ package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -73,8 +75,42 @@ public class KarteDAO {
 	 * 全ての体重履歴を検索する
 	 * @return
 	 */
-	public List<Weight> selectAllWeight() {
-		return
+	public static List<Weight> selectAllWeight(String animalID) throws SQLException, ClassNotFoundException {
+
+		List<Weight> result = new ArrayList<Weight>();
+
+		String sql = "select * from t_weight ";
+
+		try (Connection con = ConnectionManager.getConnection(postID);
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)){
+
+			List<Weight> TmpAll = new ArrayList<Weight>();
+
+			while (res.next()) {
+				Weight TmpWeight = new Weight();
+				TmpWeight.setAnimalID(res.getString("animalID"));
+				TmpWeight.setInputTime(getDateUntilMinute(res.getDate("inputTime")));
+				TmpWeight.setWeight(res.getInt("weight"));
+				TmpWeight.setWeightUnit(res.getString("weightUnit"));
+
+				TmpAll.add(TmpWeight);
+
+			}
+			
+			if (TmpAll.size()!=0) {
+				for (Weight weight :TmpAll) {
+					
+					if(weight.getAnimalID().equals(animalID)) {
+						result.add(weight);
+					}
+				}
+				return result;
+			}else {
+				return result;
+			}
+		}
+
 	}
 
 
@@ -235,7 +271,7 @@ public class KarteDAO {
 	
 	
 	//日付
-	public String getDateUntilMinute(Date date) {
+	public static String getDateUntilMinute(Date date) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");

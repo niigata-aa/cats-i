@@ -6,7 +6,7 @@ import java.util.List;
 
 public class KarteBean implements Serializable {
 	
-	private AnimalBean anima;
+	private AnimalBean animal;
 	
 	private List<SimpleDateFormat> medicaltimes;
 	
@@ -16,7 +16,7 @@ public class KarteBean implements Serializable {
 	
 	private List<Weight> weightLog;
 	
-	private List<Comment> commentLog;
+	private List<AnimalComment> commentLog;
 	
 	private List<Feed> feedLog;
 	
@@ -26,12 +26,12 @@ public class KarteBean implements Serializable {
 		
 	}
 
-	public AnimalBean getAnima() {
-		return anima;
+	public AnimalBean getAnimal() {
+		return animal;
 	}
 
-	public void setAnima(AnimalBean anima) {
-		this.anima = anima;
+	public void setAnimal(AnimalBean animal) {
+		this.animal = animal;
 	}
 
 	public List<SimpleDateFormat> getMedicaltimes() {
@@ -66,11 +66,11 @@ public class KarteBean implements Serializable {
 		this.weightLog = weightLog;
 	}
 
-	public List<Comment> getCommentLog() {
+	public List<AnimalComment> getCommentLog() {
 		return commentLog;
 	}
 
-	public void setCommentLog(List<Comment> commentLog) {
+	public void setCommentLog(List<AnimalComment> commentLog) {
 		this.commentLog = commentLog;
 	}
 

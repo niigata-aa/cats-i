@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.dao.AnimalDAO;
+import model.dao.KarteDAO;
 import model.entity.AnimalBean;
+import model.entity.KarteBean;
 
 /**
  * Servlet implementation class goKarteDetailServlet
@@ -56,20 +57,6 @@ public class goKarteDetailServlet extends HttpServlet {
 			
 		} else {
 			 animalID = request.getParameter("animalID");
-//			String animalName = request.getParameter("animalName");
-//			String typeName = request.getParameter("typeName");
-//			String areaName = request.getParameter("areaName");
-//			String keeperName = request.getParameter("keeperName");
-//			String animalBirth = request.getParameter("animalBirth");
-	//		String photo = request.getParameter("photo");
-			
-//			request.setAttribute("animalID", animalID);
-//			request.setAttribute("animalName", animalName);
-//			request.setAttribute("typeName", typeName);
-//			request.setAttribute("areaName", areaName);
-//			request.setAttribute("keeperName", keeperName);
-//			request.setAttribute("animalBirth", animalBirth);
-	//		request.setAttribute("photo", photo);
 		}
 		
 		if (session.getAttribute("LoginID")!=null) {
@@ -78,16 +65,21 @@ public class goKarteDetailServlet extends HttpServlet {
 			url ="login.jsp";
 		}
 		String postID = (String) session.getAttribute("postID");
-		AnimalDAO dao = new AnimalDAO(postID);
+		KarteDAO dao = new KarteDAO(postID);
 		
-		try {
-			AnimalBean animal = new AnimalBean();
-			animal = dao.selectOneRecodeAllAnimal(animalID);
-			session.setAttribute("animalrecode", animal);
-			
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
+		KarteBean Karte = new KarteBean();
+		
+		
+		for (AnimalBean TmpAnimal :(List<AnimalBean>) session.getAttribute("animalList")) {
+			if(TmpAnimal.getAnimalID().equals(animalID)){
+				Karte.setAnimal(TmpAnimal);
+				request.setAttribute("animalrecode", TmpAnimal);
+				break;
+			}
 		}
+		
+		session.setAttribute("KarteInfo",Karte);
+		
 		
 		
 		
