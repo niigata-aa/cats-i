@@ -31,7 +31,7 @@
 		
 		
 		
-		<!-- 担当動物個体の表示とそこから詳細カルテに飛ぶ方法が分かりません -->
+		<!-- a担当動物個体の表示とそこから詳細カルテに飛ぶ方法が分かりません -->
 		<!--  =employee.get() %>-->
 		<%=animal.getBirthDay() %>
 		
@@ -50,6 +50,14 @@
 		<input type="submit" value="編集・削除">
 	</form>
 	
+	<form action="goKarteDetail" method="post">
+		<input type ="hidden" name="animalID" value=<%=animal.getAnimalID() %>>
+		<input type ="hidden" name="Name" value=<%=animal.getName() %>>
+		<input type ="hidden" name="animalType" value=<%= animal.getAnimalType() %>>
+		<input type ="hidden" name="area" value=<%= animal.getArea() %>>
+		<input type ="hidden" name="livingNow" value=<%= animal.getLivingNow()  %>>
+		<input type="submit" value="詳細カルテへ">
+	</form>
 	
 	<%
 		}
