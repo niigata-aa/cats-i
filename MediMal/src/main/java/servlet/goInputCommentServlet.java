@@ -44,7 +44,7 @@ public class goInputCommentServlet extends HttpServlet {
 		
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "inputCmomment.jsp";
+			url = "inputComment.jsp";
 			
 		}else {
 			url = "login.jsp";

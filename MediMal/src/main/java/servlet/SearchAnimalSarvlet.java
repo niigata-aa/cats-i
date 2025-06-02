@@ -64,20 +64,20 @@ public class SearchAnimalSarvlet extends HttpServlet {
 		searchAnimal.setArea(request.getParameter("areaName"));
 //		searchAnimal.setKeepers(request.getParameter("keeperName"));
 		
-		List<AnimalBean> searchAnimalList = new ArrayList<AnimalBean>();
+		List<AnimalBean> animalList = new ArrayList<AnimalBean>();
 		
 		//DAOの生成
 		AnimalDAO dao = new AnimalDAO(postID);
 //		try {
 //			//DAOの利用
-			searchAnimalList = dao.selectAnimalByfield(searchAnimal);
+			animalList = dao.selectAnimalByfield(searchAnimal);
 //		}catch(SQLException | ClassNotFoundException e) {
 //			e.printStackTrace();
 //		}
 		
 		
 		//レクエストスコープへの属性の設定
-		session.setAttribute("animalList", searchAnimalList);
+		session.setAttribute("animalList", animalList);
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
