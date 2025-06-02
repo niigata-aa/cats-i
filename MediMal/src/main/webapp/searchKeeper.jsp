@@ -31,8 +31,8 @@
 		<td><input type="text" name="keeperFirstName" placeholder="キーワードを入力"class="Keeper" ></td></tr>
 		<tr align="right"><td>担当エリア :</td>
 		<td align="left"><select name="areaName" class="Keeper">
-			<% for (int i = 0 ; i<allArea.size();i ++){ %>
-			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
+			<% for (String area:allArea){ %>
+			<option value = <%= area %>> <%=area %> </option> 
 			<%} %></td>
 		</select><br>
 		<tr align="right"><td>担当動物種族 :</td>

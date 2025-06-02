@@ -11,7 +11,7 @@
 <%List<String> allArea = (List<String>)session.getAttribute("area");  %>	
 <%Map<String,String> allTypes =(Map<String,String>) session.getAttribute("Alltype");  %>
 
-	<form action = "registAnimal" method = "post">
+	<form action = "registAnimal" method = "post" enctype="multipart/form-data">
 	
 		動物ID　:　
 		<input type = "text" name = "animalID"><br>
@@ -44,7 +44,7 @@
 <!--		担当飼育員:-->
 <!--		<input type = "text" name = "keepers"><br>-->
 		写真　:　
-		<input type = "text" name = "photo"><br>
+		<input type = "file" name = "photo"><br>
 
 
 		<input type = "submit" value = "登録">

@@ -11,7 +11,7 @@
 <%@ include file="headerLink.jsp"%>
 <%List<String> allArea = (List<String>)session.getAttribute("area");  %>	
 	
-	<form action = "registKeeper" method = "post">
+	<form action = "registKeeper" method = "post" >
 	<div class="test-con">
 	<table style="margin-left :auto; margin-right: auto;">
 	<tr align="right"><td>従業員ID:</td>
@@ -36,9 +36,8 @@
 	<td><input type = "date" name = "inputStartWork"></td></tr>
 	 
 	<tr align="right"><td>写真:</td>
-	<td><input type = "text" name = "inputPhoto"></td></tr>
-
-
+	<td><input type = "file" name = "inputPhoto"></td></tr>
+	</table>
 	<input type = "submit" value = "登録">
 
 
