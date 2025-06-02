@@ -39,5 +39,9 @@
 		<td><input type="text" name="animalType" placeholder="キーワードを入力" class="Keeper"></td></tr></table></div>
 		<input type="submit" value="検索" class="KS">
 	</form>	
+	<%
+		String returnURL = "searchKeeper.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>
