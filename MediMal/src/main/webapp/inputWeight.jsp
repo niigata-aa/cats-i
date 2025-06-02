@@ -33,6 +33,9 @@
 	
 	<input type="submit" value="記録">
 	</form>
-	
+	<%
+		String returnURL = "inputWeight.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

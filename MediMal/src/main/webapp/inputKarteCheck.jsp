@@ -7,7 +7,7 @@
 <title>健康情報追加画面(確認画面)</title>
 </head>
 <body>
-<%@include file="header.jsp" %>
+<%@include file="headerLink.jsp" %>
 	
 	<p>※以下の内容で投薬情報・出産情報を記録しますか？</p>
 	<jsp:useBean id ="inputDrug" scope = "session" class ="model.entity.Drug"/>
@@ -44,7 +44,10 @@
 	<form action="inputHealth" method="post">
 	<input type="submit" value="いいえ">
 	</form>
-	
+	<%
+		String returnURL = "inputKarteCheck.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 	
 	
 </body>

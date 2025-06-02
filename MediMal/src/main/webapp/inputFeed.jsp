@@ -30,6 +30,9 @@
 	
 	<input type="submit" value="記録">
 	</form>
-	
+	<%
+		String returnURL = "inputFeed.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

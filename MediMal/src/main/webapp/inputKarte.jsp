@@ -49,7 +49,10 @@
 	<input type="submit" value="登録">
 	
 	</form>
-	
+	<%
+		String returnURL = "inputKarte.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 	
 </body>
 </html>
