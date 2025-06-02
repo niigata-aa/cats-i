@@ -38,7 +38,7 @@
 	
 	写真 : <jsp:getProperty name = "updateAnimal" property = "photo"/><br>
 	
-	<form action="finaUpdateAnimalCheck" method="post">
+	<form action="finalUpdateAnimalCheck" method="post">
 		<input type="submit" value="はい">
 	</form>
 	

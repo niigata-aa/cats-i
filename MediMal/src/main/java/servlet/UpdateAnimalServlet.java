@@ -50,7 +50,7 @@ public class UpdateAnimalServlet extends HttpServlet {
 		
 		updateAnimal.setBirthDay(request.getParameter("birthDay"));
 		
-		updateAnimal.setName(request.getParameter("Name"));
+		updateAnimal.setName(request.getParameter("name"));
 		
 		updateAnimal.setCountry(request.getParameter("country"));
 		
@@ -69,7 +69,7 @@ public class UpdateAnimalServlet extends HttpServlet {
 		
 		session.setAttribute("updateAnimal", updateAnimal);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("checkUpdateKeeper.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("checkUpdateAnimal.jsp");
 		rd.forward(request, response);
 	}
 

@@ -44,14 +44,14 @@
 		
 	%>
 	
-		<%=animalrecode.getAnimalID() %>
-		<%=animal.getName() %>
-		<%=animal.getBirthDay() %>
-		<%=animal.getArea() %>
-		<%=animal.getCountry() %>
-		<%=animal.getSex() %>
-		<%=animal.getPhoto() %>
-		<%=animal.getLivingNow() %>
+		<%=animalrecode.getAnimalID() %><br>
+		<%=animal.getName() %><br>
+		<%=animal.getBirthDay() %><br>
+		<%=animal.getArea() %><br>
+		<%=animal.getCountry() %><br>
+		<%=animal.getSex() %><br>
+		<%=animal.getPhoto() %><br>
+		<%=animal.getLivingNow() %><br>
 	
 	
 	<form action="goInputWeight" method="post">
