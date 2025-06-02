@@ -5,13 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import javax.xml.stream.events.Comment;
-
-import java.text.SimpleDateFormat;
 
 import model.entity.AnimalComment;
 import model.entity.Birth;
@@ -76,15 +73,18 @@ public class KarteDAO {
 	 * 全ての体重履歴を検索する
 	 * @return
 	 */
-	public static List<Weight> selectAllWeight(String animalID) throws SQLException, ClassNotFoundException {
+	public List<Weight> selectAllWeight(String animalID) throws SQLException, ClassNotFoundException {
 
 		List<Weight> result = new ArrayList<Weight>();
 
-		String sql = "select * from t_weight ";
+		String sql = "select * from t_weight where animalID = ?";
 
 		try (Connection con = ConnectionManager.getConnection(postID);
-				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery(sql)){
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			
+			pstmt.setString(1, animalID);
+			
+			ResultSet res = pstmt.executeQuery();
 
 			List<Weight> TmpAll = new ArrayList<Weight>();
 
@@ -98,10 +98,10 @@ public class KarteDAO {
 				TmpAll.add(TmpWeight);
 
 			}
-			
+
 			if (TmpAll.size()!=0) {
 				for (Weight weight :TmpAll) {
-					
+
 					if(weight.getAnimalID().equals(animalID)) {
 						result.add(weight);
 					}
@@ -150,12 +150,14 @@ public class KarteDAO {
 	/**全ての投薬履歴を検索する*/
 	public List<Drug> selectAllDrug(String animalID) throws SQLException, ClassNotFoundException {
 		List<Drug> result = new ArrayList<Drug>();
-		String sql = "select * from t_drug ";
+		String sql = "select * from t_drug where animalID = ? ";
 
 		try (Connection con = ConnectionManager.getConnection(postID);
-				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery(sql)){
+				PreparedStatement pstmt = con.prepareStatement(sql)){
 
+			pstmt.setString(1, animalID);
+
+			ResultSet res = pstmt.executeQuery();
 			List<Drug> TmpAll = new ArrayList<Drug>();
 
 			while (res.next()) {
@@ -222,8 +224,11 @@ public class KarteDAO {
 		String sql = "select * from t_birth ";
 
 		try (Connection con = ConnectionManager.getConnection(postID);
-				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery(sql)){
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+
+			pstmt.setString(1, animalID);
+
+			ResultSet res = pstmt.executeQuery();
 
 			List<AnimalComment> TmpAll = new ArrayList<AnimalComment>();
 
@@ -233,7 +238,7 @@ public class KarteDAO {
 				TmpComment.setDate(res.getDate("CommentTime"));
 				TmpComment.setEmpID(res.getString("empID"));
 				TmpComment.setContent(res.getString("Content"));
-				
+
 
 				TmpAll.add(TmpComment);
 
@@ -253,14 +258,14 @@ public class KarteDAO {
 
 
 	public List<MedicalExamBean> selectallMedicalExam(String animalID) throws ClassNotFoundException, SQLException{
-		String sql = "select * from t_medicalexam";
+		String sql = "select * from t_medicalexam where animalID = ?";
 		List<MedicalExamBean> result = new ArrayList<MedicalExamBean>();
-		
+
 		try (Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
 				ResultSet res = stmt.executeQuery(sql)){
 
-			List<MedicalExamBean> TmpAll = new ArrayList<MedicalExamBean>();
+
 
 			while (res.next()) {
 				MedicalExamBean TmpWeight = new MedicalExamBean();
@@ -269,21 +274,14 @@ public class KarteDAO {
 				TmpWeight.setEmpID(res.getString("empID"));
 				TmpWeight.setMedicalphoto(res.getString("MedicalphotoURL"));
 
-				TmpAll.add(TmpWeight);
+				result.add(TmpWeight);
 
 			}
-			if (TmpAll.size()!=0) {
-				for (MedicalExamBean weight :TmpAll) {
-					if(weight.getAnimalID().equals(animalID)) {
-						result.add(weight);
-					}
-				}
-				return result;
-			}else {
-				return result;
-			}
+
+			return result;
+
 		}
-		
+
 	}
 
 
@@ -299,7 +297,7 @@ public class KarteDAO {
 		String sql = "insert into t-feeding values (?,?,?,?,?,?)";
 		try (Connection con = ConnectionManager.getConnection(sql);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
-			
+
 			//Beanからのデータ取り出し
 			String animalID = inputFeed.getAnimalID();
 			String feedTime = inputFeed.getFeedTime();
@@ -322,9 +320,35 @@ public class KarteDAO {
 
 
 
-	/**全ての食事履歴を検索する*/
-	public List<Feed> selectAllFeed(){
-		return
+	/**全ての食事履歴を検索する
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException */
+	public List<Feed> selectAllFeed(String animalID) throws ClassNotFoundException, SQLException{
+		List<Feed> result = new ArrayList<Feed>();
+
+		String sql = "select * from t_feeding where animalID = ?";
+
+		try(Connection con = ConnectionManager.getConnection(postID);
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+
+			pstmt.setString(1, animalID);
+
+			ResultSet res = pstmt.executeQuery();
+
+			while(res.next()) {
+				Feed tmpFeed = new Feed();
+
+				tmpFeed.setEmpID(res.getString("empID"));
+				tmpFeed.setFeedTime(getDateUntilMinute(res.getDate("feedTime")));
+				tmpFeed.setFeedContent(res.getString("feedContent"));
+				tmpFeed.setFeedAmount(res.getInt("feedAmount"));
+				tmpFeed.setFeedUnit(res.getString("feedUnit"));
+
+				result.add(tmpFeed);
+			}
+
+		}
+		return result;
 	}
 
 
@@ -333,19 +357,19 @@ public class KarteDAO {
 		int count;
 		String sql = "insert into t-birthrecode  values (?,?,?)";
 		try (Connection con = ConnectionManager.getConnection(sql);
-			PreparedStatement pstmt = con.prepareStatement(sql)){
-		//Beanからのデータ取り出し
-		String animalID = inputBirth.getAnimalID();
-		String date = inputBirth.getDate();
-		int amount = inputBirth.getAmount();
-		//プレースホルダーへの値の設定
-		pstmt.setString (1,animalID);
-		pstmt.setString(2,date );
-		pstmt.setInt(3,amount);
-		count = pstmt.executeUpdate();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			//Beanからのデータ取り出し
+			String animalID = inputBirth.getAnimalID();
+			String date = inputBirth.getDate();
+			int amount = inputBirth.getAmount();
+			//プレースホルダーへの値の設定
+			pstmt.setString (1,animalID);
+			pstmt.setString(2,date );
+			pstmt.setInt(3,amount);
+			count = pstmt.executeUpdate();
 		}
 		return count;
-		}
+	}
 
 
 
@@ -364,7 +388,7 @@ public class KarteDAO {
 				Birth TmpBirth = new Birth();
 				TmpBirth.setAnimalID(res.getString("animalID"));
 				TmpBirth.setDate(getDateUntilDay(res.getDate("birthdate")));
-				
+
 				TmpBirth.setAmount(res.getInt("birthAmount"));
 
 				TmpAll.add(TmpBirth);
@@ -382,38 +406,38 @@ public class KarteDAO {
 			}
 		}	
 	}
-	
-	
+
+
 	//日付
 	public static String getDateUntilMinute(Date date) {
 		String result;
-		
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
 		result = df.format(date);
-		
+
 		return result;
-		
+
 	}
-	
+
 	public String getDateUntilDay(Date date) {
 		String result;
-		
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日");
 		result = df.format(date);
-		
+
 		return result;
-		
+
 	}
-	
-	
+
+
 	public String getDateUntilMonth(Date date) {
 		String result;
-		
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月");
 		result = df.format(date);
-		
+
 		return result;
-		
+
 	}
 
 
