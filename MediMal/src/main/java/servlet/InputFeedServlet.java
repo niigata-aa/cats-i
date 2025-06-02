@@ -56,7 +56,7 @@ public class InputFeedServlet extends HttpServlet {
 		
 		Feed feed = new Feed();
 		
-		feed.setAnimalID(request.getParameter("animalID"));
+		feed.setAnimalID((String) session.getAttribute("animalID"));
 		feed.setFeedTime(request.getParameter("feedTime"));
 		feed.setEmpID(request.getParameter("empID"));
 		feed.setFeedContent(request.getParameter("feedContent"));

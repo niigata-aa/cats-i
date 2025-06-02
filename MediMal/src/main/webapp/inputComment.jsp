@@ -13,10 +13,10 @@
 
 			
 	動物ID　:　
-	<input type="text" name="animalID">
+	<%= session.getAttribute("animalID") %>
 	<br>
 	入力日　:　
-	<input type="date" name="commentTime">
+	<input type="datetime" name="commentTime">
 	<br>
 	従業員ID　:　
 	<input type="text" name="empID">

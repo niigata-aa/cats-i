@@ -55,9 +55,9 @@ public class InputWeightServlet extends HttpServlet {
 		
 		Weight weight = new Weight();
 		
-		weight.setAnimalID(request.getParameter("animalID"));
+		weight.setAnimalID((String) session.getAttribute("animalID"));
 		weight.setInputTime(request.getParameter("inputTime"));
-		weight.setEmpID(request.getParameter("empID"));
+		weight.setEmpID((String) session.getAttribute("empID"));
 		weight.setWeight(Integer.parseInt(request.getParameter("weight")));
 		weight.setWeightUnit(request.getParameter("weightUnit"));
 		

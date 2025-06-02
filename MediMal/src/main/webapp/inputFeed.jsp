@@ -11,7 +11,7 @@
 	<%@include file="headerLink.jsp" %>
 	<form action="inputFeed" method="post">
 	動物ID　:　
-	<input type="text" name="animalID"><br> 
+	<%= session.getAttribute("animalID") %><br> 
 	食事時間　:　
 	<input type="date" name = "feedTime"><br>
 	従業員ID　:　

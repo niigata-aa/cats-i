@@ -22,7 +22,7 @@
 	<br>
 	【投薬内容】<br>
 	投薬時間　:　
-	<input type="SimpleDateFormat" name="date">
+	<input type="datetime" name="date">
 	投　薬　量:　
 	<input type="number" name="medicineAmount"><br>
 	薬の種類　:　
@@ -30,7 +30,7 @@
 	
 	【出産】<br>
 	出　産　日:　
-	<input type="SimpleDateFormat" name="date">
+	<input type="datetime" name="date">
 	出　産　数:　
 	<select name="amount">
 		<option value="1">1

@@ -14,13 +14,12 @@
 	
 	
 	
-<!--	動物ID　:　-->
-<!--	<% session.getAttribute("animalID"); %><br>-->
+
 	動物ID　:　
-	<input type="text" name = "animalID"><br>
+	<%= session.getAttribute("animalID") %><br>
 	
 	日　付　:　
-	<input type="date" name = "inputTime"><br>
+	<input type="datetime" name = "inputTime"><br>
 	飼育員ID　:　
 	<input type="text" name ="empID"><br>
 	

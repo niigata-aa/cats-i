@@ -54,9 +54,9 @@ public class InputCommentServlet extends HttpServlet {
 		
 		AnimalComment comment = new AnimalComment();
 		
-		comment.setAnimalID(request.getParameter("animalID"));
+		comment.setAnimalID((String) session.getAttribute("animalID"));
 		comment.setCommentTime(request.getParameter("commentTime"));
-		comment.setEmpID(request.getParameter("empID"));
+		comment.setEmpID((String) session.getAttribute("empID"));
 		comment.setContent(request.getParameter("content"));
 		
 		
