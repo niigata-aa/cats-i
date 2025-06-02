@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>飼育員検索結果画面</title>
+<link rel ="stylesheet" href="style/resultSearchStyle.css">
 </head>
 <body>
 	<%@ include file="header.jsp" %>
@@ -18,8 +19,12 @@
 		= (List<EmployeeBean>)request.getAttribute("employeeList");
 	%>
 	
+	<div class="result">
 	<table>
-	<tr><th>写真</th><th>詳細情報</th></tr>
+	<tr><th>写真</th>
+	<th>詳細情報</th>
+	<th></th>
+	</tr>
 	<%
 		for(EmployeeBean employee : employeeList){
 	%>
@@ -33,12 +38,13 @@
 		<!--  =employee.get() %>-->
 		<%=employee.getStartWork() %>
 		
-	
-	
+	</td>
+	<td>
 	<%
 		String  idhead = (String)session.getAttribute("postID");
 		if(idhead.equals("10")){
 	%>
+	
 	<form action="goUpdateKeeper" method="post">
 		<input type ="hidden" name="empID" 		value=<%= employee.getEmpID() %>>
 		<input type ="hidden" name="lastName" 	value=<%= employee.getLastName() %>>
@@ -52,10 +58,12 @@
 	<%
 		}
 		%>
-	</td></tr>
+		</td>
+		</tr>
 	
 	<%	}
 	%>
 	</table>
+	</div>
 </body>
 </html>

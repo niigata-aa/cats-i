@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>動物検索結果画面</title>
-<link rel ="stylesheet" href="style/resultSearchAnimalStyle.css">
+<link rel ="stylesheet" href="style/resultSearchStyle.css">
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -40,7 +40,7 @@
 				<form action="goKarteDetail" method="post">
 					<input type="hidden" name="animalID" value=<%=animal.getAnimalID()%>> 
 					
-					<input type="submit" value="詳細カルテへ">
+					<input type="submit" value="詳細カルテへ" class="btn">
 				</form> 
 				<%String idhead = (String) session.getAttribute("postID");%>
  				<%if (idhead.equals("20")) {%>
@@ -49,7 +49,7 @@
 				<form action="goUpdateAnimal" method="post">
 					<input type="hidden" name="animalID" value=<%=animal.getAnimalID()%>> 
 					
-					<input type="submit" value="編集・削除">
+					<input type="submit" value="編集・削除" class="btn">
 				</form>
 				 <%}%>
 				 

@@ -1,4 +1,18 @@
+
+/*従業員・動物の検索結果（一覧表示）のCSS*/
+/*テーブル内のスクロール*/
+
 @charset "UTF-8";
+
+
+
+body{
+		background-image: url(../image/back4.png);
+	
+	}
+	
+	
+/*以下　テーブル内スクロールのCSS*/
 .result{
     overflow: auto;
     width: 950px;
