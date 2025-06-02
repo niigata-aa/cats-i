@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="headerLink.jsp"%>
+<%List<String> allArea = (List<String>)session.getAttribute("area"); %>
 <jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
 
 <form action = "updateAnimal" method="post">
@@ -28,7 +29,12 @@
 		性別 :  <input type="text" name="sex"
 				   value= <jsp:getProperty property= "sex" name="animalrecode"/>><br>
 	
-		エリア情報 : <jsp:getProperty property="area" name="animalrecode"/>>
+		エリア情報 : <select name="areaID">
+			<% for (int i = 0 ; i<allArea.size();i ++){ %>
+			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
+			<%} %>
+			
+			</select>
 				   
 		担当飼育員 : <br>
 		

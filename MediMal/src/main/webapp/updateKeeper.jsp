@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import ="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,8 @@
 </head>
 <body>
 	<%@ include file="headerLink.jsp"%>
+	
+	<%List<String> allArea = (List<String>)session.getAttribute("area"); %>
 
 	<form action = "updateKeeper" method="post">
 		飼育員在籍情報 : <input type = "radio" name="employee" value=1>在籍
@@ -29,8 +31,12 @@
 		性別 : <input type="text" name="gender"
 				   value=<%=request.getParameter("gender") %>><br>
 			   
-		担当エリア : <input type="number" name="areaID"
-				   value=<%=request.getParameter("areaID")%>>
+		担当エリア : <select name="areaID">
+			<% for (int i = 0 ; i<allArea.size();i ++){ %>
+			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
+			<%} %>
+			
+			</select>
 	
 		写真 : 
 	
