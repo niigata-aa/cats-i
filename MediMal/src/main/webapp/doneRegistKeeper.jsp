@@ -9,6 +9,9 @@
 <body>
 	<%@ include file="headerLink.jsp"%>
 	従業員の登録が完了しました。
+	<form action="goMenu" method="post">
+		<input type="submit" value="メニュー画面に戻る">
+	</form>
 	<%
 		String returnURL = "doneRegistKeeper.jsp";
 		session.setAttribute("returnURL", returnURL);
