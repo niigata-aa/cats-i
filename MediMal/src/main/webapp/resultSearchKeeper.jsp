@@ -8,7 +8,7 @@
 <link rel ="stylesheet" href="style/resultSearchStyle.css">
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="headerLink.jsp" %>
 	
 	<form action="goSearchKeeper" method="post" class="btn">
 		<input type="submit" value="再検索">
@@ -67,5 +67,9 @@
 	%>
 	</table>
 	</div>
+	<%
+		String returnURL = "resultSearchKeeper.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

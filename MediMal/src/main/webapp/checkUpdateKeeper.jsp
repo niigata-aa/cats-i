@@ -7,7 +7,7 @@
 <title>飼育員情報編集確認画面1</title>
 </head>
 <body>
-
+	<%@ include file="headerLink.jsp"%>
 <p>※以下の内容で従業員情報を編集しますか？</p>
 	
 	<%request.setCharacterEncoding("utf-8"); %>
@@ -40,5 +40,9 @@
 	<form action="updateKeeper.jsp" method="post">
 		<input type="submit" value="いいえ">
 	</form>
+	<%
+		String returnURL = "checkUpdateKeeper.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

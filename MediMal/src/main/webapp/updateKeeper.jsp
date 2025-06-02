@@ -7,7 +7,7 @@
 <title>飼育員在籍情報・削除画面</title>
 </head>
 <body>
-	
+	<%@ include file="headerLink.jsp"%>
 
 	<form action = "updateKeeper" method="post">
 		飼育員在籍情報 : <input type = "radio" name="employee" value=1>在籍
@@ -44,6 +44,9 @@
 	<input type="hidden" name="empID" value=<%=request.getParameter("empID") %>>
 		<input type="submit" value="削除">
 	</form>
-	
+	<%
+		String returnURL = "updateKeeper.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div class=head><img src="image/MediMal.png">
+	<%=session.getAttribute("LoginName")%>さんようこそ。
 	<div class=head1><form action="goMenu" method="post">
 		<input type="image" name="submit" src="image/home.png" title="メニュー画面" value="menu"  width="60" hight="60">
 	</form></div>
