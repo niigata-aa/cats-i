@@ -1,12 +1,10 @@
 package model.entity;
 
-import java.text.SimpleDateFormat;
-
 public class Birth {
 	
 	private String animalID;
 	
-	private SimpleDateFormat date;
+	private String date;
 	
 	private int amount;
 	
@@ -26,11 +24,11 @@ public class Birth {
 		this.animalID = animalID;
 	}
 
-	public SimpleDateFormat getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(SimpleDateFormat date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

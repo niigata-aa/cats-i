@@ -1,7 +1,5 @@
 package model.entity;
 
-import java.text.SimpleDateFormat;
-
 public class Drug {
 	//なんかやらかし
 	private String animalID;
@@ -28,8 +26,8 @@ public class Drug {
 	}
 
 
-	public void setDate(SimpleDateFormat date) {
-		this.date = date;
+	public void setDate(String string) {
+		this.date = string;
 	}
 
 
