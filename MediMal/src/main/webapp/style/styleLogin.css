@@ -16,13 +16,8 @@ body{
     margin-top: 150px;
 }
 
-.logo{
-	font-family:  Arial Black;
-	font-size: 50pt;
-	position: relative;
-	right: 300px;
-	bottom: 300px;
-}
+
+
 
 .ken{
 	background-color: rgb(128, 255, 128);
@@ -53,7 +48,7 @@ body{
 }
 
 input {
-  width: 100px;
+  width: 120px;
   padding: 10px 15px;
   border: 2px solid rgb(255, 255, 128);
   border-radius: 25px;
@@ -68,4 +63,15 @@ input:focus {
   outline: none;
   border-color: rgb(255, 255, 0);
   box-shadow: 0 0 5px rgb(255, 255, 128);
+}
+
+
+.logo{
+	font-family:  Arial Black;
+	font-size: 50pt;
+	position: relative;
+	left:300px;
+	bottom: 400px;
+	width: 20px;
+	height: 20px;
 }

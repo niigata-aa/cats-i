@@ -19,8 +19,8 @@
 			
 	</form>
 	</div>
-	<div class="logo">MediMal</div>
-	
+	<div class="logo">
+	<img src="image/MediMal.png"></div>
 
 </body>
 </html>
