@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import ="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,10 @@
 </head>
 <body>
 	<%@ include file="headerLink.jsp"%>
+	
+	
+	<%List<String> allArea = (List<String>)session.getAttribute("area");  %>
+	
 	<h1>飼育員検索画面</h1>
 	
 	<form action="searchAllKeeper" method="post">
@@ -23,7 +27,11 @@
 		名 :
 		<input type="text" name="keeperFirstName" placeholder="キーワードを入力"class="Keeper" ><br>
 		担当エリア :
-		<input type="text" name="areaName" placeholder="キーワードを入力"class="Keeper"><br>
+		<select name="areaName" class="Keeper">
+			<% for (int i = 0 ; i<allArea.size();i ++){ %>
+			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
+			<%} %>
+		</select><br>
 		担当動物種族 :
 		<input type="text" name="animalType" placeholder="キーワードを入力" class="Keeper"></div>
 		<input type="submit" value="検索" class="KS">

@@ -8,7 +8,9 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import model.entity.AnimalBean;
 
@@ -18,6 +20,23 @@ public class AnimalDAO {
 
 	public AnimalDAO(String postID) {
 		this.postID = postID;
+	}
+	
+	public Map<String,String> getAllType() throws ClassNotFoundException, SQLException {
+		Map<String,String> result = new HashMap<String,String>();
+		
+		String sql = "select* from m_animaltype";
+		
+		try(Connection con = ConnectionManager.getConnection(postID);
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)){
+			while (res.next()) {
+				result.put(res.getString("TypeID"),res.getString("AnimalType"));
+				
+			}
+		}
+		
+		return result;
 	}
 
 	/**

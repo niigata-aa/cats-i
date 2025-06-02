@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8" import="model.entity.EmployeeBean"%>
+   pageEncoding="UTF-8" import="model.entity.EmployeeBean , java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,8 @@
 <title>飼育員登録画面</title>
 </head>
 <body>
+
+<%List<String> allArea = (List<String>)session.getAttribute("area");  %>	
 	
 	<form action = "registKeeper" method = "post">
 	
@@ -22,8 +24,12 @@
 	<input type = text name = "inputGender"><br>
 	業務種別:
 	<input type = "number" name = "inputPostID"><br>
-	エリアID:
-	<input type = "number" name = "inputAreaID"><br>
+	担当エリア :
+		<select name="areaName" class="Keeper">
+			<% for (int i = 0 ; i<allArea.size();i ++){ %>
+			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
+			<%} %>
+		</select><br>
 	業務開始日:
 	<input type = "date" name = "inputStartWork"><br>
 	 

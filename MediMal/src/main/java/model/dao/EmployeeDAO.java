@@ -20,8 +20,22 @@ public class EmployeeDAO {
 	public EmployeeDAO(String postID) {
 		this.postID=postID;
 	}
-
-
+	
+	public List<String> getAllArea() throws ClassNotFoundException, SQLException {
+		List<String> result = new ArrayList<String>();
+		
+		String sql = "select * from m_area";
+		
+		try(Connection con = ConnectionManager.getConnection(postID);
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)){
+			while (res.next()) {
+				result.add(res.getString("area_name"));
+			}
+		}
+		
+		return result;
+	}
 
 
 	public List<EmployeeBean> selectAllEmp () throws SQLException,ClassNotFoundException {

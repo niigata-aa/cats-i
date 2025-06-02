@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.dao.AnimalDAO;
 
 /**
  * Servlet implementation class goKarteHomeServlet
@@ -40,8 +44,15 @@ public class goKarteHomeServlet extends HttpServlet {
 		String url = null;
 
 		HttpSession session = request.getSession();
+		AnimalDAO dao = new AnimalDAO((String) session.getAttribute("postID"));
 		
-		
+		try {
+			Map<String,String> animalTypes = dao.getAllType();
+			session.setAttribute("Alltype", animalTypes);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
 		if (session.getAttribute("LoginID")!=null) {
 			url = "karteHome.jsp";

@@ -59,6 +59,8 @@ public class LoginServlet extends HttpServlet {
 				
 				String IDhead = LoginID.substring(0, 2);
 				
+				session.setAttribute("area", empDAO.getAllArea());
+				
 				session.setAttribute("postID", IDhead);
 				
 				EmployeeBean emp= new EmployeeBean();

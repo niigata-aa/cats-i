@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.AnimalBean"%>
+    pageEncoding="UTF-8" import="model.entity.AnimalBean , java.util.List,java.util.Map"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,8 @@
 <title>動物登録画面</title>
 </head>
 <body>
+<%List<String> allArea = (List<String>)session.getAttribute("area");  %>	
+<%Map<String,String> allTypes =(Map<String,String>) session.getAttribute("Alltype");  %>
 
 	<form action = "registAnimal" method = "post">
 	
@@ -14,12 +16,24 @@
 		<input type = "text" name = "animalID"><br>
 		名前　:　
 		<input type = "text" name = "name"><br>
-		種族　:　
-		<input type = "text" name = "animalType"><br>
+		種族 :
+		<select name="typeName"class="Animal">
+			<option value ="">動物の種類を選んでください</option>
+			<% for (Map.Entry<String, String> entry : allTypes.entrySet()){ %>
+				
+				<option value = <%=entry.getKey() %>><%=entry.getValue() %> </option>
+				
+			<%} %>
+		
+		</select><br>
 		品種　:　
 		<input type = "number" name="kindID"><br>
-		所属エリアID　:　
-		<input type = "number" name = "areaID"><br>
+		担当エリア :
+		<select name="areaName" class="Keeper">
+			<% for (int i = 0 ; i<allArea.size();i ++){ %>
+			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
+			<%} %>
+		</select><br>
 		生年月日　:　
 		<input type = "date" name = "birthDay"><br>
 		出身地　:　
