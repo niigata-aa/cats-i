@@ -62,7 +62,7 @@ public class FinalDeleteAnimalCheckServlet extends HttpServlet {
 		//ログインしてるか
 		String url;
 		if (session.getAttribute("LoginID")!=null) {
-			url = "doneCheckDeleteAnimals.jsp";
+			url = "doneCheckDeleteAnimal.jsp";
 
 		}else {
 			url = "login.jsp";

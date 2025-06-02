@@ -81,20 +81,15 @@ public class goKarteDetailServlet extends HttpServlet {
 		AnimalDAO dao = new AnimalDAO(postID);
 		
 		try {
-			AnimalBean animalrecode = new AnimalBean();
-			animalrecode = dao.selectOneRecodeAllAnimal(animalID);
+			AnimalBean animal = new AnimalBean();
+			animal = dao.selectOneRecodeAllAnimal(animalID);
+			session.setAttribute("animalrecode", animal);
+			
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		//s
 		
-		animalrecode.getAnimalID();
-		animalrecode.getName();
-		animal.getBirthDay();
-		animal.getArea();
-		animal.getCountry();
-		animal.getSex();
-		animal.getPhoto(); 
-		animal.getLivingNow(); 
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 

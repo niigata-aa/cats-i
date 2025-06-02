@@ -90,13 +90,14 @@ public class AnimalDAO {
 			animalrecode.setAnimalID(res.getString("animalID"));
 			animalrecode.setName(res.getString("animalName"));
 			animalrecode.setBirthDay(getDateUntilDay(res.getDate("birthday")));
-			animalrecode.setArea(res.getString("animalID"));
+			animalrecode.setArea(res.getString("area_name"));
 //			animalrecode.setKeepers(res.getString("animalID"));
 			animalrecode.setCountry(res.getString("country"));
 			animalrecode.setSex(res.getString("sex"));
 			animalrecode.setPhoto(res.getString("photoURL"));
 			animalrecode.setLivingNow(res.getInt("livingNow"));
-			
+			animalrecode.setAnimalType(res.getString("AnimalType"));
+			animalrecode.setAnimalKind(res.getString("KindName"));
 			
 			
 				return animalrecode;
