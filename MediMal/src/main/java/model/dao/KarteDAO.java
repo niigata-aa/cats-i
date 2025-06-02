@@ -124,7 +124,7 @@ public class KarteDAO {
 		int count = 0;
 		String sql = "insert into t_drug  values (?,?,?,?)";
 
-		try(Connection con = ConnectionManager.getConnection(sql);
+		try(Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
 			//Beanからのデータの取り出し
@@ -296,7 +296,7 @@ public class KarteDAO {
 	public int insertFeed (Feed inputFeed) throws ClassNotFoundException,SQLException {
 		int count;
 		String sql = "insert into t-feeding values (?,?,?,?,?,?)";
-		try (Connection con = ConnectionManager.getConnection(sql);
+		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
 			//Beanからのデータ取り出し
@@ -357,7 +357,7 @@ public class KarteDAO {
 	public int insertBirth (Birth inputBirth) throws ClassNotFoundException,SQLException {
 		int count;
 		String sql = "insert into t-birthrecode  values (?,?,?)";
-		try (Connection con = ConnectionManager.getConnection(sql);
+		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 			//Beanからのデータ取り出し
 			String animalID = inputBirth.getAnimalID();

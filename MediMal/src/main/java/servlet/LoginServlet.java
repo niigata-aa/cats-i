@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.EmployeeDAO;
+import model.entity.EmployeeBean;
 
 /**
  * Servlet implementation class LoginServlet
@@ -59,6 +60,17 @@ public class LoginServlet extends HttpServlet {
 				String IDhead = LoginID.substring(0, 2);
 				
 				session.setAttribute("postID", IDhead);
+				
+				EmployeeBean emp= new EmployeeBean();
+				emp.setEmpID(LoginID);
+				
+				String LoginName = empDAO.getLoginUserName(LoginID);
+				
+				session.setAttribute("LoginName", LoginName);
+				
+				
+				
+				
 			}else {
 				url ="login.jsp";
 				session.setAttribute("Login", false);

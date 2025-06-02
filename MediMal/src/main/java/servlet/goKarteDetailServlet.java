@@ -77,6 +77,7 @@ public class goKarteDetailServlet extends HttpServlet {
 			}
 		}
 		
+		session.setAttribute("animalID",animalID);
 		session.setAttribute("KarteInfo",Karte);
 		
 		

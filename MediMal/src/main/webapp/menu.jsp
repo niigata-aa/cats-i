@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="headerLink.jsp"%>
 	
-	<%=session.getAttribute("LoginID")%>さんようこそ。
+	<%=session.getAttribute("LoginName")%>さんようこそ。
 
 <div class="move">
 	<form action="goSearchKeeper" method="post">

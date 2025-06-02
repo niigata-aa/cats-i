@@ -19,9 +19,9 @@
 	<%= session.getAttribute("animalID") %><br>
 	
 	日　付　:　
-	<input type="datetime" name = "inputTime"><br>
+	<input type="datetime-local" name = "inputTime"><br>
 	飼育員ID　:　
-	<input type="text" name ="empID"><br>
+	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %>><br>
 	
 	今日の体重:
 	<input type="number" name="weight">

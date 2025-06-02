@@ -16,10 +16,10 @@
 	<%= session.getAttribute("animalID") %>
 	<br>
 	入力日　:　
-	<input type="datetime" name="commentTime">
+	<input type="datetime-local" name="commentTime">
 	<br>
 	従業員ID　:　
-	<input type="text" name="empID">
+	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %>>
 	<br>
 	<br>
 	
