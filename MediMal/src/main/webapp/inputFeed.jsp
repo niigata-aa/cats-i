@@ -13,9 +13,9 @@
 	動物ID　:　
 	<%= session.getAttribute("animalID") %><br> 
 	食事時間　:　
-	<input type="date" name = "feedTime"><br>
+	<input type="datetime-local" name = "feedTime"><br>
 	従業員ID　:　
-	<input type="text" name="empID"><br>
+	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %>><br>
 	食事内容　:　
 	<input type="text" name="feedContent"><br>
 	食事量　　:　

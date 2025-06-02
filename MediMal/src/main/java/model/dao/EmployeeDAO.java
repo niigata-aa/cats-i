@@ -96,6 +96,28 @@ public class EmployeeDAO {
 
 		return false ;
 	}
+	
+	public String getLoginUserName(String LoginID) throws ClassNotFoundException, SQLException {
+		
+		String Name = "名無し";
+		
+		String sql = "select lastName,firstName from m_employee where empID = ?";
+		
+		try(Connection con = ConnectionManager.getConnection(postID);
+				PreparedStatement pstmt =con.prepareStatement(sql)){
+			pstmt.setString(1, LoginID);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			if(res.next()) {
+				Name = res.getString("lastName") + res.getString("firstName");
+			}
+			
+		}
+		
+		return Name;
+		
+	}
 
 	/**
 	 * 全ての従業員のリストを返す
