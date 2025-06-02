@@ -195,9 +195,9 @@ public class KarteDAO {
 	//あ
 	public int insertComment(AnimalComment inputComment) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String sql = "nsert into t_comment  values (?,?,?,?)";
+		String sql = "insert into t_comment  values (?,?,?,?)";
 
-		try(Connection con = ConnectionManager.getConnection(sql);
+		try(Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
 			//Beanからのデータの取り出し
