@@ -7,7 +7,6 @@
 <title>投薬情報・出産情報</title>
 </head>
 <body>
-<%@include file="headerLink.jsp" %>
 	<%@ include file="headerLink.jsp"%>
 	投薬情報・出産情報の記録が完了しました。
 

@@ -77,7 +77,7 @@ public class InputHealthCheckServlet extends HttpServlet {
 		
 
 		//リクエストの転送　体重記録の完了画面へ
-		RequestDispatcher rd = request.getRequestDispatcher("doneInputHealth.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("doneInputKarte.jsp");
 		rd.forward(request, response);
 	}
 

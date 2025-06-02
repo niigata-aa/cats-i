@@ -34,7 +34,7 @@
 	
 	【出産】<br>
 	出　産　日:　
-	<input type="date" name="date2"><br>
+	<input type="date" name="date"><br>
 	出　産　数:　
 	<select name="amount">
 		<option value="1">1

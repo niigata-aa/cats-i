@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.Drug"import="model.entity.Birth"%>
+    pageEncoding="UTF-8" import="model.entity.Drug" import="model.entity.Birth"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +10,15 @@
 <%@include file="header.jsp" %>
 	
 	<p>※以下の内容で投薬情報・出産情報を記録しますか？</p>
+	<jsp:useBean id ="inputDrug" scope = "session" class ="model.entity.Drug"/>
+	<jsp:useBean id ="inputBirth" scope = "session" class ="model.entity.Birth"/>
 	
-	
+	動物ID　:　
+	<jsp:getProperty name = "inputDrug" property = "animalID"/><br>
 	
 	<%request.setCharacterEncoding("utf-8"); %>
 	
-	<jsp:useBean id ="inputDrug" scope = "session" class ="model.entity.Drug"/>
+	
 	【投薬内容】
 	投薬時間　:　<jsp:getProperty name = "inputDrug" property = "date"/><br>
 	
@@ -26,9 +29,9 @@
 	
 	
 	
-	<jsp:useBean id ="inputBirth" scope = "session" class ="model.entity.Birth"/>
+
 	【出産】
-	出産日　:　<jsp:getProperty name = "inputBirth" property = "date2"/><br>
+	出産日　:　<jsp:getProperty name = "inputBirth" property = "date"/><br>
 	
 	投　薬　量:　<jsp:getProperty name = "inputBirth" property = "amount"/><br>
 	
