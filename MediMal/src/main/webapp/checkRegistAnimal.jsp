@@ -7,6 +7,7 @@
 <title>動物登録(確認画面)</title>
 </head>
 <body>
+	<%@ include file="headerLink.jsp"%>
 	<p>※以下の内容で動物情報情報を登録しますか？</p>
 
 	<%request.setCharacterEncoding("utf-8"); %>
@@ -49,6 +50,9 @@
 	<form action="registAnimal.jsp" method="post">
 		<input type="submit" value="いいえ">
 	</form>
-	
+	<%
+		String returnURL = "checkRegistAnimal.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

@@ -35,5 +35,9 @@
 		
 		<input type="submit" value="検索" class="AS">
 	</form>	</div>
+	<%
+		String returnURL = "searchAnimal.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

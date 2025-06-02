@@ -7,7 +7,7 @@
 <title>動物削除（確認画面）</title>
 </head>
 <body>
-	<%@include file="header.jsp"%>
+	<%@include file="headerLink.jsp"%>
 	<p>※【確認】動物情報を削除しますか？</p>
 
 
@@ -22,6 +22,9 @@
 	<form action="updateAnimal.jsp" method="post">
 		<input type="submit" value="いいえ">
 	</form>
-
+	<%
+		String returnURL = "checkDeleteAnimal.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

@@ -8,7 +8,7 @@
 
 </head>
 <body>
-
+<%@ include file="headerLink.jsp"%>
 <jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
 
 <form action = "updateAnimal" method="post">
@@ -45,6 +45,9 @@
 	<input type="hidden"  name ="animalID" value=<jsp:getProperty property="animalID" name="animalrecode"/>>
 		<input type="submit" value="削除">
 	</form>
-
+	<%
+		String returnURL = "updateAnimal.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

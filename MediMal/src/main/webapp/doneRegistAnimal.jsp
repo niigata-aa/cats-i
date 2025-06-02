@@ -13,5 +13,9 @@
 	<form action="goKarteDetail" method="post">
 	<input type="submit" value="カルテ詳細画面へ">
 	</form>
+	<%
+		String returnURL = "doneRegistAnimal.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>

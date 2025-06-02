@@ -7,6 +7,7 @@
 <title>動物登録画面</title>
 </head>
 <body>
+	<%@ include file="headerLink.jsp"%>
 <%List<String> allArea = (List<String>)session.getAttribute("area");  %>	
 <%Map<String,String> allTypes =(Map<String,String>) session.getAttribute("Alltype");  %>
 

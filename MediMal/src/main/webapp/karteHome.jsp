@@ -25,5 +25,9 @@
 	<%
 	}
 	%>
+	<%
+		String returnURL = "karteHome.jsp";
+		session.setAttribute("returnURL", returnURL);
+	%>
 </body>
 </html>
