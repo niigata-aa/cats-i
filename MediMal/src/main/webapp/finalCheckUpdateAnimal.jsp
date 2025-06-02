@@ -42,7 +42,7 @@
 		<input type="submit" value="はい">
 	</form>
 	
-	<form action="checkUpdateAnimal.jsp" method="post">
+	<form action="updateAnimal.jsp" method="post">
 		<input type="submit" value="いいえ">
 	</form>
 	
