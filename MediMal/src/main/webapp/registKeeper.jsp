@@ -5,36 +5,38 @@
 <head>
 <meta charset="UTF-8">
 <title>飼育員登録画面</title>
+<link rel ="stylesheet" href="style/registKeeperStyle.css">
 </head>
 <body>
-
+<%@ include file="headerLink.jsp"%>
 <%List<String> allArea = (List<String>)session.getAttribute("area");  %>	
 	
 	<form action = "registKeeper" method = "post">
-	
-	従業員ID:
-	<input type = "text" name = "inputEmpID"><br>
-	パスワード:
-	<input type = "password" name = "inputEmpPass"><br>
-	名字:
-	<input type = "text" name = "inputLastName"><br>
-	名前:
-	<input type = "text" name = "inputFirstName"><br>
-	性別:
-	<input type = text name = "inputGender"><br>
-	業務種別:
-	<input type = "number" name = "inputPostID"><br>
-	担当エリア :
-		<select name="inputAreaID" class="Keeper">
+	<div class="test-con">
+	<table style="margin-left :auto; margin-right: auto;">
+	<tr align="right"><td>従業員ID:</td>
+	<td><input type = "text" name = "inputEmpID"></td></tr>
+	<tr align="right"><td>パスワード:</td>
+	<td><input type = "password" name = "inputEmpPass"></td></tr>
+	<tr align="right"><td>名字:</td>
+	<td><input type = "text" name = "inputLastName"></td></tr>
+	<tr align="right"><td>名前:</td>
+	<td><input type = "text" name = "inputFirstName"></td></tr>
+	<tr align="right"><td>性別:</td>
+	<td><input type = text name = "inputGender"></td></tr>
+	<tr align="right"><td>業務種別:</td>
+	<td><input type = "number" name = "inputPostID"></td></tr>
+	<tr align="right"><td>担当エリア :</td>
+		<td><select name="inputAreaID" class="Keeper">
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>
 			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
 			<%} %>
-		</select><br>
-	業務開始日:
-	<input type = "date" name = "inputStartWork"><br>
+		</select></td></tr>
+	<tr align="right"><td>業務開始日:</td>
+	<td><input type = "date" name = "inputStartWork"></td></tr>
 	 
-	写真:
-	<input type = "text" name = "inputPhoto"><br>
+	<tr align="right"><td>写真:</td>
+	<td><input type = "text" name = "inputPhoto"></td></tr>
 
 
 	<input type = "submit" value = "登録">
