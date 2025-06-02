@@ -3,9 +3,9 @@ package model.entity;
 import java.text.SimpleDateFormat;
 
 public class Drug {
-	
+	//なんかやらかし
 	private String animalID;
-	private SimpleDateFormat date;
+	private String date;
 	private String medicineName;
 	private int medicineAmount;
 	
@@ -23,7 +23,7 @@ public class Drug {
 	}
 
 
-	public SimpleDateFormat getDate() {
+	public String getDate() {
 		return date;
 	}
 
