@@ -40,7 +40,7 @@
 				<form action="goKarteDetail" method="post">
 					<input type="hidden" name="animalID" value=<%=animal.getAnimalID()%>> 
 					
-					<input type="submit" value="詳細カルテへ" class="btn">
+					<input type="submit" value="詳細カルテへ">
 				</form> 
 				<%String idhead = (String) session.getAttribute("postID");%>
  				<%if (idhead.equals("20")) {%>
@@ -49,7 +49,7 @@
 				<form action="goUpdateAnimal" method="post">
 					<input type="hidden" name="animalID" value=<%=animal.getAnimalID()%>> 
 					
-					<input type="submit" value="編集・削除" class="btn">
+					<input type="submit" value="編集・削除">
 				</form>
 				 <%}%>
 				 

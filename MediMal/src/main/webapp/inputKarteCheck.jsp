@@ -7,30 +7,31 @@
 <title>健康情報追加画面(確認画面)</title>
 </head>
 <body>
+<%@include file="header.jsp" %>
 	
-	<p>※以下の内容で体重を記録しますか？</p>
+	<p>※以下の内容で投薬情報・出産情報を記録しますか？</p>
+	
+	
 	
 	<%request.setCharacterEncoding("utf-8"); %>
-	<% Drug inputDrug = (Drug)request.getAttribute("inputDrug"); %>
 	
-	動物ID　:　
-	<% session.getAttribute("animalID"); %><br>
-	名　前　:　
-	<% session.getAttribute("animalName"); %>
-	診察時間:　
-	
+	<jsp:useBean id ="inputDrug" scope = "session" class ="model.entity.Drug"/>
 	【投薬内容】
-	投薬時間:　
-	<%=inputDrug.getDate() %>
-	投薬量　:　
-	<%=inputDrug.getMedicineAmount() %><br>
-	薬の種類:
-	<%=inputDrug.getMedicineName() %><br>
+	投薬時間　:　<jsp:getProperty name = "inputDrug" property = "date"/><br>
 	
+	
+	薬の種類　:　<jsp:getProperty name = "inputDrug" property = "medicineName"/><br>
+	
+	投　薬　量:　<jsp:getProperty name = "inputDrug" property = "medicineAmount"/><br>
+	
+	
+	
+	<jsp:useBean id ="inputBirth" scope = "session" class ="model.entity.Birth"/>
 	【出産】
-	出産日　:　
-	<%=inputBirth.getDate() %><br>
-	<%=inputBirth.getAmount() %>
+	出産日　:　<jsp:getProperty name = "inputBirth" property = "date2"/><br>
+	
+	投　薬　量:　<jsp:getProperty name = "inputBirth" property = "amount"/><br>
+	
 	
 	
 

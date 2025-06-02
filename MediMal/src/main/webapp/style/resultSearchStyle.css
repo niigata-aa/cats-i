@@ -8,15 +8,25 @@
 
 body{
 		background-image: url(../image/back4.png);
+		align-items: center;
+		justify-content: center;
 	
 	}
 	
 	
 /*以下　テーブル内スクロールのCSS*/
+
+table {
+    border: 1px solid gray;
+    width: 400px;
+    height: 100px;
+}
+
 .result{
     overflow: auto;
     width: 950px;
     height: 204px;
+	
 }
 result table{
     margin: 0;

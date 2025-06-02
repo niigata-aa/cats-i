@@ -12,6 +12,7 @@ public class Drug {
 		
 	}
 	
+	
 	public String getAnimalID() {
 		return animalID;
 	}
@@ -26,8 +27,8 @@ public class Drug {
 	}
 
 
-	public void setDate(String string) {
-		this.date = string;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 

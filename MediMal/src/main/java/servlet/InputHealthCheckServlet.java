@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.KarteDAO;
 import model.entity.Birth;
 import model.entity.Drug;
 
 /**
- * Servlet implementation class inputHealthServlet
+ * Servlet implementation class InputHealthCheckServlet
  */
-@WebServlet("/inputHealth")
-public class inputHealthServlet extends HttpServlet {
+@WebServlet("/inputHealthCheck")
+public class InputHealthCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public inputHealthServlet() {
+    public InputHealthCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,45 +42,43 @@ public class inputHealthServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("utf-8"); 
+		
+		Drug inputDrug = (Drug) session.getAttribute("inputDrug");
+		Birth inputBirth = (Birth) session.getAttribute("inputBirth");
+		
 		String postID = (String) session.getAttribute("postID");
+		
+		System.out.println(postID);
+		//DAOの生成
+		KarteDAO karteDao = new KarteDAO(postID);
+		
+
+		try {
+			//DAOの利用
+			karteDao.insertDrug(inputDrug);
+			karteDao.insertBirth(inputBirth);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+		
 
 		//ログインしてるか
 		String url;
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "inputKarteCheck.jsp";
+			url = "menu.jsp";
 		}else {
 			url ="login.jsp";
 		}
 		
-		Drug drug = new Drug();
 		
-		
-		drug.setAnimalID((String) session.getAttribute("animalID"));
-		drug.setDate(request.getParameter("date"));
-		drug.setMedicineName((String) session.getAttribute("medicineName"));
-		drug.setMedicineAmount(Integer.parseInt(request.getParameter("medicineAmount")));
-		
-		
-		Birth birth = new Birth();
-        birth.setDate(request.getParameter("date2"));
-        birth.setAmount(Integer.parseInt(request.getParameter("Amount")));
-		
-		
-		
-		//セッションへのデータの登録
-		session.setAttribute("inputDrug", drug);
-		session.setAttribute("inputBirth",birth);
-		
-		
-		//カルテ記録画面（確認画面）に行く"inputKarteCheck.jsp"
-		//このサーブレットでは通過するだけ
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+
+		//リクエストの転送　体重記録の完了画面へ
+		RequestDispatcher rd = request.getRequestDispatcher("doneInputHealth.jsp");
 		rd.forward(request, response);
-		
 	}
 
 }
