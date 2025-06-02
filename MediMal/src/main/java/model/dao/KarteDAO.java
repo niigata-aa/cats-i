@@ -17,6 +17,7 @@ import model.entity.AnimalComment;
 import model.entity.Birth;
 import model.entity.Drug;
 import model.entity.Feed;
+import model.entity.MedicalExamBean;
 import model.entity.Weight;
 
 public class KarteDAO {
@@ -147,8 +148,39 @@ public class KarteDAO {
 
 
 	/**全ての投薬履歴を検索する*/
-	public List<Drug> selectAllDrug() {
-		return
+	public List<Drug> selectAllDrug(String animalID) throws SQLException, ClassNotFoundException {
+		List<Drug> result = new ArrayList<Drug>();
+		String sql = "select * from t_drug ";
+
+		try (Connection con = ConnectionManager.getConnection(postID);
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)){
+
+			List<Drug> TmpAll = new ArrayList<Drug>();
+
+			while (res.next()) {
+				Drug TmpDrug = new Drug();
+				TmpDrug.setAnimalID(res.getString("animalID"));
+				TmpDrug.setDate(getDateUntilMinute(res.getDate("drugTime")));
+				TmpDrug.setMedicineName(res.getString("drugAbout"));
+				TmpDrug.setMedicineAmount(res.getInt("drugAmount"));
+
+				TmpAll.add(TmpDrug);
+
+			}
+			if (TmpAll.size()!=0) {
+				for (Drug weight :TmpAll) {
+					if(weight.getAnimalID().equals(animalID)) {
+						result.add(weight);
+					}
+				}
+				return result;
+			}else {
+				return null;
+			}
+		}
+
+
 	}
 
 
@@ -185,20 +217,73 @@ public class KarteDAO {
 
 
 	/**全て（飼育員と獣医師）のコメントを検索する*/
-	public List<Comment> selectAllComment() {
-		return
+	public List<AnimalComment> selectAllComment(String animalID) throws SQLException, ClassNotFoundException {
+		List<AnimalComment> result = new ArrayList<AnimalComment>();
+		String sql = "select * from t_birth ";
+
+		try (Connection con = ConnectionManager.getConnection(postID);
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)){
+
+			List<AnimalComment> TmpAll = new ArrayList<AnimalComment>();
+
+			while (res.next()) {
+				AnimalComment TmpComment = new AnimalComment();
+				TmpComment.setAnimalID(res.getString("animalID"));
+				TmpComment.setDate(res.getDate("CommentTime"));
+				TmpComment.setEmpID(res.getString("empID"));
+				TmpComment.setContent(res.getString("Content"));
+				
+
+				TmpAll.add(TmpComment);
+
+			}
+			if (TmpAll.size()!=0) {
+				for (AnimalComment weight :TmpAll) {
+					if(weight.getAnimalID().equals(animalID)) {
+						result.add(weight);
+					}
+				}
+				return result;
+			}else {
+				return null;
+			}
+		}
 	}
 
 
-	/**飼育員のコメントを検索する*/
-	public List<Comment> selectkeeperComment() {
-		return
-	}
+	public List<MedicalExamBean> selectallMedicalExam(String animalID) throws ClassNotFoundException, SQLException{
+		String sql = "select * from t_medicalexam";
+		List<MedicalExamBean> result = new ArrayList<MedicalExamBean>();
+		
+		try (Connection con = ConnectionManager.getConnection(postID);
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)){
 
+			List<MedicalExamBean> TmpAll = new ArrayList<MedicalExamBean>();
 
-	/**獣医師のコメントを検索する*/
-	public List<Comment> selectMedicalComment() {
-		return
+			while (res.next()) {
+				MedicalExamBean TmpWeight = new MedicalExamBean();
+				TmpWeight.setAnimalID(res.getString("animalID"));
+				TmpWeight.setMedicTime(getDateUntilMinute(res.getDate("inputTime")));
+				TmpWeight.setEmpID(res.getString("empID"));
+				TmpWeight.setMedicalphoto(res.getString("MedicalphotoURL"));
+
+				TmpAll.add(TmpWeight);
+
+			}
+			if (TmpAll.size()!=0) {
+				for (MedicalExamBean weight :TmpAll) {
+					if(weight.getAnimalID().equals(animalID)) {
+						result.add(weight);
+					}
+				}
+				return result;
+			}else {
+				return result;
+			}
+		}
+		
 	}
 
 
@@ -265,8 +350,37 @@ public class KarteDAO {
 
 
 	/**全ての出産履歴を検索する*/
-	public List<Birth> selectAllBirth() {
-		return
+	public List<Birth> selectAllBirth(String animalID) throws SQLException, ClassNotFoundException {
+		List<Birth> result = new ArrayList<Birth>();
+		String sql = "select * from t_birth ";
+
+		try (Connection con = ConnectionManager.getConnection(postID);
+				Statement stmt = con.createStatement();
+				ResultSet res = stmt.executeQuery(sql)){
+
+			List<Birth> TmpAll = new ArrayList<Birth>();
+
+			while (res.next()) {
+				Birth TmpBirth = new Birth();
+				TmpBirth.setAnimalID(res.getString("animalID"));
+				TmpBirth.setDate(getDateUntilDay(res.getDate("birthdate")));
+				
+				TmpBirth.setAmount(res.getInt("birthAmount"));
+
+				TmpAll.add(TmpBirth);
+
+			}
+			if (TmpAll.size()!=0) {
+				for (Birth weight :TmpAll) {
+					if(weight.getAnimalID().equals(animalID)) {
+						result.add(weight);
+					}
+				}
+				return result;
+			}else {
+				return result;
+			}
+		}	
 	}
 	
 	
