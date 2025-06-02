@@ -8,6 +8,7 @@
 <link rel ="stylesheet" href="style/styleLogin.css">
 </head>
 <body>
+	
 	<div class=ken><h1>ログイン画面</h1>
 	IDとパスワードを入力してください。<br>
 	
@@ -18,7 +19,7 @@
 			
 	</form>
 	</div>
-	
+	<div class="logo">MediMal</div>
 	
 
 </body>

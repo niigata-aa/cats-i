@@ -5,16 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>ログアウト確認画面</title>
+<link rel ="stylesheet" href="style/checkLogoutStyle.css">
 </head>
 <body>
-	ログアウト確認画面<br>
-	<h1>ログアウト</h1><hr>
+<div class="logout"></div>
+	<h1>ログアウト</h1>
 	ログアウトしますか?<br>
 	<form action="logout" method="post">
 		<input type="submit" value="はい">
 	</form>
 	<form action="return" method="post">
 		<input type="submit" value="いいえ">
-	</form>
+	</form></div>
 </body>
 </html>

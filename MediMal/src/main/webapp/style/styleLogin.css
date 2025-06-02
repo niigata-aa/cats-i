@@ -16,11 +16,20 @@ body{
     margin-top: 150px;
 }
 
+.logo{
+	font-family:  Arial Black;
+	font-size: 50pt;
+	position: relative;
+	right: 300px;
+	bottom: 300px;
+}
+
 .ken{
-	background-color: rgb(97, 228, 106);
+	background-color: rgb(128, 255, 128);
 	border-radius: 20px;
-		margin-left: 600px;
-		margin-right: 600px;
+	margin-left: 750px;
+	
+			margin-right: 400px;
 		padding:10px;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -29,12 +38,12 @@ body{
   background-color: rgb(128, 255, 128);
   padding: 15px 40px;
   
-  margin-right: 20px;
-    margin-left: 20px;
-    margin-bottom: 15px;
+  margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 10px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+
  
   
 

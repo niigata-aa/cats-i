@@ -1,0 +1,21 @@
+@charset "UTF-8";
+body{
+    background-position: bottom right,center;
+    text-align: center;
+    background-image: url(../image/back3.png);
+	background-size:100% 100%;
+	/*width: 100%;*/
+	background-attachment: fixed;
+	background-position: center center;
+	
+	
+	/*height: 600px;*/
+    margin-top: 150px;
+}
+
+.logout{background-color: rgb(97, 228, 106);
+	border-radius: 20px;
+		margin-left: 600px;
+		margin-right: 600px;
+		padding:10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);}
