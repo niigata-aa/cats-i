@@ -59,11 +59,12 @@ public class inputHealthServlet extends HttpServlet {
 		
 		drug.setAnimalID((String) session.getAttribute("animalID"));
 		drug.setDate(request.getParameter("date"));
-		drug.setMedicineName((String) session.getAttribute("medicineName"));
+		drug.setMedicineName(request.getParameter("medicineName"));
 		drug.setMedicineAmount(Integer.parseInt(request.getParameter("medicineAmount")));
 		
 		
 		Birth birth = new Birth();
+		birth.setAnimalID((String)session.getAttribute("animalID"));
         birth.setDate(request.getParameter("date2"));
         birth.setAmount(Integer.parseInt(request.getParameter("Amount")));
 		

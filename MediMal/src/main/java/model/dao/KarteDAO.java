@@ -356,7 +356,7 @@ public class KarteDAO {
 	/**出産履歴を追加する*/
 	public int insertBirth (Birth inputBirth) throws ClassNotFoundException,SQLException {
 		int count;
-		String sql = "insert into t-birthrecode  values (?,?,?)";
+		String sql = "insert into t_birthrecode  values (?,?,?)";
 		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 			//Beanからのデータ取り出し
