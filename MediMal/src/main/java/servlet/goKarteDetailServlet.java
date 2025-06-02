@@ -88,7 +88,7 @@ public class goKarteDetailServlet extends HttpServlet {
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		//s
+		
 		
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
