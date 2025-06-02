@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>動物情報編集・削除画面</title>
+
 </head>
 <body>
 <form action = "updateAnimal" method="post">
