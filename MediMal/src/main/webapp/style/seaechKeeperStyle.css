@@ -4,6 +4,7 @@ body{
 	background-image: url(../image/Catback.png);
 	background-position: center;
 	background-size:2500px;
+	overflow: hidden;
 }
 	.button {
 		width: 200px;
@@ -48,10 +49,9 @@ body{
 	  	
 	  
 	.K{
-		margin-left: 30px;
 		position: relative;
-				bottom: 30px;
-				font-size: 30px;
+								bottom: 60px;
+								font-size: 30px;
 		
 	}
 	  
@@ -62,13 +62,13 @@ body{
 					font-size: 30px;
 					position: relative;
 					bottom: 15px;
+	}
 	
-	
-	.test-container {
-				margin: auto;
-			 
-			  text-align: right;
-			  }
+	.test-cont {
+								margin: auto;
+							 
+							  text-align: right;
+							  }
 	
 	  
 	  

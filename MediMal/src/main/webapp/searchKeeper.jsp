@@ -20,20 +20,23 @@
 	</form>
 	
 	<div class="K"><form action="SearchKeeper" method="post">
-		飼育員ID :
-		<input type="text" name="empID" placeholder="キーワードを入力" class="Keeper" ><br>
-		性 :
-		<input type="text" name="keeperLastName" placeholder="キーワードを入力" class="Keeper"><br>
-		名 :
-		<input type="text" name="keeperFirstName" placeholder="キーワードを入力"class="Keeper" ><br>
-		担当エリア :
-		<select name="areaName" class="Keeper">
+	<div class="test-cont">
+	<table style="margin-left :auto; margin-right: auto;">
+	
+		<tr align="right"><td>飼育員ID :</td>
+		<td><input type="text" name="empID" placeholder="キーワードを入力" class="Keeper" ></td></tr>
+		<tr align="right"><td>性 :</td>
+		<td><input type="text" name="keeperLastName" placeholder="キーワードを入力" class="Keeper"></td></tr>
+		<tr align="right"><td>名 :</td>
+		<td><input type="text" name="keeperFirstName" placeholder="キーワードを入力"class="Keeper" ></td></tr>
+		<tr align="right"><td>担当エリア :</td>
+		<td align="left"><select name="areaName" class="Keeper">
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>
 			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
-			<%} %>
+			<%} %></td>
 		</select><br>
-		担当動物種族 :
-		<input type="text" name="animalType" placeholder="キーワードを入力" class="Keeper"></div>
+		<tr align="right"><td>担当動物種族 :</td>
+		<td><input type="text" name="animalType" placeholder="キーワードを入力" class="Keeper"></td></tr></table></div>
 		<input type="submit" value="検索" class="KS">
 	</form>	
 </body>
