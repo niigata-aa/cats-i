@@ -224,7 +224,7 @@ public class AnimalDAO {
 	public int updateAnimal(AnimalBean animal) {
 		int processingNumber = 0; //処理件数
 
-		String sql = "UPDATE m_animal SET name = ?, sex = ?,  area=?, photo = ? WHERE animalID = ?";
+		String sql = "UPDATE m_animal SET animalName = ?, sex = ?,   photoURL = ? WHERE animalID = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection(postID);
@@ -240,9 +240,9 @@ public class AnimalDAO {
 			// プレースホルダへの値の設定
 			pstmt.setString(1, name);
 			pstmt.setString(2, sex);
-			pstmt.setString(3, area);
-			pstmt.setString(4, photo);
-            pstmt.setString(5, animalID);
+			//pstmt.setString(3, area);
+			pstmt.setString(3, photo);
+            pstmt.setString(4, animalID);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();

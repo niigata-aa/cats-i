@@ -8,37 +8,31 @@
 
 </head>
 <body>
+
+<jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
+
 <form action = "updateAnimal" method="post">
-		動物在籍情報 : <input type = "radio" name="animal" value=1>在籍
+		動物在籍情報 : <input type = "radio" name="livingNow" value=1>在籍
 		
-		<input type = "radio" name="employee" value=0>退籍<br>
+		<input type = "radio" name="livingNow" value=0>退籍<br>
 		
-		動物ID : <input type="text" name="animalID"
-				   value=<%=request.getParameter("animalID") %>>
+		動物ID : <jsp:getProperty property="animalID" name="animalrecode"/><br>
 			   
 
-		生年月日 : <input type="date" name="birthDay"
-				   value=<%=request.getParameter("birthDay")%>>
+		生年月日 : <jsp:getProperty property="birthDay" name="animalrecode"/><br>
 
 
-		名前 : <input type="text" name="name"
-				   value=<%= request.getParameter("name") %>>
+		名前 : <jsp:getProperty property="name" name="animalrecode"/><br>
 			   
-		出身　: <input type="text" name="country"
-				   value=<%=request.getParameter("country") %>><br>
-			   
-		種族 : <input type="text" name="animalKind"
-				   value=<%=request.getParameter("animalKind")%>>
-	
+			 
 		性別 :  <input type="text" name="sex"
-				   value=<%=request.getParameter("sex")%>><br>
+				   value= <jsp:getProperty property= "sex" name="animalrecode"/>><br>
 	
-		エリア情報 : <input type="text" name="area"
-				   value=<%=request.getParameter("area")%>>
+		エリア情報 : <jsp:getProperty property="area" name="animalrecode"/>>
 				   
 		担当飼育員 : <br>
 		
-		写真 : <input type = "text" name = "photo"><br>
+		写真 : <input type = "text" name = "photo" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br>
  	
 		<br>
 	
@@ -48,7 +42,7 @@
 	
 
 	<form action ="deleteAnimal" method="post">
-	<input type="hidden"  name ="animalID" value=<%=request.getParameter("animalID") %>>
+	<input type="hidden"  name ="animalID" value=<jsp:getProperty property="animalID" name="animalrecode"/>>
 		<input type="submit" value="削除">
 	</form>
 

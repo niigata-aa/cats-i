@@ -14,13 +14,9 @@
 	
 	<jsp:useBean id ="updateAnimal" scope = "session" class ="model.entity.AnimalBean"/>
 	飼育員在籍情報 :
-	<%if (Integer.parseInt((String)session.getAttribute("livingNow"))==1){ %>
-	復職により飼育動物として再登録します。<br>
-	<%}else{ %>
-	離園として登録します。<br>
-	<%} %>
 	
-	動物ID : <jsp:getProperty name = "updateAnimal" property = "AnimalID"/>
+	
+	動物ID : <jsp:getProperty name = "updateAnimal" property = "animalID"/>
 	
 	生年月日 : <jsp:getProperty name = "updateAnimal" property = "birthDay"/><br>
 	
@@ -28,11 +24,11 @@
 	
 	出身 : <jsp:getProperty name = "updateAnimal" property = "country"/><br>
 	
-	種族 : <jsp:getProperty name = "updateEmployee" property = "firstName"/>
+	種族 : <jsp:getProperty name = "updateAnimal" property = "animalKind"/>
 	
-	性別　: <jsp:getProperty name = "updateEmployee" property = "gender"/><br>
+	性別　: <jsp:getProperty name = "updateAnimal" property = "sex"/><br>
 	
-	エリア情報:  <jsp:getProperty name = "updateEmployee" property = "areaID"/>
+	エリア情報:  <jsp:getProperty name = "updateAnimal" property = "area"/>
 	
 	担当飼育員 : <br>
 	

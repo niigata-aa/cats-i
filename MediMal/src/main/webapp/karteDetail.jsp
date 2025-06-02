@@ -49,9 +49,7 @@
 	<input type="submit" value="コメント記入ボタン">
 	</form>
 	
-<!--	<form action="goInputKarte" method="post">-->
-<!--	<input type="submit" value="カルテ情報(投薬・出産)記録ボタン">-->
-<!--	</form>-->
+
 
 	<form action="goInputFeed" method="post">
 	<input type="submit" value="記録食事記録ボタン">

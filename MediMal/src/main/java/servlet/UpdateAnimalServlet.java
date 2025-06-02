@@ -18,14 +18,14 @@ import model.entity.AnimalBean;
 @WebServlet("/updateAnimal")
 public class UpdateAnimalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UpdateAnimalServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UpdateAnimalServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,34 +41,28 @@ public class UpdateAnimalServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストの転送
 		request.setCharacterEncoding("UTF-8");
-		
+
 		HttpSession session = request.getSession();
-		
-		AnimalBean updateAnimal = new AnimalBean();
-		
-		updateAnimal.setAnimalID(request.getParameter("animalID"));
-		
-		updateAnimal.setBirthDay(request.getParameter("birthDay"));
-		
-		updateAnimal.setName(request.getParameter("name"));
-		
-		updateAnimal.setCountry(request.getParameter("country"));
-		
-		updateAnimal.setAnimalKind(request.getParameter("animalKind"));
-		
-		updateAnimal.setSex(request.getParameter("sex"));
-		
+
+		AnimalBean updateAnimal = (AnimalBean) session.getAttribute("animalrecode");
+
+
+
+
+		updateAnimal.setSex("おす");
+
+
 		updateAnimal.setArea(request.getParameter("area"));
-		
+
 		updateAnimal.setPhoto(request.getParameter("photo"));
-		
-		System.out.println(request.getParameter("livingNow"));
+
+
 		updateAnimal.setLivingNow(Integer.parseInt(request.getParameter("livingNow")));
-		
+
 		session.setAttribute("livingNow", request.getParameter("livingNow"));
-		
+//
 		session.setAttribute("updateAnimal", updateAnimal);
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("checkUpdateAnimal.jsp");
 		rd.forward(request, response);
 	}

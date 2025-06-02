@@ -72,7 +72,7 @@ public class goKarteDetailServlet extends HttpServlet {
 		for (AnimalBean TmpAnimal :(List<AnimalBean>) session.getAttribute("animalList")) {
 			if(TmpAnimal.getAnimalID().equals(animalID)){
 				Karte.setAnimal(TmpAnimal);
-				request.setAttribute("animalrecode", TmpAnimal);
+				session.setAttribute("animalrecode", TmpAnimal);
 				break;
 			}
 		}

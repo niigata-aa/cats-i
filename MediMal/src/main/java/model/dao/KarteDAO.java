@@ -195,7 +195,7 @@ public class KarteDAO {
 	//あ
 	public int insertComment(AnimalComment inputComment) throws ClassNotFoundException,SQLException {
 		int count = 0;
-		String sql = "insert into t_comment  values (?,?,?,?)";
+		String sql = "insert into t_Comment  values (?,?,?,?)";
 
 		try(Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -236,7 +236,7 @@ public class KarteDAO {
 			while (res.next()) {
 				AnimalComment TmpComment = new AnimalComment();
 				TmpComment.setAnimalID(res.getString("animalID"));
-				TmpComment.setDate(res.getDate("CommentTime"));
+				TmpComment.setCommentTime(getDateUntilMinute(res.getDate("CommentTime")));
 				TmpComment.setEmpID(res.getString("empID"));
 				TmpComment.setContent(res.getString("Content"));
 
