@@ -1,12 +1,9 @@
 package model.entity;
 
-import java.util.Date;
-
-
 public class AnimalComment {
 
 	private String animalID;
-	private Date date;
+	private String commentTime;
 	private String empID;
 	private String content;
 	
@@ -16,26 +13,30 @@ public class AnimalComment {
 
 	}
 
-	//getter setter
-	
+
+
 	public String getAnimalID() {
 		return animalID;
 	}
-	
+
+
+
 	public void setAnimalID(String animalID) {
 		this.animalID = animalID;
 	}
-	
-	
-	
-	public Date getDate() {
-		return date;
+
+
+
+	public String getCommentTime() {
+		return commentTime;
 	}
 
 
-	public void setDate(Date date) {
-		this.date = date;
+
+	public void setCommentTime(String commentTime) {
+		this.commentTime = commentTime;
 	}
+
 
 
 	public String getEmpID() {
@@ -43,9 +44,11 @@ public class AnimalComment {
 	}
 
 
+
 	public void setEmpID(String empID) {
 		this.empID = empID;
 	}
+
 
 
 	public String getContent() {
@@ -53,10 +56,14 @@ public class AnimalComment {
 	}
 
 
+
 	public void setContent(String content) {
 		this.content = content;
 	}
 
+
+	
+	
 
 	
 

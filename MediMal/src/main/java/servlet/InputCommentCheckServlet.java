@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,19 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.KarteDAO;
 import model.entity.AnimalComment;
 
 /**
- * Servlet implementation class InputCommentServlet
+ * Servlet implementation class InputCommentCheckServlet
  */
-@WebServlet("/inputComment")
-public class InputCommentServlet extends HttpServlet {
+@WebServlet("/inputCommentCheck")
+public class InputCommentCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InputCommentServlet() {
+    public InputCommentCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,38 +41,46 @@ public class InputCommentServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		request.setCharacterEncoding("utf-8"); 
+		
+		AnimalComment inputComment = (AnimalComment) session.getAttribute("inputComment");
+		
 		String postID = (String) session.getAttribute("postID");
+		
+		System.out.println(postID);
+		//DAOの生成
+		KarteDAO karteDao = new KarteDAO(postID);
+		
+
+		try {
+			//DAOの利用
+			karteDao.insertComment(inputComment);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+		
 
 		//ログインしてるか
 		String url;
 
 		if (session.getAttribute("LoginID")!=null) {
-			url = "checkInputComment.jsp";
+			url = "menu.jsp";
 		}else {
 			url ="login.jsp";
 		}
 		
-		AnimalComment comment = new AnimalComment();
 		
-		comment.setAnimalID(request.getParameter("animalID"));
-		comment.setCommentTime(request.getParameter("commentTime"));
-		comment.setEmpID(request.getParameter("empID"));
-		comment.setContent(request.getParameter("content"));
-		
-		
-		
-		
-		//セッションへのデータの登録
-		session.setAttribute("inputComment", comment);
-		
-		
-		//コメント記録画面（確認画面）に行く
-		//このサーブレットでは通過するだけ
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+		//リクエストの転送　体重記録の完了画面へ
+		RequestDispatcher rd = request.getRequestDispatcher("doneInputComment.jsp");
 		rd.forward(request, response);
-	
+		
+		
+		
+		
 	}
 
 }

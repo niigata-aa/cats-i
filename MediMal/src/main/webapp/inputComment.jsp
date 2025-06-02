@@ -7,15 +7,22 @@
 <title>コメント記入画面</title>
 </head>
 <body>
+	<%@ include file="header.jsp"%>
 
-	<form action="inputComment">
-	入れる情報?
-	<%-- String animalID = wroteComment.getAnimalID();
-			String date = wroteComment.getDate();
-			String empID = wroteComment.empID();
-			String content = wroteComment.content();--%>
+	<form action="inputComment" method="post">
+
 			
-		
+	動物ID　:　
+	<input type="text" name="animalID">
+	<br>
+	入力日　:　
+	<input type="date" name="commentTime">
+	<br>
+	従業員ID　:　
+	<input type="text" name="empID">
+	<br>
+	<br>
+	
 	
 	
 	※コメントを記入してください

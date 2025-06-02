@@ -122,7 +122,7 @@ public class KarteDAO {
 	 * @param wroteComment
 	 * @return 処理件数
 	 */
-	public int insertComment(AnimalComment Comment) throws ClassNotFoundException,SQLException {
+	public int insertComment(AnimalComment inputComment) throws ClassNotFoundException,SQLException {
 		int count = 0;
 		String sql = "insert into t_comment  values (?,?,?,?)";
 
@@ -130,14 +130,14 @@ public class KarteDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
 			//Beanからのデータの取り出し
-			String animalID = Comment.getAnimalID();
-			String date =getDateUntilMinute( Comment.getDate());
-			String empID = Comment.getEmpID();
-			String content = Comment.getContent();
+			String animalID = inputComment.getAnimalID();
+			String commentTime =inputComment.getCommentTime();
+			String empID = inputComment.getEmpID();
+			String content = inputComment.getContent();
 
 			//プレースホルダーへの値の設定	
 			pstmt.setString(1,animalID);
-			pstmt.setString(2, date);
+			pstmt.setString(2, commentTime);
 			pstmt.setString(3,empID);
 			pstmt.setString(4,content);
 
@@ -235,11 +235,11 @@ public class KarteDAO {
 	
 	
 	//日付
-	public String getDateUntilMinute(Date date) {
+	public String getDateUntilMinute(String string) {
 		String result;
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
-		result = df.format(date);
+		result = df.format(string);
 		
 		return result;
 		

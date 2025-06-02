@@ -50,7 +50,7 @@ public class InputFeedCheckServlet extends HttpServlet {
 		
 		System.out.println(postID);
 		//DAOの生成
-		KarteDAO karteDao = new KarteDAO(postID);
+		KarteDAO karteDao = new KarteDAO("postID");
 		
 
 		try {
