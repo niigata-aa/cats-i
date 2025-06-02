@@ -5,6 +5,7 @@
 			model.entity.KarteBean,model.entity.Weight,
 			model.entity.Birth,model.entity.Drug,
 			model.entity.Feed,model.entity.MedicalExamBean,
+			model.entity.AnimalComment,
 			java.sql.SQLException,java.io.IOException"%>
 <!DOCTYPE html>
 <html>
@@ -41,13 +42,43 @@
 	在籍情報 :<jsp:getProperty property="livingNow" name="animalrecode"/><br>
 	
 	体重記録<br>
-	<% if (Karte.getWeightLog().size()!=0){
+	<% if (Karte.getWeightLog()!=null){
 		for (Weight weight:Karte.getWeightLog()){%>
 		<%=weight.getInputTime() %>:<%=weight.getWeight()%><%=weight.getWeightUnit() %><br>
 	<%} }else{%>
 		記録が存在していません。<br>
 	<%} %>
 	
+	
+	食事記録<br>
+	<% if (!Karte.getFeedLog().isEmpty()){
+		for (Feed feed : Karte.getFeedLog()){%>
+		日時:<%= feed.getFeedTime() %>  食事内容:<%=feed.getFeedContent()%><%=feed.getFeedAmount() %><%=feed.getFeedUnit() %><br>
+	<%} }else{%>
+		記録が存在していません。<br>
+	<%} %>
+	
+	投薬履歴<br>
+	<% if (Karte.getDrugLog().size()!=0){
+		for (Drug drug : Karte.getDrugLog()) {%>
+		日時:<%= drug.getDate() %>薬名:<%=drug.getMedicineName() %> 投薬量:<%= drug.getMedicineAmount() %>g<br>
+	<% }}else{ %>
+		記録が存在していません。<br>
+	<%} %>
+	
+	
+	
+	
+	
+	所見<br>
+	
+	
+	<% if (!Karte.getCommentLog().isEmpty()){
+		for (AnimalComment comment : Karte.getCommentLog()) {%>
+		日時:<%= comment.getCommentTime() %>記録者:<%=comment.getEmpID() %> 内容:<%= comment.getContent() %><br>
+	<% }}else{ %>
+		記録が存在していません。<br>
+	<%} %>
 	
 	<form action="goInputWeight" method="post">
 	<input type="submit" value="体重記録ボタン">

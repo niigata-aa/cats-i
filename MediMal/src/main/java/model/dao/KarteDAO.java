@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -167,19 +166,12 @@ public class KarteDAO {
 				TmpDrug.setMedicineName(res.getString("drugAbout"));
 				TmpDrug.setMedicineAmount(res.getInt("drugAmount"));
 
-				TmpAll.add(TmpDrug);
+				result.add(TmpDrug);
 
 			}
-			if (TmpAll.size()!=0) {
-				for (Drug weight :TmpAll) {
-					if(weight.getAnimalID().equals(animalID)) {
-						result.add(weight);
-					}
-				}
+			
 				return result;
-			}else {
-				return null;
-			}
+			
 		}
 
 
@@ -222,7 +214,7 @@ public class KarteDAO {
 	/**全て（飼育員と獣医師）のコメントを検索する*/
 	public List<AnimalComment> selectAllComment(String animalID) throws SQLException, ClassNotFoundException {
 		List<AnimalComment> result = new ArrayList<AnimalComment>();
-		String sql = "select * from t_birth ";
+		String sql = "select * from t_comment where ? ";
 
 		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -262,11 +254,12 @@ public class KarteDAO {
 		String sql = "select * from t_medicalexam where animalID = ?";
 		List<MedicalExamBean> result = new ArrayList<MedicalExamBean>();
 
-		try (Connection con = ConnectionManager.getConnection(postID);
-				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery(sql)){
+		try(Connection con = ConnectionManager.getConnection(postID);
+				PreparedStatement pstmt = con.prepareStatement(sql)){
 
+			pstmt.setString(1, animalID);
 
+			ResultSet res = pstmt.executeQuery();
 
 			while (res.next()) {
 				MedicalExamBean TmpWeight = new MedicalExamBean();
@@ -377,14 +370,14 @@ public class KarteDAO {
 	/**全ての出産履歴を検索する*/
 	public List<Birth> selectAllBirth(String animalID) throws SQLException, ClassNotFoundException {
 		List<Birth> result = new ArrayList<Birth>();
-		String sql = "select * from t_birth ";
+		String sql = "select * from t_birthrecode where animalID = ? ";
 
-		try (Connection con = ConnectionManager.getConnection(postID);
-				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery(sql)){
+		try(Connection con = ConnectionManager.getConnection(postID);
+				PreparedStatement pstmt = con.prepareStatement(sql)){
 
-			List<Birth> TmpAll = new ArrayList<Birth>();
+			pstmt.setString(1, animalID);
 
+			ResultSet res = pstmt.executeQuery();
 			while (res.next()) {
 				Birth TmpBirth = new Birth();
 				TmpBirth.setAnimalID(res.getString("animalID"));
@@ -392,19 +385,12 @@ public class KarteDAO {
 
 				TmpBirth.setAmount(res.getInt("birthAmount"));
 
-				TmpAll.add(TmpBirth);
+				result.add(TmpBirth);
 
 			}
-			if (TmpAll.size()!=0) {
-				for (Birth weight :TmpAll) {
-					if(weight.getAnimalID().equals(animalID)) {
-						result.add(weight);
-					}
-				}
+			
 				return result;
-			}else {
-				return result;
-			}
+			
 		}	
 	}
 

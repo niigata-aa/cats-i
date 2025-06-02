@@ -24,7 +24,7 @@ import java.sql.SQLException;
 
 public class ConnectionManager {
 	/*データベースURL*/
-	private static final String URL = "jdbc:mysql://localhost:3306/MedimalDB";
+	private static final String URL = "jdbc:mysql://localhost:3306/medimalDB";
 	
 	/*人事用USERとPASSWORD*/
 	private static final String USER_PERSONAL 		= "personal"		;
@@ -34,7 +34,7 @@ public class ConnectionManager {
 	private static final String PASSWORD_KEEPER		= "zookeepers"		;
 	/*獣医用のUSERとPASS*/
 	private static final String USER_MEDICAL		= "medical"			;
-	private static final String PASSWORD_MEDICAL	= "meidcalStaff"	;
+	private static final String PASSWORD_MEDICAL	= "medicalStaff"	;
 	/*入力エラー用のUSERとPASSWORD(これを使うと設定してないユーザーなので多分接続失敗してくれるはず)*/
 	private static final String USER_ERROR			= "ERROR_USER"			;
 	private static final String PASSWORD_ERROR		= "Error_PASS"			;

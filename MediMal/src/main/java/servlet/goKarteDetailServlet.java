@@ -74,10 +74,14 @@ public class goKarteDetailServlet extends HttpServlet {
 		KarteBean Karte = new KarteBean();
 		
 		try {
+			
+			
 			Karte.setWeightLog(dao.selectAllWeight(animalID));
 			Karte.setCommentLog(dao.selectAllComment(animalID));
 			Karte.setBirthLog(dao.selectAllBirth(animalID));
 			Karte.setDrugLog(dao.selectAllDrug(animalID));
+			
+			System.out.println(dao.selectAllBirth(animalID).size());
 			Karte.setFeedLog(dao.selectAllFeed(animalID));
 			Karte.setMedicaltimes(dao.selectallMedicalExam(animalID));
 			
