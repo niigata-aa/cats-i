@@ -16,15 +16,18 @@
 	</form>
 	
 	<div class="A"><form action="searchAnimal" method="post">
-		動物ID :
-		<input type="text" name="animalID"placeholder="キーワードを入力" class="Animal"><br>
-		名前 :
-		<input type="text" name="animalName"placeholder="キーワードを入力" class="Animal"><br>
-		種族 :
-		<input type="text" name="typeName"placeholder="キーワードを入力" class="Animal"><br>
-		所属エリア :
-		<input type="text" name="areaName"placeholder="キーワードを入力" class="Animal"><br>
-		
+	<div class="test-container">
+	<table style="margin-left :auto; margin-right: auto;">
+	
+		<tr><td>動物ID :</td>
+		<td><input type="text" name="animalID"placeholder="キーワードを入力" class="Animal"></td></tr>
+		<tr><td>名前 :</td>
+		<td><input type="text" name="animalName"placeholder="キーワードを入力" class="Animal"></td></tr>
+		<tr><td>種族 :</td>
+		<td><input type="text" name="typeName"placeholder="キーワードを入力" class="Animal"></td></tr>
+		<tr><td>所属エリア :</td>
+		<td><input type="text" name="areaName"placeholder="キーワードを入力" class="Animal"></td></tr>
+		</table></div>
 		<!--  
 		担当飼育員 :
 		<input type="text" name="keeperName">キーワードを入力してください

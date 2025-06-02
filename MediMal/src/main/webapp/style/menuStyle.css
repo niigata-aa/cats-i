@@ -2,10 +2,8 @@
 
 body{
 	background-image: url(../image/Catback.png);
-	
-	
-	background-color: rgba(#fff, 0.7);
-	    background-blend-mode: overlay;
+	background-position: center;
+	background-size:2500px;
 }
 
 .move {

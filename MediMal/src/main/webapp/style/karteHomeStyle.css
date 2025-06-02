@@ -1,10 +1,8 @@
 @charset "UTF-8";
 body{
 	background-image: url(../image/Catback.png);
+	background-position-x: right 80px
 	
-	
-	background-color: rgba(#fff, 0.7);
-	    background-blend-mode: overlay;
 }
 
 .move {

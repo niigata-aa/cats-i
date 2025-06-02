@@ -40,8 +40,9 @@
 	  	  transition    : .3s;         /* なめらか変化 */
 	  	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
 	  	  position: relative;
-		  left:1170px;
-		  top:100px		
+		  left:1100px;
+		  bottom:60px;
+		  margin: auto;
 	  	  	
 	  	}
 	  	.AS:hover {
@@ -49,7 +50,7 @@
 	  	
 	  
 	.A{
-		margin-left: 30px;
+		
 				position: relative;
 						bottom: 30px;
 						font-size: 30px;
@@ -61,8 +62,14 @@
 	.Animal{
 			margin: 40px 30px 0px 0px;
 			font-size: 30px;
+			position: relative;
+			bottom: 10px;
 		}
-	
+		.test-container {
+			margin: auto;
+		 
+		  text-align: right;
+		  }
 	
 	  
 	  
