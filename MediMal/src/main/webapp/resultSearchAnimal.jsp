@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="header.jsp"%>
 	<form action="goSearchAnimal" method="post">
-		<input type="submit" value="再検索">
+		<input type="submit" value="再検索" class="btn">
 	</form>
 
 	<%

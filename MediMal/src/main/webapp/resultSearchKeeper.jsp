@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.List,model.entity.EmployeeBean"%>
+   pageEncoding="UTF-8" import="java.util.List,model.entity.EmployeeBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,25 +10,27 @@
 <body>
 	<%@ include file="header.jsp" %>
 	
-	<form action="goSearchKeeper" method="post">
+	<form action="goSearchKeeper" method="post" class="btn">
 		<input type="submit" value="再検索">
 	</form>
 	
 	<%
-		List<EmployeeBean> employeeList
-		= (List<EmployeeBean>)request.getAttribute("employeeList");
+		List<EmployeeBean> employeeList = (List<EmployeeBean>)request.getAttribute("employeeList");
 	%>
 	
 	<div class="result">
 	<table>
-	<tr><th>写真</th>
+	<tr>
+	<th>写真</th>
 	<th>詳細情報</th>
 	<th></th>
 	</tr>
 	<%
-		for(EmployeeBean employee : employeeList){
+		for(EmployeeBean employee : employeeList) {
+		
 	%>
-	<tr><td><img src=<%=employee.getPhotoURL() %>></td>
+	<tr>
+	<td><img src=<%=employee.getPhotoURL() %>></td>
 	<td><%=employee.getEmpID() %>
 		<%=employee.getLastName() %>
 		<%=employee.getFirstName() %>
