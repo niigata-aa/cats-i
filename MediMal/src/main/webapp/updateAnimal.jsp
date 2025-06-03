@@ -28,7 +28,7 @@
 		<tr align="right"><td>名前 : <jsp:getProperty property="name" name="animalrecode"/><br>
 			   
 			 
-		<tr align="right"><td>性別 :  <input type="text" name="sex"
+		<tr align="right"><td>性別 :  <input type="text" name="sex" required
 				   value= <jsp:getProperty property= "sex" name="animalrecode"/>><br>
 	
 		<tr align="right"><td>エリア情報 : <select name="areaID">
