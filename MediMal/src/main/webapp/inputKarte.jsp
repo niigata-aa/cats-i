@@ -36,7 +36,8 @@
 	　薬の種類　:　
 	<input type="text" name="medicineName" class="textbox"><br>
 	　　投薬量　:　
-	<input type="number" name="medicineAmount" min="0" class="textbox_unit"> g <br>
+	<input type="number" name="medicineAmount" min="0" class="textbox_unit"
+	pattern="[0-9]+" placeholder="数字で入力してください" > g <br>
 	
 	【出産】<br>
 	　　出産日　:　

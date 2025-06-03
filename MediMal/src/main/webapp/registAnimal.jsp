@@ -23,15 +23,16 @@
 			<table style="margin-left: auto; margin-right: auto;">
 				<tr align="right">
 					<td>動物ID :</td>
-					<td align="left"><input type="text" name="animalID" class="ra">
+					<td align="left"><input type="text" name="animalID" class="ra" 
+					pattern="[0-9]{8}" placeholder= "8桁の数字で入力してください" required>
 					</td>
 					<td>生年月日 :
-					<td align="left"><input type="date" name="birthDay" class="ra">
+					<td align="left"><input type="date" name="birthDay" class="ra" placeholder= "入力してください" required>
 					</td>
 				</tr>
 				<tr align="right">
 					<td>名前 :</td>
-					<td align="left"><input type="text" name="name" class="ra">
+					<td align="left"><input type="text" name="name" class="ra" placeholder= "入力してください" required>
 					</td>
 					<td>出身地 :</td>
 					<td align="left"><input type="text" name="country" class="ra">

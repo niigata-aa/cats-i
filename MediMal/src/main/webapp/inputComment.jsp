@@ -19,17 +19,17 @@
 	<%= session.getAttribute("animalID") %>
 	<br>
 	　入力日　:　
-	<input type="datetime-local" name="commentTime" class="textbox_time">
+	<input type="datetime-local" name="commentTime" class="textbox_time" required>
 	<br>
 	従業員ID　:　
-	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %> class="textbox">
+	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %> class="textbox" required>
 	<br>
 	
 	
 	※コメントを記入してください
 	<br>
 	
-	<textarea  name="content" id="content" rows="10" cols="70" ></textarea>
+	<textarea  name="content" id="content" rows="10" cols="70" required placeholder="入力してください"></textarea>
 	</div>
 	
 	
