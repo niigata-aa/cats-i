@@ -11,7 +11,8 @@
 	<%@include file="header.jsp"%>
 	<div class="around">
 	<div class="message">
-	動物情報の編集が完了しました。
+	動物情報の編集が<br>
+	完了しました。
 	
 	<form action="goKarteDetail" method="post">
 		<input type="submit" value="カルテ詳細画面へ" class="btn">

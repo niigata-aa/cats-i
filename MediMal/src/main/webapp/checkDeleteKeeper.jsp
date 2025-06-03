@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>従業員削除（確認画面）</title>
+<link rel ="stylesheet" href="style/insertStyle.css">
 </head>
 <body>
 	<%@include file="header.jsp"%>
+	<div class="A">
 	<p>※【確認】従業員情報を削除しますか？</p>
 
 
@@ -18,13 +20,14 @@
 	
 <!--	従業員ID : <jsp:getProperty name = "deleteEmployee" property = "empID"/><br>-->
 
+	</div>
 
 	<form action="deleteKeeperCheck" method="post">
-		<input type="submit" value="はい">
+		<input type="submit" value="はい" class="btn_left">
 	</form>
 
 	<form action="updateKeeper.jsp" method="post">
-		<input type="submit" value="いいえ">
+		<input type="submit" value="いいえ" class="btn_right">
 	</form>
 
 </body>
