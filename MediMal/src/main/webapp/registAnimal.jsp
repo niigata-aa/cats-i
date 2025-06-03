@@ -64,15 +64,6 @@
 					</select></td>
 				</tr>
 				<tr align="right">
-					<td>品種 :</td>
-					<td align="left"><input type="number" name="kindID" class="ra"
-						min="1" max="6"></td>
-					<td>写真 :</td>
-					<td align="left"><input type="file" name="photo" class="ra">
-					</td>
-				</tr>
-
-				<tr align="right">
 					<td>担当エリア :</td>
 					<td align="left"><select name="areaName" class="Keeper-ra">
 							<%
@@ -85,7 +76,12 @@
 							}
 							%>
 					</select></td>
+					<td>写真 :</td>
+					<td align="left"><input type="file" name="photo" class="ra">
+					</td>
 				</tr>
+
+				
 
 
 

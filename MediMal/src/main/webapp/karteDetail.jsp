@@ -37,7 +37,6 @@
 	生年月日 :<jsp:getProperty property="birthDay" name="animalrecode"/><br>
 	性別 :<jsp:getProperty property="sex" name="animalrecode"/><br>
 	種族 :<jsp:getProperty property="animalType" name="animalrecode"/><br>
-	品種 :<jsp:getProperty property="animalKind" name="animalrecode"/><br>
 	動物エリア :<jsp:getProperty property="area" name="animalrecode"/><br>
 	在籍情報 :<jsp:getProperty property="livingNow" name="animalrecode"/><br>
 	

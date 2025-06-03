@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import model.entity.AnimalBean;
+import model.entity.Kind;
 
 public class AnimalDAO {
 	//キレそう
@@ -25,7 +26,7 @@ public class AnimalDAO {
 	public Map<String,String> getAllType() throws ClassNotFoundException, SQLException {
 		Map<String,String> result = new HashMap<String,String>();
 		
-		String sql = "select* from m_animaltype";
+		String sql = "select* from m_animaltype　 order by TypeID asc";
 		
 		try(Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
@@ -37,6 +38,28 @@ public class AnimalDAO {
 		}
 		
 		return result;
+	}
+	
+	public List<Kind> getAllkind() throws ClassNotFoundException, SQLException{
+		List<Kind> result = new ArrayList<Kind>();
+		String sql  ="select* from m_animalkind";
+		
+		try(Connection con = ConnectionManager.getConnection(postID);
+				Statement stmt = con.createStatement();
+				ResultSet res  = stmt.executeQuery(sql)){
+			
+			while(res.next()) {
+				Kind TmpKind = new Kind();
+				TmpKind.setKindID(res.getInt("kindID"));
+				TmpKind.setTypeID(res.getString("typeID"));
+				TmpKind.setKindName(res.getString("kindName"));
+				result.add(TmpKind);
+				
+			}
+		}
+		
+		
+		return result ;
 	}
 
 	/**
