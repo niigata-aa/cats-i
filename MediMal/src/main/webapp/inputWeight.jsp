@@ -24,7 +24,7 @@
 	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %>><br>
 	
 	今日の体重:
-	<input type="number" name="weight">
+	<input type="number" name="weight" min="0">
 	
 	<select name="weightUnit">
 		<option value="g">g

@@ -214,7 +214,7 @@ public class KarteDAO {
 	/**全て（飼育員と獣医師）のコメントを検索する*/
 	public List<AnimalComment> selectAllComment(String animalID) throws SQLException, ClassNotFoundException {
 		List<AnimalComment> result = new ArrayList<AnimalComment>();
-		String sql = "select * from t_comment where ? ";
+		String sql = "select * from t_comment where animalID = ? ";
 
 		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -223,29 +223,21 @@ public class KarteDAO {
 
 			ResultSet res = pstmt.executeQuery();
 
-			List<AnimalComment> TmpAll = new ArrayList<AnimalComment>();
-
+			
 			while (res.next()) {
 				AnimalComment TmpComment = new AnimalComment();
 				TmpComment.setAnimalID(res.getString("animalID"));
 				TmpComment.setCommentTime(getDateUntilMinute(res.getDate("CommentTime")));
 				TmpComment.setEmpID(res.getString("empID"));
 				TmpComment.setContent(res.getString("Content"));
-
-
-				TmpAll.add(TmpComment);
+				
+				
+				result.add(TmpComment);
 
 			}
-			if (TmpAll.size()!=0) {
-				for (AnimalComment weight :TmpAll) {
-					if(weight.getAnimalID().equals(animalID)) {
-						result.add(weight);
-					}
-				}
+			
 				return result;
-			}else {
-				return null;
-			}
+		
 		}
 	}
 

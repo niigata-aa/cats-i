@@ -17,7 +17,7 @@
 	request.setCharacterEncoding("UTF-8");
 	List<AnimalBean> animalList = (List<AnimalBean>) session.getAttribute("animalList");
 	%>
-
+	<% if(animalList.size()!=0){ %>
 	<div class="result">
 	<table>
 		<tr>
@@ -61,6 +61,9 @@
 	%>
 	</table>
 	</div>
+	<%} else{%>
+	検索結果がありませんでした。再度検索してください。<br>
+	<%} %>
 	<%
 		String returnURL = "resultSearchAnimal.jsp";
 		session.setAttribute("returnURL", returnURL);

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import = "java.util.List"%>
+    pageEncoding="UTF-8" import = "java.util.List,model.entity.AnimalBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +11,7 @@
 <%@ include file="headerLink.jsp"%>
 <%List<String> allArea = (List<String>)session.getAttribute("area"); %>
 <jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
+<%AnimalBean recode = (AnimalBean)session.getAttribute("animalrecode"); %>
 
 <form action = "updateAnimal" method="post">
 		動物在籍情報 : <input type = "radio" name="livingNow" value=1>在籍
@@ -26,8 +27,13 @@
 		名前 : <jsp:getProperty property="name" name="animalrecode"/><br>
 			   
 			 
-		性別 :  <input type="text" name="sex"
-				   value= <jsp:getProperty property= "sex" name="animalrecode"/>><br>
+		性別 :  <select name="gender">
+				<option value ="">選択してください</option>
+				<option value ="オス" <% if(recode.getSex().equals("オス")){ %> selected <%} %>>オス</option>
+				<option value ="メス" <% if(recode.getSex().equals("メス")) {%> selected <%} %>>メス</option>
+				<option value = "その他" <%if(recode.getSex().equals("その他")) {%> selected <%} %>>その他</option>
+				</select>
+				   value= ><br>
 	
 		エリア情報 : <select name="areaID">
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>

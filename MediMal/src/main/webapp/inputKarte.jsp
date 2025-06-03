@@ -31,7 +31,7 @@
 	薬の種類　:　
 	<input type="text" name="medicineName"><br>
 	投　薬　量:　
-	<input type="number" name="medicineAmount">g<br>
+	<input type="number" name="medicineAmount" min="0"> g <br>
 	
 	【出産】<br>
 	出　産　日:　

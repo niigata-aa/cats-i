@@ -19,7 +19,7 @@
 	食事内容　:　
 	<input type="text" name="feedContent"><br>
 	食事量　　:　
-	<input type="number" name="feedAmount">
+	<input type="number" name="feedAmount" min="0">
 	
 	
 	<select name="feedUnit">

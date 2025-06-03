@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>動物登録画面</title>
-<link rel ="stylesheet" href="style/registAnimalStyle.css">
+<link rel="stylesheet" href="style/registAnimalStyle.css">
 </head>
 <body>
 	<%@ include file="headerLink.jsp"%>
@@ -16,79 +16,93 @@
 	<%
 	Map<String, String> allTypes = (Map<String, String>) session.getAttribute("Alltype");
 	%>
-<div class="test-con">
-	<form action="registAnimal" method="post" enctype="multipart/form-data">
+	<div class="test-con">
+		<form action="registAnimal" method="post"
+			enctype="multipart/form-data">
 
-		<table style="margin-left :auto; margin-right: auto;">
-			<tr align="right">
-				<td>動物ID :							</td>
-				<td align="left"><input type="text" name="animalID" class="ra">	</td>
-				<td>生年月日 :
-				<td align="left"><input type="date" name="birthDay" class="ra">	</td>
-			</tr>
-			<tr align="right">
-				<td>名前 :</td>
-				<td align="left"><input type="text" name="name" class="ra">		</td>
-				<td>出身地 :</td>
-				<td align="left"><input type="text" name="country" class="ra">	</td>
-			</tr>
-			<tr align="right">
-				<td>種族 :								</td>
-				<td align="left"><select name="typeName" class="Animal-ra">
-						<option value="">動物の種類を選んでください</option>
-						<%
-						for (Map.Entry<String, String> entry : allTypes.entrySet()) {
-						%>
+			<table style="margin-left: auto; margin-right: auto;">
+				<tr align="right">
+					<td>動物ID :</td>
+					<td align="left"><input type="text" name="animalID" class="ra">
+					</td>
+					<td>生年月日 :
+					<td align="left"><input type="date" name="birthDay" class="ra">
+					</td>
+				</tr>
+				<tr align="right">
+					<td>名前 :</td>
+					<td align="left"><input type="text" name="name" class="ra">
+					</td>
+					<td>出身地 :</td>
+					<td align="left"><input type="text" name="country" class="ra">
+					</td>
+				</tr>
+				<tr align="right">
+					<td>種族 :</td>
+					<td align="left"><select name="typeName" class="Animal-ra">
+							<option value="">動物の種類を選んでください</option>
+							<%
+							for (Map.Entry<String, String> entry : allTypes.entrySet()) {
+							%>
 
-						<option value=<%=entry.getKey()%>><%=entry.getValue()%>
-						</option>
+							<option value=<%=entry.getKey()%>><%=entry.getValue()%>
+							</option>
 
-						<%
-						}
-						%>
+							<%
+							}
+							%>
 
-				</select>								</td>
-				<td>性別 :								</td>
-	
-			<td align="left"><input type="text" name="sex" class="ra">			</td>		</tr>
-			<tr align="right">
-				<td>品種 :								</td>
-				<td align="left"><input type="number" name="kindID" class="ra" min="1" max="6"></td>
-				<td>写真 :</td>
-				<td align="left"><input type="file" name="photo" class="ra">	</td>
-			</tr>
+					</select></td>
+					<td>性別 :</td>
 
-			<tr align="right">
-				<td>担当エリア :</td>
-				<td align="left"><select name="areaName" class="Keeper-ra">
-						<%
-						for (int i = 0; i < allArea.size(); i++) {
-						%>
-						<option value=<%=i%>>
-							<%=allArea.get(i)%>
-						</option>
-						<%
-						}
-						%>
-				</select></td>
-			</tr>
+					<td align="left"><select name="sex" class="ra">
+							<option value="">選択してください</option>
+							<option value="オス">オス</option>
+							<option value="メス">メス</option>
+							<option value="その他">その他</option>
+					</select></td>
+				</tr>
+				<tr align="right">
+					<td>品種 :</td>
+					<td align="left"><input type="number" name="kindID" class="ra"
+						min="1" max="6"></td>
+					<td>写真 :</td>
+					<td align="left"><input type="file" name="photo" class="ra">
+					</td>
+				</tr>
+
+				<tr align="right">
+					<td>担当エリア :</td>
+					<td align="left"><select name="areaName" class="Keeper-ra">
+							<%
+							for (int i = 0; i < allArea.size(); i++) {
+							%>
+							<option value=<%=i%>>
+								<%=allArea.get(i)%>
+							</option>
+							<%
+							}
+							%>
+					</select></td>
+				</tr>
 
 
 
-			<!--		担当飼育員:-->
-			<!--		<input type = "text" name = "keepers"><br>-->
+				<!--		担当飼育員:-->
+				<!--		<input type = "text" name = "keepers"><br>-->
 
-</table>
+			</table>
 			<input type="submit" value="登録" class="rs">
 
 
-			</form></div>
+		</form>
+	</div>
 
-			<%
-			//リターンようのURLの取得
-			String returnURL = "registAnimal.jsp";
-			session.setAttribute("returnURL", returnURL);
-			%>
-		
+	<%
+	//リターンようのURLの取得
+	String returnURL = "registAnimal.jsp";
+	session.setAttribute("returnURL", returnURL);
+	%>
+
 </body>
 </html>

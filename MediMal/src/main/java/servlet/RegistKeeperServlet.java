@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,11 @@ import model.entity.EmployeeBean;
  * Servlet implementation class RegistKeeperServlet
  */
 @WebServlet("/registKeeper")
+@MultipartConfig(
+		maxFileSize=10000000,
+		maxRequestSize=10000000,
+		fileSizeThreshold=10000000
+		)
 public class RegistKeeperServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,7 +57,7 @@ public class RegistKeeperServlet extends HttpServlet {
 		String logo_name = logo.isEmpty() ? "" : logo;
 		
 		// 画像アップロード
-		String path = getServletContext().getRealPath("/logo");
+		String path = getServletContext().getRealPath("/photoData");
 		part.write(path + File.separator + logo_name);
 
 		//ログインしてるか

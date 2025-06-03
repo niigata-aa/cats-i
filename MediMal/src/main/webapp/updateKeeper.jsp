@@ -31,9 +31,13 @@
 				<input type="text" name="firstName"
 				   value=<%= updateEmp.getFirstName() %>>
 	
-		性別 : <input type="text" name="gender"
-				   value=<%=updateEmp.getGender() %>><br>
-			   
+		性別 : <select name="gender">
+				<option value ="">選択してください</option>
+				<option value ="男性" <%if(updateEmp.getGender().equals("男性")) {%> selected <%} %>>男性</option>
+				<option value ="女性" <%if(updateEmp.getGender().equals("女性")) {%> selected <%} %>>女性</option>
+				<option value = "その他" <%if(updateEmp.getGender().equals("その他")) {%> selected <%} %>>その他</option>
+				</select><br>
+					   
 		担当エリア : <select name="areaID">
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>
 			<option value = <%= i %><%if(updateEmp.getAreaID()==i){ %> selected <%} %>> <%=allArea.get(i) %> </option> 

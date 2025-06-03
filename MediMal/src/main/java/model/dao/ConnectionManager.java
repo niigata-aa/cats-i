@@ -24,7 +24,7 @@ import java.sql.SQLException;
 
 public class ConnectionManager {
 	/*データベースURL*/
-	private static final String URL = "jdbc:mysql://localhost:3306/medimalDB";
+	private static final String URL = "jdbc:mysql://localhost:3306/medimalDB_act";
 	
 	/*人事用USERとPASSWORD*/
 	private static final String USER_PERSONAL 		= "personal"		;

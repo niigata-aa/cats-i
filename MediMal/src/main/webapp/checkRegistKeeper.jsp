@@ -35,7 +35,8 @@
 	
 	業務開始日　:　<jsp:getProperty name = "inputEmployee" property = "startWork"/><br>
 	
-	写真　:　<jsp:getProperty name = "inputEmployee" property = "photoURL"/><br>
+	写真　: <img src=<jsp:getProperty name = "inputEmployee" property = "photoURL"/>" width="100" height="100">
+	<jsp:getProperty name = "inputEmployee" property = "photoURL"/><br>
 	
 	
 	

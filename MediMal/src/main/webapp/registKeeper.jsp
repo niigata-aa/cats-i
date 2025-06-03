@@ -12,7 +12,7 @@
 <%List<String> allArea = (List<String>)session.getAttribute("area");  %>	
 <h1>飼育員登録画面</h1>
 	<div class="test-con">
-	<form action = "registKeeper" method = "post">
+	<form action = "registKeeper" method = "post" enctype="multipart/form-data">
 	
 	<table style="margin-left :auto; margin-right: auto;">
 	<tr align="right"><td>従業員ID:</td>
@@ -35,7 +35,13 @@
 	<td>業務開始日:</td>
 	<td align="left"><input type = "date" name = "inputStartWork" class="rk"></td></tr>
 	<tr align="right"><td>性別:</td>
-	<td><input type = text name = "inputGender" class="rk"></td>
+	<td><select name = "inputGender" class="rk">
+		<option value ="">選択してください</option>
+		<option value ="男性">男性</option>
+		<option value ="女性">女性</option>
+		<option value = "その他">その他</option>
+		</select>
+	</td>
 	<td>写真:</td>
 	<td><input type = "file" name = "inputPhoto" class="rk"></td></tr>
 	
