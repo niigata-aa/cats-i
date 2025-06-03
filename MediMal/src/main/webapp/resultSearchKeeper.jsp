@@ -31,7 +31,8 @@
 		
 	%>
 	<tr>
-	<td><img src=<%=employee.getPhotoURL() %>></td>
+	<td><img src="/MediMal/image/<%=employee.getPhotoURL() %>" width="100" height="100">
+	</td>
 	<td><%=employee.getEmpID() %>
 		<%=employee.getLastName() %>
 		<%=employee.getFirstName() %>

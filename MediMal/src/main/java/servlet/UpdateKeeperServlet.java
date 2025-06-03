@@ -1,14 +1,18 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import model.entity.EmployeeBean;
 
@@ -16,6 +20,11 @@ import model.entity.EmployeeBean;
  * Servlet implementation class UpdateKeeperServlet
  */
 @WebServlet("/updateKeeper")
+@MultipartConfig(
+		maxFileSize=10000000,
+		maxRequestSize=10000000,
+		fileSizeThreshold=10000000
+		)
 public class UpdateKeeperServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,19 +53,30 @@ public class UpdateKeeperServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
+		Part part = request.getPart("inputPhoto");
+		String logo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+		String logo_name = logo.isEmpty() ? "" : logo;
+
+		// 画像アップロード
+		String path = getServletContext().getRealPath("/image");
+		part.write(path + File.separator + logo_name);
+
+		
 		EmployeeBean updateEmp = new EmployeeBean();
 		
 		updateEmp.setEmpID(request.getParameter("empID"));
 		
+		System.out.println(request.getParameter("lastName"));
 		updateEmp.setLastName(request.getParameter("lastName"));
-		
 		updateEmp.setFirstName(request.getParameter("firstName"));
 		
-		updateEmp.setAreaID(Integer.parseInt(request.getParameter("areaID")));
-		
 		updateEmp.setGender(request.getParameter("gender"));
+	
 		
-		System.out.println(request.getParameter("workingNow"));
+		updateEmp.setAreaID(Integer.parseInt(request.getParameter("area")));
+		
+		updateEmp.setPhotoURL(logo_name);
+		
 		updateEmp.setWorkingNow(Integer.parseInt(request.getParameter("workingNow")));
 		
 		session.setAttribute("workingNow", request.getParameter("workingNow"));

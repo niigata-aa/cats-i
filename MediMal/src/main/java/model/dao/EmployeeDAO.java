@@ -62,7 +62,7 @@ public class EmployeeDAO {
 				employeeTmp.setAreaName(res.getString("areaName"));
 				employeeTmp.setStartWork(getDateUntilMonth(res.getDate("startWork")));
 				employeeTmp.setWorkingNow(res.getInt("workingNow"));;
-				//			employeeTmp.setPhotoURL(res.getString("photo"));
+				employeeTmp.setPhotoURL(res.getString("photo"));
 				//			
 				//			try(PreparedStatement pstmt = con.prepareStatement(sql_type)){
 				//				pstmt.setString(1,res.getString("empID"));

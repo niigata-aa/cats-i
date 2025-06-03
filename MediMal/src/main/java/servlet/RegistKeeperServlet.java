@@ -55,9 +55,9 @@ public class RegistKeeperServlet extends HttpServlet {
 		Part part = request.getPart("inputPhoto");
 		String logo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 		String logo_name = logo.isEmpty() ? "" : logo;
-		
+
 		// 画像アップロード
-		String path = getServletContext().getRealPath("/photoData");
+		String path = getServletContext().getRealPath("/image");
 		part.write(path + File.separator + logo_name);
 
 		//ログインしてるか
