@@ -70,35 +70,38 @@ public class GoUpdateKeeperServlet extends HttpServlet {
 		for(EmployeeBean TmpEmployee : (List<EmployeeBean>) session.getAttribute("employeeList")){
 			if(TmpEmployee.getEmpID().equals(empID)) {
 
-				empID= (String) session.getAttribute("empID");
-				String 	lastName 	= (String) session.getAttribute("lastName");
-				String 	firstName 	= (String) session.getAttribute("firstName");
-				int 	areaID 	= (int) session.getAttribute("areaID");
-				String  gender  = (String) session.getAttribute("gender");
-				int		workingNow  = (int) session.getAttribute("workingNow");
-				String  photoURL	= (String) session.getAttribute("photoURL");
-
-				updateEmp.setEmpID(empID);
-
-				updateEmp.setLastName(lastName);
-
-				updateEmp.setFirstName(firstName);
-
-				updateEmp.setAreaID(areaID);
-
-				updateEmp.setGender(gender);
-
-				System.out.println(workingNow);
-				updateEmp.setWorkingNow(workingNow);
 				
-				updateEmp.setPhotoURL(photoURL);
+//				empID= (String) session.getAttribute("empID");
+//				String 	lastName 	= (String) session.getAttribute("lastName");
+//				String 	firstName 	= (String) session.getAttribute("firstName");
+////				int 	areaID 	= (int) session.getAttribute("areaID");
+//				String  gender  = (String) session.getAttribute("gender");
+////				int 	workingNow	=Integer.parseInt(request.getParameter("workingNow"));
+//				int		workingNow	= (int) session.getAttribute("workingNow");
+//				String  photoURL	= (String) session.getAttribute("photoURL");
+//
+//				updateEmp.setEmpID(empID);
+//
+//				updateEmp.setLastName(lastName);
+//
+//				updateEmp.setFirstName(firstName);
+//
+////				updateEmp.setAreaID(areaID);
+//
+//				updateEmp.setGender(gender);
+//
+//				System.out.println(workingNow);
+//				updateEmp.setWorkingNow(workingNow);
+//				
+//				updateEmp.setPhotoURL(photoURL);
+//
+//				session.setAttribute("workingNow", workingNow);
 
-				session.setAttribute("workingNow", workingNow);
-
-				session.setAttribute("updateEmployee", updateEmp);
+				session.setAttribute("updateEmployee", TmpEmployee);
+				
 			}
 			// リクエストの転送a
-			RequestDispatcher rd = request.getRequestDispatcher(url);
+			RequestDispatcher rd = request.getRequestDispatcher("updateKeeper.jsp");
 			rd.forward(request, response);
 		}
 	}

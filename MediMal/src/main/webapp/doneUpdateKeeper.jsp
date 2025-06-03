@@ -9,8 +9,8 @@
 <body>
 	<%@ include file="headerLink.jsp"%>
 	従業員情報の編集が完了しました。
-	<form action="resultSearchKeeper.jsp" method="post" >
-	<input type="submit" value="従業員検索結果画面へ">
+	<form action="SearchKeeper" method="post" >
+	<input type="submit" value="従業員検索画面へ">
 	</form>
 	<%
 		String returnURL = "doneUpdateKeeper.jsp";

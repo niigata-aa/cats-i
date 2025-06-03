@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import ="java.util.List"%>
+    pageEncoding="UTF-8" import ="java.util.List,model.entity.EmployeeBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,31 +9,34 @@
 <body>
 	<%@ include file="headerLink.jsp"%>
 	
-	<%List<String> allArea = (List<String>)session.getAttribute("area"); %>
+	<%List<String> allArea = (List<String>)session.getAttribute("area");%>
+	<% EmployeeBean updateEmp = (EmployeeBean)session.getAttribute("updateEmployee"); %>
+	
+	
 
 	<form action = "updateKeeper" method="post">
-		飼育員在籍情報 : <input type = "radio" name="employee" value=1>在籍
+		飼育員在籍情報 : <input type = "radio" name="workingNow" value=1 checked = checked>在籍
 		
-		<input type = "radio" name="employee" value=0>退籍
+		<input type = "radio" name="workingNow" value=0>退籍
 	
 		飼育員ID : <input type="text" name="empID"
-				   value=<%=session.getAttribute("empID") %>>
+				   value=<%=updateEmp.getEmpID() %>>
 			   
 		担当動物種族 : <input type="text" name=""
 				   value=><br>
 
 		名前 : <input type="text" name="lastName"
-				   value=<%= session.getAttribute("lastName") %>>
+				   value=<%= updateEmp.getLastName() %>>
 			   
 				<input type="text" name="firstName"
-				   value=<%=session.getAttribute("firstName") %>>
+				   value=<%= updateEmp.getFirstName() %>>
 	
 		性別 : <input type="text" name="gender"
-				   value=<%=session.getAttribute("gender") %>><br>
+				   value=<%=updateEmp.getGender() %>><br>
 			   
 		担当エリア : <select name="areaID">
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>
-			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
+			<option value = <%= i %><%if(updateEmp.getAreaID()==i){ %> selected <%} %>> <%=allArea.get(i) %> </option> 
 			<%} %>
 			
 			</select>
