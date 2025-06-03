@@ -8,11 +8,12 @@
 <link rel ="stylesheet" href="style/doneLogoutStyle.css">
 </head>
 <body>
-	ログアウト完了画面
+<div class="logout">
+	<div class="lo">ログアウト完了画面
 	<h1>ログアウト完了</h1><hr>
-	ログアウトが完了しました。<br>
+	ログアウトが完了しました。<br></div>
 	<form action="goLogin" method="post">
-		<input type="submit" value="ログイン画面に戻る">
+		<input type="submit" value="ログイン画面に戻る" class="back">
 	</form>
 </body>
 </html>

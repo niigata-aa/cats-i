@@ -1,0 +1,6 @@
+@charset "UTF-8";
+body{
+	background-image: url(../image/Catback.png);
+	background-position: center;
+	background-size:2500px;
+	overflow: hidden;}

@@ -10,7 +10,7 @@
 <body>
 <div class="logout">
 	<div class="lo"><h1>ログアウト</h1>
-	ログアウトしますか?<br></div>
+	ログアウトしますか?<br><hr></div>
 	<form action="logout" method="post">
 		<input type="submit" value="はい" class="yn1">
 	</form>

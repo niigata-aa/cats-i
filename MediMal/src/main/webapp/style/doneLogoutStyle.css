@@ -8,7 +8,22 @@ body{
 	background-attachment: fixed;
 	background-position: center center;
 	
-	
-	
-    
 }
+.logout{background-color: rgb(255, 142, 142);
+			  border-radius: 20px;
+			  height: 400px;
+			  width: 60%;
+			  margin-left: 100px;
+			  margin-right: 100px;
+			  padding:10px;
+			  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		  position: relative;
+		  top:135px;
+		  left: 200px;
+		  }	
+
+.back{font-size: 30px;}
+
+.lo{
+	font-size: 30px;
+}	
