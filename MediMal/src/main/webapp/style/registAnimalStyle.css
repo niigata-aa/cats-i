@@ -6,16 +6,32 @@ body{
 	
 }
 
-.rk{
+.ra{
 	margin: 40px 30px 0px 0px;
 	font-size: 30px;
 	position: relative;
 	bottom: 15px;
+	
 }
 		.test-con {margin: 40px 30px 0px 0px;
 	font-size: 30px;
 	position: relative;
 	bottom:10px	  }
+	
+.Keeper-ra{
+	margin: 40px 30px 0px 0px;
+		font-size: 30px;
+		position: relative;
+		bottom: 15px;
+}
+
+
+.Animal-ra{
+	margin: 40px 30px 0px 0px;
+		font-size: 30px;
+		position: relative;
+		bottom: 15px;
+}
 	
 	.rs{	width: 200px;
 	  		height: 50px;
@@ -37,5 +53,6 @@ body{
 	  	}
 	  	.rs:hover {
 	  	  box-shadow    : none;        /* カーソル時の影消去 */}
+		  
 		
 	

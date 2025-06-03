@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ログアウト完了画面</title>
+<link rel ="stylesheet" href="style/doneLogoutStyle.css">
 </head>
 <body>
 	ログアウト完了画面

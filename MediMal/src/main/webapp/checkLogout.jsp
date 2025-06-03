@@ -8,14 +8,14 @@
 <link rel ="stylesheet" href="style/checkLogoutStyle.css">
 </head>
 <body>
-<div class="logout"></div>
-	<h1>ログアウト</h1>
-	ログアウトしますか?<br>
+<div class="logout">
+	<div class="lo"><h1>ログアウト</h1>
+	ログアウトしますか?<br></div>
 	<form action="logout" method="post">
-		<input type="submit" value="はい">
+		<input type="submit" value="はい" class="yn1">
 	</form>
 	<form action="return" method="post">
-		<input type="submit" value="いいえ">
+		<input type="submit" value="いいえ" class="yn2">
 	</form></div>
 </body>
 </html>

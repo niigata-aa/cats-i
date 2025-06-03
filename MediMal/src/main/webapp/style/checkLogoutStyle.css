@@ -4,18 +4,73 @@ body{
     text-align: center;
     background-image: url(../image/back3.png);
 	background-size:100% 100%;
-	/*width: 100%;*/
+	
 	background-attachment: fixed;
 	background-position: center center;
 	
 	
-	/*height: 600px;*/
-    margin-top: 150px;
+	
+    
 }
+.logout{background-color: rgb(255, 142, 142);
+			  border-radius: 20px;
+			  height: 400px;
+			  width: 60%;
+			  margin-left: 100px;
+			  margin-right: 100px;
+			  padding:10px;
+			  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		  position: relative;
+		  top:135px;
+		  left: 200px;
+		  }	
+			  			  
+.lo{
+	font-size: 30px;
+}			  
 
-.logout{background-color: rgb(97, 228, 106);
-	border-radius: 20px;
-		margin-left: 600px;
-		margin-right: 600px;
-		padding:10px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);}
+		
+.yn1{		width: 200px;
+			  		height: 50px;
+			  	  display       : inline-block;
+			  	  font-size: 30px;        /* 文字サイズ */
+			  	  text-align    : center;      /* 文字位置   */
+			  	  cursor        : pointer;     /* カーソル   */
+			  	  /*padding       : 12px 12px;   /* 余白       */
+			  	  background    : rgb(255, 159, 159);     /* 背景色     */
+			  	  color         : rgb(0, 0, 0);     /* 文字色     */
+			  	  line-height   : 1em;         /* 1行の高さ  */
+			  	  transition    : .3s;         /* なめらか変化 */
+			  	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+			  	 
+				   position: relative;
+				right: 200px;
+				top:80px;
+				  margin: auto;
+			  	  	
+			  	}
+			  	.yn1:hover {
+			  	  box-shadow    : none;        /* カーソル時の影消去 */}
+				  .yn2{		width: 200px;
+				  			  		height: 50px;
+				  			  	  display       : inline-block;
+				  			  	  font-size: 30px;        /* 文字サイズ */
+				  			  	  text-align    : center;      /* 文字位置   */
+				  			  	  cursor        : pointer;     /* カーソル   */
+				  			  	  /*padding       : 12px 12px;   /* 余白       */
+				  			  	  background    : rgb(255, 159, 159);     /* 背景色     */
+				  			  	  color         : rgb(0, 0, 0);     /* 文字色     */
+				  			  	  line-height   : 1em;         /* 1行の高さ  */
+				  			  	  transition    : .3s;         /* なめらか変化 */
+				  			  	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+				  			  	 
+				  				   position: relative;
+				  					left:200px;
+				  			         top:30px;
+				  				  margin: auto;
+				  			  	  	
+				  			  	}
+				  			  	.yn2:hover {
+				  			  	  box-shadow    : none;        /* カーソル時の影消去 */}
+				 
+			

@@ -10,37 +10,40 @@
 <body>
 <%@ include file="headerLink.jsp"%>
 <%List<String> allArea = (List<String>)session.getAttribute("area");  %>	
-	
-	<form action = "registKeeper" method = "post" >
+<h1>飼育員登録画面</h1>
 	<div class="test-con">
+	<form action = "registKeeper" method = "post">
+	
 	<table style="margin-left :auto; margin-right: auto;">
 	<tr align="right"><td>従業員ID:</td>
-	<td><input type = "text" name = "inputEmpID"></td></tr>
+	<td><input type = "text" name = "inputEmpID" class="rk"></td>
+	<td>性別:</td>
+	<td align="left"><input type = text name = "inputGender" class="rk"></td></tr>
 	<tr align="right"><td>パスワード:</td>
-	<td><input type = "password" name = "inputEmpPass"></td></tr>
+	<td><input type = "password" name = "inputEmpPass" class="rk"></td>
+	<td align="right">業務種別:</td>
+	<td align="left"><input type = "number" name = "inputPostID" class="rk"></td></tr>
 	<tr align="right"><td>名字:</td>
-	<td><input type = "text" name = "inputLastName"></td></tr>
-	<tr align="right"><td>名前:</td>
-	<td><input type = "text" name = "inputFirstName"></td></tr>
-	<tr align="right"><td>性別:</td>
-	<td><input type = text name = "inputGender"></td></tr>
-	<tr align="right"><td>業務種別:</td>
-	<td><input type = "number" name = "inputPostID"></td></tr>
-	<tr align="right"><td>担当エリア :</td>
-		<td><select name="inputAreaID" class="Keeper">
+	<td><input type = "text" name = "inputLastName" class="rk"></td><td>担当エリア :</td>
+		<td align="left"><select name="inputAreaID" class="rk">
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>
 			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
 			<%} %>
 		</select></td></tr>
-	<tr align="right"><td>業務開始日:</td>
-	<td><input type = "date" name = "inputStartWork"></td></tr>
-	 
-	<tr align="right"><td>写真:</td>
-	<td><input type = "file" name = "inputPhoto"></td></tr>
+	<tr align="right"><td>名前:</td>
+	<td><input type = "text" name = "inputFirstName" class="rk"></td>
+	<td>業務開始日:</td>
+	<td align="left"><input type = "date" name = "inputStartWork" class="rk"></td></tr>
+	<tr align="right"><td>性別:</td>
+	<td><input type = text name = "inputGender" class="rk"></td>
+	<td>写真:</td>
+	<td><input type = "file" name = "inputPhoto" class="rk"></td></tr>
+	
 	</table>
-	<input type = "submit" value = "登録">
+	<input type = "submit" value = "登録" class="rs">
 
 
-	</form>
+	</form></div>
+	
 	</body>
 </html>
