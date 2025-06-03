@@ -165,7 +165,7 @@ public class AnimalDAO {
 						checkScore +=1;
 					}
 				}
-				if(!searchanimal.getArea().isEmpty()) {
+				if(!searchanimal.getArea().equals("未所属")) {
 					checkBorder +=1;
 					System.out.println("検索対象:"+searchanimal.getArea());
 					System.out.println("データベース側:"+animal.getArea());

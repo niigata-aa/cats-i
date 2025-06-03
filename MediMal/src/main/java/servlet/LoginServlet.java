@@ -57,6 +57,7 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("LoginID", LoginID);
 				session.setAttribute("Login", true);
 				
+				
 				String IDhead = LoginID.substring(0, 2);
 				
 				session.setAttribute("area", empDAO.getAllArea());

@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.AnimalDAO;
 import model.dao.KarteDAO;
 import model.entity.AnimalBean;
 import model.entity.KarteBean;
@@ -70,6 +70,8 @@ public class goKarteDetailServlet extends HttpServlet {
 		
 		KarteDAO dao = new KarteDAO(postID);
 		
+		AnimalDAO daoA = new AnimalDAO(postID);
+		
 		
 		KarteBean Karte = new KarteBean();
 		
@@ -91,12 +93,18 @@ public class goKarteDetailServlet extends HttpServlet {
 		}
 		
 		
-		for (AnimalBean TmpAnimal :(List<AnimalBean>) session.getAttribute("animalList")) {
-			if(TmpAnimal.getAnimalID().equals(animalID)){
-				Karte.setAnimal(TmpAnimal);
-				session.setAttribute("animalrecode", TmpAnimal);
-				break;
+		
+		try {
+			for (AnimalBean TmpAnimal :daoA.selectAllAnimal()) {
+				if(TmpAnimal.getAnimalID().equals(animalID)){
+					Karte.setAnimal(TmpAnimal);
+					session.setAttribute("animalrecode", TmpAnimal);
+					break;
+				}
 			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
 		}
 		
 		session.setAttribute("animalID",animalID);

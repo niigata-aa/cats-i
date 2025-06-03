@@ -12,6 +12,8 @@
 	<div class=ken><h1>ログイン画面</h1>
 	IDとパスワードを入力してください。<br>
 	
+	<%System.out.println(session.getAttribute("Login")) ;%>
+	
 	<form action='login' method="post">
 	<div class="box">従業員ID: <input type="text" name='LoginID' 
 								pattern="[0-9]{6}" placeholder="入力してください" title="正しいIDを入力してください" required></div><br>
