@@ -200,7 +200,7 @@ public class AnimalDAO {
 	 */
 	public void insertAnimal (AnimalBean animal) throws ClassNotFoundException,SQLException {
 		
-		//animalID,animalName,birthday,areaID,sex,country,typeID,kindID,photoURL,livingnow
+		//animalIDあ,animalName,birthday,areaID,sex,country,typeID,kindID,photoURL,livingnow
 		
 		String sql = "insert into m_animal values (?,?,?,?,?,?,?,?,?,1)";
 		try (Connection con = ConnectionManager.getConnection(postID);
