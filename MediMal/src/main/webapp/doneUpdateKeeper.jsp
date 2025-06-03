@@ -13,7 +13,7 @@
 	<div class="message">
 	従業員情報の編集が完了しました。
 	<form action="SearchKeeper" method="post" >
-	<input type="submit" value="従業員検索画面へ">
+	<input type="submit" value="従業員検索画面へ" class="btn">
 	</form>
 	
 	</div>

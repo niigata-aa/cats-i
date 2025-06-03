@@ -13,7 +13,7 @@
 	<div class="message">
 	動物情報の削除が完了しました。
 	<form action="resultSearchKeeper.jsp" method="post" >
-	<input type="submit" value="従業員検索結果画面へ">
+	<input type="submit" value="従業員検索結果画面へ" class="btn">
 	</form>
 	</div>
 	</div>

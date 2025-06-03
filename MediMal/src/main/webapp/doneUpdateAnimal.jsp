@@ -14,7 +14,7 @@
 	動物情報の編集が完了しました。
 	
 	<form action="goKarteDetail" method="post">
-		<input type="submit" value="カルテ詳細画面へ">
+		<input type="submit" value="カルテ詳細画面へ" class="btn">
 	</form>
 	</div>
 	</div>

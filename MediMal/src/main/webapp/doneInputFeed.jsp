@@ -15,7 +15,7 @@
 	食事履歴の記録が完了しました。
 	
 	<form action="goKarteDetail" method="post">
-	<input type="submit" value="カルテ詳細画面へ">
+	<input type="submit" value="カルテ詳細画面へ" class="btn">
 	</form>
 	</div>
 	</div>
