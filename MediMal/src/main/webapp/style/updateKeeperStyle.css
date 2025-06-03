@@ -1,0 +1,31 @@
+@charset "UTF-8";
+body{
+	background-image: url(../image/Catback.png);
+	background-position: center;
+	background-size:2500px;
+}
+.textbox {
+	width: 180x;
+		height: 50px;
+	font-size: 18px;
+	margin: 20px 0px;
+}
+.A{
+		
+				position: relative;
+						bottom: 30px;
+						font-size: 30px;
+				
+			margin-top: 100px;
+			margin-left: 500px;
+		
+	}
+	.select {
+		width: 180px;
+		height: 50px;
+		font-size: 18px;
+		margin: 20px 0px;
+	}
+
+
+		

@@ -3,4 +3,57 @@ body{
 	background-image: url(../image/Catback.png);
 	background-position: center;
 	background-size:2500px;
-	overflow: hidden;}
+	/*overflow: hidden;*/
+}
+
+.A{
+		
+				position: relative;
+						top:50px;
+						left:500px;
+						font-size: 30px;
+						
+						margin: 20px 0px;
+			            
+			}
+.b{margin: 10px 0px;}
+
+
+ .text {
+		width: 180x;
+			height: 40px;
+		font-size: 18px;
+		
+	}	
+	
+	.select {
+			width: 180x;
+				height: 40px;
+			font-size: 18px;
+			
+		}	
+	
+	.ud{	width: 200px;
+	  		height: 50px;
+	  	  display       : inline-block;
+	  	  font-size: 30px;        /* 文字サイズ */
+	  	  text-align    : center;      /* 文字位置   */
+	  	  cursor        : pointer;     /* カーソル   */
+	  	  /*padding       : 12px 12px;   /* 余白       */
+	  	  background    : rgb(255, 255, 255);     /* 背景色     */
+	  	  color         : rgb(0, 0, 0);     /* 文字色     */
+	  	  line-height   : 1em;         /* 1行の高さ  */
+	  	  transition    : .3s;         /* なめらか変化 */
+	  	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+	  	  position: relative;
+		  left:550px;
+			bottom: 200px;
+		  margin: 20px 0px;
+	  	  	
+	  	}
+	  	.ud:hover {
+	  	  box-shadow    : none;        /* カーソル時の影消去 */}
+		  
+		 
+		
+	

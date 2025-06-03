@@ -12,46 +12,47 @@
 <%List<String> allArea = (List<String>)session.getAttribute("area"); %>
 <jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
 
+<div class="A">
 <form action = "updateAnimal" method="post">
 
-<table border="1">
-		<tr align="right"><td>動物在籍情報 : <input type = "radio" name="livingNow" value=1>在籍
+
+		<div class="b">動物在籍情報 : <input type = "radio" name="livingNow" value=1  style="transform:scale(2.0);">  在籍
 		
-		<<td>input type = "radio" name="livingNow" value=0>退籍<br>
+		<input type = "radio" name="livingNow" value=0  style="transform:scale(2.0);">  退籍<br></div>
 		
-		<tr align="right"><td>動物ID : <jsp:getProperty property="animalID" name="animalrecode"/><br>
+		<div class="b">　　　動物ID : <jsp:getProperty property="animalID"  name="animalrecode"/><br></div>
 			   
 
-		<tr align="right"><td>生年月日 : <jsp:getProperty property="birthDay" name="animalrecode"/><br>
+	<div class="b">　　生年月日 : <jsp:getProperty property="birthDay" name="animalrecode"/><br></div>
 
 
-		<tr align="right"><td>名前 : <jsp:getProperty property="name" name="animalrecode"/><br>
+		<div class="b">　　　　名前 : <jsp:getProperty property="name" name="animalrecode"/><br></div>
 			   
 			 
-		<tr align="right"><td>性別 :  <input type="text" name="sex" required
-				   value= <jsp:getProperty property= "sex" name="animalrecode"/>><br>
+		<div class="b">　　　　性別 :  <input type="text" name="sex" class="text" required
+				   value= <jsp:getProperty property= "sex" name="animalrecode"/>><br></div>
 	
-		<tr align="right"><td>エリア情報 : <select name="areaID">
+		<div class="b">　エリア情報 : <select name="areaID" class="select"><br></div>
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>
-			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
+			<option value = <%= i %>> <%=allArea.get(i) %> 
 			<%} %>
 			
-			</select>
+			</select><br>
 				   
-		<tr align="right">担当飼育員 : <br>
+     <div class="b"> 　 担当飼育員 :<br></div>
 		
-		<tr align="right"><td>写真 : <td><input type = "text" name = "photo" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br>
+	<div class="b">　　　　写真 : <input type = "text" name = "photo" class="text" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br></div>
  	
 		<br>
-	
-		<input type="submit" value="編集">
+	</div>
+		<input type="submit" value="編集" class="ud">
 	
 	</form>
 	
 
 	<form action ="deleteAnimal" method="post">
 	<input type="hidden"  name ="animalID" value=<jsp:getProperty property="animalID" name="animalrecode"/>>
-		<input type="submit" value="削除">
+		<input type="submit" value="削除" class="ud">
 	</form>
 	<%
 		String returnURL = "updateAnimal.jsp";
