@@ -66,7 +66,7 @@ public class SearchKeeperServlet extends HttpServlet {
 //DAOの利用
 		employeeList = dao.selectEmpByField(searchEmpData);
 		//レクエストスコープへの属性の設定
-		request.setAttribute("employeeList", employeeList);
+		session.setAttribute("employeeList", employeeList);
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
