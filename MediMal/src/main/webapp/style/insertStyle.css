@@ -69,7 +69,7 @@ body{
 		  position: relative;
 		  	 
 		  top: 60px;
-		  	left:630px;
+		  	left:480px;
 			bottom: 50px;
 		}
 		.btn_left:hover {
@@ -93,8 +93,8 @@ body{
 	  	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
 	  	  position: relative;
 	  	  	 
-	  	  top: 60px;
-	  	  	left:630px;
+	  	  top: 10px;
+	  	  	left:720px;
 	  		bottom: 50px;
 	  	}
 	  	.btn_right:hover {
@@ -128,6 +128,59 @@ body{
 	}
 	.btn_comment:hover {
 	  box-shadow    : none;        /* カーソル時の影消去 */}
+	  
+	  
+	  
+	  
+	  /*コメント記入画面（確認画面）のボタンの高さ調節*/
+	  /*左*/
+	  	.btn_left_comment_check {
+	  			width: 200px;
+	  			height: 50px;
+	  		  display       : inline-block;
+	  		  font-size     : 20pt;        /* 文字サイズ */
+	  		  text-align    : center;      /* 文字位置   */
+	  		  cursor        : pointer;     /* カーソル   */
+	  		  padding       : 12px 12px;   /* 余白       */
+	  		  background    : rgb(255, 255, 255);     /* 背景色     */
+	  		  color         : rgb(0, 0, 0);     /* 文字色     */
+	  		  line-height   : 1em;         /* 1行の高さ  */
+	  		  transition    : .3s;         /* なめらか変化 */
+	  		  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+	  		  position: relative;
+	  		  	 
+	  		  top: 3px;
+	  		  	left:480px;
+	  			bottom: 50px;
+	  		}
+	  		.btn_left_comment_check:hover {
+	  		  box-shadow    : none;        /* カーソル時の影消去 */}
+	  	  
+	  	  
+	  	  
+	  	  /*右*/
+	  	  .btn_right_comment_check {
+	  	  		width: 200px;
+	  	  		height: 50px;
+	  	  	  display       : inline-block;
+	  	  	  font-size     : 20pt;        /* 文字サイズ */
+	  	  	  text-align    : center;      /* 文字位置   */
+	  	  	  cursor        : pointer;     /* カーソル   */
+	  	  	  padding       : 12px 12px;   /* 余白       */
+	  	  	  background    : rgb(255, 255, 255);     /* 背景色     */
+	  	  	  color         : rgb(0, 0, 0);     /* 文字色     */
+	  	  	  line-height   : 1em;         /* 1行の高さ  */
+	  	  	  transition    : .3s;         /* なめらか変化 */
+	  	  	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+	  	  	  position: relative;
+	  	  	  	 
+	  	  	  	left:720px;
+	  	  		bottom: 50px;
+	  	  	}
+	  	  	.btn_right_comment_check:hover {
+	  	  	  box-shadow    : none;        /* カーソル時の影消去 */}
+	  
+	  
 	  
 	  
 	  
