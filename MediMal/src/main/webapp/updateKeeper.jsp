@@ -32,7 +32,7 @@
 				   value=<%= updateEmp.getFirstName() %>>
 	
 		性別 : <select name="gender">
-				<option value ="">選択してください</option>
+				
 				<option value ="男性" <%if(updateEmp.getGender().equals("男性")) {%> selected <%} %>>男性</option>
 				<option value ="女性" <%if(updateEmp.getGender().equals("女性")) {%> selected <%} %>>女性</option>
 				<option value = "その他" <%if(updateEmp.getGender().equals("その他")) {%> selected <%} %>>その他</option>

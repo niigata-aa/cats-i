@@ -56,7 +56,7 @@
 					<td>性別 :</td>
 
 					<td align="left"><select name="sex" class="ra">
-							<option value="">選択してください</option>
+							
 							<option value="オス">オス</option>
 							<option value="メス">メス</option>
 							<option value="その他">その他</option>

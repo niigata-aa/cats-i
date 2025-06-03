@@ -28,7 +28,7 @@
 			   
 			 
 		性別 :  <select name="gender">
-				<option value ="">選択してください</option>
+				
 				<option value ="オス" <% if(recode.getSex().equals("オス")){ %> selected <%} %>>オス</option>
 				<option value ="メス" <% if(recode.getSex().equals("メス")) {%> selected <%} %>>メス</option>
 				<option value = "その他" <%if(recode.getSex().equals("その他")) {%> selected <%} %>>その他</option>

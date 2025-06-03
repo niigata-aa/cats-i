@@ -36,7 +36,7 @@
 	<td align="left"><input type = "date" name = "inputStartWork" class="rk"></td></tr>
 	<tr align="right"><td>性別:</td>
 	<td><select name = "inputGender" class="rk">
-		<option value ="">選択してください</option>
+		
 		<option value ="男性">男性</option>
 		<option value ="女性">女性</option>
 		<option value = "その他">その他</option>
