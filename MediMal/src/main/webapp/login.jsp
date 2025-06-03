@@ -13,8 +13,8 @@
 	IDとパスワードを入力してください。<br>
 	
 	<form action='login' method="post">
-	<div class="box">従業員ID: <input type="text" name='LoginID' pattern="[0-9]{6}" placeholder="数字で入力してください" title="IDを入力してください"></div><br>
-	<div class="box">パスワード:<input type="password" name='Password' pattern="[a-zA-Z]{8,20}" placeholder="パスを入力してください" title="パスワードを入力してください"></div><br>
+	<div class="box">従業員ID: <input type="text" name='LoginID' pattern="[0-9]{6}" placeholder="数字で入力してください" title="正しいIDを入力してください"></div><br>
+	<div class="box">パスワード:<input type="password" name='Password' pattern="[a-zA-Z]{8,20}" placeholder="パスを入力してください" title="正しいパスワードを入力してください"></div><br>
 			 <input type='submit' value='ログイン'>
 			
 	</form>
