@@ -60,8 +60,9 @@ public class inputHealthServlet extends HttpServlet {
 		drug.setDate(request.getParameter("date"));
 		drug.setMedicineName(request.getParameter("medicineName"));
 		drug.setMedicineAmount(Integer.parseInt(request.getParameter("medicineAmount")));
+		session.setAttribute("inputDrug", drug);
 		
-		
+		if(!request.getParameter("amount").equals("0")) {
 		Birth birth = new Birth();
 		
 		birth.setAnimalID((String)session.getAttribute("animalID"));
@@ -71,10 +72,11 @@ public class inputHealthServlet extends HttpServlet {
 		
 		
 		//セッションへのデータの登録
-		session.setAttribute("inputDrug", drug);
+		
+		
 		session.setAttribute("inputBirth",birth);
 		
-		
+		}
 		//カルテ記録画面（確認画面）に行く"inputKarteCheck.jsp"
 		//このサーブレットでは通過するだけ
 		RequestDispatcher rd = request.getRequestDispatcher(url);
