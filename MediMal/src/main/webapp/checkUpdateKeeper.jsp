@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>飼育員情報編集確認画面1</title>
+<link rel ="stylesheet" href="style/insertStyle.css">
 </head>
 <body>
 	<%@ include file="headerLink.jsp"%>
+	<div class="A">
 <p>※以下の内容で従業員情報を編集しますか？</p>
 	
 	<%request.setCharacterEncoding("utf-8"); %>
@@ -34,12 +36,14 @@
 	写真　: <img src="/MediMal/image/<jsp:getProperty name = "updateEmployee" property = "photoURL"/>" width="100" height="100">
 	<br>
 	
+	</div>
+	
 	<form action="updateKeeperCheck" method="post">
-		<input type="submit" value="はい">
+		<input type="submit" value="はい" class="btn_left_comment_check">
 	</form>
 	
 	<form action="updateKeeper.jsp" method="post">
-		<input type="submit" value="いいえ">
+		<input type="submit" value="いいえ" class="btn_right_comment_check">
 	</form>
 	<%
 		String returnURL = "checkUpdateKeeper.jsp";

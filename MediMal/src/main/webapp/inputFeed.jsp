@@ -39,11 +39,9 @@
 	
 	<form action="searchAllAnimal" method="post">
 		<input type="submit" value="動物一覧に戻る">
-	</form>
+	</form>	
 	
-	<form action="searchAllAnimal" method="post">
-		<input type="submit" value="動物一覧に戻る">
-	</form>
+	
 	
 	<%
 		String returnURL = "inputFeed.jsp";

@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>従業員登録画面（確認画面）</title>
+<link rel ="stylesheet" href="style/insertStyle.css">
 </head>
 <body>
 	<%@ include file="headerLink.jsp"%>
+	<div class="A">
 <p>※以下の内容で従業員情報を登録しますか？</p>
 	
 	<%request.setCharacterEncoding("utf-8"); %>
@@ -39,15 +41,15 @@
 	<jsp:getProperty name = "inputEmployee" property = "photoURL"/><br>
 	
 	
-	
+	</div>
 	
 	
 	<form action="registKeeperCheck" method="post">
-		<input type="submit" value="はい">
+		<input type="submit" value="はい" class="btn_left_comment_check">
 	</form>
 	
 	<form action="registKeeper.jsp" method="post">
-		<input type="submit" value="いいえ">
+		<input type="submit" value="いいえ" class="btn_right_comment_check">
 	</form>
 	<%
 		String returnURL = "checkRegistKeeper.jsp";

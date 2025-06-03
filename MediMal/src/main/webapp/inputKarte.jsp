@@ -33,6 +33,7 @@
 	<br>
 	
 	<br>
+	<div class="karte">
 	<div class="drug">
 	【投薬内容】<br>
 	　投薬時間　:　
@@ -40,7 +41,7 @@
 	　薬の種類　:　
 	<input type="text" name="medicineName" class="textbox"><br>
 	　　投薬量　:　
-	<input type="number" name="medicineAmount" min="0" class="textbox_unit"
+	<input type="number" name="medicineAmount" min="0" class="textbox"
 	pattern="[0-9]+" placeholder="数字で入力してください" > g 
 	</div>
 	
@@ -57,6 +58,7 @@
 		<option value="5">5
 	</select>
 	<br>
+	</div>
 	</div>
 
 	

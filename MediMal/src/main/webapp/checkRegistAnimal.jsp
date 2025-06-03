@@ -41,18 +41,18 @@
 <!--	担当飼育員　:　<jsp:getProperty name = "inputAnimal" property = "keepers"/><br>-->
 	
 	　　　　写真　: <img src="/MediMal/image/<jsp:getProperty name = "inputAnimal" property = "photo"/>" width="100" height="100">
-	<br>
+
 	
 	</div>
 	
 	
 	
 	<form action="registAnimalCheck" method="post">
-		<input type="submit" value="はい" class="btn_left">
+		<input type="submit" value="はい" class="btn_left_comment_check">
 	</form>
 	
 	<form action="registAnimal.jsp" method="post">
-		<input type="submit" value="いいえ" class="btn_right">
+		<input type="submit" value="いいえ" class="btn_right_comment_check">
 	</form>
 	<%
 		String returnURL = "checkRegistAnimal.jsp";

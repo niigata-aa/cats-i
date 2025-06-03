@@ -8,8 +8,7 @@
 <link rel ="stylesheet" href="style/headerStyle.css">
 </head>
 <body>
-<div class=head>
-	MediMal
+<div class=head><img src="image/MediMal.png">
 	</div>
 </body>
 </html>
