@@ -22,7 +22,7 @@
 	名前　:　<jsp:getProperty name = "inputAnimal" property = "name"/><br>
 	
 	
-	種族　:　<jsp:getProperty name = "inputAnimal" property = "animalType"/><br>
+	種族　:　<jsp:getProperty name = "inputAnimal" property = "type"/><br>
 	
 	品種　:　<jsp:getProperty name = "inputAnimal" property = "kindID"/><br>
 	
@@ -37,7 +37,7 @@
 	
 <!--	担当飼育員　:　<jsp:getProperty name = "inputAnimal" property = "keepers"/><br>-->
 	
-	写真　: <img src="/MediMal/image/<jsp:getProperty name = "inputAnimal" property = "photo"/> width="100" height="100">
+	写真　: <img src="/MediMal/image/<jsp:getProperty name = "inputAnimal" property = "photo"/>" width="100" height="100">
 	<br>
 	
 

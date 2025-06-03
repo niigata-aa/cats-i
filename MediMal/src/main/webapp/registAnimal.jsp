@@ -17,8 +17,7 @@
 	Map<String, String> allTypes = (Map<String, String>) session.getAttribute("Alltype");
 	%>
 	<div class="test-con">
-		<form action="registAnimal" method="post"
-			enctype="multipart/form-data">
+		<form action="registAnimal" method="post" enctype="multipart/form-data">
 
 			<table style="margin-left: auto; margin-right: auto;">
 				<tr align="right">
@@ -40,14 +39,10 @@
 				</tr>
 				<tr align="right">
 					<td>種族 :</td>
-					<td align="left"><select name="typeName" class="Animal-ra">
-							<option value="">動物の種類を選んでください</option>
-							<%
-							for (Map.Entry<String, String> entry : allTypes.entrySet()) {
-							%>
-
-							<option value=<%=entry.getKey()%>><%=entry.getValue()%>
-							</option>
+					<td align="left"><select name="TypeID" class="Animal-ra">
+							
+							<%for (Map.Entry<String, String> entry : allTypes.entrySet()) {%>
+							<option value="<%=entry.getKey()%>"><%=entry.getValue()%></option>
 
 							<%
 							}
@@ -65,7 +60,7 @@
 				</tr>
 				<tr align="right">
 					<td>担当エリア :</td>
-					<td align="left"><select name="areaName" class="Keeper-ra">
+					<td align="left"><select name="areaID" class="Keeper-ra">
 							<%
 							for (int i = 0; i < allArea.size(); i++) {
 							%>

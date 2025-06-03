@@ -3,6 +3,7 @@ package servlet;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,12 +53,14 @@ public class RegistAnimalSevlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String postID = (String) session.getAttribute("postID");
 		
-		Part part = request.getPart("inputPhoto");
+		Map<String, String> allTypes = (Map<String, String>) session.getAttribute("Alltype");
+		
+		Part part = request.getPart("photo");
 		String logo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 		String logo_name = logo.isEmpty() ? "" : logo;
 		
 		// 画像アップロード
-		String path = getServletContext().getRealPath("/logo");
+		String path = getServletContext().getRealPath("/image");
 		part.write(path + File.separator + logo_name);
 
 		//ログインしてるか
@@ -74,8 +77,11 @@ public class RegistAnimalSevlet extends HttpServlet {
 
 		animal.setAnimalID(request.getParameter("animalID"));
 		animal.setName(request.getParameter("name"));
-		animal.setAnimalType(request.getParameter("animalType"));
-		animal.setKindID(Integer.parseInt(request.getParameter("kindID")));
+		
+		System.out.println(request.getParameter("TypeID"));
+		animal.setAnimalType(request.getParameter("TypeID"));
+		animal.setType(allTypes.get(request.getParameter("TypeID")));
+		animal.setKindID(1);
 		animal.setAreaID(Integer.parseInt(request.getParameter("areaID")));
 		animal.setBirthDay(request.getParameter("birthDay"));
 		animal.setCountry(request.getParameter("country"));

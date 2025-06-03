@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 import model.entity.AnimalBean;
-import model.entity.Kind;
 
 public class AnimalDAO {
 	//キレそう
@@ -26,7 +25,7 @@ public class AnimalDAO {
 	public Map<String,String> getAllType() throws ClassNotFoundException, SQLException {
 		Map<String,String> result = new HashMap<String,String>();
 		
-		String sql = "select* from m_animaltype　 order by TypeID asc";
+		String sql = "select* from m_animaltype order by TypeID asc";
 		
 		try(Connection con = ConnectionManager.getConnection(postID);
 				Statement stmt = con.createStatement();
@@ -40,28 +39,7 @@ public class AnimalDAO {
 		return result;
 	}
 	
-	public List<Kind> getAllkind() throws ClassNotFoundException, SQLException{
-		List<Kind> result = new ArrayList<Kind>();
-		String sql  ="select* from m_animalkind";
-		
-		try(Connection con = ConnectionManager.getConnection(postID);
-				Statement stmt = con.createStatement();
-				ResultSet res  = stmt.executeQuery(sql)){
-			
-			while(res.next()) {
-				Kind TmpKind = new Kind();
-				TmpKind.setKindID(res.getInt("kindID"));
-				TmpKind.setTypeID(res.getString("typeID"));
-				TmpKind.setKindName(res.getString("kindName"));
-				result.add(TmpKind);
-				
-			}
-		}
-		
-		
-		return result ;
-	}
-
+	
 	/**
 	 * 動物の一覧表示
 	 */
@@ -221,20 +199,24 @@ public class AnimalDAO {
 	 * @throws SQLException
 	 */
 	public void insertAnimal (AnimalBean animal) throws ClassNotFoundException,SQLException {
+		
+		//animalID,animalName,birthday,areaID,sex,country,typeID,kindID,photoURL,livingnow
+		
 		String sql = "insert into m_animal values (?,?,?,?,?,?,?,?,?,1)";
 		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 			//Beanからのデータ取り出し
-			String animalID = animal.getAnimalID();
-			String name = animal.getName();
-			String birthDay = animal.getBirthDay();
-			int areaID = animal.getAreaID();
-			String sex = animal.getSex();
-			String country = animal.getCountry();
-			String  animalType = animal.getAnimalType();
-			int kindID = animal.getKindID();
-			String photo = animal.getPhoto();
-
+			String 	animalID 	= animal.getAnimalID();
+			String 	name 		= animal.getName();
+			String 	birthDay 	= animal.getBirthDay();
+			int 	areaID 		= animal.getAreaID();
+			String 	sex 		= animal.getSex();
+			String 	country		= animal.getCountry();
+			String  animalType 	= animal.getAnimalType();
+			int 	kindID 		= animal.getKindID();
+			String 	photo 		= animal.getPhoto();
+			
+			System.out.println(animalID+","+name+","+birthDay+","+areaID+","+sex+","+country+","+animalType+","+kindID);
 
 			//プレースホルダーへの値の設定
 			pstmt.setString(1,animalID);

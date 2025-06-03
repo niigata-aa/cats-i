@@ -36,7 +36,10 @@
 				<option value = "その他" <%if(updateEmp.getGender().equals("その他")) {%> selected <%} %>>その他</option>
 				</select><br>  
 		担当エリア : <select name="area">
-			<option value="1">rinngo</option> 
+			<% for (int i = 0 ; i<allArea.size();i ++){ %>
+			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
+			<%} %>
+			
 			</select>
 		写真 : <input type = "file" name = "inputPhoto" class="rk" >
 		<br>
