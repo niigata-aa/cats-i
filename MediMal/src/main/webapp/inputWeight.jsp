@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>体重記録画面</title>
+<link rel ="stylesheet" href="style/insertStyle.css">
 </head>
 <body>
 
@@ -13,25 +14,28 @@
 	<form action="inputWeight" method="post"><a></a>
 	
 	
-	
+	<div class="A">
+	<h3>＜体重記録＞</h3>
 
-	動物ID　:　
+	　　動物ID　:　
 	<%= session.getAttribute("animalID") %><br>
 	
-	日　付　:　
-	<input type="datetime-local" name = "inputTime"><br>
-	飼育員ID　:　
-	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %>><br>
+	　　　日付　:　
+	<input type="datetime-local" name = "inputTime" class="textbox_time"><br>
+	　飼育員ID　:　
+	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %> class="textbox"><br>
 	
-	今日の体重:
-	<input type="number" name="weight" min="0">
+	今日の体重　:　
+	<input type="number" name="weight" min="0" class="textbox">
 	
-	<select name="weightUnit">
+	<select name="weightUnit" class="textbox_unit">
 		<option value="g">g
 		<option value="kg">kg
 	</select><br>
 	
-	<input type="submit" value="記録">
+	</div>
+	
+	<input type="submit" value="記録" class="btn">
 	</form>
 	<%
 		String returnURL = "inputWeight.jsp";

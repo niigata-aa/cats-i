@@ -1,1 +1,154 @@
 @charset "UTF-8";
+
+body{
+	background-image: url(../image/Catback.png);
+	background-position: center;
+	background-size:2500px;
+}
+
+
+
+.textbox {
+	width: 180x;
+		height: 50px;
+	font-size: 18px;
+}
+
+.textbox_time {
+	width: 180px;
+	height: 50px;
+	font-size: 18px;
+}
+
+.textbox_unit {
+	width: 80px;
+		height: 50px;
+		font-size: 18px;
+}
+
+.btn {
+		width: 200px;
+		height: 50px;
+	  display       : inline-block;
+	  font-size     : 20pt;        /* 文字サイズ */
+	  text-align    : center;      /* 文字位置   */
+	  cursor        : pointer;     /* カーソル   */
+	  padding       : 12px 12px;   /* 余白       */
+	  background    : rgb(255, 255, 255);     /* 背景色     */
+	  color         : rgb(0, 0, 0);     /* 文字色     */
+	  line-height   : 1em;         /* 1行の高さ  */
+	  transition    : .3s;         /* なめらか変化 */
+	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+	  position: relative;
+	  	 
+	  top: 100px;
+	  	left:630px;
+		bottom: 50px;
+	}
+	.btn:hover {
+	  box-shadow    : none;        /* カーソル時の影消去 */}
+	  
+	  
+	  
+	  
+/*コメント記入画面のボタン*/
+.btn_comment {
+		width: 200px;
+		height: 50px;
+	  display       : inline-block;
+	  font-size     : 20pt;        /* 文字サイズ */
+	  text-align    : center;      /* 文字位置   */
+	  cursor        : pointer;     /* カーソル   */
+	  padding       : 12px 12px;   /* 余白       */
+	  background    : rgb(255, 255, 255);     /* 背景色     */
+	  color         : rgb(0, 0, 0);     /* 文字色     */
+	  line-height   : 1em;         /* 1行の高さ  */
+	  transition    : .3s;         /* なめらか変化 */
+	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+	  position: relative;
+	  	 
+	  top: 10px;
+	  	left:630px;
+		bottom: 50px;
+	}
+	.btn_comment:hover {
+	  box-shadow    : none;        /* カーソル時の影消去 */}
+	  
+	  
+	  
+	  
+	  .AS{	  width: 200px;
+	  		height: 50px;
+	  	  display       : inline-block;
+	  	  font-size: 30px;        /* 文字サイズ */
+	  	  text-align    : center;      /* 文字位置   */
+	  	  cursor        : pointer;     /* カーソル   */
+	  	  /*padding       : 12px 12px;   /* 余白       */
+	  	  background    : rgb(255, 255, 255);     /* 背景色     */
+	  	  color         : rgb(0, 0, 0);     /* 文字色     */
+	  	  line-height   : 1em;         /* 1行の高さ  */
+	  	  transition    : .3s;         /* なめらか変化 */
+	  	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+	  	  position: relative;
+		  left:1100px;
+		  bottom:60px;
+		  margin: auto;
+	  	  	
+	  	}
+	  	.AS:hover {
+	  	  box-shadow    : none;        /* カーソル時の影消去 */}
+	  	
+	  
+	.A{
+		
+				position: relative;
+						bottom: 30px;
+						font-size: 30px;
+				
+			margin-top: 100px;
+			margin-left: 500px;
+		
+	}
+	  
+    
+	.Animal{
+			margin: 40px 30px 0px 0px;
+			font-size: 30px;
+			position: relative;
+			bottom: 15px;
+		}
+		.test-con {
+			margin: auto;
+		 
+		  text-align: right;
+		  }
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

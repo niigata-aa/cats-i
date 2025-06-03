@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>健康情報追加画面</title>
+<link rel ="stylesheet" href="style/insertStyle.css">
 </head>
 <body>
 <%@include file="headerLink.jsp" %>
@@ -17,7 +18,11 @@
 	
 	
 	<form action="inputHealth" method="post">
-	動物ID　:　
+	
+	<div class="A">
+	<h3>＜投薬・出産履歴記録＞</h3>
+	
+	　　動物ID　:　
 	<% session.getAttribute("animalID"); %>
 	
 	
@@ -26,18 +31,18 @@
 	
 	<br>
 	【投薬内容】<br>
-	投薬時間　:　
-	<input type="datetime-local" name="date"><br>
-	薬の種類　:　
-	<input type="text" name="medicineName"><br>
-	投　薬　量:　
-	<input type="number" name="medicineAmount" min="0"> g <br>
+	　投薬時間　:　
+	<input type="datetime-local" name="date" class="textbox_time"><br>
+	　薬の種類　:　
+	<input type="text" name="medicineName" class="textbox"><br>
+	　　投薬量　:　
+	<input type="number" name="medicineAmount" min="0" class="textbox_unit"> g <br>
 	
 	【出産】<br>
-	出　産　日:　
-	<input type="date" name="date"><br>
-	出　産　数:　
-	<select name="amount">
+	　　出産日　:　
+	<input type="date" name="date" class="textbox_time"><br>
+	　　出産数　:　
+	<select name="amount" class="textbox_unit">
 		<option value="1">1
 		<option value="2">2
 		<option value="3">3
@@ -46,7 +51,11 @@
 	</select>
 	<br>
 	
-	<input type="submit" value="登録">
+	</div>
+	
+	<input type="submit" value="登録" class="btn">
+	
+	
 	
 	</form>
 	<%
