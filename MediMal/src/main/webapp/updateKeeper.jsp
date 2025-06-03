@@ -17,19 +17,19 @@
 		<input type = "radio" name="employee" value=0>退籍
 	
 		飼育員ID : <input type="text" name="empID"
-				   value=<%=request.getParameter("empID") %>>
+				   value=<%=session.getAttribute("empID") %>>
 			   
 		担当動物種族 : <input type="text" name=""
 				   value=><br>
 
 		名前 : <input type="text" name="lastName"
-				   value=<%= request.getParameter("lastName") %>>
+				   value=<%= session.getAttribute("lastName") %>>
 			   
 				<input type="text" name="firstName"
-				   value=<%=request.getParameter("firstName") %>>
+				   value=<%=session.getAttribute("firstName") %>>
 	
 		性別 : <input type="text" name="gender"
-				   value=<%=request.getParameter("gender") %>><br>
+				   value=<%=session.getAttribute("gender") %>><br>
 			   
 		担当エリア : <select name="areaID">
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>

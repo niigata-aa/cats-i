@@ -12,9 +12,12 @@
 		<input type="submit" value="再検索">
 	</form>
 	
+	
 	<%
-		List<EmployeeBean> employeeList = (List<EmployeeBean>)request.getAttribute("employeeList");
+	request.setCharacterEncoding("UTF-8");
+	List<EmployeeBean> employeeList = (List<EmployeeBean>) session.getAttribute("employeeList");
 	%>
+	
 	
 	<div class="result">
 	<table>
