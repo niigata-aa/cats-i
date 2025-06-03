@@ -18,18 +18,19 @@
 	　動物ID　:　
 	<%= session.getAttribute("animalID") %><br> 
 	食事時間　:　
-	<input type="datetime-local" name = "feedTime" class="textbox_time"><br>
+	<input type="datetime-local" name = "feedTime" class="textbox_time" required><br>
 	従業員ID　:　
 	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %>  class="textbox"><br>
 	食事内容　:　
-	<input type="text" name="feedContent"  class="textbox"><br>
+	<input type="text" name="feedContent"  class="textbox" required><br>
 	食事量　　:　
-	<input type="number" name="feedAmount" min="0"  class="textbox">
+	<input type="number" name="feedAmount" min="0"  class="textbox" 
+	pattern="[0-9]+" required placeholder="数字で入力してください">
 	
 	
 	<select name="feedUnit" class="textbox_unit">
 		<option value="g">g
-		<option value="kg">kg
+		<option value="kg" selected>kg
 	</select><br>
 	
 	</div>

@@ -21,16 +21,18 @@
 	<%= session.getAttribute("animalID") %><br>
 	
 	　　　日付　:　
-	<input type="datetime-local" name = "inputTime" class="textbox_time"><br>
+	<input type="datetime-local" name = "inputTime" 
+	class="textbox_time" required placeholder="入力してください"><br>
 	　飼育員ID　:　
 	<input type="text" name="empID" value=<%=session.getAttribute("LoginID") %> class="textbox"><br>
 	
 	今日の体重　:　
-	<input type="number" name="weight" min="0" class="textbox">
+	<input type="number" name="weight" min="0" class="textbox" 
+	pattern="[0-9]+" required placeholder="数字で入力してください">
 	
 	<select name="weightUnit" class="textbox_unit">
 		<option value="g">g
-		<option value="kg">kg
+		<option value="kg" selected>kg
 	</select><br>
 	
 	</div>
