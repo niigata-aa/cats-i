@@ -19,16 +19,16 @@
 		
 		<input type = "radio" name="workingNow" value=0 <%if(updateEmp.getWorkingNow() ==0){ %> checked=checked <%} %>>退籍
 	
-		飼育員ID : <input type="text" name="empID"
-				   value=<%=updateEmp.getEmpID() %>>
+		飼育員ID : <input type="text" name="empID" pattern="[0-9]{6}" required
+				   value=<%=updateEmp.getEmpID() %> placeholder="6桁の数字で入力してください">
 			   
 		担当動物種族 : <input type="text" name=""
 				   value=><br>
 
-		名前 : <input type="text" name="lastName"
+		名前 : <input type="text" name="lastName" required
 				   value=<%= updateEmp.getLastName() %>>
 			   
-				<input type="text" name="firstName"
+				<input type="text" name="firstName" required
 				   value=<%= updateEmp.getFirstName() %>>
 		性別 : <select name="gender">
 				<option value ="男性" <%if(updateEmp.getGender().equals("男性")) {%> selected <%} %>>男性</option>
