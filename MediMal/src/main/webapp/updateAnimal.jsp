@@ -1,50 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import = "java.util.List,model.entity.AnimalBean"%>
+    pageEncoding="UTF-8" import = "java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>動物情報編集・削除画面</title>
-
+<link rel ="stylesheet" href="style/updateAnimalStyle.css">
 </head>
 <body>
 <%@ include file="headerLink.jsp"%>
 <%List<String> allArea = (List<String>)session.getAttribute("area"); %>
 <jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
-<%AnimalBean recode = (AnimalBean)session.getAttribute("animalrecode"); %>
 
 <form action = "updateAnimal" method="post">
-		動物在籍情報 : <input type = "radio" name="livingNow" value=1>在籍
+
+<table border="1">
+		<tr align="right"><td>動物在籍情報 : <input type = "radio" name="livingNow" value=1>在籍
 		
-		<input type = "radio" name="livingNow" value=0>退籍<br>
+		<<td>input type = "radio" name="livingNow" value=0>退籍<br>
 		
-		動物ID : <jsp:getProperty property="animalID" name="animalrecode"/><br>
+		<tr align="right"><td>動物ID : <jsp:getProperty property="animalID" name="animalrecode"/><br>
 			   
 
-		生年月日 : <jsp:getProperty property="birthDay" name="animalrecode"/><br>
+		<tr align="right"><td>生年月日 : <jsp:getProperty property="birthDay" name="animalrecode"/><br>
 
 
-		名前 : <jsp:getProperty property="name" name="animalrecode"/><br>
+		<tr align="right"><td>名前 : <jsp:getProperty property="name" name="animalrecode"/><br>
 			   
 			 
-		性別 :  <select name="gender">
-				
-				<option value ="オス" <% if(recode.getSex().equals("オス")){ %> selected <%} %>>オス</option>
-				<option value ="メス" <% if(recode.getSex().equals("メス")) {%> selected <%} %>>メス</option>
-				<option value = "その他" <%if(recode.getSex().equals("その他")) {%> selected <%} %>>その他</option>
-				</select>
-				   value= ><br>
+		<tr align="right"><td>性別 :  <input type="text" name="sex"
+				   value= <jsp:getProperty property= "sex" name="animalrecode"/>><br>
 	
-		エリア情報 : <select name="areaID">
+		<tr align="right"><td>エリア情報 : <select name="areaID">
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>
 			<option value = <%= i %>> <%=allArea.get(i) %> </option> 
 			<%} %>
 			
 			</select>
 				   
-		担当飼育員 : <br>
+		<tr align="right">担当飼育員 : <br>
 		
-		写真 : <input type = "text" name = "photo" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br>
+		<tr align="right"><td>写真 : <td><input type = "text" name = "photo" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br>
  	
 		<br>
 	
