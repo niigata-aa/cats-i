@@ -35,12 +35,16 @@
 	<jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
 	動物ID :<jsp:getProperty property="animalID" name="animalrecode"/><br>
 	名前 :<jsp:getProperty property="name" name="animalrecode"/><br>
+	
+	写真:<img src="/MediMal/image/<jsp:getProperty property="photo" name="animalrecode"/>" width="100" height="100">
 	生年月日 :<jsp:getProperty property="birthDay" name="animalrecode"/><br>
 	性別 :<jsp:getProperty property="sex" name="animalrecode"/><br>
 	種族 :<jsp:getProperty property="animalType" name="animalrecode"/><br>
 	動物エリア :<jsp:getProperty property="area" name="animalrecode"/><br>
 	在籍情報 :<jsp:getProperty property="livingNow" name="animalrecode"/><br>
 	
+	
+	<%-- この辺は横向きのスクロールテーブルがいいです --%>
 	体重記録<br>
 	<% if (Karte.getWeightLog()!=null){
 		for (Weight weight:Karte.getWeightLog()){%>
@@ -49,7 +53,7 @@
 		記録が存在していません。<br>
 	<%} %>
 	
-	
+	<%-- この辺は横向きのスクロールテーブルがいいです --%>
 	食事記録<br>
 	<% if (!Karte.getFeedLog().isEmpty()){
 		for (Feed feed : Karte.getFeedLog()){%>
@@ -58,6 +62,7 @@
 		記録が存在していません。<br>
 	<%} %>
 	
+	<%-- この辺は横向きのスクロールテーブルがいいです --%>
 	投薬履歴<br>
 	<% if (Karte.getDrugLog().size()!=0){
 		for (Drug drug : Karte.getDrugLog()) {%>
@@ -69,7 +74,7 @@
 	
 	
 	
-	
+	<%-- この辺は縦向きのスクロールテーブル(普通の)がいいです --%>
 	所見<br>
 	
 	
