@@ -13,7 +13,7 @@
 	<div class="message">
 	従業員の登録が完了しました。
 	<form action="goMenu" method="post">
-		<input type="submit" value="メニュー画面に戻る">
+		<input type="submit" value="メニュー画面に戻る" class="btn">
 	</form>
 	</div>
 	</div>

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>従業員削除（完了画面）</title>
+<link rel ="stylesheet" href="style/doneStyle.css">
 </head>
 <body>
 	<%@include file="header.jsp" %>

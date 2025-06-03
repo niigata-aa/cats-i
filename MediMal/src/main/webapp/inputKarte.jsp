@@ -20,16 +20,20 @@
 	<form action="inputHealth" method="post">
 	
 	<div class="A">
+
 	<h3>＜投薬・出産履歴記録＞</h3>
+	
+	
 	
 	　　動物ID　:　
 	<% session.getAttribute("animalID"); %>
 	
-	
-	
-	<br>
+	</div>
 	
 	<br>
+	
+	<br>
+	<div class="drug">
 	【投薬内容】<br>
 	　投薬時間　:　
 	<input type="datetime-local" name="date" class="textbox_time"><br>
@@ -37,8 +41,10 @@
 	<input type="text" name="medicineName" class="textbox"><br>
 	　　投薬量　:　
 	<input type="number" name="medicineAmount" min="0" class="textbox_unit"
-	pattern="[0-9]+" placeholder="数字で入力してください" > g <br>
+	pattern="[0-9]+" placeholder="数字で入力してください" > g 
+	</div>
 	
+	<div class="birth">
 	【出産】<br>
 	　　出産日　:　
 	<input type="date" name="date" class="textbox_time"><br>
@@ -51,10 +57,10 @@
 		<option value="5">5
 	</select>
 	<br>
-	
 	</div>
+
 	
-	<input type="submit" value="登録" class="btn">
+	<input type="submit" value="登録" class="btn_karte">
 	
 	
 	
