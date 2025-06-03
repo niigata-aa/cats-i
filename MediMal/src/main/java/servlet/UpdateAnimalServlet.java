@@ -1,6 +1,8 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import model.entity.AnimalBean;
 
@@ -51,11 +54,17 @@ public class UpdateAnimalServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		AnimalBean updateAnimal = (AnimalBean) session.getAttribute("animalrecode");
+		
+		Part part = request.getPart("inputPhoto");
+		String logo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+		String logo_name = logo.isEmpty() ? "" : logo;
+
+		// 画像アップロード
+		String path = getServletContext().getRealPath("/image");
+		part.write(path + File.separator + logo_name);
 
 
-
-
-		updateAnimal.setSex("おす");
+		updateAnimal.setSex(request.getParameter("sex"));
 
 
 		updateAnimal.setArea(request.getParameter("area"));

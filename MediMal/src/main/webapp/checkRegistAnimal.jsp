@@ -37,7 +37,8 @@
 	
 <!--	担当飼育員　:　<jsp:getProperty name = "inputAnimal" property = "keepers"/><br>-->
 	
-	写真　:　<jsp:getProperty name = "inputAnimal" property = "photo"/><br>
+	写真　: <img src="/MediMal/image/<jsp:getProperty name = "inputAnimal" property = "photo"/> width="100" height="100">
+	<br>
 	
 
 	

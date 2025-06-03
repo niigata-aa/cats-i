@@ -25,7 +25,7 @@
 	
 	担当エリア　:　<jsp:getProperty name = "updateEmployee" property = "areaID"/>
 	
-	写真　:　<jsp:getProperty name = "updateEmployee" property = "photoURL"/><br>
+	写真　:　<img src="/MediMal/image/<jsp:getProperty name = "updateEmployee" property = "photoURL"/>" width="100" height="100"><br>
 	
 	<form action="FinalUpdateKeeperCheck" method="post">
 		<input type="submit" value="はい">

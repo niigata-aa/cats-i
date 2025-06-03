@@ -29,7 +29,7 @@
 		for (AnimalBean animal : animalList) {
 		%>
 		<tr>
-			<td><img src=<%=animal.getPhoto()%>></td>
+			<td><img src="/MediMal/image/<%=animal.getPhoto()%>" width="100" height="100"></td>
 
 			<td><%=animal.getAnimalID()%> <%=animal.getName()%> <%=animal.getAnimalType()%>
 				<%=animal.getArea()%> <!-- a担当動物個体の表示とそこから詳細カルテに飛ぶ方法が分かりません --> <!--  =employee.get() %>-->

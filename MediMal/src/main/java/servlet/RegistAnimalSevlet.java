@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,11 @@ import model.entity.AnimalBean;
  * Servlet implementation class RegistAnimalSevlet
  */
 @WebServlet("/registAnimal")
+@MultipartConfig(
+		maxFileSize=10000000,
+		maxRequestSize=10000000,
+		fileSizeThreshold=10000000
+		)
 public class RegistAnimalSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

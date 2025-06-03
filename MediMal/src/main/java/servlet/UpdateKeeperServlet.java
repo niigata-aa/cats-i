@@ -53,7 +53,7 @@ public class UpdateKeeperServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		Part part = request.getPart("inputPhoto");
+		Part part = request.getPart("photo");
 		String logo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 		String logo_name = logo.isEmpty() ? "" : logo;
 

@@ -299,24 +299,7 @@ public class EmployeeDAO {
 	 * @param TFNum
 	 * @return
 	 */
-	public int hiddenEmp(String ID, int TFNum) {
-		int count = 0; //処理件数
-		
-		String sql = "UPDATE m_employee SET livingNow = ? WHERE empID = ?";
-	
-		// データベースへの接続の取得、PreparedStatementの取得
-		try(Connection con = ConnectionManager.getConnection(postID);
-				PreparedStatement pstmt=con.prepareStatement(sql)){
-	
-		// プレースホルダへの値の設定
-		pstmt.setInt(1,);
-		pstmt.setString(2,);
-	
-		// SQLステートメントの実行
-		count = pstmt.executeUpdate();
-	}
-	return count;
-}
+
 	
 	/**
 	 * 従業員の削除

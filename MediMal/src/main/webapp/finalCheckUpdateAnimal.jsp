@@ -36,7 +36,7 @@
 	
 	担当飼育員 : <br>
 	
-	写真 : <jsp:getProperty name = "updateAnimal" property = "photo"/><br>
+	写真 : <img src="/MediMal/image/<jsp:getProperty name = "updateAnimal" property = "photo"/>" width="100" height="100"><br>
 	
 	<form action="finalUpdateAnimalCheck" method="post">
 		<input type="submit" value="はい">
