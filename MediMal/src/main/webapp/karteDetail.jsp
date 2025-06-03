@@ -12,6 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <title>カルテ詳細画面</title>
+<link rel ="stylesheet" href="style/karteDetailStyle.css">
 </head>
 <body>
 
