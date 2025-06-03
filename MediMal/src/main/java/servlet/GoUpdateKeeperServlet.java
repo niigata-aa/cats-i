@@ -97,7 +97,7 @@ public class GoUpdateKeeperServlet extends HttpServlet {
 
 				session.setAttribute("updateEmployee", updateEmp);
 			}
-			// リクエストの転送
+			// リクエストの転送a
 			RequestDispatcher rd = request.getRequestDispatcher(url);
 			rd.forward(request, response);
 		}
