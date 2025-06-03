@@ -36,6 +36,15 @@
 	</div>
 	<input type="submit" value="記録" class="btn">
 	</form>
+	
+	<form action="searchAllAnimal" method="post">
+		<input type="submit" value="動物一覧に戻る">
+	</form>
+	
+	<form action="searchAllAnimal" method="post">
+		<input type="submit" value="動物一覧に戻る">
+	</form>
+	
 	<%
 		String returnURL = "inputFeed.jsp";
 		session.setAttribute("returnURL", returnURL);
