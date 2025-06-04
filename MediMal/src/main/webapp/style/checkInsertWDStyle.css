@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+body{
+	background-image: url(../image/Catback.png);
+	background-position: center;
+	background-size:2500px;
+}
+
+.A{
+		position: relative;
+		bottom: 30px;
+		font-size: 25px;
+			
+		margin-top: 70px;
+		margin-left: 500px;
+	
+}
+.drug {
+	width: 500px;
+	position: relative;
+	top: 30px;
+	right:500px;
+	font-size: 30px;
+		
+	margin-left: 200px;
+	
+}
+
+
+
+.birth {
+	
+		width: 500px;
+		font-size: 30px;
+		position: relative;
+		
+		right: 50px;	
+		bottom: 140px;
+		margin-right: 30px;
+		float: right;}
+		
+		
+		
+		/*確認画面用のボタン*/
+			
+			/*左*/
+			.btn_left {
+					width: 200px;
+					height: 50px;
+				  display       : inline-block;
+				  font-size     : 20pt;        /* 文字サイズ */
+				  text-align    : center;      /* 文字位置   */
+				  cursor        : pointer;     /* カーソル   */
+				  padding       : 12px 12px;   /* 余白       */
+				  background    : rgb(255, 255, 255);     /* 背景色     */
+				  color         : rgb(0, 0, 0);     /* 文字色     */
+				  line-height   : 1em;         /* 1行の高さ  */
+				  transition    : .3s;         /* なめらか変化 */
+				  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+				  position: relative;
+				  	 
+				  top: 90px;
+				  	left:440px;
+					
+				}
+				.btn_left:hover {
+				  box-shadow    : none;        /* カーソル時の影消去 */}
+			  
+			  
+			  
+			  /*右*/
+			  .btn_right {
+			  		width: 200px;
+			  		height: 50px;
+			  	  display       : inline-block;
+			  	  font-size     : 20pt;        /* 文字サイズ */
+			  	  text-align    : center;      /* 文字位置   */
+			  	  cursor        : pointer;     /* カーソル   */
+			  	  padding       : 12px 12px;   /* 余白       */
+			  	  background    : rgb(255, 255, 255);     /* 背景色     */
+			  	  color         : rgb(0, 0, 0);     /* 文字色     */
+			  	  line-height   : 1em;         /* 1行の高さ  */
+			  	  transition    : .3s;         /* なめらか変化 */
+			  	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+			  	  position: relative;
+			  	  	 
+			  	  top:40px;
+			  	  	left:800px;
+			  		
+			  	}
+			  	.btn_right:hover {
+			  	  box-shadow    : none;        /* カーソル時の影消去 */}
+			  

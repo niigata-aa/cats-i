@@ -50,7 +50,8 @@
 	　　出産日　:　
 	<input type="date" name="date" class="textbox_time"><br>
 	　　出産数　:　
-	<select name="amount" class="textbox_unit">
+	<select name="amount"  class="textbox_unit">
+		<option value="0">0
 		<option value="1">1
 		<option value="2">2
 		<option value="3">3

@@ -40,7 +40,7 @@
 	</form>
 	
 	<form action="searchAllAnimal" method="post">
-		<input type="submit" value="動物一覧に戻る">
+		<input type="submit" value="動物一覧に戻る" class="btn">
 	</form>	
 	
 	
