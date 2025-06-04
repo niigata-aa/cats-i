@@ -56,48 +56,14 @@ public class GoUpdateKeeperServlet extends HttpServlet {
 
 		String 	empID 		= request.getParameter("empID");
 		System.out.println(empID);
-		//		String 	lastName 	= request.getParameter("lastName");
-		//		String 	firstName 	= request.getParameter("firstName");
-		//		String 	getArea 	= request.getParameter("area");
-		//		
-		//		int 	workingNow	=Integer.parseInt(request.getParameter("workingNow"));
-		//		
-		//		request.setAttribute("empID",empID);
-		//		request.setAttribute("lastName",lastName);
-		//		request.setAttribute("firstName",firstName);
-		//		request.setAttribute("getArea",getArea);
-		//		request.setAttribute("workingNow", workingNow);
+		
 
 		for(EmployeeBean TmpEmployee : (List<EmployeeBean>) session.getAttribute("employeeList")){
 			if(TmpEmployee.getEmpID().equals(empID)) {
 
 				
-//				empID= (String) session.getAttribute("empID");
-//				String 	lastName 	= (String) session.getAttribute("lastName");
-//				String 	firstName 	= (String) session.getAttribute("firstName");
-////				int 	areaID 	= (int) session.getAttribute("areaID");
-//				String  gender  = (String) session.getAttribute("gender");
-////				int 	workingNow	=Integer.parseInt(request.getParameter("workingNow"));
-//				int		workingNow	= (int) session.getAttribute("workingNow");
-//				String  photoURL	= (String) session.getAttribute("photoURL");
-//
-//				updateEmp.setEmpID(empID);
-//
-//				updateEmp.setLastName(lastName);
-//
-//				updateEmp.setFirstName(firstName);
-//
-////				updateEmp.setAreaID(areaID);
-//
-//				updateEmp.setGender(gender);
-//
-//				System.out.println(workingNow);
-//				updateEmp.setWorkingNow(workingNow);
 //				
-//				updateEmp.setPhotoURL(photoURL);
-//
-//				session.setAttribute("workingNow", workingNow);
-
+				System.out.println(TmpEmployee.getEmpID());
 				
 				session.setAttribute("updateEmployee", TmpEmployee);
 				

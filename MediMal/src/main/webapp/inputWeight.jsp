@@ -39,9 +39,9 @@
 	
 	<input type="submit" value="記録" class="btn">
 	</form>
-	
-	<form action="searchAllAnimal" method="post">
-		<input type="submit" value="動物一覧に戻る" class="btn">
+	<br>
+	<form action="goKarteDetail" method="post">
+		<input type="submit" value="キャンセル" class="btn">
 	</form>
 	
 	<%

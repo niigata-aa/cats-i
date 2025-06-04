@@ -68,6 +68,11 @@
 	
 	
 	</form>
+	
+	<br>
+	<form action="goKarteDetail" method="post">
+		<input type="submit" value="キャンセル" class="btn">
+	</form>
 	<%
 		String returnURL = "inputKarte.jsp";
 		session.setAttribute("returnURL", returnURL);
