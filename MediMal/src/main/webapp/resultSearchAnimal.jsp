@@ -18,6 +18,8 @@
 	List<AnimalBean> animalList = (List<AnimalBean>) session.getAttribute("animalList");
 	System.out.println("すべての動物数は"+animalList.size()+"件です");
 	%>
+	
+	
 	<% if(animalList.size()!=0){ %>
 	<div class="result">
 	<table>
@@ -28,6 +30,7 @@
 		</tr>
 		<%
 		for (AnimalBean animal : animalList) {
+			
 		%>
 		<tr>
 			<td><img src="/MediMal/image/<%=animal.getPhoto()%>" width="100" height="100"></td>
