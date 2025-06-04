@@ -42,7 +42,7 @@
 			<%} %>
 			
 			</select><br></div>
-		<div class="b">　　　　　写真 : <input type = "file" name = "inputPhoto" class="rk" >
+		<div class="b">　　　　　写真 : <input type = "file" name = "photo" class="rk" >
 		<br></div></div>
 		<input type="submit" value="編集" class="pro">
 	</form>
