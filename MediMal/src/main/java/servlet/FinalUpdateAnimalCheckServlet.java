@@ -51,6 +51,8 @@ public class FinalUpdateAnimalCheckServlet extends HttpServlet {
 		
 		//DAOの利用
 		animalDao.updateAnimal(updateAnimal);
+		
+		
 
 		//ログインしてるか
 		String url;

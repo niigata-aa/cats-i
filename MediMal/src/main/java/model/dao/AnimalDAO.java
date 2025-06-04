@@ -242,25 +242,27 @@ public class AnimalDAO {
 	public int updateAnimal(AnimalBean animal) {
 		int processingNumber = 0; //処理件数
 
-		String sql = "UPDATE m_animal SET animalName = ?, sex = ?,   photoURL = ? WHERE animalID = ?";
+		String sql = "UPDATE m_animal SET animalName = ?, sex = ?, areaID = ? ,  photoURL = ?,livingNow = ? WHERE animalID = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			// Beanからのデータの取り出し
-			String name      	= animal.getName();
-			String sex 			= animal.getSex();
-			String area 		= animal.getArea();
-			String photo		= animal.getPhoto();
-            String animalID 	= animal.getAnimalID();
+			String 	name      	= animal.getName();
+			String 	sex 		= animal.getSex();
+			int 	areaID		= animal.getAreaID();
+			String 	photo		= animal.getPhoto();
+			int		livingNow	= animal.getLivingNow();
+            String 	animalID 	= animal.getAnimalID();
 
 			// プレースホルダへの値の設定
 			pstmt.setString(1, name);
 			pstmt.setString(2, sex);
-			//pstmt.setString(3, area);
-			pstmt.setString(3, photo);
-            pstmt.setString(4, animalID);
+			pstmt.setInt(3, areaID);
+			pstmt.setString(4, photo);
+			pstmt.setInt(5, livingNow);
+            pstmt.setString(6, animalID);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();

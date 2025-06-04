@@ -32,14 +32,14 @@
 		<div class="b">　　　　性別 :  <input type="text" name="sex" class="text" required
 				   value= <jsp:getProperty property= "sex" name="animalrecode"/>><br></div>
 	
-		<div class="b">　エリア情報 : <select name="areaID" class="select"><br></div>
+		<div class="b">　エリア情報 : <select name="areaID" class="select"></div>
 			<% for (int i = 0 ; i<allArea.size();i ++){ %>
 			<option value = <%= i %>> <%=allArea.get(i) %> 
 			<%} %>
-			
+			</option>
 			</select><br>
 				   
-     <div class="b"> 　 担当飼育員 :<br></div>
+     
 		
 	<div class="b">　　　　写真 : <input type="file" name="inputPhoto"  class="text" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br></div>
  	

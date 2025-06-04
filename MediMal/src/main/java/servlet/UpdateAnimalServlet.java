@@ -3,6 +3,7 @@ package servlet;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,6 +55,7 @@ public class UpdateAnimalServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		AnimalBean updateAnimal = (AnimalBean) session.getAttribute("animalrecode");
+		List<String> allArea = (List<String>)session.getAttribute("area");
 		
 		Part part = request.getPart("inputPhoto");
 		String logo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
@@ -67,9 +69,9 @@ public class UpdateAnimalServlet extends HttpServlet {
 		updateAnimal.setSex(request.getParameter("sex"));
 
 
-		updateAnimal.setArea(request.getParameter("area"));
+		updateAnimal.setAreaID(Integer.parseInt(request.getParameter("areaID")));
 
-		updateAnimal.setPhoto(request.getParameter("photo"));
+		updateAnimal.setPhoto(logo_name);
 
 
 		updateAnimal.setLivingNow(Integer.parseInt(request.getParameter("livingNow")));
