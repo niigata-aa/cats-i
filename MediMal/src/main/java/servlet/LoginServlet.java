@@ -71,12 +71,14 @@ public class LoginServlet extends HttpServlet {
 				
 				session.setAttribute("LoginName", LoginName);
 				
+				session.removeAttribute("Login_failed");
+				
 				
 				
 				
 			}else {
 				url ="login.jsp";
-				session.setAttribute("Login", false);
+				session.setAttribute("Login_failed", true);
 				System.out.println("ログインに失敗しています");
 			}
 		}catch(Exception e) {

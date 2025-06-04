@@ -10,7 +10,14 @@
 <body>
 	
 	<div class=ken><h1>ログイン画面</h1>
+	
+	
 	IDとパスワードを入力してください。<br>
+	
+	<%if(session.getAttribute("Login_failed")!=null){ if((boolean)session.getAttribute("Login_failed")){ %>
+	<div class="failed">ID,またはパスワードに誤りがあります </div> 
+	
+	<%}} %>
 	
 	<%System.out.println(session.getAttribute("Login")) ;%>
 	

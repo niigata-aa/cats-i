@@ -36,6 +36,10 @@
 	
 	<input type="submit" value="記入" class="btn_comment">
 	</form>
+	
+	<form action = "goKarteDetail" method = "post">
+	<input type = "submit" value ="キャンセル" class ="btn_comment">
+	</form>
 
 </body>
 </html>

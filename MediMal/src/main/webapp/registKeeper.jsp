@@ -21,8 +21,19 @@
 	<td align="left"><input type = text name = "inputGender" class="rk"></td></tr>
 	<tr align="right"><td>パスワード:</td>
 	<td><input type = "password" name = "inputEmpPass" class="rk" pattern="[a-zA-Z]{8,20}" required placeholder="アルファベット8文字以上で入力してください"></td>
-	<td align="right">業務種別:</td>
-	<td align="left"><input type = "number" name = "inputPostID" class="rk"></td></tr>
+	
+	
+	<td align="right">業務種別:</td>	
+	<td align="left">
+	<select name = "inputPostID" class="rk">
+		<option value = 1> 人事		</option>
+		<option value = 2> 飼育員 	</option>
+		<option value = 3> 獣医		</option>
+	
+	</select></td></tr>
+	
+	
+	
 	<tr align="right"><td>名字:</td>
 	<td><input type = "text" name = "inputLastName" class="rk" required></td><td>担当エリア :</td>
 		<td align="left"><select name="inputAreaID" class="rk">

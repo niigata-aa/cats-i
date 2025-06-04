@@ -12,8 +12,8 @@
 	<div class="around">
 	<div class="message">
 	動物情報の削除が完了しました。
-	<form action="searchAllKeeper" method="post" >
-	<input type="submit" value="従業員一覧画面へ" class="btn">
+	<form action="searchAllAnimal" method="post" >
+	<input type="submit" value="動物一覧画面へ" class="btn">
 	</form>
 	</div>
 	</div>
