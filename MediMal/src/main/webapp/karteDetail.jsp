@@ -35,14 +35,17 @@
 	　在籍情報　:　<jsp:getProperty property="livingNow" name="animalrecode"/><br>
 	
 	
+	
 	<%
 	KarteBean Karte = (KarteBean)session.getAttribute("KarteInfo");
 	String idhead = (String) session.getAttribute("postID");
 	if (idhead.equals("20")) {
 	%>
+	<div class="btn">
 	<form action="goUpdateAnimal" method="post">
-		<input type="submit" value="動物情報編集・削除">
+		<input type="submit" value="動物情報編集・削除" >
 	</form>
+	</div>
 	<%
 	}
 	%>
@@ -56,7 +59,7 @@
 	<div class="weight">
 	<% if (Karte.getWeightLog()!=null){%>
 		<table>
-		<tr class=”pin”><th>日付</th><th>体重</th></tr>
+		<tr><th>日付</th><th>体重</th></tr>
 		<%for (Weight weight:Karte.getWeightLog()){%>
                  <tr><td><%=weight.getInputTime() %></td>
                      <td><%=weight.getWeight()%><%=weight.getWeightUnit() %></td></tr>
@@ -118,14 +121,17 @@
 	
 	
 	
-	<%-- この辺は縦向きのスクロールテーブル(普通の)がいいです --%>
 	
+	
+	
+	
+	<%-- この辺は縦向きのスクロールテーブル(普通の)がいいです --%>
 	
 	<div class="comment_h1">●所見●</div>
 	<div class="comment">
 	<% if (!Karte.getCommentLog().isEmpty()){%>
 	<table>
-	<tr class="pin"><th>日付</th><th>記録者</th><th>内容</th></tr>
+	<tr><th>日付</th><th>記録者</th><th>内容</th></tr>
 	<% for (AnimalComment comment : Karte.getCommentLog()) {%>
 	<tr><td><%= comment.getCommentTime() %></td>
 		<td><%=comment.getEmpID() %></td>
