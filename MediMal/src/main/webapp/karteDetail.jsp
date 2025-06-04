@@ -18,10 +18,24 @@
 
 	<%@include file="headerLink.jsp" %>
 	<h1>カルテ詳細画面</h1>
-	基本情報
+	<div class="animal_info">
+	
+	<div class="kihonnjouhou">　　  ●基本情報●</div>
+
+	
+	<jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
+	　　動物ID　:　<jsp:getProperty property="animalID" name="animalrecode"/><br>
+	　　　名前　:　<jsp:getProperty property="name" name="animalrecode"/><br>
+	
+	　　　写真　:　<img src="/MediMal/image/<jsp:getProperty property="photo" name="animalrecode"/>" width="100" height="100"><br>
+	　生年月日　:　<jsp:getProperty property="birthDay" name="animalrecode"/><br>
+	　　　性別　:　<jsp:getProperty property="sex" name="animalrecode"/><br>
+	　　　種族　:　<jsp:getProperty property="animalType" name="animalrecode"/><br>
+	動物エリア　:　<jsp:getProperty property="area" name="animalrecode"/><br>
+	　在籍情報　:　<jsp:getProperty property="livingNow" name="animalrecode"/><br>
+	
 	
 	<%
-	
 	KarteBean Karte = (KarteBean)session.getAttribute("KarteInfo");
 	String idhead = (String) session.getAttribute("postID");
 	if (idhead.equals("20")) {
@@ -32,73 +46,101 @@
 	<%
 	}
 	%>
-	<jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
-	動物ID :<jsp:getProperty property="animalID" name="animalrecode"/><br>
-	名前 :<jsp:getProperty property="name" name="animalrecode"/><br>
 	
-	写真:<img src="/MediMal/image/<jsp:getProperty property="photo" name="animalrecode"/>" width="100" height="100">
-	生年月日 :<jsp:getProperty property="birthDay" name="animalrecode"/><br>
-	性別 :<jsp:getProperty property="sex" name="animalrecode"/><br>
-	種族 :<jsp:getProperty property="animalType" name="animalrecode"/><br>
-	動物エリア :<jsp:getProperty property="area" name="animalrecode"/><br>
-	在籍情報 :<jsp:getProperty property="livingNow" name="animalrecode"/><br>
+	</div>
 	
+                 
+                 
+    <%--縦向きのスクロールテーブル --%>
+	<div class= "weight_h1">●体重記録●</div>
+	<div class="weight">
+	<% if (Karte.getWeightLog()!=null){%>
+		<table>
+		<tr class=”pin”><th>日付</th><th>体重</th></tr>
+		<%for (Weight weight:Karte.getWeightLog()){%>
+                 <tr><td><%=weight.getInputTime() %></td>
+                     <td><%=weight.getWeight()%><%=weight.getWeightUnit() %></td></tr>
+         </table>
+        <%} }else{%>
+		記録が存在していません。<br>
+		<%} %>
+          </div>
+         <form action="goInputWeight" method="post">
+		<input type="submit" value="体重記録ボタン" class="weight_btn">
+		</form>
+    
+
 	
 	<%-- この辺は横向きのスクロールテーブルがいいです --%>
-	体重記録<br>
-	<% if (Karte.getWeightLog()!=null){
-		for (Weight weight:Karte.getWeightLog()){%>
-		<%=weight.getInputTime() %>:<%=weight.getWeight()%><%=weight.getWeightUnit() %><br>
+	
+	<div class="feed_h1">●食事記録●</div>
+	<div class="feed">
+	<% if (!Karte.getFeedLog().isEmpty()){%>
+	<table>
+	<tr class=”pin”><th>日付</th><th>食事内容</th><th>量</th></tr>
+		<%for (Feed feed : Karte.getFeedLog()){%>
+			<tr><td><%= feed.getFeedTime() %> </td>
+				<td><%=feed.getFeedContent()%></td>
+				<td><%=feed.getFeedAmount() %><%=feed.getFeedUnit() %></td></tr>
+	</table>
 	<%} }else{%>
 		記録が存在していません。<br>
 	<%} %>
+	</div>
+		<form action="goInputFeed" method="post">
+		<input type="submit" value="食事記録ボタン" class="feed_btn">
+		</form>
 	
-	<%-- この辺は横向きのスクロールテーブルがいいです --%>
-	食事記録<br>
-	<% if (!Karte.getFeedLog().isEmpty()){
-		for (Feed feed : Karte.getFeedLog()){%>
-		日時:<%= feed.getFeedTime() %>  食事内容:<%=feed.getFeedContent()%><%=feed.getFeedAmount() %><%=feed.getFeedUnit() %><br>
-	<%} }else{%>
-		記録が存在していません。<br>
-	<%} %>
 	
+	
+	
+
 	<%-- この辺は横向きのスクロールテーブルがいいです --%>
-	投薬履歴<br>
-	<% if (Karte.getDrugLog().size()!=0){
-		for (Drug drug : Karte.getDrugLog()) {%>
-		日時:<%= drug.getDate() %>薬名:<%=drug.getMedicineName() %> 投薬量:<%= drug.getMedicineAmount() %>g<br>
+	
+	<div class="drug_h1">●投薬履歴●</div>
+	<div class="drug">
+	<% if (Karte.getDrugLog().size()!=0){%>
+	<table>
+	<tr class="pin"><th>日付</th><th>薬名</th><th>投薬量</th></tr>
+	<% 	for (Drug drug : Karte.getDrugLog()) {%>
+		<tr><td><%= drug.getDate() %></td>
+			<td><%=drug.getMedicineName() %></td>
+			<td><%= drug.getMedicineAmount() %> g</td></tr>
+	</table>
 	<% }}else{ %>
 		記録が存在していません。<br>
 	<%} %>
+	</div>
+		<form action="goInputKarte" method="post">
+		<input type="submit" value="投薬・出産記録ボタン" class="drug_btn">
+		</form>
 	
 	
 	
 	
 	<%-- この辺は縦向きのスクロールテーブル(普通の)がいいです --%>
-	所見<br>
 	
 	
-	<% if (!Karte.getCommentLog().isEmpty()){
-		for (AnimalComment comment : Karte.getCommentLog()) {%>
-		日時:<%= comment.getCommentTime() %>記録者:<%=comment.getEmpID() %> 内容:<%= comment.getContent() %><br>
+	<div class="comment_h1">●所見●</div>
+	<div class="comment">
+	<% if (!Karte.getCommentLog().isEmpty()){%>
+	<table>
+	<tr class="pin"><th>日付</th><th>記録者</th><th>内容</th></tr>
+	<% for (AnimalComment comment : Karte.getCommentLog()) {%>
+	<tr><td><%= comment.getCommentTime() %></td>
+		<td><%=comment.getEmpID() %></td>
+		<td><%= comment.getContent() %></td><tr>
+	</table>
 	<% }}else{ %>
 		記録が存在していません。<br>
 	<%} %>
-	
-	<form action="goInputWeight" method="post">
-	<input type="submit" value="体重記録ボタン">
-	</form>
-	
-	<form action="goInputFeed" method="post">
-	<input type="submit" value="食事記録ボタン">
-	</form>
-	
+	</div>
 	<form action="goInputComment" method="post">
-	<input type="submit" value="コメント記入ボタン">
+	<input type="submit" value="コメント記入ボタン" class="comment_btn">
 	</form>
+	
+	
 
-	<form action="goInputKarte" method="post">
-	<input type="submit" value="投薬・出産記録ボタン">
-	</form>
+	
 </body>
 </html>
