@@ -52,13 +52,13 @@ public class GoUpdateKeeperServlet extends HttpServlet {
 			url ="login.jsp";
 		}
 
-		
+		List<EmployeeBean> allEmp = (List<EmployeeBean>) session.getAttribute("employeeList");
 
 		String 	empID 		= request.getParameter("empID");
 		System.out.println(empID);
 		
 
-		for(EmployeeBean TmpEmployee : (List<EmployeeBean>) session.getAttribute("employeeList")){
+		for(EmployeeBean TmpEmployee : allEmp){
 			if(TmpEmployee.getEmpID().equals(empID)) {
 
 				
