@@ -16,9 +16,9 @@
 	
 <div class="A">
 	<form action = "updateKeeper" method="post" enctype="multipart/form-data" >
-		<div class="b">飼育員在籍情報 : <input type = "radio" name="workingNow" value=1 style="transform:scale(2.0);" <%if(updateEmp.getWorkingNow() ==1){ %> checked=checked <%} %>>在籍
+		<div class="b">飼育員在籍情報 : <input type = "radio" name="workingNow" value=1 style="transform:scale(2.0);" checked=checked >在籍
 		
-		<input type = "radio" name="workingNow" value=0 style="transform:scale(2.0);" <%if(updateEmp.getWorkingNow() ==0){ %> checked=checked <%} %>>退籍<br></div>
+		<input type = "radio" name="workingNow" value=0 style="transform:scale(2.0);">退籍<br></div>
 	
 		<div class="b">　　　飼育員ID : <input type="text" name="empID" class="text" pattern="[0-9]{6}" required
 				   value=<%=updateEmp.getEmpID() %> placeholder="6桁の数字で入力してください"><br></div>
