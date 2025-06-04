@@ -65,20 +65,24 @@
     <%--縦向きのスクロールテーブル --%>
 	<div class= "weight_h1">●体重記録●</div>
 	<div class="weight">
-	<% if (Karte.getWeightLog()!=null){%>
-		<table>
+	<table>
 		<tr><th>日付</th><th>体重</th></tr>
+	<% if (Karte.getWeightLog()!=null){%>
 		<%for (Weight weight:Karte.getWeightLog()){%>
                  <tr><td><%=weight.getInputTime() %></td>
                      <td><%=weight.getWeight()%><%=weight.getWeightUnit() %></td></tr>
-         </table>
         <%} }else{%>
-		記録が存在していません。<br>
+        <tr><td>記録が存在していません。</td><td></td></tr>
 		<%} %>
+		</table>
           </div>
-         <form action="goInputWeight" method="post">
+          
+          <% if(idhead.equals("20")||idhead.equals("30")){ %>
+		<form action="goInputWeight" method="post">
 		<input type="submit" value="体重記録ボタン" class="weight_btn">
 		</form>
+	<%} %>
+        
     
 
 	
@@ -86,21 +90,28 @@
 	
 	<div class="feed_h1">●食事記録●</div>
 	<div class="feed">
-	<% if (!Karte.getFeedLog().isEmpty()){%>
+	
 	<table>
 	<tr class=”pin”><th>日付</th><th>食事内容</th><th>量</th></tr>
+	<% if (Karte.getFeedLog().size()!=0){%>
 		<%for (Feed feed : Karte.getFeedLog()){%>
 			<tr><td><%= feed.getFeedTime() %> </td>
 				<td><%=feed.getFeedContent()%></td>
 				<td><%=feed.getFeedAmount() %><%=feed.getFeedUnit() %></td></tr>
-	</table>
+	
 	<%} }else{%>
-		記録が存在していません。<br>
+	<tr><td>記録が存在していません。</td><td></td><td></td>
+				</tr>
 	<%} %>
+	</table>
 	</div>
+	
+	<% if(idhead.equals("20")||idhead.equals("30")){ %>
 		<form action="goInputFeed" method="post">
 		<input type="submit" value="食事記録ボタン" class="feed_btn">
 		</form>
+	<%} %>
+		
 	
 	
 	
@@ -110,22 +121,29 @@
 	
 	<div class="drug_h1">●投薬履歴●</div>
 	<div class="drug">
-	<% if (Karte.getDrugLog().size()!=0){%>
+	
 	<table>
 	<tr class="pin"><th>日付</th><th>薬名</th><th>投薬量</th></tr>
+	<% if (Karte.getDrugLog().size()!=0){%>
+	
 	<% 	for (Drug drug : Karte.getDrugLog()) {%>
 		<tr><td><%= drug.getDate() %></td>
 			<td><%=drug.getMedicineName() %></td>
 			<td><%= drug.getMedicineAmount() %> g</td></tr>
-	</table>
+	
 	<% }}else{ %>
-		記録が存在していません。<br>
+	<tr><td>記録が存在していません。</td>
+			<td></td>
+			<td></td></tr>
+		
 	<%} %>
+	</table>
 	</div>
+	<% if(idhead.equals("30")){ %>
 		<form action="goInputKarte" method="post">
 		<input type="submit" value="投薬・出産記録ボタン" class="drug_btn">
 		</form>
-	
+	<%} %>
 	
 	
 	
@@ -137,21 +155,32 @@
 	
 	<div class="comment_h1">●所見●</div>
 	<div class="comment">
-	<% if (!Karte.getCommentLog().isEmpty()){%>
+	
 	<table>
 	<tr><th>日付</th><th>記録者</th><th>内容</th></tr>
+	<% if (Karte.getCommentLog().size()!=0){%>
+	
 	<% for (AnimalComment comment : Karte.getCommentLog()) {%>
 	<tr><td><%= comment.getCommentTime() %></td>
 		<td><%=comment.getEmpID() %></td>
 		<td><%= comment.getContent() %></td><tr>
-	</table>
+		
 	<% }}else{ %>
-		記録が存在していません。<br>
+	<tr><td>記録が存在していません</td>
+		<td></td>
+		<td></td><tr>
+	
 	<%} %>
+	</table>
+
+	
 	</div>
-	<form action="goInputComment" method="post">
+	<% if(idhead.equals("20")||idhead.equals("30")){ %>
+		<form action="goInputComment" method="post">
 	<input type="submit" value="コメント記入ボタン" class="comment_btn">
 	</form>
+	<%} %>
+	
 	
 	
 

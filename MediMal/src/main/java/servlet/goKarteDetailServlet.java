@@ -78,6 +78,8 @@ public class goKarteDetailServlet extends HttpServlet {
 		try {
 			
 			
+			
+			
 			Karte.setWeightLog(dao.selectAllWeight(animalID));
 			Karte.setCommentLog(dao.selectAllComment(animalID));
 			Karte.setBirthLog(dao.selectAllBirth(animalID));

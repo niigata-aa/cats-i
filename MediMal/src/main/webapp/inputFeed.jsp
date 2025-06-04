@@ -26,7 +26,7 @@
 	食事内容　:　
 	<input type="text" name="feedContent"  class="textbox" required><br>
 	食事量　　:　
-	<input type="number" name="feedAmount" min="0"  class="textbox" 
+	<input type="number" name="feedAmount" min="0"　max = "99"  class="textbox" 
 	pattern="[0-9]+" required placeholder="数字で入力してください">
 	
 	
