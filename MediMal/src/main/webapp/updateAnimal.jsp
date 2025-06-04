@@ -41,7 +41,7 @@
 				   
      <div class="b"> 　 担当飼育員 :<br></div>
 		
-	<div class="b">　　　　写真 : <input type="file" name="photo"  class="text" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br></div>
+	<div class="b">　　　　写真 : <input type="file" name="inputPhoto"  class="text" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br></div>
  	
 		<br>
 	</div>
