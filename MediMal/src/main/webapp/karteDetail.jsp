@@ -24,7 +24,7 @@
 	
 	<div class="kihonnjouhou">　　  ●基本情報●</div>
 
-	
+	a
 	<jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
 	　　動物ID　:　<jsp:getProperty property="animalID" name="animalrecode"/><br>
 	　　　名前　:　<jsp:getProperty property="name" name="animalrecode"/><br>
