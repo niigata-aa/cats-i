@@ -48,9 +48,9 @@ body{overflow: hidden;
 
 
 .result{
-   
+   overflow: auto;
     width: 950px;
-    height: 150px;
+    height: 550px;
 	
 
 	margin-top:0px;
