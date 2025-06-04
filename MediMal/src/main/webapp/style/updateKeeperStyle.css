@@ -12,10 +12,10 @@ body{
 						font-size: 30px;
 				
 			margin-top: 100px;
-			margin-left: 500px;
+			margin-left: 400px;
 		
 	}
-	
+	.b{margin: 10px 0px;}
 	
 	.text {
 			width: 180x;
@@ -44,8 +44,8 @@ body{
 		  	  transition    : .3s;         /* なめらか変化 */
 		  	  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
 		  	  position: relative;
-			  left:550px;
-				bottom: 200px;
+			  left:1100px;
+				bottom: 100px;
 			  margin: 20px 0px;
 		  	  	
 		  	}
