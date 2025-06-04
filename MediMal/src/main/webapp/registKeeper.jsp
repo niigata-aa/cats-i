@@ -17,23 +17,16 @@
 	<table style="margin-left :auto; margin-right: auto;">
 	<tr align="right"><td>従業員ID:</td>
 	<td><input type = "text" name = "inputEmpID" class="rk" pattern="[0-9]{6}" required placeholder="6桁の数字で入力してください"></td>
-	<td>性別:</td>
-	<td align="left"><input type = text name = "inputGender" class="rk"></td></tr>
+	<td>業務開始日:</td>
+	<td align="left"><input type = "date" name = "inputStartWork" class="rk"></td></tr>
 	<tr align="right"><td>パスワード:</td>
 	<td><input type = "password" name = "inputEmpPass" class="rk" pattern="[a-zA-Z]{8,20}" required placeholder="アルファベット8文字以上で入力してください"></td>
-	
-	
-	<td align="right">業務種別:</td>	
-	<td align="left">
-	<select name = "inputPostID" class="rk">
-		<option value = 1> 人事		</option>
-		<option value = 2> 飼育員 	</option>
-		<option value = 3> 獣医		</option>
-	
-	</select></td></tr>
-	
-	
-	
+	<td align="right">業務種別:</td>
+	<td align="left"><select name = "inputPostID" class="rk">
+			<option value=1 > 人事		</option>
+			<option value=2 > 飼育員		</option>
+			<option value=3 > 獣医		</option>
+	</select> </td></tr>
 	<tr align="right"><td>名字:</td>
 	<td><input type = "text" name = "inputLastName" class="rk" required></td><td>担当エリア :</td>
 		<td align="left"><select name="inputAreaID" class="rk">
@@ -43,8 +36,9 @@
 		</select></td></tr>
 	<tr align="right"><td>名前:</td>
 	<td><input type = "text" name = "inputFirstName" class="rk" required></td>
-	<td>業務開始日:</td>
-	<td align="left"><input type = "date" name = "inputStartWork" class="rk"></td></tr>
+	<td>写真:</td>
+	<td><input type = "file" name = "inputPhoto" class="rk" required ></td>
+	</tr>
 	<tr align="right"><td>性別:</td>
 	<td><select name = "inputGender" class="rk">
 		
@@ -53,8 +47,8 @@
 		<option value = "その他">その他</option>
 		</select>
 	</td>
-	<td>写真:</td>
-	<td><input type = "file" name = "inputPhoto" class="rk"></td></tr>
+	
+	</tr>
 	
 	</table>
 	<input type = "submit" value = "登録" class="rs">

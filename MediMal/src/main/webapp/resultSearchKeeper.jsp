@@ -53,11 +53,8 @@
 	%>
 	
 	<form action="goUpdateKeeper" method="post">
-		<input type ="hidden" name="empID" 		value=<%= employee.getEmpID() %>>
-		<input type ="hidden" name="lastName" 	value=<%= employee.getLastName() %>>
-		<input type ="hidden" name="firstName" 	value=<%= employee.getFirstName() %>>
-		<input type ="hidden" name="area" 		value=<%= employee.getAreaName() %>>
-		<input type	="hidden" name="workingNow" value=<%= employee.getWorkingNow() %>>
+		<input type ="hidden" name="empID" value=<%=employee.getEmpID() %>>
+		
 		<input type="submit" value="編集・削除">
 	</form>
 	

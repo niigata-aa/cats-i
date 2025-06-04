@@ -30,6 +30,7 @@
 		<td><input type="text" name="keeperFirstName" placeholder="キーワードを入力"class="Keeper" ></td></tr>
 		<tr align="right"><td>担当エリア :</td>
 		<td align="left"><select name="areaName" class="Keeper">
+			<option value ="">選択してください
 			<% for (String area:allArea){ %>
 			<option value = <%= area %>> <%=area %> </option> 
 			<%} %></td>
