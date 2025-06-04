@@ -52,9 +52,10 @@ public class GoUpdateKeeperServlet extends HttpServlet {
 			url ="login.jsp";
 		}
 
-		EmployeeBean updateEmp = new EmployeeBean();
+		
 
 		String 	empID 		= request.getParameter("empID");
+		System.out.println(empID);
 		//		String 	lastName 	= request.getParameter("lastName");
 		//		String 	firstName 	= request.getParameter("firstName");
 		//		String 	getArea 	= request.getParameter("area");
@@ -97,6 +98,7 @@ public class GoUpdateKeeperServlet extends HttpServlet {
 //
 //				session.setAttribute("workingNow", workingNow);
 
+				
 				session.setAttribute("updateEmployee", TmpEmployee);
 				
 			}

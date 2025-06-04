@@ -53,14 +53,9 @@ public class UpdateKeeperServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		Part part = request.getPart("photo");
-		String logo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
-		String logo_name = logo.isEmpty() ? "" : logo;
-
-		// 画像アップロード
-		String path = getServletContext().getRealPath("/image");
-		part.write(path + File.separator + logo_name);
-
+		
+		
+		
 		
 		EmployeeBean updateEmp = new EmployeeBean();
 		
@@ -75,7 +70,19 @@ public class UpdateKeeperServlet extends HttpServlet {
 		
 		updateEmp.setAreaID(Integer.parseInt(request.getParameter("area")));
 		
+		System.out.println(request.getPart("photo"));
+		
+		if(request.getPart("photo")!=null) {
+		Part part = request.getPart("photo");
+		String logo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+		String logo_name = logo.isEmpty() ? "" : logo;
+
+		// 画像アップロード
+		String path = getServletContext().getRealPath("/image");
+		part.write(path + File.separator + logo_name);
+		
 		updateEmp.setPhotoURL(logo_name);
+		}
 		
 		updateEmp.setWorkingNow(Integer.parseInt(request.getParameter("workingNow")));
 		

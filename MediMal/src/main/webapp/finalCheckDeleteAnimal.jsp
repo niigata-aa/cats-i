@@ -13,6 +13,7 @@
 	<form action="finalDeleteAnimalCheck" method="post">
 		<input type="submit" value="はい" class="btn_right">
 	</form>
+
 	<form action="updateKeeper.jsp" method="post">
 		<input type="submit" value="いいえ" class="btn_left">
 	</form>

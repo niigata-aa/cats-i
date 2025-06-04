@@ -20,6 +20,9 @@
 	<h1>カルテ詳細画面</h1>
 	<div class="animal_info">
 	
+	<% AnimalBean Animal = (AnimalBean) session.getAttribute("animalrecode");
+		int living = Animal.getLivingNow(); %>
+	
 	<div class="kihonnjouhou">　　  ●基本情報●</div>
 
 	
@@ -32,7 +35,12 @@
 	　　　性別　:　<jsp:getProperty property="sex" name="animalrecode"/><br>
 	　　　種族　:　<jsp:getProperty property="animalType" name="animalrecode"/><br>
 	動物エリア　:　<jsp:getProperty property="area" name="animalrecode"/><br>
-	　在籍情報　:　<jsp:getProperty property="livingNow" name="animalrecode"/><br>
+	　在籍情報　:　<%if(living==1){ %>
+		<jsp:getProperty property="area" name="animalrecode"/>で元気にしています。
+	<%}else{ %>
+		現在、園内にいません。
+		<%} %>
+	<br>
 	
 	
 	
