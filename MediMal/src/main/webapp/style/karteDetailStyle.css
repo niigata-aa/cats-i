@@ -38,11 +38,15 @@ h1{
 /*体重*/
 
 
+
+
+
+
 .weight_h1 {
 	position: relative;
 	font-size: 23px;
 	left: 480px;
-	bottom: 500px;
+	bottom: 260px;
 }
 
 .weight {
@@ -54,7 +58,7 @@ h1{
 	
 
 	left: 480px;
-	bottom: 500px;
+	bottom: 260px;
 	
 }
 
@@ -63,7 +67,7 @@ h1{
 	position: relative;
 	font-size: 18px;
 	left: 480px;	
-	bottom: 480px;
+	bottom: 240px;
 }
 
 .weight table{
@@ -114,19 +118,19 @@ h1{
 	position: relative;
 	font-size: 23px;
 	left: 480px;
-	bottom: 430px;
+	bottom: 680px;
 }
 
 .feed {
 	position: relative;
 	overflow: auto;
-	width: 380px;
+	width: 390px;
 	height: 100px;
 	font-size: 20px;
 	
 
 	left: 480px;
-	bottom: 400px;
+	bottom: 680px;
 	
 }
 
@@ -135,7 +139,7 @@ h1{
 	position: relative;
 	font-size: 18px;
 	left: 480px;	
-	bottom: 380px;
+	bottom: 660px;
 }
 
 .feed table{
@@ -182,20 +186,20 @@ h1{
 .drug_h1 {
 	position: relative;
 	font-size: 23px;
-	left: 860px;
-	bottom: 850px;
+	left: 940px;
+	bottom: 845px;
 }
 
 .drug {
 	position: relative;
 	overflow: auto;
-	width: 380px;
+	width:440px;
 	height: 100px;
 	font-size: 20px;
 	
 
-	left: 860px;
-	bottom: 850px;
+	left: 940px;
+	bottom: 845px;
 	
 }
 
@@ -203,8 +207,8 @@ h1{
 	position: relative;
 	position: relative;
 	font-size: 18px;
-	left: 860px;
-	bottom: 830px;
+	left: 940px;
+	bottom: 820px;
 }
 
 .drug table{
@@ -250,7 +254,7 @@ h1{
 	position: relative;
 	font-size: 23px;
 	left: 860px;
-	bottom: 785px;
+	bottom: 754px;
 }
 
 .comment {
@@ -261,8 +265,8 @@ h1{
 	font-size: 20px;
 	
 
-	left: 860px;
-	bottom: 785px;
+	left: 840px;
+	bottom: 754px;
 	
 }
 
@@ -271,7 +275,7 @@ h1{
 	position: relative;
 	font-size: 18px;
 	left: 860px;
-	bottom: 765px;
+	bottom: 734px;
 }
 
 .comment table{
