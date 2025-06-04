@@ -34,7 +34,7 @@
 	</form>
 	
 	<form action="checkUpdateKeeper.jsp" method="post">
-		<input type="submit" value="いいえ" class="btn_left">
+		<input type="submit" value="いいえ" class="btn_right">
 	</form>
 </body>
 
