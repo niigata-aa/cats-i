@@ -7,6 +7,7 @@
 <title>飼育員情報編集確認画面2</title>
 </head>
 <body>
+<%@ include file="headerLink.jsp"%>
 <p>※【最終確認】以下の内容で従業員情報を編集しますか？</p>
 	
 	<%request.setCharacterEncoding("utf-8"); %>

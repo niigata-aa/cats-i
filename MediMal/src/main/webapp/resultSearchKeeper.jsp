@@ -11,8 +11,8 @@
 
 	<%@ include file="headerLink.jsp"%>
 
-	<form action="goSearchKeeper" method="post" class="btn">
-		<input type="submit" value="再検索">
+	<form action="goSearchKeeper" method="post" >
+		<input type="submit" value="再検索" class="btn">
 	</form>
 	
 	
