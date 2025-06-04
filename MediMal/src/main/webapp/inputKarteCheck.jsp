@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>健康情報追加画面(確認画面)</title>
-<link rel ="stylesheet" href="style/insertStyle.css">
+<link rel ="stylesheet" href="style/checkInsertWDStyle.css">
 </head>
 <body>
 <%@include file="headerLink.jsp" %>
@@ -23,21 +23,21 @@
 	<%request.setCharacterEncoding("utf-8"); %>
 	
 	
-	【投薬内容】<br>
+	<div class="drug">【投薬内容】<br>
 	投薬時間　:　<jsp:getProperty name = "inputDrug" property = "date"/><br>
 	
 	
 	薬の種類　:　<jsp:getProperty name = "inputDrug" property = "medicineName"/><br>
 	
-	　投薬量　:　<jsp:getProperty name = "inputDrug" property = "medicineAmount"/><br>
+	　投薬量　:　<jsp:getProperty name = "inputDrug" property = "medicineAmount"/><br></div>
 	
 	
 	
 
-	【出産】<br>
+	<div class="birth">【出産】<br>
 	　出産日　:　<jsp:getProperty name = "inputBirth" property = "date"/><br>
 	
-	　投薬量　:　<jsp:getProperty name = "inputBirth" property = "amount"/><br>
+	　投薬量　:　<jsp:getProperty name = "inputBirth" property = "amount"/><br></div>
 	
 	</div>
 	

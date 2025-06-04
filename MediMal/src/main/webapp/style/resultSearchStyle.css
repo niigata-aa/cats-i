@@ -6,10 +6,11 @@
 
 
 
-body{
+body{overflow-y: hidden;
 		background-image: url(../image/Catback.png);
 		background-position: center;
 		background-size:2500px;
+		
 }
 
 
@@ -45,6 +46,10 @@ body{
 	
 /*以下　テーブル内スクロールのCSS*/
 
+.yo{
+	position: relative;
+	bottom:100px;
+}
 
 .result{
     overflow: auto;
@@ -81,9 +86,9 @@ result table{
     border-right: 1px solid #999;
     border-bottom: 1px solid #999;
     background: #f2f2f2;
-    position: sticky;
-    top: 0;
-    left: 0;
+	position: sticky;
+	    top: 0;
+	    left: 0;
 }
 .result tr:first-child th{
     border-top: 1px solid #999;
