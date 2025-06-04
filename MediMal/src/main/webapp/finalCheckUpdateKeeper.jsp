@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>飼育員情報編集確認画面2</title>
+<link rel ="stylesheet" href="style/insertStyle.css">
 </head>
 <body>
 <%@ include file="headerLink.jsp"%>
@@ -28,12 +29,12 @@
 	
 	写真　:　<img src="/MediMal/image/<jsp:getProperty name = "updateEmployee" property = "photoURL"/>" width="100" height="100"><br>
 	
-	<form action="FinalUpdateKeeperCheck" method="post">
-		<input type="submit" value="はい">
+	<form action="FinalUpdateKeeperCheck" method="post" >
+		<input type="submit" value="はい" class="btn_left">
 	</form>
 	
 	<form action="checkUpdateKeeper.jsp" method="post">
-		<input type="submit" value="いいえ">
+		<input type="submit" value="いいえ" class="btn_left">
 	</form>
 </body>
 
