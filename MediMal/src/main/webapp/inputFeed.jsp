@@ -15,6 +15,8 @@
 	<div class="A">
 	<h3>＜食事記録＞</h3>
 	
+	<%System.out.println("食事履歴を記録します。") ;%>
+	
 	　動物ID　:　
 	<%= session.getAttribute("animalID") %><br> 
 	食事時間　:　

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.entity.AnimalBean;
 
 /**
  * Servlet implementation class GoUpdateAnimalServlet
@@ -42,6 +45,16 @@ public class GoUpdateAnimalServlet extends HttpServlet {
 		
 		//ログインしてるか
 		String url;
+		
+		List<AnimalBean> animalList = (List<AnimalBean>) session.getAttribute("animalList");
+		
+		String animalID = (String) request.getAttribute("AnimalID");
+		
+		for(AnimalBean animal : animalList) {
+			if (animal.getAnimalID().equals(animalID)) {
+				session.setAttribute("animalrecode", animal);
+			}
+		}
 
 		if (session.getAttribute("LoginID")!=null) {
 			url = "updateAnimal.jsp";

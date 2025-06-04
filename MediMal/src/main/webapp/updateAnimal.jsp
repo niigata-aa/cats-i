@@ -13,7 +13,7 @@
 <jsp:useBean id="animalrecode" class="model.entity.AnimalBean" scope="session"/>
 
 <div class="A">
-<form action = "updateAnimal" method="post">
+<form action = "updateAnimal" method="post" enctype="multipart/form-data">
 
 
 		<div class="b">動物在籍情報 : <input type = "radio" name="livingNow" value=1  style="transform:scale(2.0);">  在籍
@@ -41,7 +41,7 @@
 				   
      <div class="b"> 　 担当飼育員 :<br></div>
 		
-	<div class="b">　　　　写真 : <input type = "text" name = "photo" class="text" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br></div>
+	<div class="b">　　　　写真 : <input type="file" name="photo"  class="text" value = <jsp:getProperty property="photo" name="animalrecode"/> ><br></div>
  	
 		<br>
 	</div>

@@ -16,6 +16,7 @@
 	<%
 	request.setCharacterEncoding("UTF-8");
 	List<AnimalBean> animalList = (List<AnimalBean>) session.getAttribute("animalList");
+	System.out.println("すべての動物数は"+animalList.size()+"件です");
 	%>
 	<% if(animalList.size()!=0){ %>
 	<div class="result">
@@ -46,11 +47,7 @@
  				<%if (idhead.equals("20")) {%>
  				
  				
-				<form action="goUpdateAnimal" method="post">
-					<input type="hidden" name="animalID" value=<%=animal.getAnimalID()%>> 
-					
-					<input type="submit" value="編集・削除">
-				</form>
+				
 				 <%}%>
 				 
 				 </td>

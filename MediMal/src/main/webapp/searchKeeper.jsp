@@ -23,8 +23,7 @@
 	<div class="test-cont">
 	<table style="margin-left :auto; margin-right: auto;">
 	
-		<tr align="right"><td>飼育員ID :</td>
-		<td><input type="text" name="empID" placeholder="キーワードを入力" class="Keeper" ></td></tr>
+		
 		<tr align="right"><td>性 :</td>
 		<td><input type="text" name="keeperLastName" placeholder="キーワードを入力" class="Keeper"></td></tr>
 		<tr align="right"><td>名 :</td>

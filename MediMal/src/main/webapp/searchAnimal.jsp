@@ -22,8 +22,6 @@
 	<div class="test-con">
 	<table style="margin-left :auto; margin-right: auto;">
 	
-		<tr align="right"><td>動物ID :</td>
-		<td><input type="text" name="animalID"placeholder="キーワードを入力" class="Animal"></td></tr>
 		<tr align="right"><td>名前 :</td>
 		<td><input type="text" name="animalName"placeholder="キーワードを入力" class="Animal"></td></tr>
 		<tr align="right"><td>種族 :</td>

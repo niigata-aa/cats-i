@@ -141,14 +141,8 @@ public class AnimalDAO {
 			for (AnimalBean animal:allanimal) {
 				int checkBorder = 0;
 				int checkScore 	= 0; 
-				if(!searchanimal.getAnimalID().isEmpty()) {
-					checkBorder +=1;
-					System.out.println("検索対象:"+searchanimal.getAnimalID());
-					System.out.println("データベース側:"+animal.getAnimalID());
-					if (animal.getAnimalID().contains(searchanimal.getAnimalID())) {
-						checkScore+=1;
-					}
-				}
+				
+				
 				if(!searchanimal.getName().isEmpty()) {
 					checkBorder +=1;
 					System.out.println("検索対象:"+searchanimal.getName());

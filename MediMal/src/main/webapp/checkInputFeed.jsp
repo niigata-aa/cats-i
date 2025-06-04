@@ -35,7 +35,7 @@
 	<form action="inputFeedCheck" method="post">
 	<input type="submit" value="はい" class="btn_left">
 	</form>
-	<form action="inputFeed" method="post">
+	<form action="goInputFeed" method="post">
 	<input type="submit" value="いいえ" class="btn_right">
 	</form>
 

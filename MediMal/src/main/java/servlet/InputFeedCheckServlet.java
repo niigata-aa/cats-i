@@ -44,18 +44,22 @@ public class InputFeedCheckServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		
+		String IDhead = (String)session.getAttribute("LoginID");
+		
+		
+		
 		Feed inputFeed = (Feed) session.getAttribute("inputFeed");
 		
-		String postID = (String) session.getAttribute("postID");
+		String postID = IDhead.substring(0, 2);
 		
 		System.out.println(postID);
 		//DAOの生成
-		KarteDAO karteDao = new KarteDAO("postID");
+		KarteDAO karteDao = new KarteDAO(postID);
 		
 
 		try {
 			//DAOの利用
-			karteDao.insertFeed(inputFeed);
+			System.out.println("件数:"+karteDao.insertFeed(inputFeed));
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

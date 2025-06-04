@@ -280,7 +280,7 @@ public class KarteDAO {
 	 */
 	public int insertFeed (Feed inputFeed) throws ClassNotFoundException,SQLException {
 		int count;
-		String sql = "insert into t-feeding values (?,?,?,?,?,?)";
+		String sql = "insert into t_feeding values (?,?,?,?,?,?)";
 		try (Connection con = ConnectionManager.getConnection(postID);
 				PreparedStatement pstmt = con.prepareStatement(sql)){
 
